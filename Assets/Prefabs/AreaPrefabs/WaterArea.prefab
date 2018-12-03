@@ -62,7 +62,8 @@ MonoBehaviour:
   GroundTile: {fileID: 11400000, guid: 59530d2ad5bc770478f5da3825205eab, type: 2}
   ObjectPrefabs:
   - {fileID: 1288077385008856, guid: 1af642536ebd2b74dacd69cb9057aa2a, type: 2}
-  ObjectsGenerateRatio: 0.1
+  - {fileID: 1015859919777768, guid: db01e0ef17a0cb243b9a94143e7e382e, type: 2}
+  ObjectsGenerateRatio: 0.3
 --- !u!483693784 &3664157343451306972
 TilemapRenderer:
   m_ObjectHideFlags: 1
