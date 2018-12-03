@@ -1,0 +1,101 @@
+﻿using System;
+using System.Collections.Generic;
+using UnityEngine;
+using UtilScripts;
+
+namespace ObjectScripts.SpriteController
+{
+	public class DynamicSpriteController : MonoBehaviour, ISpriteController
+	{
+
+		public Sprite[] Sprites;
+
+		public float Speed = 3;
+
+		public Direction TargetDirection = Direction.Down;
+
+		private Direction _movingDirection;
+
+		public bool NextMoving = false;
+		public bool CurrentMoving = false;
+
+		private SpriteRenderer _spriteRenderer;
+		
+		private static readonly Dictionary<Direction, int[]> AnimationsSequences = 
+			new Dictionary<Direction, int[]>
+			{
+				{Direction.Down, new []{1, 0, 1, 2}},
+				{Direction.Left, new []{4, 3, 4, 5}},
+				{Direction.Right, new []{7, 6, 7, 8}}, 
+				{Direction.Up, new []{10, 9, 10, 11}},
+			};
+	
+		// Use this for initialization
+		private void Start()
+		{
+			_spriteRenderer = GetComponent<SpriteRenderer>();
+			_spriteRenderer.sprite = Sprites[0];
+			_movingDirection = TargetDirection;
+		}
+	
+		// Update is called once per frame
+		void Update ()
+		{
+			if (TargetDirection != _movingDirection)
+			{
+				switch (_movingDirection)
+				{
+						case Direction.Down:
+							_movingDirection = TargetDirection == Direction.Right ? 
+								Direction.Right : Direction.Left;
+							break;
+						case Direction.Left:
+							_movingDirection = TargetDirection == Direction.Down ? 
+								Direction.Down : Direction.Up;
+							break;
+						case Direction.Up:
+							_movingDirection = TargetDirection == Direction.Left ? 
+								Direction.Left : Direction.Right;
+							break;
+						case Direction.Right:
+							_movingDirection = TargetDirection == Direction.Up ? 
+								Direction.Up : Direction.Down;
+							break;
+					default:
+						throw new ArgumentOutOfRangeException();
+				}
+			}
+			var timeIndex = (int) (Time.time * Speed);
+			var index = timeIndex % 4;
+			if (Sprites[AnimationsSequences[_movingDirection][index]] ==
+			    Sprites[AnimationsSequences[_movingDirection][0]])
+			{
+				CurrentMoving = NextMoving;
+			}
+			
+			_spriteRenderer.sprite = CurrentMoving ? Sprites[AnimationsSequences[_movingDirection][index]] : Sprites[AnimationsSequences[_movingDirection][0]];
+		}
+
+		public void StartMoving()
+		{
+			NextMoving = true;
+			CurrentMoving = true;
+		}
+
+		public void StopMoving()
+		{
+			NextMoving = false;
+		}
+
+
+		public void SetDirection(Direction direction)
+		{
+			TargetDirection = direction;
+		}
+
+		public bool IsMoving()
+		{
+			return NextMoving;
+		}
+	}
+}
