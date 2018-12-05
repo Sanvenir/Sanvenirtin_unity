@@ -60,6 +60,7 @@
     <Compile Include="Assets\Scripts\AreaScripts\LocalArea.cs" />
     <Compile Include="Assets\Scripts\AreaScripts\RandomLocalArea.cs" />
     <Compile Include="Assets\Scripts\ExceptionScripts\AreaNotFoundCondition.cs" />
+    <Compile Include="Assets\Scripts\ExceptionScripts\CoordOccupiedException.cs" />
     <Compile Include="Assets\Scripts\ExceptionScripts\CoordOutOfWorldException.cs" />
     <Compile Include="Assets\Scripts\ExceptionScripts\GameCondition.cs" />
     <Compile Include="Assets\Scripts\ExceptionScripts\GameException.cs" />

@@ -179,7 +179,9 @@ namespace ObjectScripts.CharacterController
             }
 
             if ((dx & dy) == 0)
-                return new Vector2Int(dx, dy);
+                return Character.GetColliderAtGlobalCoord(new Vector2Int(dx, dy) + Character.GlobalCoord) == null
+                    ? new Vector2Int(dx, dy)
+                    : Vector2Int.zero;
             var delta = new Vector2Int();
             var altDelta = new Vector2Int();
             if (Utils.ProcessRandom.Next(2) == 0)

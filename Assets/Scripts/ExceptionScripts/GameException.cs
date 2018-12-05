@@ -8,5 +8,10 @@ namespace ExceptionScripts
         {
             
         }
+
+        public GameException()
+        {
+            
+        }
     }
 }

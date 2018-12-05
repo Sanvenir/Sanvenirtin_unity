@@ -18,21 +18,21 @@ namespace ObjectScripts
         public virtual void Initialize(Vector2Int globalCoord, int areaIdentity)
         {
             base.Initialize();
-            MoveTo(globalCoord);
             AreaIdentity = areaIdentity;
+            MoveTo(globalCoord);
         }
 
         public void MoveTo(Vector2Int globalCoord)
         {
             GlobalCoord = globalCoord;
             GlobalPos = SceneManager.Instance.GlobalCoordToPos(globalCoord);
-            if (Physics2D.OverlapPoint(GlobalPos, BlockLayer))
-            {
-                throw new GameException("Moving Substance to an occupied position");
-            }
-
-            transform.position = GlobalPos;
+            var hit = Physics2D.OverlapPoint(GlobalPos, BlockLayer);
             SpriteRenderer.sortingOrder = -globalCoord.y;
+            transform.position = GlobalPos;
+            if (hit != null)
+            {
+                throw new CoordOccupiedException(hit);
+            }
         }
 
         private void LateUpdate()
@@ -53,6 +53,7 @@ namespace ObjectScripts
             {
                 // Object out of the activated areas
                 Destroy(gameObject);
+                // Debug.Log("Destroying " + gameObject.name);
             }
         }
 

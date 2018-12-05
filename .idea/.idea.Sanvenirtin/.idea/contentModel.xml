@@ -15,6 +15,7 @@
           </e>
           <e p="ExceptionScripts" t="Include">
             <e p="AreaNotFoundCondition.cs" t="Include" />
+            <e p="CoordOccupiedException.cs" t="Include" />
             <e p="CoordOutOfWorldException.cs" t="Include" />
             <e p="GameCondition.cs" t="Include" />
             <e p="GameException.cs" t="Include" />

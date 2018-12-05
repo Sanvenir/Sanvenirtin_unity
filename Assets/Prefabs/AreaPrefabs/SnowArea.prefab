@@ -60,7 +60,7 @@ MonoBehaviour:
   LocalHeight: 0
   Tilemap: {fileID: 0}
   GroundTile: {fileID: 11400000, guid: 04ada0683170ea343908fdac9bc97f1d, type: 2}
-  ObjectPrefabs:
+  SubstancePrefabs:
   - {fileID: 1288077385008856, guid: 1af642536ebd2b74dacd69cb9057aa2a, type: 2}
   - {fileID: 1015859919777768, guid: db01e0ef17a0cb243b9a94143e7e382e, type: 2}
   ObjectsGenerateRatio: 0.2

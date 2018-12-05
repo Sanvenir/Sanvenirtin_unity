@@ -11,7 +11,7 @@ namespace AreaScripts
     {
 
         public TileBase GroundTile;
-        public GameObject[] ObjectPrefabs;
+        public GameObject[] SubstancePrefabs;
         public float ObjectsGenerateRatio = 0.1f;
 
         public override void Initialize(int identity, Vector2Int startCoord)
@@ -26,8 +26,8 @@ namespace AreaScripts
             {
                 
                 if (!(Utils.ProcessRandom.NextDouble() < ObjectsGenerateRatio)) continue;
-                var index = Utils.ProcessRandom.Next(ObjectPrefabs.Length);
-                var instance = GenerateSubstance(ObjectPrefabs[index], coord);
+                var index = Utils.ProcessRandom.Next(SubstancePrefabs.Length);
+                var instance = GenerateSubstance(SubstancePrefabs[index], coord);
             }
         }
     }

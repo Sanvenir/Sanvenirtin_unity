@@ -123,7 +123,7 @@ public class SceneManager : MonoBehaviour
 				{
 					continue;
 				}
-				GenerateArea(
+				var area = GenerateArea(
 					identity,
 					CenterArea.GlobalStartCoord + 
 					new Vector2Int(
@@ -163,10 +163,18 @@ public class SceneManager : MonoBehaviour
 	void Start ()
 	{
 		CurrentTime = 0;
-		Player.SetActive(true);
-		Player.GetComponent<Character>().Initialize(Vector2Int.zero, CenterArea.Identity);
+		
 		_playerController = Player.GetComponent<PlayerController>();
 		_playerObject = Player.GetComponent<Character>();
+		try
+		{
+			_playerObject.Initialize(Vector2Int.zero, CenterArea.Identity);
+		}
+		catch (CoordOccupiedException e)
+		{
+			Destroy(e.Collider.gameObject);
+		}
+		Player.SetActive(true);
 	}
 	
 	// Update is called once per frame

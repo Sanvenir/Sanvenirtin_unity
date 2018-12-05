@@ -58,13 +58,17 @@ namespace AreaScripts
             }
         }
 
-        public GameObject GenerateSubstance(GameObject substance, Vector2Int globalCoord)
+        public GameObject GenerateSubstance(GameObject substancePrefab, Vector2Int globalCoord)
         {
             var pos = SceneManager.Instance.GlobalCoordToPos(globalCoord);
-            if (Physics2D.OverlapPoint(pos, substance.layer) != null)
+            var instance = Instantiate(substancePrefab);
+            var substance = instance.GetComponent<Substance>();
+            if (Physics2D.OverlapPoint(pos, substance.BlockLayer) != null)
+            {
+                Destroy(instance);
                 return null;
-            var instance = SceneManager.Instantiate(substance);
-            instance.GetComponent<Substance>().Initialize(globalCoord, Identity);
+            }
+            substance.Initialize(globalCoord, Identity);
             return instance;
         }
     }
