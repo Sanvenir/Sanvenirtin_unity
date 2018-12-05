@@ -72,6 +72,8 @@
     <Compile Include="Assets\Scripts\ObjectScripts\CharacterController\CharacterController.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\CharacterController\PlayerController.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\CharacterProperties.cs" />
+    <Compile Include="Assets\Scripts\ObjectScripts\Component.cs" />
+    <Compile Include="Assets\Scripts\ObjectScripts\Human.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\SpriteController\DynamicSpriteController.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\SpriteController\ISpriteController.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\SpriteController\StaticSpriteController.cs" />
@@ -79,6 +81,7 @@
     <Compile Include="Assets\Scripts\ObjectScripts\SubstanceProperties.cs" />
     <Compile Include="Assets\Scripts\SceneManager.cs" />
     <Compile Include="Assets\Scripts\UtilScripts\Direction.cs" />
+    <Compile Include="Assets\Scripts\UtilScripts\LimitValue.cs" />
     <Compile Include="Assets\Scripts\UtilScripts\Utils.cs" />
     <Compile Include="Assets\Scripts\UtilScripts\WorldCoord.cs" />
     <Compile Include="Assets\Scripts\WorldScripts\MainLand.cs" />
