@@ -22,6 +22,9 @@ public class SceneManager : MonoBehaviour
 	
 	public int InitWorldX, InitWorldY;
 
+	[Range(1, 100)]
+	public int ReactFrames = 1;
+
 	public int CurrentTime;
 
 	[HideInInspector]
@@ -176,12 +179,17 @@ public class SceneManager : MonoBehaviour
 		}
 		Player.SetActive(true);
 	}
+
+	public int GetUpdateTime()
+	{
+		return Math.Max(1, _playerObject.GetReactTime() / ReactFrames);
+	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
 		if (_playerController.IsTurn()) return;
-		CurrentTime += 1;
+		CurrentTime += GetUpdateTime();
 	}
 
 	private void LateUpdate()

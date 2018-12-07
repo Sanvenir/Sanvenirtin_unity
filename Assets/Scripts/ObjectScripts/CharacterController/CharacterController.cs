@@ -8,7 +8,6 @@ namespace ObjectScripts.CharacterController
 {
     public class CharacterController: MonoBehaviour
     {
-
         public int ActivateTime;
         
         protected Character Character;
@@ -30,18 +29,17 @@ namespace ObjectScripts.CharacterController
 
         protected void Wait()
         {
-            ActivateTime += 10;
+            ActivateTime += Character.GetReactTime();
         }
 
         protected bool Walk(Direction direction)
         {
-            var costTime = 2 * 10;
+            var costTime = 2 * Character.GetMoveTime() * Character.GetReactTime();
             if (Character.Move(Utils.DirectionToVector(direction), costTime))
             {
                 ActivateTime += costTime;
                 return true;
             }
-
             Wait();
             return false;
         }

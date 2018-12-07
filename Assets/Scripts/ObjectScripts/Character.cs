@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using AreaScripts;
 using UnityEngine;
@@ -5,7 +6,7 @@ using UtilScripts;
 
 namespace ObjectScripts
 {
-    public class Character: Substance
+    public abstract class Character: Substance
     {
         public CharacterProperties CharacterProperties;
 
@@ -34,7 +35,7 @@ namespace ObjectScripts
         protected IEnumerator SmoothMovement(Vector3 end, int moveTime)
         {
             var sqrRemainingDistance = (transform.position - end).sqrMagnitude;
-            var moveSteps = (int) (moveTime);
+            var moveSteps = (int) (moveTime / SceneManager.Instance.GetUpdateTime());
             var moveLength = sqrRemainingDistance / moveSteps;
             SpriteController.StartMoving();
             for (; moveSteps != 0; moveSteps--)
@@ -46,6 +47,25 @@ namespace ObjectScripts
                 yield return null;
             }
             SpriteController.StopMoving();
+        }
+
+        private int _reactTime;
+        public int GetReactTime()
+        {
+            return _reactTime;
+        }
+
+        public virtual void RefreshProperties()
+        {
+            _reactTime = 1 + (int) (100.0f / Math.Log(1f + CharacterProperties.ReactionSpeed));
+        }
+        
+        public abstract int GetAttackTime();
+        public abstract int GetMoveTime();
+
+        private void Start()
+        {
+            RefreshProperties();
         }
     }
 }
