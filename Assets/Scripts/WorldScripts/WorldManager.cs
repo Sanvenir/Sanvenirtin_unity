@@ -8,7 +8,7 @@ namespace DefaultNamespace
     public class WorldManager: MonoBehaviour
     {
         public static int WorldWidth = 200, WorldHeight = 100;
-        public static int LocalWidth = 10, LocalHeight = 10;
+        public static int LocalWidth = 20, LocalHeight = 20;
         
         // Percent of land init ratio
         public int LandPercent = 50;

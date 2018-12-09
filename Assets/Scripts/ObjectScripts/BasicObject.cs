@@ -5,6 +5,8 @@ namespace ObjectScripts
 {
     public class BasicObject: MonoBehaviour
     {
+        public string Name;
+        
         [HideInInspector]
         public ISubstanceSpriteController SubstanceSpriteController;
         protected SpriteRenderer SpriteRenderer;

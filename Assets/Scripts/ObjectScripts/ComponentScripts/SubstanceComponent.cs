@@ -4,9 +4,9 @@ using UtilScripts;
 
 namespace ObjectScripts.ComponentScripts
 {
-    [Serializable]
     public class SubstanceComponent
     {
+        public string Name;
         public LimitValue Durability = new LimitValue(100);
         public int Size = 10;
         public int Defence = 10;

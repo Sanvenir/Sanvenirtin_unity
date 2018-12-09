@@ -14,8 +14,8 @@ TagManager:
   - 
   - 
   - BlockLayer
-  - 
-  - 
+  - EffectLayer
+  - GroundLayer
   - 
   - 
   - 
@@ -52,4 +52,13 @@ TagManager:
     locked: 0
   - name: Flying
     uniqueID: 3501082939
+    locked: 0
+  - name: Effect
+    uniqueID: 810904605
+    locked: 0
+  - name: Control
+    uniqueID: 3289737729
+    locked: 0
+  - name: Menu
+    uniqueID: 1111068927
     locked: 0

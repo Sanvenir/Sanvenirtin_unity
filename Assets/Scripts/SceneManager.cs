@@ -15,29 +15,37 @@ using UtilScripts;
 public class SceneManager : MonoBehaviour
 {
 
-	public WorldManager WorldManager;
-	public string RandomSeed = "Random";
-	public Grid Grid;
-	public Text GameLogger;
-	
-	public int InitWorldX, InitWorldY;
-
+	// Settings
 	[Range(1, 100)]
 	public int ReactFrames = 1;
-
 	public int CurrentTime;
+	public string RandomSeed = "Random";
+	public int InitWorldX, InitWorldY;
 
+	// Game Objects
+	public WorldManager WorldManager;
+	public GameObject Player;
+	public Grid Grid;
+	
 	[HideInInspector]
-	public static SceneManager Instance = null;
-
 	public Dictionary<int, LocalArea> ActivateAreas;
+	[HideInInspector]
 	public HashSet<int> EdgeIdentities;
+	[HideInInspector]
 	public LocalArea CenterArea;
-
+	
+	[HideInInspector]
+	public Character PlayerObject;
+	
+	// UI Objects
+	public Camera MainCamera;
+	public Text GameLogger;
+	public Dropdown ActionMenu;
+	
+	// Script Objects
+	public static SceneManager Instance = null;
 	[SerializeField] private StringBuilder _loggerText;
 
-	public GameObject Player;
-	private Character _playerObject;
 
 	private void Awake()
 	{
@@ -85,6 +93,13 @@ public class SceneManager : MonoBehaviour
 		}
 
 		throw new AreaNotFoundCondition();
+	}
+
+	public Vector2 NormalizeGlobalPos(Vector2 pos)
+	{
+		var coord = CenterArea.Tilemap.WorldToCell(pos)
+		            + Utils.Vector2IntTo3(CenterArea.GlobalStartCoord);
+		return CenterArea.Tilemap.CellToWorld(coord);
 	}
 
 	public void Print(string message)
@@ -165,10 +180,10 @@ public class SceneManager : MonoBehaviour
 	void Start ()
 	{
 		CurrentTime = 0;
-		_playerObject = Player.GetComponent<Character>();
+		PlayerObject = Player.GetComponent<Character>();
 		try
 		{
-			_playerObject.Initialize(Vector2Int.zero, CenterArea.Identity);
+			PlayerObject.Initialize(Vector2Int.zero, CenterArea.Identity);
 		}
 		catch (CoordOccupiedException e)
 		{
@@ -179,19 +194,19 @@ public class SceneManager : MonoBehaviour
 
 	public int GetUpdateTime()
 	{
-		return Math.Max(1, _playerObject.GetReactTime() / ReactFrames);
+		return Math.Max(1, PlayerObject.GetReactTime() / ReactFrames);
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
-		if (_playerObject.IsTurn()) return;
+		if (PlayerObject.IsTurn()) return;
 		CurrentTime += GetUpdateTime();
 	}
 
 	private void LateUpdate()
 	{
-		var centerIdentity = _playerObject.AreaIdentity;
+		var centerIdentity = PlayerObject.AreaIdentity;
 		if (!EdgeIdentities.Contains(centerIdentity)) return;
 		CenterArea = ActivateAreas[centerIdentity];
 		LoadSurroundMap();

@@ -70,6 +70,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b65287e860ad4a10b1579d129b9540e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Name: Goblin
   GlobalPos: {x: 0, y: 0}
   GlobalCoord: {x: 0, y: 0}
   BlockLayer:
@@ -78,6 +79,7 @@ MonoBehaviour:
   IsDestroy: 0
   AreaIdentity: 0
   ActivateTime: 0
+  AttackActionEffect: {fileID: 0}
   Dead: 0
   Health: 0
   Sanity: 0

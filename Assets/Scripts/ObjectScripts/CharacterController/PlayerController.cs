@@ -8,8 +8,20 @@ namespace ObjectScripts.CharacterController
     {
         public BasicAction NextAction;
 
+        public void ReadMouseInput()
+        {
+            var mousePos = SceneManager.Instance.MainCamera.ScreenToWorldPoint(Input.mousePosition);
+            SceneManager.Instance.Print(mousePos.ToString());
+            var hit = Physics2D.OverlapPoint(mousePos);
+            if (hit != null)
+            {
+                SceneManager.Instance.Print(hit.gameObject.ToString());
+            }
+        }
+
         private void LateUpdate()
         {
+            
             if (Input.GetKey(KeyCode.LeftShift))
             {
                 if (Input.GetKey(KeyCode.A))

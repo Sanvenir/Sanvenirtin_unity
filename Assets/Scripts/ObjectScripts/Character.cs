@@ -82,7 +82,7 @@ namespace ObjectScripts
             _reactTime = Mathf.Max(1, (int) (100.0f / Mathf.Log(1f + Speed)));
             _actRatio = Mathf.Max(1, (int) (10 * Mathf.Log(Speed, 10 + ActSpeed)));
             _moveRatio = Mathf.Max(1, (int) (10 * Mathf.Log(Speed, 10 + MoveSpeed)));
-            if (Dead)
+            if (Dead && IsTurn())
             {
                 foreach (var key in Components.Keys)
                 {
@@ -90,6 +90,7 @@ namespace ObjectScripts
                     Attacked(1, key, 0);
                 }
 
+                ActivateTime += 1000;
                 return;
             }
 

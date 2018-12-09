@@ -6,10 +6,13 @@ using Object = UnityEngine.Object;
 
 namespace ObjectScripts.ActionScripts
 {
-    [Serializable]
     public class AttackAction: DirectionAction
     {
         public Character Target;
+        public string[] AttackComponentList = new []
+        {
+            "Top", "TopLow", "Center"
+        };
         
         public AttackAction(Character self) : base(self)
         {
@@ -28,8 +31,11 @@ namespace ObjectScripts.ActionScripts
                     return;
                 }
             }
-            Target.Attacked(Self.GetBaseAttack(), "Chest");
-            SceneManager.Instance.Print(Self.name + " attacked " + Target.name);
+
+            var component = AttackComponentList[Utils.ProcessRandom.Next(AttackComponentList.Length)];
+            SceneManager.Instance.Print(
+                Self.Name + " attacked " + Target.Name + " on " + Self.Components[component].Name);
+            Target.Attacked(Self.GetBaseAttack(), component);
             if (Self.AttackActionEffect == null) return;
             var instance = Object.Instantiate(
                 Self.AttackActionEffect, 

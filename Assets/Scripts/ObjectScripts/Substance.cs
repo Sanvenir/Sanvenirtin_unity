@@ -19,6 +19,7 @@ namespace ObjectScripts
 
         public bool IsDestroy = false;
 
+        // Component Key represent the place of this component
         public virtual void Attacked(int damage, string componentKey, float defenceRatio=1f)
         {
             if (!Components.ContainsKey(componentKey))
@@ -73,7 +74,7 @@ namespace ObjectScripts
             {
                 // Object out of the activated areas
                 Destroy(gameObject);
-                // Debug.Log("Destroying " + gameObject.name);
+                // Debug.Log("Destroying " + gameObject.Name);
             }
         }
 
