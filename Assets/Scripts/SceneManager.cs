@@ -37,7 +37,6 @@ public class SceneManager : MonoBehaviour
 	[SerializeField] private StringBuilder _loggerText;
 
 	public GameObject Player;
-	private PlayerController _playerController;
 	private Character _playerObject;
 
 	private void Awake()
@@ -166,8 +165,6 @@ public class SceneManager : MonoBehaviour
 	void Start ()
 	{
 		CurrentTime = 0;
-		
-		_playerController = Player.GetComponent<PlayerController>();
 		_playerObject = Player.GetComponent<Character>();
 		try
 		{
@@ -188,7 +185,7 @@ public class SceneManager : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		if (_playerController.IsTurn()) return;
+		if (_playerObject.IsTurn()) return;
 		CurrentTime += GetUpdateTime();
 	}
 

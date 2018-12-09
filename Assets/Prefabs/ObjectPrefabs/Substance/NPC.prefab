@@ -20,10 +20,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4173333950228652}
   - component: {fileID: 212511887713930612}
-  - component: {fileID: 114681175029899386}
   - component: {fileID: 114691038259227666}
   - component: {fileID: 114766293798039720}
   - component: {fileID: 58525314844996492}
+  - component: {fileID: 114328214378237824}
   m_Layer: 8
   m_Name: NPC
   m_TagString: Untagged
@@ -59,7 +59,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &114681175029899386
+--- !u!114 &114328214378237824
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -67,7 +67,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1015859919777768}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77955413e06d4483944aaf4d9d1ffa93, type: 3}
+  m_Script: {fileID: 11500000, guid: b65287e860ad4a10b1579d129b9540e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   GlobalPos: {x: 0, y: 0}
@@ -75,7 +75,25 @@ MonoBehaviour:
   BlockLayer:
     serializedVersion: 2
     m_Bits: 256
+  IsDestroy: 0
   AreaIdentity: 0
+  ActivateTime: 0
+  Dead: 0
+  Health: 0
+  Sanity: 0
+  Endure: 0
+  Hunger: 0
+  Marady: 0
+  Speed: 10
+  MoveSpeed: 10
+  ActSpeed: 10
+  Strength: 10
+  Dexterity: 20
+  Constitution: 20
+  Metabolism: 20
+  WillPower: 20
+  Intelligence: 20
+  Perception: 20
 --- !u!114 &114691038259227666
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -100,10 +118,12 @@ MonoBehaviour:
   - {fileID: 21300018, guid: 8056e32521a187d4a8ad9eb956e16c0c, type: 3}
   - {fileID: 21300020, guid: 8056e32521a187d4a8ad9eb956e16c0c, type: 3}
   - {fileID: 21300022, guid: 8056e32521a187d4a8ad9eb956e16c0c, type: 3}
-  Speed: 3
+  DisabledSprite: {fileID: 21300020, guid: 16a0c3dd0028dbc48a2e3066feb20e54, type: 3}
+  Speed: 10
   TargetDirection: 0
   NextMoving: 0
   CurrentMoving: 0
+  isDisabled: 0
 --- !u!114 &114766293798039720
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -115,7 +135,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7571883ca9748e2b2517ba0558af47b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ActivateTime: 0
 --- !u!212 &212511887713930612
 SpriteRenderer:
   m_ObjectHideFlags: 1

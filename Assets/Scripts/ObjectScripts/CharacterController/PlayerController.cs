@@ -1,3 +1,4 @@
+using ObjectScripts.ActionScripts;
 using UnityEngine;
 using UtilScripts;
 
@@ -5,46 +6,75 @@ namespace ObjectScripts.CharacterController
 {
     public class PlayerController: CharacterController
     {
-        private void Update()
+        public BasicAction NextAction;
+
+        private void LateUpdate()
         {
-            if (!IsTurn()) return;
-            if (Character.SpriteController.IsMoving()) return;
-            
-            
-            if (Input.GetKey(KeyCode.A))
+            if (Input.GetKey(KeyCode.LeftShift))
             {
-                Walk(Direction.Left);
-            }
-            else if (Input.GetKey(KeyCode.D))
-            {
-                Walk(Direction.Right);
-            }
-            else if (Input.GetKey(KeyCode.S))
-            {
-                Walk(Direction.Down);
-            }
-            else if (Input.GetKey(KeyCode.W))
-            {
-                Walk(Direction.Up);
-            }
-            else if (Input.GetKey(KeyCode.Space))
-            {
-                Wait();   
-            }
-            else
-            {
-                var direction = AStarFinder(Character.GlobalCoord + new Vector2Int(10, 0));
-                if (direction == Vector2Int.zero)
+                if (Input.GetKey(KeyCode.A))
                 {
-                    Walk((Direction) Utils.ProcessRandom.Next(4));
+                    Character.AttackAction.TargetDirection = Direction.Left;
+                    NextAction = Character.AttackAction;
+                }
+                else if (Input.GetKey(KeyCode.D))
+                {
+                    Character.AttackAction.TargetDirection = Direction.Right;
+                    NextAction = Character.AttackAction;
+                }
+                else if (Input.GetKey(KeyCode.S))
+                {
+                    Character.AttackAction.TargetDirection = Direction.Down;
+                    NextAction = Character.AttackAction;
+                }
+                else if (Input.GetKey(KeyCode.W))
+                {
+                    Character.AttackAction.TargetDirection = Direction.Up;
+                    NextAction = Character.AttackAction;
                 }
                 else
                 {
-                    Walk(Utils.VectorToDirection(direction));
-                
+                    NextAction = null;
                 }
-                
             }
+            else
+            {
+                if (Input.GetKey(KeyCode.A))
+                {
+                    Character.WalkAction.TargetDirection = Direction.Left;
+                    NextAction = Character.WalkAction;
+                }
+                else if (Input.GetKey(KeyCode.D))
+                {
+                    Character.WalkAction.TargetDirection = Direction.Right;
+                    NextAction = Character.WalkAction;
+                }
+                else if (Input.GetKey(KeyCode.S))
+                {
+                    Character.WalkAction.TargetDirection = Direction.Down;
+                    NextAction = Character.WalkAction;
+                }
+                else if (Input.GetKey(KeyCode.W))
+                {
+                    Character.WalkAction.TargetDirection = Direction.Up;
+                    NextAction = Character.WalkAction;
+                }
+                else if (Input.GetKey(KeyCode.Space))
+                {
+                    NextAction = Character.WaitAction;
+                }
+                else
+                {
+                    NextAction = null;
+                }
+            }
+        }
+
+        public override void UpdateFunction()
+        {
+            if (NextAction == null) return;
+            NextAction.DoAction();
+            NextAction = null;
         }
     }
 }

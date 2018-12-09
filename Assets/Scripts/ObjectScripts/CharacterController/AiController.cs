@@ -1,3 +1,4 @@
+using ObjectScripts.CharacterController.CtrlConditions;
 using UnityEngine;
 using UtilScripts;
 
@@ -5,19 +6,24 @@ namespace ObjectScripts.CharacterController
 {
     public class AiController: CharacterController
     {
-        private void Update()
+
+        public override void UpdateFunction()
         {
-            if (!IsTurn()) return;
-            var direction = AStarFinder(Character.GlobalCoord + new Vector2Int(10, 0));
-            if (direction == Vector2Int.zero)
+            if (Utils.ProcessRandom.Next(5) == 0)
             {
-                Walk((Direction) Utils.ProcessRandom.Next(4));
+                Character.WaitAction.DoAction();
+                return;
             }
-            else
+
+            Character.WalkAction.TargetDirection = (Direction) Utils.ProcessRandom.Next(4);
+            if (Character.WalkAction.CheckAction())
             {
-                Walk(Utils.VectorToDirection(direction));
-                
+                Character.WalkAction.DoAction();
+                return;
             }
+
+            Character.WaitAction.DoAction();
+
         }
     }
 }

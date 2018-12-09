@@ -1,7 +1,11 @@
+using System.Collections.Generic;
 using System.Linq;
 using AreaScripts;
+using Boo.Lang;
 using ExceptionScripts;
+using ObjectScripts.ComponentScripts;
 using UnityEngine;
+using UtilScripts;
 
 namespace ObjectScripts
 {
@@ -9,8 +13,24 @@ namespace ObjectScripts
     {
         public Vector2 GlobalPos;
         public Vector2Int GlobalCoord;
-        public SubstanceProperties SubstanceProperties;
         public LayerMask BlockLayer;
+
+        public Dictionary<string, SubstanceComponent> Components = new Dictionary<string, SubstanceComponent>();
+
+        public bool IsDestroy = false;
+
+        public virtual void Attacked(int damage, string componentKey, float defenceRatio=1f)
+        {
+            if (!Components.ContainsKey(componentKey))
+            {
+                return;
+            }
+
+            if (!Components[componentKey].Damage(damage, defenceRatio))
+                return;
+            
+            IsDestroy = true;
+        }
 
         // Read Only
         public int AreaIdentity;
@@ -61,6 +81,16 @@ namespace ObjectScripts
         {
             return Physics2D.OverlapPoint(
                 SceneManager.Instance.GlobalCoordToPos(coord), BlockLayer);
+        }
+
+        private void Update()
+        {
+            if (IsDestroy)
+            {
+                Destroy(gameObject);
+                
+                //TODO: Add dropping objects here
+            }
         }
     }
 }

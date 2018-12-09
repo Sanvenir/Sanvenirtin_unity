@@ -3,7 +3,7 @@ using UtilScripts;
 
 namespace ObjectScripts.SpriteController
 {
-    public class StaticSpriteController : MonoBehaviour, ISpriteController
+    public class StaticSubstanceSpriteController : MonoBehaviour, ISubstanceSpriteController
     {
         public Sprite[] Sprites;
 
@@ -31,6 +31,10 @@ namespace ObjectScripts.SpriteController
         }
 
         public void StopMoving()
+        {
+        }
+
+        public void SetDisable(bool disabled)
         {
         }
 

@@ -6,44 +6,26 @@ using UtilScripts;
 
 namespace ObjectScripts.CharacterController
 {
-    public class CharacterController: MonoBehaviour
+    public abstract class CharacterController: MonoBehaviour
     {
-        public int ActivateTime;
-        
         protected Character Character;
-
-        public bool IsTurn()
-        {
-            return ActivateTime <= SceneManager.Instance.CurrentTime;
-        }
 
         private void Awake()
         {
-            Character = GetComponent<Character>();
+            Character = gameObject.GetComponent<Character>();
         }
 
-        private void OnEnable()
+        public abstract void UpdateFunction();
+
+        private void Update()
         {
-            ActivateTime = SceneManager.Instance.CurrentTime;
+            Character.RefreshProperties();
+            if (Character.Dead) return;
+            if (!Character.IsTurn()) return;
+            UpdateFunction();
         }
 
-        protected void Wait()
-        {
-            ActivateTime += Character.GetReactTime();
-        }
 
-        protected bool Walk(Direction direction)
-        {
-            var costTime = 2 * Character.GetMoveTime() * Character.GetReactTime();
-            if (Character.Move(Utils.DirectionToVector(direction), costTime))
-            {
-                ActivateTime += costTime;
-                return true;
-            }
-            Wait();
-            return false;
-        }
-        
         // Path Finder Algorithms
         public class AStarNode : IComparable<AStarNode>
         {
@@ -51,7 +33,7 @@ namespace ObjectScripts.CharacterController
             public readonly Vector2Int Coord;
             public int FValue;
             public int GValue;
-            public int HValue;
+            public readonly int HValue;
             public AStarNode Parent;
 
             public AStarNode(

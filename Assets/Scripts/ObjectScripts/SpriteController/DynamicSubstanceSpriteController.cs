@@ -5,12 +5,13 @@ using UtilScripts;
 
 namespace ObjectScripts.SpriteController
 {
-	public class DynamicSpriteController : MonoBehaviour, ISpriteController
+	public class DynamicSubstanceSpriteController : MonoBehaviour, ISubstanceSpriteController
 	{
 
 		public Sprite[] Sprites;
+		public Sprite DisabledSprite;
 
-		public float Speed = 3;
+		public int Speed = 10;
 
 		public Direction TargetDirection = Direction.Down;
 
@@ -18,6 +19,7 @@ namespace ObjectScripts.SpriteController
 
 		public bool NextMoving = false;
 		public bool CurrentMoving = false;
+		public bool isDisabled = false;
 
 		private SpriteRenderer _spriteRenderer;
 		
@@ -41,6 +43,11 @@ namespace ObjectScripts.SpriteController
 		// Update is called once per frame
 		void Update ()
 		{
+			if (isDisabled)
+			{
+				_spriteRenderer.sprite = DisabledSprite;
+				return;
+			}
 			if (TargetDirection != _movingDirection)
 			{
 				switch (_movingDirection)
@@ -85,6 +92,11 @@ namespace ObjectScripts.SpriteController
 		public void StopMoving()
 		{
 			NextMoving = false;
+		}
+
+		public void SetDisable(bool disabled)
+		{
+			isDisabled = disabled;
 		}
 
 

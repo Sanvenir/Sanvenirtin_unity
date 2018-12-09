@@ -2,9 +2,18 @@ namespace ObjectScripts.ActionScripts
 {
     public class WaitAction: BasicAction
     {
-        public override int DoAction()
+        public override void DoAction(bool check = true)
         {
-            return Self.GetAttackTime();
+            Self.ActivateTime += Self.GetReactTime();
+        }
+
+        public override bool CheckAction()
+        {
+            return true;
+        }
+
+        public WaitAction(Character self) : base(self)
+        {
         }
     }
 }

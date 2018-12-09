@@ -397,6 +397,7 @@ MonoBehaviour:
   GameLogger: {fileID: 1210254261}
   InitWorldX: 1
   InitWorldY: 10
+  ReactFrames: 1
   CurrentTime: 0
   CenterArea: {fileID: 0}
   Player: {fileID: 1471056960}
@@ -548,8 +549,8 @@ GameObject:
   - component: {fileID: 1471056963}
   - component: {fileID: 1471056962}
   - component: {fileID: 1471056964}
-  - component: {fileID: 1471056966}
   - component: {fileID: 1471056965}
+  - component: {fileID: 1471056961}
   - component: {fileID: 1471056967}
   m_Layer: 8
   m_Name: Player
@@ -558,6 +559,41 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!114 &1471056961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1471056960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b65287e860ad4a10b1579d129b9540e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalPos: {x: 0, y: 0}
+  GlobalCoord: {x: 0, y: 0}
+  BlockLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  IsDestroy: 0
+  AreaIdentity: 0
+  ActivateTime: 0
+  Dead: 0
+  Health: 0
+  Sanity: 0
+  Endure: 0
+  Hunger: 0
+  Marady: 0
+  Speed: 20
+  MoveSpeed: 20
+  ActSpeed: 20
+  Strength: 100
+  Dexterity: 20
+  Constitution: 20
+  Metabolism: 20
+  WillPower: 20
+  Intelligence: 20
+  Perception: 20
 --- !u!212 &1471056962
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -642,10 +678,12 @@ MonoBehaviour:
   - {fileID: 21300018, guid: 520c0a1f44f5d7241ad47ddec7d1bf15, type: 3}
   - {fileID: 21300020, guid: 520c0a1f44f5d7241ad47ddec7d1bf15, type: 3}
   - {fileID: 21300022, guid: 520c0a1f44f5d7241ad47ddec7d1bf15, type: 3}
-  Speed: 3
+  DisabledSprite: {fileID: 21300020, guid: 16a0c3dd0028dbc48a2e3066feb20e54, type: 3}
+  Speed: 10
   TargetDirection: 0
   NextMoving: 0
   CurrentMoving: 0
+  isDisabled: 0
 --- !u!114 &1471056965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -657,24 +695,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c66b6a26ecbe42f8aff4c1a6b806786c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ActivateTime: 0
---- !u!114 &1471056966
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1471056960}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77955413e06d4483944aaf4d9d1ffa93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GlobalPos: {x: 0, y: 0}
-  GlobalCoord: {x: 0, y: 0}
-  BlockLayer:
-    serializedVersion: 2
-    m_Bits: 256
-  AreaIdentity: 0
 --- !u!58 &1471056967
 CircleCollider2D:
   m_ObjectHideFlags: 0
