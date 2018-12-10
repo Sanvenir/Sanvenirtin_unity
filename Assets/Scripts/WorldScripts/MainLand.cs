@@ -9,27 +9,27 @@ namespace MapScripts
 {
     public class MainLand : IComparable<MainLand>
     {
-        public List<WorldCoord> Coords;
-        public HashSet<WorldCoord> EdgeCoords;
+        public List<EarthMapCoord> Coords;
+        public HashSet<EarthMapCoord> EdgeCoords;
         public int LandSize;
         
-        private static WorldMap _worldMap;
+        private static EarthMap _earthMap;
 
-        public static void SetMap(WorldMap map)
+        public static void SetMap(EarthMap map)
         {
-            _worldMap = map;
+            _earthMap = map;
         }
 
-        public MainLand(List<WorldCoord> coords)
+        public MainLand(List<EarthMapCoord> coords)
         {
             Coords = coords;
             LandSize = Coords.Count;
             
-            EdgeCoords = new HashSet<WorldCoord>();
+            EdgeCoords = new HashSet<EarthMapCoord>();
 
             foreach (var coord in Coords)
             {
-                if (coord.GetNeighbourCoords().Any(nextTile => _worldMap.GetMap(nextTile) == 0))
+                if (coord.GetNeighbourCoords().Any(nextTile => _earthMap.GetMap(nextTile) == 0))
                 {
                     EdgeCoords.Add(coord);
                 }

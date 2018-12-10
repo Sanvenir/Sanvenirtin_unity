@@ -5,9 +5,9 @@ using UtilScripts;
 
 namespace DefaultNamespace
 {
-    public class WorldManager: MonoBehaviour
+    public class EarthMapManager: MonoBehaviour
     {
-        public static int WorldWidth = 200, WorldHeight = 100;
+        public static int MapWidth = 200, MapHeight = 100;
         public static int LocalWidth = 20, LocalHeight = 20;
         
         // Percent of land init ratio
@@ -25,18 +25,18 @@ namespace DefaultNamespace
 
         public GameObject[] BaseAreaPrefabs;
 
-        public WorldMap WorldMap;
+        public EarthMap EarthMap;
         
         private readonly List<MainLand> _mainLands = new List<MainLand>();
 
         public void GenerateMap()
         {
-            WorldMap = new WorldMap(WorldWidth, WorldHeight);
-            MainLand.SetMap(WorldMap);
+            EarthMap = new EarthMap(MapWidth, MapHeight);
+            MainLand.SetMap(EarthMap);
 
-            foreach(var coord in WorldMap.IterateMap())
+            foreach(var coord in EarthMap.IterateMap())
             {
-                WorldMap.SetMap(coord, Utils.ProcessRandom.Next(0, 100) < LandPercent ? 1 : 0);
+                EarthMap.SetMap(coord, Utils.ProcessRandom.Next(0, 100) < LandPercent ? 1 : 0);
             }
             
             //Smooth the Map
@@ -51,10 +51,10 @@ namespace DefaultNamespace
         
         void EraseSmallSeas()
         {
-            var flagMap = new FlagMap(WorldWidth, WorldHeight);
-            foreach (var coord in WorldMap.IterateMap())
+            var flagMap = new FlagMap(MapWidth, MapHeight);
+            foreach (var coord in EarthMap.IterateMap())
             {
-                if (flagMap.GetFlag(coord) || (WorldMap.GetMap(coord) != 0)) continue;
+                if (flagMap.GetFlag(coord) || (EarthMap.GetMap(coord) != 0)) continue;
                 var newRegion = GetRegionCoords(coord);
                 foreach (var regionCoord in newRegion)
                 {
@@ -65,17 +65,17 @@ namespace DefaultNamespace
                 // Erase seas with small size.
                 foreach (var regionCoord in newRegion)
                 {
-                    WorldMap.SetMap(regionCoord, 1);
+                    EarthMap.SetMap(regionCoord, 1);
                 }
             }
         }
 
         void ProcessLands()
         {
-            var flagMap = new FlagMap(WorldWidth, WorldHeight);
-            foreach (var coord in WorldMap.IterateMap())
+            var flagMap = new FlagMap(MapWidth, MapHeight);
+            foreach (var coord in EarthMap.IterateMap())
             {
-                if (flagMap.GetFlag(coord) || (WorldMap.GetMap(coord) == 0)) continue;
+                if (flagMap.GetFlag(coord) || (EarthMap.GetMap(coord) == 0)) continue;
                 var newRegion = GetRegionCoords(coord);
                 foreach (var regionCoord in newRegion)
                 {
@@ -87,7 +87,7 @@ namespace DefaultNamespace
                     // Randomly erase lands with small size.
                     foreach (var regionCoord in newRegion)
                     {
-                        WorldMap.SetMap(regionCoord, 0);
+                        EarthMap.SetMap(regionCoord, 0);
                     }
                     continue;
                 }
@@ -99,20 +99,20 @@ namespace DefaultNamespace
             {
                 foreach (var coord in mainLand.Coords)
                 {
-                    WorldMap.SetMap(coord, Utils.ProcessRandom.Next(1, BaseAreaPrefabs.Length));
+                    EarthMap.SetMap(coord, Utils.ProcessRandom.Next(1, BaseAreaPrefabs.Length));
                 }
             }
 
         }
 
-        List<WorldCoord> GetRegionCoords(WorldCoord startCoord)
+        List<EarthMapCoord> GetRegionCoords(EarthMapCoord startCoord)
         {
             // Get the regions of the tile around the given coord with same type of tiles.
-            var tiles = new List<WorldCoord>();
-            var flagMap = new FlagMap(WorldWidth, WorldHeight);
-            var tileType = WorldMap.GetMap(startCoord);
+            var tiles = new List<EarthMapCoord>();
+            var flagMap = new FlagMap(MapWidth, MapHeight);
+            var tileType = EarthMap.GetMap(startCoord);
             
-            var queue = new Queue<WorldCoord>();
+            var queue = new Queue<EarthMapCoord>();
             queue.Enqueue(startCoord);
             flagMap.SetFlag(startCoord);
 
@@ -122,7 +122,7 @@ namespace DefaultNamespace
                 tiles.Add(coord);
                 foreach (var neighbourCoord in coord.GetNeighbourCoords())
                 {
-                    if (flagMap.GetFlag(neighbourCoord) || WorldMap.GetMap(neighbourCoord) != tileType) 
+                    if (flagMap.GetFlag(neighbourCoord) || EarthMap.GetMap(neighbourCoord) != tileType) 
                         continue;
                     flagMap.SetFlag(neighbourCoord);
                     queue.Enqueue(neighbourCoord);
@@ -133,26 +133,26 @@ namespace DefaultNamespace
 
         void SmoothMap()
         {
-            foreach(var coord in WorldMap.IterateMap())
+            foreach(var coord in EarthMap.IterateMap())
             {
                 var neighbourLandTiles = GetSurroundingLandCount(coord);
                 if (neighbourLandTiles > 0)
                 {
-                    WorldMap.SetMap(coord, 1);
+                    EarthMap.SetMap(coord, 1);
                 }
                 else if (neighbourLandTiles < 0)
                 {
-                    WorldMap.SetMap(coord, 0);
+                    EarthMap.SetMap(coord, 0);
                 }
             }
         }
 
-        int GetSurroundingLandCount(WorldCoord coord)
+        int GetSurroundingLandCount(EarthMapCoord coord)
         {
             var landCount = 0;
             foreach (var neighbourCoord in coord.GetSurroundCoords())
             {
-                if (WorldMap.GetMap(neighbourCoord) == 1)
+                if (EarthMap.GetMap(neighbourCoord) == 1)
                 {
                     landCount += 1;
                 }
@@ -178,22 +178,22 @@ namespace DefaultNamespace
                 _mapFlags = new bool[width, height];
             }
 
-            public bool GetFlag(WorldCoord coord)
+            public bool GetFlag(EarthMapCoord coord)
             {
                 return _mapFlags[coord.GetX(), coord.GetY()];
             }
 
-            public void SetFlag(WorldCoord coord)
+            public void SetFlag(EarthMapCoord coord)
             {
                 _mapFlags[coord.GetX(), coord.GetY()] = true;
             }
 
-            public void ResetFlag(WorldCoord coord)
+            public void ResetFlag(EarthMapCoord coord)
             {
                 _mapFlags[coord.GetX(), coord.GetY()] = false;
             }
 
-            public void ResetAll(WorldCoord coord)
+            public void ResetAll(EarthMapCoord coord)
             {
                 _mapFlags = new bool[_width, _height];
             }

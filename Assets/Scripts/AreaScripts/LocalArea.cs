@@ -11,8 +11,8 @@ namespace AreaScripts
     {
         public int Identity;
         public bool OnWorld = true;
-        public WorldCoord WorldCoord;
-        public Vector2Int GlobalStartCoord;
+        public EarthMapCoord EarthMapCoord;
+        public Vector2Int WorldStartCoord;
         public int LocalWidth, LocalHeight;
         
         public Tilemap Tilemap;
@@ -22,45 +22,45 @@ namespace AreaScripts
             Identity = identity;
             Tilemap = GetComponent<Tilemap>();
             if (!OnWorld) return;
-            WorldCoord = WorldCoord.CreateFromIdentity(identity);
-            LocalWidth = WorldManager.LocalWidth;
-            LocalHeight = WorldManager.LocalHeight;
-            GlobalStartCoord = startCoord;
+            EarthMapCoord = EarthMapCoord.CreateFromIdentity(identity);
+            LocalWidth = EarthMapManager.LocalWidth;
+            LocalHeight = EarthMapManager.LocalHeight;
+            WorldStartCoord = startCoord;
         }
 
-        public bool IsGlobalCoordInsideArea(Vector2Int coord)
+        public bool IsWorldCoordInsideArea(Vector2Int coord)
         {
             return Tilemap.HasTile(Utils.Vector2IntTo3(coord));
         }
 
-        public Vector2Int GlobalCoordToLocal(Vector2Int coord)
+        public Vector2Int WorldCoordToLocal(Vector2Int coord)
         {
-            return coord - GlobalStartCoord;
+            return coord - WorldStartCoord;
         }
         
-        protected IEnumerable<Vector3Int> IterateGlobalCoordV3()
+        protected IEnumerable<Vector3Int> IterateWorldCoordV3()
         {
             for (var x = 0; x != LocalWidth; x++)
             for (var y = 0; y != LocalHeight; y++)
             {
                 yield return new Vector3Int(
-                    x + GlobalStartCoord.x, 
-                    y + GlobalStartCoord.y, 0);
+                    x + WorldStartCoord.x, 
+                    y + WorldStartCoord.y, 0);
             }
         }
         
-        public IEnumerable<Vector2Int> IterateGlobalCoord()
+        public IEnumerable<Vector2Int> IterateWorldCoord()
         {
             for (var x = 0; x != LocalWidth; x++)
             for (var y = 0; y != LocalHeight; y++)
             {
-                yield return new Vector2Int(x, y) + GlobalStartCoord;
+                yield return new Vector2Int(x, y) + WorldStartCoord;
             }
         }
 
-        public GameObject GenerateSubstance(GameObject substancePrefab, Vector2Int globalCoord)
+        public GameObject GenerateSubstance(GameObject substancePrefab, Vector2Int worldCoord)
         {
-            var pos = SceneManager.Instance.GlobalCoordToPos(globalCoord);
+            var pos = SceneManager.Instance.WorldCoordToPos(worldCoord);
             var instance = Instantiate(substancePrefab);
             var substance = instance.GetComponent<Substance>();
             if (Physics2D.OverlapPoint(pos, substance.BlockLayer) != null)
@@ -68,7 +68,7 @@ namespace AreaScripts
                 Destroy(instance);
                 return null;
             }
-            substance.Initialize(globalCoord, Identity);
+            substance.Initialize(worldCoord, Identity);
             return instance;
         }
     }

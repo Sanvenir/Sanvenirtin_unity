@@ -25,14 +25,14 @@ namespace ObjectScripts
         public T MoveCheck<T>(Vector2Int delta)
             where T : Substance
         {
-            return Physics2D.OverlapPoint(GlobalPos + delta, BlockLayer) == null
+            return Physics2D.OverlapPoint(WorldPos + delta, BlockLayer) == null
                 ? null
-                : Physics2D.OverlapPoint(GlobalPos + delta, BlockLayer).GetComponent<T>();
+                : Physics2D.OverlapPoint(WorldPos + delta, BlockLayer).GetComponent<T>();
         }
         public bool Move(Vector2Int delta, int moveTime, bool check = true)
         {
             if (delta == Vector2Int.zero) return true;
-            var endPos = GlobalPos + delta;
+            var endPos = WorldPos + delta;
             SubstanceSpriteController.SetDirection(Utils.VectorToDirection(delta));
             if (check && Physics2D.OverlapPoint(endPos, BlockLayer) != null)
             {
@@ -40,8 +40,8 @@ namespace ObjectScripts
             }
 
             Collider2D.offset = delta;
-            GlobalCoord += delta;
-            GlobalPos = endPos;
+            WorldCoord += delta;
+            WorldPos = endPos;
             StartCoroutine(SmoothMovement(endPos, moveTime));
             return true;
         }
@@ -71,9 +71,9 @@ namespace ObjectScripts
         {
             var delta = (Vector2)Utils.DirectionToVector(direction) * intense;
             SubstanceSpriteController.SetDirection(direction);
-            transform.position = delta + GlobalPos;
+            transform.position = delta + WorldPos;
             Collider2D.offset = -delta;
-            StartCoroutine(SmoothMovement(GlobalPos, attTime));
+            StartCoroutine(SmoothMovement(WorldPos, attTime));
         }
 
 
@@ -101,9 +101,9 @@ namespace ObjectScripts
             }
         }
 
-        public override void Initialize(Vector2Int globalCoord, int areaIdentity)
+        public override void Initialize(Vector2Int worldCoord, int areaIdentity)
         {
-            base.Initialize(globalCoord, areaIdentity);
+            base.Initialize(worldCoord, areaIdentity);
             ActivateTime = SceneManager.Instance.CurrentTime;
             WalkAction = new WalkAction(this);
             WaitAction = new WaitAction(this);

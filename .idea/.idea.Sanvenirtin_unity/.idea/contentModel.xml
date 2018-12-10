@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ContentModelStore">
     <e p="C:\Users\sanve\.Rider2018.2\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\sanve\.Rider2018.2\system\resharper-host\Local\Transient\ReSharperHost\v182\SolutionCaches\_Sanvenirtin.1361740328.00" t="ExcludeRecursive" />
+    <e p="C:\Users\sanve\.Rider2018.2\system\resharper-host\Local\Transient\ReSharperHost\v182\SolutionCaches\_Sanvenirtin_unity.-163126050.00" t="ExcludeRecursive" />
     <e p="C:\Users\sanve\RiderProjects\Sanvenirtin_unity" t="IncludeRecursive">
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
@@ -57,14 +57,14 @@
           <e p="SceneManager.cs" t="Include" />
           <e p="UtilScripts" t="Include">
             <e p="Direction.cs" t="Include" />
+            <e p="EarthMapCoord.cs" t="Include" />
             <e p="LimitValue.cs" t="Include" />
             <e p="Utils.cs" t="Include" />
-            <e p="WorldCoord.cs" t="Include" />
           </e>
           <e p="WorldScripts" t="Include">
+            <e p="EarthMap.cs" t="Include" />
+            <e p="EarthMapManager.cs" t="Include" />
             <e p="MainLand.cs" t="Include" />
-            <e p="WorldManager.cs" t="Include" />
-            <e p="WorldMap.cs" t="Include" />
           </e>
         </e>
         <e p="Tilemap" t="Include">
@@ -178,7 +178,7 @@
       <e p="Library" t="ExcludeRecursive" />
       <e p="obj" t="ExcludeRecursive" />
       <e p="packages" t="ExcludeRecursive" />
-      <e p="Sanvenirtin.sln" t="IncludeFlat" />
+      <e p="Sanvenirtin_unity.sln" t="IncludeFlat" />
       <e p="Temp" t="ExcludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
       </e>

@@ -970,9 +970,9 @@ MonoBehaviour:
   ReactFrames: 2
   CurrentTime: 0
   RandomSeed: Random
-  InitWorldX: 1
-  InitWorldY: 10
-  WorldManager: {fileID: 1202584583}
+  InitMapX: 0
+  InitMapY: 0
+  EarthMapManager: {fileID: 1202584583}
   Player: {fileID: 1471056960}
   Grid: {fileID: 96773922}
   CenterArea: {fileID: 0}
@@ -1251,7 +1251,7 @@ GameObject:
   - component: {fileID: 1202584584}
   - component: {fileID: 1202584583}
   m_Layer: 0
-  m_Name: WorldManager
+  m_Name: EarthMapManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1323,7 +1323,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0.000013085601}
+  m_AnchoredPosition: {x: 0, y: 0.000001981495}
   m_SizeDelta: {x: 400, y: 30}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1210254261
@@ -1698,16 +1698,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Player
-  GlobalPos: {x: 0, y: 0}
-  GlobalCoord: {x: 0, y: 0}
+  WorldPos: {x: 0, y: 0}
+  WorldCoord: {x: 0, y: 0}
   BlockLayer:
     serializedVersion: 2
     m_Bits: 256
   IsDestroy: 0
   AreaIdentity: 0
   ActivateTime: 0
-  AttackActionEffect: {fileID: 114661694037867342, guid: 115b145bf054290459e4b5ddf30fcc8f,
-    type: 2}
+  AttackActionEffect: {fileID: 0}
   Dead: 0
   Health: 0
   Sanity: 0

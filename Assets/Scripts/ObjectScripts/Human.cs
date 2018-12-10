@@ -14,9 +14,9 @@ namespace ObjectScripts
             base.RefreshProperties();
         }
 
-        public override void Initialize(Vector2Int globalCoord, int areaIdentity)
+        public override void Initialize(Vector2Int worldCoord, int areaIdentity)
         {
-            base.Initialize(globalCoord, areaIdentity);
+            base.Initialize(worldCoord, areaIdentity);
 
             Components.Add("Top", HumanComponents.createHead());
             Components.Add("TopLow", HumanComponents.createNeck());

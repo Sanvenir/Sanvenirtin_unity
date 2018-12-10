@@ -11,8 +11,8 @@ namespace ObjectScripts
 {
     public class Substance: BasicObject
     {
-        public Vector2 GlobalPos;
-        public Vector2Int GlobalCoord;
+        public Vector2 WorldPos;
+        public Vector2Int WorldCoord;
         public LayerMask BlockLayer;
 
         public Dictionary<string, SubstanceComponent> Components = new Dictionary<string, SubstanceComponent>();
@@ -36,20 +36,20 @@ namespace ObjectScripts
         // Read Only
         public int AreaIdentity;
 
-        public virtual void Initialize(Vector2Int globalCoord, int areaIdentity)
+        public virtual void Initialize(Vector2Int worldCoord, int areaIdentity)
         {
             base.Initialize();
             AreaIdentity = areaIdentity;
-            MoveTo(globalCoord);
+            MoveTo(worldCoord);
         }
 
-        public void MoveTo(Vector2Int globalCoord)
+        public void MoveTo(Vector2Int worldCoord)
         {
-            GlobalCoord = globalCoord;
-            GlobalPos = SceneManager.Instance.GlobalCoordToPos(globalCoord);
-            var hit = Physics2D.OverlapPoint(GlobalPos, BlockLayer);
-            SpriteRenderer.sortingOrder = -globalCoord.y;
-            transform.position = GlobalPos;
+            WorldCoord = worldCoord;
+            WorldPos = SceneManager.Instance.WorldCoordToPos(worldCoord);
+            var hit = Physics2D.OverlapPoint(WorldPos, BlockLayer);
+            SpriteRenderer.sortingOrder = -worldCoord.y;
+            transform.position = WorldPos;
             if (hit != null)
             {
                 throw new CoordOccupiedException(hit);
@@ -65,10 +65,10 @@ namespace ObjectScripts
             }
 
             var area = SceneManager.Instance.ActivateAreas[AreaIdentity];
-            if (area.IsGlobalCoordInsideArea(GlobalCoord)) return;
+            if (area.IsWorldCoordInsideArea(WorldCoord)) return;
             try
             {
-                AreaIdentity = SceneManager.Instance.GlobalCoordToArea(GlobalCoord).Identity;
+                AreaIdentity = SceneManager.Instance.WorldCoordToArea(WorldCoord).Identity;
             }
             catch (AreaNotFoundCondition e)
             {
@@ -78,10 +78,10 @@ namespace ObjectScripts
             }
         }
 
-        public Collider2D GetColliderAtGlobalCoord(Vector2Int coord)
+        public Collider2D GetColliderAtWorldCoord(Vector2Int coord)
         {
             return Physics2D.OverlapPoint(
-                SceneManager.Instance.GlobalCoordToPos(coord), BlockLayer);
+                SceneManager.Instance.WorldCoordToPos(coord), BlockLayer);
         }
 
         private void Update()

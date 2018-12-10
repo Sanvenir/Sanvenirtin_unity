@@ -64,12 +64,12 @@ namespace ObjectScripts.CharacterController
 
         public Vector2Int AStarFinder(Vector2Int target, int memorySize = 50)
         {
-            if (target == Character.GlobalCoord)
+            if (target == Character.WorldCoord)
             {
                 return Vector2Int.zero;
             }
 
-            var hValue = (target - Character.GlobalCoord).sqrMagnitude;
+            var hValue = (target - Character.WorldCoord).sqrMagnitude;
             if (hValue > memorySize * memorySize)
             {
                 return SimpleFinder(target);
@@ -77,9 +77,9 @@ namespace ObjectScripts.CharacterController
 
             var openList = new SortedList<AStarNode, Vector2Int>();
             var closedSet = new HashSet<Vector2Int>();
-            var node = new AStarNode(0, hValue, Character.GlobalCoord);
+            var node = new AStarNode(0, hValue, Character.WorldCoord);
 
-            openList.Add(node, Character.GlobalCoord);
+            openList.Add(node, Character.WorldCoord);
 
             while (openList.Count > 0 && memorySize > 0)
             {
@@ -104,7 +104,7 @@ namespace ObjectScripts.CharacterController
 
                     // TODO: Increment of GValue need to refactor according to ground properties
                     var newGValue = node.GValue + 1;
-                    if (Character.GetColliderAtGlobalCoord(neighbour) != null ||
+                    if (Character.GetColliderAtWorldCoord(neighbour) != null ||
                         closedSet.Contains(neighbour)) continue;
 
                     if (openList.ContainsValue(neighbour))
@@ -141,13 +141,13 @@ namespace ObjectScripts.CharacterController
 
         public Vector2Int SimpleFinder(Vector2Int target)
         {
-            if (target == Character.GlobalCoord)
+            if (target == Character.WorldCoord)
             {
                 return Vector2Int.zero;
             }
 
-            var dx = target.x - Character.GlobalCoord.x;
-            var dy = target.y - Character.GlobalCoord.y;
+            var dx = target.x - Character.WorldCoord.x;
+            var dy = target.y - Character.WorldCoord.y;
             if (dx != 0)
             {
                 dx = dx.CompareTo(0);
@@ -159,7 +159,7 @@ namespace ObjectScripts.CharacterController
             }
 
             if ((dx & dy) == 0)
-                return Character.GetColliderAtGlobalCoord(new Vector2Int(dx, dy) + Character.GlobalCoord) == null
+                return Character.GetColliderAtWorldCoord(new Vector2Int(dx, dy) + Character.WorldCoord) == null
                     ? new Vector2Int(dx, dy)
                     : Vector2Int.zero;
             var delta = new Vector2Int();
@@ -175,12 +175,12 @@ namespace ObjectScripts.CharacterController
                 altDelta.x = dx;
             }
 
-            if (Character.GetColliderAtGlobalCoord(delta + Character.GlobalCoord) == null)
+            if (Character.GetColliderAtWorldCoord(delta + Character.WorldCoord) == null)
             {
                 return delta;
             }
 
-            return Character.GetColliderAtGlobalCoord(altDelta + Character.GlobalCoord) == null ? altDelta : Vector2Int.zero;
+            return Character.GetColliderAtWorldCoord(altDelta + Character.WorldCoord) == null ? altDelta : Vector2Int.zero;
         }
 
     }

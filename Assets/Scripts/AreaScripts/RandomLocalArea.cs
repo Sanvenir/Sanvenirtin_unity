@@ -17,12 +17,12 @@ namespace AreaScripts
         public override void Initialize(int identity, Vector2Int startCoord)
         {
             base.Initialize(identity, startCoord);
-            foreach (var coord in IterateGlobalCoordV3())
+            foreach (var coord in IterateWorldCoordV3())
             {
                 Tilemap.SetTile(coord, GroundTile);
             }
 
-            foreach (var coord in IterateGlobalCoord())
+            foreach (var coord in IterateWorldCoord())
             {
                 
                 if (!(Utils.ProcessRandom.NextDouble() < ObjectsGenerateRatio)) continue;

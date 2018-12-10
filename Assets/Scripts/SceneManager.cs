@@ -20,10 +20,10 @@ public class SceneManager : MonoBehaviour
 	public int ReactFrames = 1;
 	public int CurrentTime;
 	public string RandomSeed = "Random";
-	public int InitWorldX, InitWorldY;
+	public int InitMapX, InitMapY;
 
 	// Game Objects
-	public WorldManager WorldManager;
+	public EarthMapManager EarthMapManager;
 	public GameObject Player;
 	public Grid Grid;
 	
@@ -68,25 +68,25 @@ public class SceneManager : MonoBehaviour
 
 		Utils.ProcessRandom = new System.Random(RandomSeed.GetHashCode());
 		
-		WorldManager.GenerateMap();
+		EarthMapManager.GenerateMap();
 		ActivateAreas = new Dictionary<int, LocalArea>();
 
-		var initCoord = new WorldCoord(InitWorldX, InitWorldY);
+		var initCoord = new EarthMapCoord(InitMapX, InitMapY);
 		CenterArea = GenerateArea(initCoord.GetIdentity(), Vector2Int.zero);
 		
 		LoadSurroundMap();
 	}
 
-	public Vector2 GlobalCoordToPos(Vector2Int coord)
+	public Vector2 WorldCoordToPos(Vector2Int coord)
 	{
 		return Grid.GetCellCenterLocal(new Vector3Int(coord.x, coord.y, 0));
 	}
 
-	public LocalArea GlobalCoordToArea(Vector2Int coord)
+	public LocalArea WorldCoordToArea(Vector2Int coord)
 	{
 		foreach (var area in ActivateAreas.Values)
 		{
-			if (area.IsGlobalCoordInsideArea(coord))
+			if (area.IsWorldCoordInsideArea(coord))
 			{
 				return area;
 			}
@@ -95,10 +95,10 @@ public class SceneManager : MonoBehaviour
 		throw new AreaNotFoundCondition();
 	}
 
-	public Vector2 NormalizeGlobalPos(Vector2 pos)
+	public Vector2 NormalizeWorldPos(Vector2 pos)
 	{
 		var coord = CenterArea.Tilemap.WorldToCell(pos)
-		            + Utils.Vector2IntTo3(CenterArea.GlobalStartCoord);
+		            + Utils.Vector2IntTo3(CenterArea.WorldStartCoord);
 		return CenterArea.Tilemap.CellToWorld(coord);
 	}
 
@@ -123,7 +123,7 @@ public class SceneManager : MonoBehaviour
 		var activateIdentities = new HashSet<int>();
 		EdgeIdentities = new HashSet<int>();
 
-		var centerCoord = WorldCoord.CreateFromIdentity(CenterArea.Identity);
+		var centerCoord = EarthMapCoord.CreateFromIdentity(CenterArea.Identity);
 
 		for (var dx = -2; dx <= 2; dx++)
 		for (var dy = -2; dy <= 2; dy++)
@@ -142,9 +142,9 @@ public class SceneManager : MonoBehaviour
 				}
 				var area = GenerateArea(
 					identity,
-					CenterArea.GlobalStartCoord + 
+					CenterArea.WorldStartCoord + 
 					new Vector2Int(
-						dx * WorldManager.LocalWidth, dy * WorldManager.LocalHeight));
+						dx * EarthMapManager.LocalWidth, dy * EarthMapManager.LocalHeight));
 			}
 			catch (CoordOutOfWorldException)
 			{
@@ -166,13 +166,13 @@ public class SceneManager : MonoBehaviour
 		}
 	}
 
-	private LocalArea GenerateArea(int identity, Vector2Int globalCoord)
+	private LocalArea GenerateArea(int identity, Vector2Int worldCoord)
 	{
-		var mapType = WorldManager.WorldMap.GetMap(WorldCoord.CreateFromIdentity(identity));
-		var instance = Instantiate(WorldManager.BaseAreaPrefabs[mapType], Grid.transform);
+		var mapType = EarthMapManager.EarthMap.GetMap(EarthMapCoord.CreateFromIdentity(identity));
+		var instance = Instantiate(EarthMapManager.BaseAreaPrefabs[mapType], Grid.transform);
 		var area = instance.GetComponent<LocalArea>();
 		ActivateAreas.Add(identity, area);
-		area.Initialize(identity, globalCoord);
+		area.Initialize(identity, worldCoord);
 		return area;
 	}
 

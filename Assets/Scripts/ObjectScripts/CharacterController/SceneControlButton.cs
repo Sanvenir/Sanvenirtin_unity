@@ -14,7 +14,7 @@ namespace ObjectScripts.CharacterController
             var mousePos = SceneManager.Instance.MainCamera.ScreenToWorldPoint(eventData.position);
 
             SceneManager.Instance.ActionMenu.transform.position = 
-                SceneManager.Instance.NormalizeGlobalPos(mousePos);
+                SceneManager.Instance.NormalizeWorldPos(mousePos);
             SceneManager.Instance.ActionMenu.gameObject.SetActive(true);
             
             var hit = Physics2D.OverlapPoint(mousePos);
