@@ -1,6 +1,6 @@
 namespace ObjectScripts.ActionScripts
 {
-    public class WaitAction: BasicAction
+    public class WaitAction: BaseAction
     {
         public override void DoAction(bool check = true)
         {

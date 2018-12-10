@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using JetBrains.Annotations;
+using ObjectScripts.ActionScripts;
 using UnityEngine;
 using UtilScripts;
 
@@ -8,11 +9,21 @@ namespace ObjectScripts.CharacterController
 {
     public abstract class CharacterController: MonoBehaviour
     {
-        protected Character Character;
+        
 
-        private void Awake()
+        // Actions
+        public WalkAction WalkAction;
+        public WaitAction WaitAction;
+        public AttackAction AttackAction;
+        
+        public Character Character;
+
+        protected virtual void Awake()
         {
             Character = gameObject.GetComponent<Character>();
+            WalkAction = new WalkAction(Character);
+            WaitAction = new WaitAction(Character);
+            AttackAction = new AttackAction(Character);
         }
 
         public abstract void UpdateFunction();

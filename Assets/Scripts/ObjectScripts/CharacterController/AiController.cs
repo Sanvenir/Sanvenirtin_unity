@@ -11,18 +11,18 @@ namespace ObjectScripts.CharacterController
         {
             if (Utils.ProcessRandom.Next(5) == 0)
             {
-                Character.WaitAction.DoAction();
+                WaitAction.DoAction();
                 return;
             }
 
-            Character.WalkAction.TargetDirection = (Direction) Utils.ProcessRandom.Next(4);
-            if (Character.WalkAction.CheckAction())
+            WalkAction.TargetDirection = (Direction) Utils.ProcessRandom.Next(4);
+            if (WalkAction.CheckAction())
             {
-                Character.WalkAction.DoAction();
+                WalkAction.DoAction();
                 return;
             }
 
-            Character.WaitAction.DoAction();
+            WaitAction.DoAction();
 
         }
     }

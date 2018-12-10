@@ -18,19 +18,19 @@ namespace ObjectScripts
         {
             base.Initialize(worldCoord, areaIdentity);
 
-            Components.Add("Top", HumanComponents.createHead());
-            Components.Add("TopLow", HumanComponents.createNeck());
-            Components.Add("Center", HumanComponents.createChest());
-            Components.Add("CenterLow", HumanComponents.createWaist());
-            Components.Add("CenterLeft", HumanComponents.createLeftArm());
-            Components.Add("CenterLeftLow", HumanComponents.createLeftHand());
-            Components.Add("CenterRight", HumanComponents.createRightArm());
-            Components.Add("CenterRightLow", HumanComponents.createRightHand());
-            Components.Add("Low", HumanComponents.createCrotch());
-            Components.Add("LowLeft", HumanComponents.createLeftLeg());
-            Components.Add("LowLeftLow", HumanComponents.createLeftFoot());
-            Components.Add("LowRight", HumanComponents.createRightLeg());
-            Components.Add("LowRightLow", HumanComponents.createRightFoot());
+            Components.Add("Top", HumanComponents.CreateHead());
+            Components.Add("TopLow", HumanComponents.CreateNeck());
+            Components.Add("Center", HumanComponents.CreateChest());
+            Components.Add("CenterLow", HumanComponents.CreateWaist());
+            Components.Add("CenterLeft", HumanComponents.CreateLeftArm());
+            Components.Add("CenterLeftLow", HumanComponents.CreateLeftHand());
+            Components.Add("CenterRight", HumanComponents.CreateRightArm());
+            Components.Add("CenterRightLow", HumanComponents.CreateRightHand());
+            Components.Add("Low", HumanComponents.CreateCrotch());
+            Components.Add("LowLeft", HumanComponents.CreateLeftLeg());
+            Components.Add("LowLeftLow", HumanComponents.CreateLeftFoot());
+            Components.Add("LowRight", HumanComponents.CreateRightLeg());
+            Components.Add("LowRightLow", HumanComponents.CreateRightFoot());
 
             Components["CenterLeft"].AttachSubstanceComponent = Components["CenterLeftLow"];
             Components["CenterRight"].AttachSubstanceComponent = Components["CenterRightLow"];

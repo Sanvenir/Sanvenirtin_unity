@@ -2,7 +2,7 @@ using UtilScripts;
 
 namespace ObjectScripts.ActionScripts
 {
-    public class WalkAction: DirectionAction
+    public class WalkAction: BaseAction
     {
         public override void DoAction(bool check = true)
         {

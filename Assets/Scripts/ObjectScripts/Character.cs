@@ -105,18 +105,10 @@ namespace ObjectScripts
         {
             base.Initialize(worldCoord, areaIdentity);
             ActivateTime = SceneManager.Instance.CurrentTime;
-            WalkAction = new WalkAction(this);
-            WaitAction = new WaitAction(this);
-            AttackAction = new AttackAction(this);
             RefreshProperties();
         }
 
         public int ActivateTime;
-
-        // Actions
-        public WalkAction WalkAction;
-        public WaitAction WaitAction;
-        public AttackAction AttackAction;
         public EffectController AttackActionEffect;
         
         // Properties

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\sanve\.Rider2018.2\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\sanve\.Rider2018.2\system\resharper-host\Local\Transient\ReSharperHost\v182\SolutionCaches\_Sanvenirtin.1361740328.00" t="ExcludeRecursive" />
-    <e p="C:\Users\sanve\RiderProjects\Sanvenirtin_unity" t="IncludeRecursive">
+    <e p="C:\Users\Sanvenir\.Rider2018.2\config\extensions" t="IncludeRecursive" />
+    <e p="C:\Users\Sanvenir\.Rider2018.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Sanvenir\.Rider2018.2\system\resharper-host\Local\Transient\ReSharperHost\v182\SolutionCaches\_Sanvenirtin.-2092785409.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Sanvenir\Sanvenirtin" t="IncludeRecursive">
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
@@ -20,26 +21,35 @@
             <e p="GameException.cs" t="Include" />
           </e>
           <e p="GameManager.cs" t="Include" />
+          <e p="MapScripts" t="Include">
+            <e p="EarthMap.cs" t="Include" />
+            <e p="EarthMapManager.cs" t="Include" />
+            <e p="MainLand.cs" t="Include" />
+          </e>
           <e p="ObjectScripts" t="Include">
             <e p="ActionScripts" t="Include">
               <e p="AttackAction.cs" t="Include" />
-              <e p="BasicAction.cs" t="Include" />
-              <e p="CoordinateAction.cs" t="Include" />
-              <e p="DirectionAction.cs" t="Include" />
+              <e p="BaseAction.cs" t="Include" />
               <e p="WaitAction.cs" t="Include" />
               <e p="WalkAction.cs" t="Include" />
             </e>
-            <e p="BasicObject.cs" t="Include" />
+            <e p="BaseObject.cs" t="Include" />
             <e p="Character.cs" t="Include" />
             <e p="CharacterController" t="Include">
               <e p="AiController.cs" t="Include" />
               <e p="CharacterController.cs" t="Include" />
               <e p="CtrlConditions" t="Include">
-                <e p="BasicCondition.cs" t="Include" />
+                <e p="BaseCondition.cs" t="Include" />
                 <e p="WonderCondition.cs" t="Include" />
               </e>
               <e p="PlayerController.cs" t="Include" />
-              <e p="SceneControlButton.cs" t="Include" />
+              <e p="PlayerOrder" t="Include">
+                <e p="AttackCharacterOrder.cs" t="Include" />
+                <e p="AttackDirectionOrder.cs" t="Include" />
+                <e p="BaseOrder.cs" t="Include" />
+                <e p="RestOrder.cs" t="Include" />
+                <e p="WalkToOrder.cs" t="Include" />
+              </e>
             </e>
             <e p="ComponentScripts" t="Include">
               <e p="HumanComponents.cs" t="Include" />
@@ -55,16 +65,15 @@
             <e p="Substance.cs" t="Include" />
           </e>
           <e p="SceneManager.cs" t="Include" />
+          <e p="UIScripts" t="Include">
+            <e p="ActionMenu.cs" t="Include" />
+            <e p="SceneControlButton.cs" t="Include" />
+          </e>
           <e p="UtilScripts" t="Include">
             <e p="Direction.cs" t="Include" />
+            <e p="EarthMapCoord.cs" t="Include" />
             <e p="LimitValue.cs" t="Include" />
             <e p="Utils.cs" t="Include" />
-            <e p="WorldCoord.cs" t="Include" />
-          </e>
-          <e p="WorldScripts" t="Include">
-            <e p="MainLand.cs" t="Include" />
-            <e p="WorldManager.cs" t="Include" />
-            <e p="WorldMap.cs" t="Include" />
           </e>
         </e>
         <e p="Tilemap" t="Include">

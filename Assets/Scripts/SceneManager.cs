@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using AreaScripts;
 using DefaultNamespace;
@@ -21,6 +22,7 @@ public class SceneManager : MonoBehaviour
 	public int CurrentTime;
 	public string RandomSeed = "Random";
 	public int InitMapX, InitMapY;
+	public LayerMask GroundLayer;
 
 	// Game Objects
 	public EarthMapManager EarthMapManager;
@@ -40,7 +42,6 @@ public class SceneManager : MonoBehaviour
 	// UI Objects
 	public Camera MainCamera;
 	public Text GameLogger;
-	public Dropdown ActionMenu;
 	
 	// Script Objects
 	public static SceneManager Instance = null;
@@ -82,18 +83,24 @@ public class SceneManager : MonoBehaviour
 		return Grid.GetCellCenterLocal(new Vector3Int(coord.x, coord.y, 0));
 	}
 
-	public LocalArea WorldCoordToArea(Vector2Int coord)
+	public LocalArea WorldPosToArea(Vector2 pos)
 	{
-		foreach (var area in ActivateAreas.Values)
-		{
-			if (area.IsWorldCoordInsideArea(coord))
-			{
-				return area;
-			}
-		}
-
-		throw new AreaNotFoundCondition();
+		var hit = Physics2D.OverlapPoint(pos, GroundLayer);
+		return hit == null ? null : hit.GetComponent<LocalArea>();
 	}
+	
+//	public LocalArea WorldCoordToArea(Vector2Int coord)
+//	{
+//		foreach (var area in ActivateAreas.Values)
+//		{
+//			if (area.IsWorldCoordInsideArea(coord))
+//			{
+//				return area;
+//			}
+//		}
+//
+//		throw new AreaNotFoundCondition();
+//	}
 
 	public Vector2 NormalizeWorldPos(Vector2 pos)
 	{

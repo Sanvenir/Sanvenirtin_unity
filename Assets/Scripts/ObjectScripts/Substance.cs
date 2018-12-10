@@ -9,7 +9,7 @@ using UtilScripts;
 
 namespace ObjectScripts
 {
-    public class Substance: BasicObject
+    public class Substance: BaseObject
     {
         public Vector2 WorldPos;
         public Vector2Int WorldCoord;
@@ -66,16 +66,14 @@ namespace ObjectScripts
 
             var area = SceneManager.Instance.ActivateAreas[AreaIdentity];
             if (area.IsWorldCoordInsideArea(WorldCoord)) return;
-            try
+            area = SceneManager.Instance.WorldPosToArea(WorldPos);
+            if (area == null)
             {
-                AreaIdentity = SceneManager.Instance.WorldCoordToArea(WorldCoord).Identity;
-            }
-            catch (AreaNotFoundCondition e)
-            {
-                // Object out of the activated areas
                 Destroy(gameObject);
-                // Debug.Log("Destroying " + gameObject.Name);
+                return;
             }
+
+            AreaIdentity = area.Identity;
         }
 
         public Collider2D GetColliderAtWorldCoord(Vector2Int coord)

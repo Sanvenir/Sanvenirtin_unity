@@ -1,4 +1,5 @@
 using ObjectScripts.ActionScripts;
+using ObjectScripts.CharacterController.PlayerOrder;
 using UnityEngine;
 using UtilScripts;
 
@@ -6,17 +7,22 @@ namespace ObjectScripts.CharacterController
 {
     public class PlayerController: CharacterController
     {
-        public BasicAction NextAction;
+        public BaseAction NextAction;
+        public BaseOrder CurrentOrder;
+        public Vector2Int TargetCoord;
+        public Character TargetCharacter;
+        public Direction TargetDirection;
 
-        public void ReadMouseInput()
+        private Vector2Int _vecInt;
+
+        protected override void Awake()
         {
-            var mousePos = SceneManager.Instance.MainCamera.ScreenToWorldPoint(Input.mousePosition);
-            SceneManager.Instance.Print(mousePos.ToString());
-            var hit = Physics2D.OverlapPoint(mousePos);
-            if (hit != null)
-            {
-                SceneManager.Instance.Print(hit.gameObject.ToString());
-            }
+            base.Awake();
+            BaseOrder.Controller = this;
+        }
+
+        public void GetOrder()
+        {
         }
 
         private void LateUpdate()
@@ -26,23 +32,23 @@ namespace ObjectScripts.CharacterController
             {
                 if (Input.GetKey(KeyCode.A))
                 {
-                    Character.AttackAction.TargetDirection = Direction.Left;
-                    NextAction = Character.AttackAction;
+                    AttackAction.TargetDirection = Direction.Left;
+                    NextAction = AttackAction;
                 }
                 else if (Input.GetKey(KeyCode.D))
                 {
-                    Character.AttackAction.TargetDirection = Direction.Right;
-                    NextAction = Character.AttackAction;
+                    AttackAction.TargetDirection = Direction.Right;
+                    NextAction = AttackAction;
                 }
                 else if (Input.GetKey(KeyCode.S))
                 {
-                    Character.AttackAction.TargetDirection = Direction.Down;
-                    NextAction = Character.AttackAction;
+                    AttackAction.TargetDirection = Direction.Down;
+                    NextAction = AttackAction;
                 }
                 else if (Input.GetKey(KeyCode.W))
                 {
-                    Character.AttackAction.TargetDirection = Direction.Up;
-                    NextAction = Character.AttackAction;
+                    AttackAction.TargetDirection = Direction.Up;
+                    NextAction = AttackAction;
                 }
                 else
                 {
@@ -53,27 +59,27 @@ namespace ObjectScripts.CharacterController
             {
                 if (Input.GetKey(KeyCode.A))
                 {
-                    Character.WalkAction.TargetDirection = Direction.Left;
-                    NextAction = Character.WalkAction;
+                    WalkAction.TargetDirection = Direction.Left;
+                    NextAction = WalkAction;
                 }
                 else if (Input.GetKey(KeyCode.D))
                 {
-                    Character.WalkAction.TargetDirection = Direction.Right;
-                    NextAction = Character.WalkAction;
+                    WalkAction.TargetDirection = Direction.Right;
+                    NextAction = WalkAction;
                 }
                 else if (Input.GetKey(KeyCode.S))
                 {
-                    Character.WalkAction.TargetDirection = Direction.Down;
-                    NextAction = Character.WalkAction;
+                    WalkAction.TargetDirection = Direction.Down;
+                    NextAction = WalkAction;
                 }
                 else if (Input.GetKey(KeyCode.W))
                 {
-                    Character.WalkAction.TargetDirection = Direction.Up;
-                    NextAction = Character.WalkAction;
+                    WalkAction.TargetDirection = Direction.Up;
+                    NextAction = WalkAction;
                 }
                 else if (Input.GetKey(KeyCode.Space))
                 {
-                    NextAction = Character.WaitAction;
+                    NextAction = WaitAction;
                 }
                 else
                 {
@@ -81,6 +87,8 @@ namespace ObjectScripts.CharacterController
                 }
             }
         }
+        
+        
 
         public override void UpdateFunction()
         {

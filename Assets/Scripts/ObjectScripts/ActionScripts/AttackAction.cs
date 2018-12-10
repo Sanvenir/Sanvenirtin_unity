@@ -6,7 +6,7 @@ using Object = UnityEngine.Object;
 
 namespace ObjectScripts.ActionScripts
 {
-    public class AttackAction: DirectionAction
+    public class AttackAction: BaseAction
     {
         public Character Target;
         public string[] AttackComponentList = new []

@@ -62,26 +62,26 @@ namespace UtilScripts
             return new Vector2Int(dx, dy);
         }
 
-        public static Direction IncrementToDirection(int dx, int dy)
+        public static Direction IncrementToDirection(float dx, float dy)
         {
-            if (dx == -1 && dy == 0)
+            if (dx > dy && dx >= -dy)
             {
                 return Direction.Left;
             }
 
-            if (dx == 1 && dy == 0)
+            if (dy > -dx && dy >= dx)
             {
-                return Direction.Right;
+                return Direction.Up;
             }
 
-            if (dx == 0 && dy == -1)
+            if (-dx > -dy && -dx >= dy)
             {
                 return Direction.Down;
             }
 
-            if (dx == 0 && dy == 1)
+            if (-dy > dx && -dy >= -dx)
             {
-                return Direction.Up;
+                return Direction.Right;
             }
 
             throw new GameException("Params not in the range -1..1");

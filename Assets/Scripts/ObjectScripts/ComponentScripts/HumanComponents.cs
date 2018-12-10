@@ -4,7 +4,7 @@ namespace ObjectScripts.ComponentScripts
 {
     public static class HumanComponents
     {
-        public static SubstanceComponent createHead()
+        public static SubstanceComponent CreateHead()
         {
             return new SubstanceComponent
             {
@@ -16,7 +16,7 @@ namespace ObjectScripts.ComponentScripts
             };
         }
 
-        public static SubstanceComponent createNeck()
+        public static SubstanceComponent CreateNeck()
         {
             return new SubstanceComponent()
             {
@@ -28,7 +28,7 @@ namespace ObjectScripts.ComponentScripts
             };
         }
 
-        public static SubstanceComponent createChest()
+        public static SubstanceComponent CreateChest()
         {
             return new SubstanceComponent()
             {
@@ -41,7 +41,7 @@ namespace ObjectScripts.ComponentScripts
         }
         
 
-        public static SubstanceComponent createWaist()
+        public static SubstanceComponent CreateWaist()
         {
             return new SubstanceComponent()
             {
@@ -54,7 +54,7 @@ namespace ObjectScripts.ComponentScripts
         }
         
         
-        public static SubstanceComponent createCrotch()
+        public static SubstanceComponent CreateCrotch()
         {
             return new SubstanceComponent()
             {
@@ -67,7 +67,7 @@ namespace ObjectScripts.ComponentScripts
         }
         
 
-        public static SubstanceComponent createLeftArm()
+        public static SubstanceComponent CreateLeftArm()
         {
             return new SubstanceComponent()
             {
@@ -79,7 +79,7 @@ namespace ObjectScripts.ComponentScripts
             };
         }
 
-        public static SubstanceComponent createLeftHand()
+        public static SubstanceComponent CreateLeftHand()
         {
             return new SubstanceComponent()
             {
@@ -91,7 +91,7 @@ namespace ObjectScripts.ComponentScripts
             };
         }
 
-        public static SubstanceComponent createRightArm()
+        public static SubstanceComponent CreateRightArm()
         {
             return new SubstanceComponent()
             {
@@ -103,7 +103,7 @@ namespace ObjectScripts.ComponentScripts
             };
         }
 
-        public static SubstanceComponent createRightHand()
+        public static SubstanceComponent CreateRightHand()
         {
             return new SubstanceComponent()
             {
@@ -115,7 +115,7 @@ namespace ObjectScripts.ComponentScripts
             };
         }
         
-        public static SubstanceComponent createLeftLeg()
+        public static SubstanceComponent CreateLeftLeg()
         {
             return new SubstanceComponent()
             {
@@ -127,7 +127,7 @@ namespace ObjectScripts.ComponentScripts
             };
         }
 
-        public static SubstanceComponent createLeftFoot()
+        public static SubstanceComponent CreateLeftFoot()
         {
             return new SubstanceComponent()
             {
@@ -139,7 +139,7 @@ namespace ObjectScripts.ComponentScripts
             };
         }
 
-        public static SubstanceComponent createRightLeg()
+        public static SubstanceComponent CreateRightLeg()
         {
             return new SubstanceComponent()
             {
@@ -151,7 +151,7 @@ namespace ObjectScripts.ComponentScripts
             };
         }
 
-        public static SubstanceComponent createRightFoot()
+        public static SubstanceComponent CreateRightFoot()
         {
             return new SubstanceComponent()
             {
