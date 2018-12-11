@@ -71,15 +71,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Goblin
-  GlobalPos: {x: 0, y: 0}
-  GlobalCoord: {x: 0, y: 0}
+  WorldPos: {x: 0, y: 0}
+  WorldCoord: {x: 0, y: 0}
   BlockLayer:
     serializedVersion: 2
     m_Bits: 256
   IsDestroy: 0
   AreaIdentity: 0
   ActivateTime: 0
-  AttackActionEffect: {fileID: 0}
+  AttackActionEffect: {fileID: 114661694037867342, guid: 115b145bf054290459e4b5ddf30fcc8f,
+    type: 2}
   Dead: 0
   Health: 0
   Sanity: 0
@@ -137,6 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7571883ca9748e2b2517ba0558af47b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Character: {fileID: 0}
 --- !u!212 &212511887713930612
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -8,7 +8,7 @@ namespace DefaultNamespace
     public class EarthMapManager: MonoBehaviour
     {
         public static int MapWidth = 200, MapHeight = 100;
-        public static int LocalWidth = 20, LocalHeight = 20;
+        public static int LocalWidth = 10, LocalHeight = 10;
         
         // Percent of land init ratio
         public int LandPercent = 50;

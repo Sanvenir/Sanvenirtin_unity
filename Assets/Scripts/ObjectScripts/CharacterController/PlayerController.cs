@@ -20,11 +20,7 @@ namespace ObjectScripts.CharacterController
             base.Awake();
             BaseOrder.Controller = this;
         }
-
-        public void GetOrder()
-        {
-        }
-
+        
         private void LateUpdate()
         {
             
@@ -86,6 +82,9 @@ namespace ObjectScripts.CharacterController
                     NextAction = null;
                 }
             }
+
+            if (CurrentOrder == null) return;
+            CurrentOrder = CurrentOrder.DoOrder();
         }
         
         

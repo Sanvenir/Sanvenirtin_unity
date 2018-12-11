@@ -11,7 +11,7 @@ namespace UtilScripts
 
         public static int FloatToInt(float num)
         {
-            return (int) Math.Floor(num);
+            return (int) Mathf.Floor(num);
         }
 
         public static int Div(int num, int divisor)
@@ -66,7 +66,7 @@ namespace UtilScripts
         {
             if (dx > dy && dx >= -dy)
             {
-                return Direction.Left;
+                return Direction.Right;
             }
 
             if (dy > -dx && dy >= dx)
@@ -76,12 +76,12 @@ namespace UtilScripts
 
             if (-dx > -dy && -dx >= dy)
             {
-                return Direction.Down;
+                return Direction.Left;
             }
 
             if (-dy > dx && -dy >= -dx)
             {
-                return Direction.Right;
+                return Direction.Down;
             }
 
             throw new GameException("Params not in the range -1..1");

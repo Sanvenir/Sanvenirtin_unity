@@ -1,35 +1,83 @@
+using System.Collections;
 using System.Collections.Generic;
 using ObjectScripts.ActionScripts;
+using ObjectScripts.CharacterController.PlayerOrder;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
+using UtilScripts;
 
 namespace UIScripts
 {
     public class ActionMenu: MonoBehaviour
     {
-        public GameObject ButtonPrefab;
+        public ActionButton ButtonPrefab;
+        public Canvas MenuCanvas;
         
-        public GameObject[] ButtonInstances;
-        public string[] ButtonText;
-        public ActionMenu[] NextMenus;
+        public List<ActionButton> ButtonInstances;
         
         public int CenterIndex;
+        public BaseOrder CurrentOrder;
 
         public ActionMenu PrevMenu;
 
         public Vector2 PrevMousePos;
         public Vector2 CenterPos;
 
-        public void StartUp(Vector2 pos)
+        private int _step;
+        private int _index;
+
+        public void StartUp(Vector2 pos, List<BaseOrder> orderList)
         {
-            gameObject.SetActive(true);
+            enabled = true;
             CenterPos = pos;
             PrevMousePos = Input.mousePosition;
             CenterIndex = 0;
+            ButtonInstances = new List<ActionButton>();
+            foreach (var order in orderList)
+            {
+                var instance = Instantiate(ButtonPrefab, MenuCanvas.transform);
+                instance.SetText(order.Name);
+                instance.transform.position = pos;
+                instance.Order = order;
+                ButtonInstances.Add(instance);
+            }
+
+            CurrentOrder = ButtonInstances[CenterIndex].Order;
+
+        }
+        
+        public BaseOrder EndUp()
+        {
+            enabled = false;
+            foreach (var button in ButtonInstances)
+            {
+                Destroy(button.gameObject);
+            }
+
+            return CurrentOrder;
         }
         
         private void Update()
         {
-            
+            for (_index = 0; _index != ButtonInstances.Count; ++_index)
+            {
+                ButtonInstances[_index].TargetPos = CenterPos + Vector2.up * (CenterIndex - _index);
+                ButtonInstances[_index].TargetAlpha = 1.0f;
+                ButtonInstances[_index].TargetScale = _index == CenterIndex ? 1.0f : 0.8f;
+            }
+
+            CenterIndex = Utils.FloatToInt((PrevMousePos.y - Input.mousePosition.y) * 0.05f);
+            CenterIndex = Mathf.Min(ButtonInstances.Count, CenterIndex);
+            CenterIndex = Mathf.Max(-1, CenterIndex);
+            if (CenterIndex >= 0 && CenterIndex < ButtonInstances.Count)
+            {
+                CurrentOrder = ButtonInstances[CenterIndex].Order;
+            }
+            else
+            {
+                CurrentOrder = null;
+            }
         }
     }
 }

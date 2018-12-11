@@ -66,6 +66,7 @@
           </e>
           <e p="SceneManager.cs" t="Include" />
           <e p="UIScripts" t="Include">
+            <e p="ActionButton.cs" t="Include" />
             <e p="ActionMenu.cs" t="Include" />
             <e p="SceneControlButton.cs" t="Include" />
           </e>

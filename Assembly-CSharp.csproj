@@ -93,6 +93,7 @@
     <Compile Include="Assets\Scripts\ObjectScripts\SpriteController\StaticSubstanceSpriteController.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\Substance.cs" />
     <Compile Include="Assets\Scripts\SceneManager.cs" />
+    <Compile Include="Assets\Scripts\UIScripts\ActionButton.cs" />
     <Compile Include="Assets\Scripts\UIScripts\ActionMenu.cs" />
     <Compile Include="Assets\Scripts\UIScripts\SceneControlButton.cs" />
     <Compile Include="Assets\Scripts\UtilScripts\Direction.cs" />

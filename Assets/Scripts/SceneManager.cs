@@ -23,6 +23,7 @@ public class SceneManager : MonoBehaviour
 	public string RandomSeed = "Random";
 	public int InitMapX, InitMapY;
 	public LayerMask GroundLayer;
+	public int LoadingRange = 3;
 
 	// Game Objects
 	public EarthMapManager EarthMapManager;
@@ -88,6 +89,13 @@ public class SceneManager : MonoBehaviour
 		var hit = Physics2D.OverlapPoint(pos, GroundLayer);
 		return hit == null ? null : hit.GetComponent<LocalArea>();
 	}
+
+	public Vector2Int WorldPosToCoord(Vector2 pos)
+	{
+		return Utils.Vector3IntTo2(CenterArea.Tilemap.WorldToCell(pos)
+		            + Utils.Vector2IntTo3(CenterArea.WorldStartCoord));
+	}
+	
 	
 //	public LocalArea WorldCoordToArea(Vector2Int coord)
 //	{
@@ -132,14 +140,15 @@ public class SceneManager : MonoBehaviour
 
 		var centerCoord = EarthMapCoord.CreateFromIdentity(CenterArea.Identity);
 
-		for (var dx = -2; dx <= 2; dx++)
-		for (var dy = -2; dy <= 2; dy++)
+		for (var dx = -LoadingRange; dx <= LoadingRange; dx++)
+		for (var dy = -LoadingRange; dy <= LoadingRange; dy++)
 		{
 			try
 			{
 				var identity = centerCoord.GetDeltaCoord(dx, dy).GetIdentity();
 				activateIdentities.Add(identity);
-				if (dx == 2 || dx == -2 || dy == 2 || dy == -2)
+				if (dx == LoadingRange || dx == -LoadingRange || 
+				    dy == LoadingRange || dy == -LoadingRange)
 				{
 					EdgeIdentities.Add(identity);
 				}
