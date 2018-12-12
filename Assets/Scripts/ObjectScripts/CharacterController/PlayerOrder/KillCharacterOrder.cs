@@ -28,9 +28,6 @@ namespace ObjectScripts.CharacterController.PlayerOrder
             if (_vecInt == Vector2Int.zero)
             {
                 Controller.NextAction = null;
-                SceneManager.Instance.Print(
-                    "You can't find path to your order," +
-                    " because of your current intelligence");
                 return null;
             }
 

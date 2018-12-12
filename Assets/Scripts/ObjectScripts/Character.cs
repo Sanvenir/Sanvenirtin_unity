@@ -25,16 +25,17 @@ namespace ObjectScripts
         public T MoveCheck<T>(Vector2Int delta)
             where T : Substance
         {
-            return Physics2D.OverlapPoint(WorldPos + delta, BlockLayer) == null
-                ? null
-                : Physics2D.OverlapPoint(WorldPos + delta, BlockLayer).GetComponent<T>();
+            Collider2D.offset = delta;
+            var substance = CheckCollider<T>();
+            Collider2D.offset = Vector2.zero;
+            return substance;
         }
         public bool Move(Vector2Int delta, int moveTime, bool check = true)
         {
             if (delta == Vector2Int.zero) return true;
             var endPos = WorldPos + delta;
             SubstanceSpriteController.SetDirection(Utils.VectorToDirection(delta));
-            if (check && Physics2D.OverlapPoint(endPos, BlockLayer) != null)
+            if (check && MoveCheck<Substance>(delta) != null)
             {
                 return false;
             }

@@ -39,7 +39,7 @@ namespace UIScripts
             ButtonInstances = new List<ActionButton>();
             foreach (var order in orderList)
             {
-                var instance = Instantiate(ButtonPrefab, MenuCanvas.transform);
+                var instance = Instantiate(ButtonPrefab, transform);
                 instance.SetText(order.Name);
                 instance.transform.position = pos;
                 instance.Order = order;
@@ -57,7 +57,6 @@ namespace UIScripts
             {
                 Destroy(button.gameObject);
             }
-
             return CurrentOrder;
         }
         
@@ -65,7 +64,7 @@ namespace UIScripts
         {
             for (_index = 0; _index != ButtonInstances.Count; ++_index)
             {
-                ButtonInstances[_index].TargetPos = CenterPos + Vector2.up * (CenterIndex - _index) * 1.0f;
+                ButtonInstances[_index].TargetPos = CenterPos + Vector2.up * (CenterIndex - _index) * 2.0f;
                 ButtonInstances[_index].TargetAlpha = 1.0f;
                 ButtonInstances[_index].TargetScale = _index == CenterIndex ? 1.0f : 0.8f;
             }

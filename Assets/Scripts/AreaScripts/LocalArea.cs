@@ -63,13 +63,10 @@ namespace AreaScripts
             var pos = SceneManager.Instance.WorldCoordToPos(worldCoord);
             var instance = Instantiate(substancePrefab);
             var substance = instance.GetComponent<Substance>();
-            if (Physics2D.OverlapPoint(pos, substance.BlockLayer) != null)
-            {
-                Destroy(instance);
-                return null;
-            }
             substance.Initialize(worldCoord, Identity);
-            return instance;
+            if (substance.CheckCollider<Substance>() == null) return instance;
+            Destroy(instance);
+            return null;
         }
     }
 }

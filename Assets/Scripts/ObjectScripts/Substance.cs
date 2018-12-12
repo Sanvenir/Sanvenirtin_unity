@@ -9,18 +9,18 @@ using UtilScripts;
 
 namespace ObjectScripts
 {
-    public class Substance: BaseObject
+    public class Substance : BaseObject
     {
         public Vector2 WorldPos;
         public Vector2Int WorldCoord;
-        public LayerMask BlockLayer;
+        public ContactFilter2D ContactFilter;
 
         public Dictionary<string, SubstanceComponent> Components = new Dictionary<string, SubstanceComponent>();
 
         public bool IsDestroy = false;
 
         // Component Key represent the place of this component
-        public virtual void Attacked(int damage, string componentKey, float defenceRatio=1f)
+        public virtual void Attacked(int damage, string componentKey, float defenceRatio = 1f)
         {
             if (!Components.ContainsKey(componentKey))
             {
@@ -29,7 +29,7 @@ namespace ObjectScripts
 
             if (!Components[componentKey].Damage(damage, defenceRatio))
                 return;
-            
+
             IsDestroy = true;
         }
 
@@ -40,6 +40,7 @@ namespace ObjectScripts
         {
             base.Initialize();
             AreaIdentity = areaIdentity;
+            ContactFilter.useLayerMask = true;
             MoveTo(worldCoord);
         }
 
@@ -47,13 +48,8 @@ namespace ObjectScripts
         {
             WorldCoord = worldCoord;
             WorldPos = SceneManager.Instance.WorldCoordToPos(worldCoord);
-            var hit = Physics2D.OverlapPoint(WorldPos, BlockLayer);
             SpriteRenderer.sortingOrder = -worldCoord.y;
             transform.position = WorldPos;
-            if (hit != null)
-            {
-                throw new CoordOccupiedException(hit);
-            }
         }
 
         private void LateUpdate()
@@ -76,10 +72,12 @@ namespace ObjectScripts
             AreaIdentity = area.Identity;
         }
 
-        public Collider2D GetColliderAtWorldCoord(Vector2Int coord)
+        public Substance GetColliderAtWorldCoord(Vector2Int coord)
         {
-            return Physics2D.OverlapPoint(
-                SceneManager.Instance.WorldCoordToPos(coord), BlockLayer);
+            Collider2D.offset = coord - WorldCoord;
+            var result = CheckCollider<Substance>();
+            Collider2D.offset = Vector2.zero;
+            return result;
         }
 
         private void Update()
@@ -87,9 +85,19 @@ namespace ObjectScripts
             if (IsDestroy)
             {
                 Destroy(gameObject);
-                
+
                 //TODO: Add dropping objects here
             }
+        }
+
+        public T CheckCollider<T>()
+            where T : Substance
+        {
+            var colliders = new Collider2D[1];
+            Collider2D.OverlapCollider(ContactFilter, colliders);
+            return colliders[0] == null
+                ? null
+                : colliders[0].GetComponent<T>();
         }
     }
 }

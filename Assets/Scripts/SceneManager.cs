@@ -66,7 +66,7 @@ public class SceneManager : MonoBehaviour
 			RandomSeed = DateTime.Now.ToString(CultureInfo.CurrentCulture);
 		}
 
-		_loggerText = new StringBuilder();
+		ClearLog();
 
 		Utils.ProcessRandom = new System.Random(RandomSeed.GetHashCode());
 		

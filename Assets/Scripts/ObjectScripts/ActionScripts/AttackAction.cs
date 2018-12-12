@@ -21,15 +21,13 @@ namespace ObjectScripts.ActionScripts
         public override void DoAction(bool check = true)
         {
             CostTime = Self.GetActTime();
-            Self.AttackMovement(TargetDirection, CostTime);
             Self.ActivateTime += CostTime;
-            if (check)
+            check = !check || CheckAction();
+            Self.AttackMovement(TargetDirection, CostTime);
+            if (!check)
             {
-                if (!CheckAction())
-                {
-                    SceneManager.Instance.Print(Self.name + " attacked empty");
-                    return;
-                }
+                SceneManager.Instance.Print(Self.name + " attacked empty");
+                return;
             }
 
             var component = AttackComponentList[Utils.ProcessRandom.Next(AttackComponentList.Length)];
