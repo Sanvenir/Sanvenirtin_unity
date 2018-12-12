@@ -10,7 +10,7 @@ namespace UIScripts
         public Text ButtonText;
         public Color ImageColor = new Color(0, 1, 1, 0.5f);
         public Color TextColor = Color.black;
-        public Vector3 TargetPos;
+        public Vector2 TargetPos;
         public float TargetScale;
         public float TargetAlpha;
         private float _currentAlpha;
@@ -37,7 +37,7 @@ namespace UIScripts
 
         private void Update()
         {
-            transform.position = TargetPos * 0.1f + transform.position * 0.9f;
+            transform.position = TargetPos * 0.1f + (Vector2)transform.position * 0.9f;
             transform.localScale = Vector3.one * TargetScale * 0.1f + 
                                    transform.localScale * 0.9f;
             _currentAlpha = TargetAlpha * 0.1f + _currentAlpha * 0.9f;

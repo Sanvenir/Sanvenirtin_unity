@@ -3,7 +3,7 @@ using UtilScripts;
 
 namespace ObjectScripts.CharacterController.PlayerOrder
 {
-    public class AttackCharacterOrder: BaseOrder
+    public class KillCharacterOrder: BaseOrder
     {
         private Vector2Int _vecInt;
 
@@ -17,7 +17,7 @@ namespace ObjectScripts.CharacterController.PlayerOrder
             }
             Controller.AttackAction.TargetDirection = Utils.VectorToDirection(
                 TargetCharacter.WorldCoord - Controller.Character.WorldCoord);
-            if (Controller.AttackAction.CheckAction())
+            if (Controller.AttackAction.CheckAction() && Controller.AttackAction.Target == TargetCharacter)
             {
                 // If Target Character can be attacked
                 Controller.NextAction = Controller.AttackAction;
@@ -39,7 +39,7 @@ namespace ObjectScripts.CharacterController.PlayerOrder
             return this;
         }
 
-        public AttackCharacterOrder(string name, Character targetCharacter, Direction targetDirection, Vector2Int targetCoord) : base(name, targetCharacter, targetDirection, targetCoord)
+        public KillCharacterOrder(string name, Character targetCharacter, Direction targetDirection, Vector2Int targetCoord) : base(name, targetCharacter, targetDirection, targetCoord)
         {
         }
     }

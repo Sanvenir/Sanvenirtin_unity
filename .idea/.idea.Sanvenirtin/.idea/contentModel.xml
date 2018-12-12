@@ -44,9 +44,9 @@
               </e>
               <e p="PlayerController.cs" t="Include" />
               <e p="PlayerOrder" t="Include">
-                <e p="AttackCharacterOrder.cs" t="Include" />
                 <e p="AttackDirectionOrder.cs" t="Include" />
                 <e p="BaseOrder.cs" t="Include" />
+                <e p="KillCharacterOrder.cs" t="Include" />
                 <e p="RestOrder.cs" t="Include" />
                 <e p="WalkToOrder.cs" t="Include" />
               </e>

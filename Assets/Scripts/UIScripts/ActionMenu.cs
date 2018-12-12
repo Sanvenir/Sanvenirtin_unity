@@ -11,6 +11,11 @@ namespace UIScripts
 {
     public class ActionMenu: MonoBehaviour
     {
+        
+        // Setting
+        [Range(0.01f, 0.1f)]
+        public float ChangeAccuracy = 0.1f;
+        
         public ActionButton ButtonPrefab;
         public Canvas MenuCanvas;
         
@@ -18,8 +23,6 @@ namespace UIScripts
         
         public int CenterIndex;
         public BaseOrder CurrentOrder;
-
-        public ActionMenu PrevMenu;
 
         public Vector2 PrevMousePos;
         public Vector2 CenterPos;
@@ -62,22 +65,21 @@ namespace UIScripts
         {
             for (_index = 0; _index != ButtonInstances.Count; ++_index)
             {
-                ButtonInstances[_index].TargetPos = CenterPos + Vector2.up * (CenterIndex - _index);
+                ButtonInstances[_index].TargetPos = CenterPos + Vector2.up * (CenterIndex - _index) * 1.0f;
                 ButtonInstances[_index].TargetAlpha = 1.0f;
                 ButtonInstances[_index].TargetScale = _index == CenterIndex ? 1.0f : 0.8f;
             }
 
-            CenterIndex = Utils.FloatToInt((PrevMousePos.y - Input.mousePosition.y) * 0.05f);
-            CenterIndex = Mathf.Min(ButtonInstances.Count, CenterIndex);
-            CenterIndex = Mathf.Max(-1, CenterIndex);
-            if (CenterIndex >= 0 && CenterIndex < ButtonInstances.Count)
+            CenterIndex = Utils.FloatToInt((PrevMousePos.y - Input.mousePosition.y) * ChangeAccuracy);
+            if (CenterIndex >= ButtonInstances.Count)
             {
-                CurrentOrder = ButtonInstances[CenterIndex].Order;
+                CenterIndex = ButtonInstances.Count - 1;
             }
-            else
+            if (CenterIndex < -1)
             {
-                CurrentOrder = null;
+                CenterIndex = -1;
             }
+            CurrentOrder = CenterIndex >= 0 ? ButtonInstances[CenterIndex].Order : null;
         }
     }
 }

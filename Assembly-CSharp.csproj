@@ -79,9 +79,9 @@
     <Compile Include="Assets\Scripts\ObjectScripts\CharacterController\CtrlConditions\BaseCondition.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\CharacterController\CtrlConditions\WonderCondition.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\CharacterController\PlayerController.cs" />
-    <Compile Include="Assets\Scripts\ObjectScripts\CharacterController\PlayerOrder\AttackCharacterOrder.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\CharacterController\PlayerOrder\AttackDirectionOrder.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\CharacterController\PlayerOrder\BaseOrder.cs" />
+    <Compile Include="Assets\Scripts\ObjectScripts\CharacterController\PlayerOrder\KillCharacterOrder.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\CharacterController\PlayerOrder\RestOrder.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\CharacterController\PlayerOrder\WalkToOrder.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\ComponentScripts\HumanComponents.cs" />

@@ -45,7 +45,6 @@ namespace ObjectScripts.ActionScripts
 
         public override bool CheckAction()
         {
-            Self.TurnTo(TargetDirection);
             Target = Self.MoveCheck<Character>(Utils.DirectionToVector(TargetDirection));
             return Target != null;
         }

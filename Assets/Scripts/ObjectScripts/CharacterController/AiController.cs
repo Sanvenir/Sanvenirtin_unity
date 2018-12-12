@@ -9,7 +9,7 @@ namespace ObjectScripts.CharacterController
 
         public override void UpdateFunction()
         {
-            if (Utils.ProcessRandom.Next(5) == 0)
+            if (Utils.ProcessRandom.Next(5) != 0)
             {
                 WaitAction.DoAction();
                 return;

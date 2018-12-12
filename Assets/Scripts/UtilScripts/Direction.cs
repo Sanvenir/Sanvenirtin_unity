@@ -5,6 +5,7 @@ namespace UtilScripts
         Down = 0,
         Left = 1,
         Up = 2,
-        Right = 3
+        Right = 3,
+        None = -1
     }
 }

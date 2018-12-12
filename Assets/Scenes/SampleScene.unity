@@ -605,11 +605,12 @@ MonoBehaviour:
   ReactFrames: 2
   CurrentTime: 0
   RandomSeed: Random
-  InitMapX: 0
-  InitMapY: 0
+  InitMapX: 20
+  InitMapY: 20
   GroundLayer:
     serializedVersion: 2
     m_Bits: 1024
+  LoadingRange: 2
   EarthMapManager: {fileID: 1202584583}
   Player: {fileID: 1471056960}
   Grid: {fileID: 96773922}
@@ -709,6 +710,8 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   ActionMenu: {fileID: 1050116504}
+  Player: {fileID: 1471056961}
+  PlayerController: {fileID: 1471056965}
 --- !u!114 &1050116502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -749,17 +752,17 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1050116499}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1c13d6798a12448ba89b19a96cb5063f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonPrefab: {fileID: 0}
+  ChangeAccuracy: 0.051
+  ButtonPrefab: {fileID: 114063653609250276, guid: cc95e2c9062f130439ec1f3337330b15,
+    type: 2}
+  MenuCanvas: {fileID: 104989574}
   ButtonInstances: []
-  ButtonText: []
-  NextMenus: []
   CenterIndex: 0
-  PrevMenu: {fileID: 0}
   PrevMousePos: {x: 0, y: 0}
   CenterPos: {x: 0, y: 0}
 --- !u!1 &1155192944

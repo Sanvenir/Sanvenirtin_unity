@@ -30,7 +30,7 @@ namespace ObjectScripts.CharacterController.PlayerOrder
 
             Controller.WalkAction.TargetDirection = Utils.VectorToDirection(_vecInt);
             Controller.NextAction = Controller.WalkAction;
-            return this;
+            return Controller.WalkAction.CheckAction() ? this : null;
         }
     }
 }

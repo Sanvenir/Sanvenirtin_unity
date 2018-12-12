@@ -23,7 +23,7 @@ public class SceneManager : MonoBehaviour
 	public string RandomSeed = "Random";
 	public int InitMapX, InitMapY;
 	public LayerMask GroundLayer;
-	public int LoadingRange = 3;
+	public int LoadingRange = 2;
 
 	// Game Objects
 	public EarthMapManager EarthMapManager;
@@ -92,8 +92,7 @@ public class SceneManager : MonoBehaviour
 
 	public Vector2Int WorldPosToCoord(Vector2 pos)
 	{
-		return Utils.Vector3IntTo2(CenterArea.Tilemap.WorldToCell(pos)
-		            + Utils.Vector2IntTo3(CenterArea.WorldStartCoord));
+		return Utils.Vector3IntTo2(CenterArea.Tilemap.WorldToCell(pos));
 	}
 	
 	
@@ -112,9 +111,8 @@ public class SceneManager : MonoBehaviour
 
 	public Vector2 NormalizeWorldPos(Vector2 pos)
 	{
-		var coord = CenterArea.Tilemap.WorldToCell(pos)
-		            + Utils.Vector2IntTo3(CenterArea.WorldStartCoord);
-		return CenterArea.Tilemap.CellToWorld(coord);
+		var coord = CenterArea.Tilemap.WorldToCell(pos);
+		return CenterArea.Tilemap.GetCellCenterWorld(coord);
 	}
 
 	public void Print(string message)

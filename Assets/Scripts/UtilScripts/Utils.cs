@@ -46,7 +46,9 @@ namespace UtilScripts
                     dy = 0;
                     break;
                 default:
-                    throw new ArgumentOutOfRangeException("direction", direction, null);
+                    dx = 0;
+                    dy = 0;
+                    break;
             }
         }
 
@@ -84,7 +86,7 @@ namespace UtilScripts
                 return Direction.Down;
             }
 
-            throw new GameException("Params not in the range -1..1");
+            return Direction.None;
         }
 
         public static IEnumerable<Vector2Int> GetNeighbours(Vector2Int coord)

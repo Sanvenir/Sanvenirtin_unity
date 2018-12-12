@@ -30,6 +30,7 @@ namespace ObjectScripts.SpriteController
 				{Direction.Left, new []{4, 3, 4, 5}},
 				{Direction.Right, new []{7, 6, 7, 8}}, 
 				{Direction.Up, new []{10, 9, 10, 11}},
+				{Direction.None, new []{1, 4, 7, 10}}
 			};
 	
 		// Use this for initialization
@@ -50,8 +51,14 @@ namespace ObjectScripts.SpriteController
 			}
 			if (TargetDirection != _movingDirection)
 			{
-				switch (_movingDirection)
+				if (TargetDirection == Direction.None)
 				{
+					_movingDirection = Direction.None;
+				}
+				else
+				{
+					switch (_movingDirection)
+					{
 						case Direction.Down:
 							_movingDirection = TargetDirection == Direction.Right ? 
 								Direction.Right : Direction.Left;
@@ -68,12 +75,18 @@ namespace ObjectScripts.SpriteController
 							_movingDirection = TargetDirection == Direction.Up ? 
 								Direction.Up : Direction.Down;
 							break;
-					default:
-						throw new ArgumentOutOfRangeException();
+						case Direction.None:
+							_movingDirection = TargetDirection;
+							break;
+						default:
+							_movingDirection = Direction.None;
+							break;
+					}
+					
 				}
 			}
 			var timeIndex = (int) (Time.time * Speed);
-			var index = timeIndex % 4;
+			var index = timeIndex % AnimationsSequences[_movingDirection].Length;
 			if (Sprites[AnimationsSequences[_movingDirection][index]] ==
 			    Sprites[AnimationsSequences[_movingDirection][0]])
 			{
