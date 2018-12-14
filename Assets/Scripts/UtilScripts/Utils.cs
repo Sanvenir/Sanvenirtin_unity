@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using ExceptionScripts;
+using UnityEditor;
 using UnityEngine;
 
 namespace UtilScripts
@@ -105,6 +106,20 @@ namespace UtilScripts
         public static Vector3Int Vector2IntTo3(Vector2Int vector)
         {
             return new Vector3Int(vector.x, vector.y, 0);
+        }
+
+        public static Vector2 Vector2To3(Vector3 vector3)
+        {
+            return vector3;
+        }
+        
+        
+        public static void ProgressBar (float value, string label)
+        {
+            // Get a rect for the progress bar using the same margins as a textfield:
+            Rect rect = GUILayoutUtility.GetRect (18, 18, "TextField");
+            EditorGUI.ProgressBar (rect, value, label);
+            EditorGUILayout.Space ();
         }
     }
 }

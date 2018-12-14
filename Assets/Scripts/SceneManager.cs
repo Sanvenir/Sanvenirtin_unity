@@ -5,6 +5,7 @@ using System.Globalization;
 using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using AreaScripts;
+using Cinemachine;
 using DefaultNamespace;
 using ExceptionScripts;
 using ObjectScripts;
@@ -42,6 +43,7 @@ public class SceneManager : MonoBehaviour
 	
 	// UI Objects
 	public Camera MainCamera;
+	public GameObject CameraPos;
 	public Text GameLogger;
 	
 	// Script Objects

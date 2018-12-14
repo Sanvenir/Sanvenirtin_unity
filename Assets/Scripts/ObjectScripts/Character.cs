@@ -16,9 +16,9 @@ namespace ObjectScripts
             return SceneManager.Instance.CurrentTime >= ActivateTime;
         }
 
-        public override void Attacked(int damage, string componentKey, float defenceRatio = 1)
+        public override void Attacked(int damage, string partKey, float defenceRatio = 1)
         {
-            base.Attacked(damage, componentKey, defenceRatio);
+            base.Attacked(damage, partKey, defenceRatio);
             Health += damage;
         }
 
@@ -85,7 +85,7 @@ namespace ObjectScripts
             _moveRatio = Mathf.Max(1, (int) (10 * Mathf.Log(Speed, 10 + MoveSpeed)));
             if (Dead && IsTurn())
             {
-                foreach (var key in Components.Keys)
+                foreach (var key in BodyParts.Keys)
                 {
                     // Roting
                     Attacked(1, key, 0);

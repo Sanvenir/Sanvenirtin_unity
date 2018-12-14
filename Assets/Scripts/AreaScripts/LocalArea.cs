@@ -9,10 +9,19 @@ namespace AreaScripts
 {
     public abstract class LocalArea: MonoBehaviour
     {
+        [HideInInspector]
         public int Identity;
+        
+        [HideInInspector]
         public bool OnWorld = true;
+        
+        [HideInInspector]
         public EarthMapCoord EarthMapCoord;
+        
+        [HideInInspector]
         public Vector2Int WorldStartCoord;
+        
+        [HideInInspector]
         public int LocalWidth, LocalHeight;
         
         public Tilemap Tilemap;

@@ -1,5 +1,8 @@
+using System;
+
 namespace UtilScripts
 {
+    [Serializable]
     public struct LimitValue
     {
         public int MaxValue;

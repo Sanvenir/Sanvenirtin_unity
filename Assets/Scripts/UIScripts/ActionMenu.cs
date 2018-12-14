@@ -19,12 +19,16 @@ namespace UIScripts
         public ActionButton ButtonPrefab;
         public Canvas MenuCanvas;
         
+        [HideInInspector]
         public List<ActionButton> ButtonInstances;
         
+        [HideInInspector]
         public int CenterIndex;
         public BaseOrder CurrentOrder;
 
+        [HideInInspector]
         public Vector2 PrevMousePos;
+        [HideInInspector]
         public Vector2 CenterPos;
 
         private int _step;

@@ -9,8 +9,11 @@ namespace ObjectScripts.CharacterController
     {
         public BaseAction NextAction;
         public BaseOrder CurrentOrder;
+        [HideInInspector]
         public Vector2Int TargetCoord;
+        [HideInInspector]
         public Character TargetCharacter;
+        [HideInInspector]
         public Direction TargetDirection;
 
         private Vector2Int _vecInt;

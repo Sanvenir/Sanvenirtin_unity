@@ -34,6 +34,10 @@
               <e p="WalkAction.cs" t="Include" />
             </e>
             <e p="BaseObject.cs" t="Include" />
+            <e p="BodyPartScripts" t="Include">
+              <e p="BodyPart.cs" t="Include" />
+              <e p="HumanBodyPart.cs" t="Include" />
+            </e>
             <e p="Character.cs" t="Include" />
             <e p="CharacterController" t="Include">
               <e p="AiController.cs" t="Include" />
@@ -46,14 +50,9 @@
               <e p="PlayerOrder" t="Include">
                 <e p="AttackDirectionOrder.cs" t="Include" />
                 <e p="BaseOrder.cs" t="Include" />
-                <e p="KillCharacterOrder.cs" t="Include" />
                 <e p="RestOrder.cs" t="Include" />
                 <e p="WalkToOrder.cs" t="Include" />
               </e>
-            </e>
-            <e p="ComponentScripts" t="Include">
-              <e p="HumanComponents.cs" t="Include" />
-              <e p="SubstanceComponent.cs" t="Include" />
             </e>
             <e p="Human.cs" t="Include" />
             <e p="SpriteController" t="Include">

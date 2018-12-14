@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace;
 using ObjectScripts;
 using ObjectScripts.CharacterController;
 using ObjectScripts.CharacterController.PlayerOrder;
@@ -17,8 +18,10 @@ namespace UIScripts
         public SpriteRenderer SceneCursor;
         private Vector3 _cursorTargetPos;
 
-        public Character Player;
-        public PlayerController PlayerController;
+        [HideInInspector] public Character Player;
+        [HideInInspector] public PlayerController PlayerController;
+
+        public bool CameraFollowPlayer = true;
 
         protected override void Awake()
         {
@@ -37,13 +40,13 @@ namespace UIScripts
         public override void OnPointerDown(PointerEventData eventData)
         {
             base.OnPointerClick(eventData);
-            var mousePos = SceneManager.Instance.MainCamera.ScreenToWorldPoint(eventData.position);
-            var worldPos = SceneManager.Instance.NormalizeWorldPos(mousePos);
-            var worldCoord = SceneManager.Instance.WorldPosToCoord(mousePos);
+            var worldCoord = SceneManager.Instance.WorldPosToCoord(
+                SceneCursor.transform.position);
             var direction = Utils.VectorToDirection(worldCoord - Player.WorldCoord);
             switch (eventData.button)
             {
                 case PointerEventData.InputButton.Left:
+                    CameraFollowPlayer = false;
                     break;
                 case PointerEventData.InputButton.Right:
                     var orderList = new List<BaseOrder>
@@ -59,15 +62,11 @@ namespace UIScripts
                             new WalkToOrder("Walk To", null, direction, worldCoord));
                     }
 
-                    var hit = Physics2D.OverlapPoint(mousePos);
+                    var hit = Physics2D.OverlapPoint(SceneCursor.transform.position);
                     if (hit == null) return;
                     var targetCharacter = hit.GetComponent<Character>();
                     if (targetCharacter != null && targetCharacter != Player)
                     {
-                        if (!targetCharacter.Dead)
-                        {
-                            orderList.Add(new KillCharacterOrder("Kill", targetCharacter, direction, worldCoord));
-                        }
                     }
 
                     ActionMenu.StartUp(worldCoord, orderList);
@@ -82,27 +81,62 @@ namespace UIScripts
             var order = ActionMenu.EndUp();
             PlayerController.CurrentOrder = order;
         }
-
-        public override void OnPointerEnter(PointerEventData eventData)
-        {
-            base.OnPointerEnter(eventData);
-            SceneCursor.enabled = true;
-        }
-
-        public override void OnPointerExit(PointerEventData eventData)
-        {
-            base.OnPointerExit(eventData);
-            SceneCursor.enabled = false;
-        }
+//
+//        public override void OnPointerEnter(PointerEventData eventData)
+//        {
+//            base.OnPointerEnter(eventData);
+//            SceneCursor.enabled = true;
+//        }
+//
+//        public override void OnPointerExit(PointerEventData eventData)
+//        {
+//            base.OnPointerExit(eventData);
+//            SceneCursor.enabled = false;
+//        }
 
         private void FixedUpdate()
         {
+            if (Input.GetMouseButton(1)) return;
+            if (Input.GetMouseButton(0) && !CameraFollowPlayer)
+            {
+                _cursorTargetPos.x += Input.GetAxis("Mouse X") * 2;
+                _cursorTargetPos.y += Input.GetAxis("Mouse Y") * 2;
+            }
+            else
+            {
+                CameraFollowPlayer = true;
+                var mousePos = SceneManager.Instance.MainCamera
+                    .ScreenToWorldPoint(Input.mousePosition);
+                _cursorTargetPos = mousePos;
+            }
+//
+//            _cursorTargetPos.x = Mathf.Min(
+//                Player.transform.position.x + EarthMapManager.LocalWidth, _cursorTargetPos.x);
+//            _cursorTargetPos.x = Mathf.Max(
+//                Player.transform.position.x - EarthMapManager.LocalWidth, _cursorTargetPos.x);
+//            _cursorTargetPos.y = Mathf.Min(
+//                Player.transform.position.y + EarthMapManager.LocalHeight, _cursorTargetPos.y);
+//            _cursorTargetPos.y = Mathf.Max(
+//                Player.transform.position.y - EarthMapManager.LocalHeight, _cursorTargetPos.y);
+//            
             SceneCursor.transform.position =
-                SceneCursor.transform.position * 0.5f + _cursorTargetPos * 0.5f;
-            if (Input.GetMouseButton(0) || Input.GetMouseButton(1)) return;
-            var mousePos = SceneManager.Instance.MainCamera.ScreenToWorldPoint(Input.mousePosition);
-            _cursorTargetPos = SceneManager.Instance.NormalizeWorldPos(mousePos);
-            var hit = Physics2D.OverlapPoint(mousePos);
+                Utils.Vector2To3(SceneCursor.transform.position * 0.5f) +
+                SceneManager.Instance.NormalizeWorldPos(_cursorTargetPos) * 0.5f;
+
+            if (CameraFollowPlayer)
+            {
+                SceneManager.Instance.CameraPos.transform.position =
+                    SceneManager.Instance.CameraPos.transform.position * 0.9f +
+                    Player.transform.position * 0.1f;
+            }
+            else
+            {
+                SceneManager.Instance.CameraPos.transform.position =
+                    SceneManager.Instance.CameraPos.transform.position * 0.9f +
+                    SceneCursor.transform.position * 0.1f;
+            }
+
+            var hit = Physics2D.OverlapPoint(SceneCursor.transform.position);
             if (hit != null)
             {
                 // TODO: Add Bloom Effect

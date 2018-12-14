@@ -13,12 +13,15 @@ namespace ObjectScripts.SpriteController
 
 		public int Speed = 10;
 
+		[HideInInspector]
 		public Direction TargetDirection = Direction.Down;
-
 		private Direction _movingDirection;
 
+		[HideInInspector]
 		public bool NextMoving = false;
+		[HideInInspector]
 		public bool CurrentMoving = false;
+		[HideInInspector]
 		public bool isDisabled = false;
 
 		private SpriteRenderer _spriteRenderer;

@@ -9,13 +9,12 @@ namespace ObjectScripts.CharacterController
 {
     public abstract class CharacterController: MonoBehaviour
     {
-        
-
         // Actions
         public WalkAction WalkAction;
         public WaitAction WaitAction;
         public AttackAction AttackAction;
         
+        [HideInInspector]
         public Character Character;
 
         protected virtual void Awake()

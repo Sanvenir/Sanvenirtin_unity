@@ -1,10 +1,23 @@
 using System.Collections.Generic;
 using MapScripts;
+using UnityEditor;
 using UnityEngine;
 using UtilScripts;
 
 namespace DefaultNamespace
 {
+    [CustomEditor(typeof(EarthMapManager))]
+    public class EarthMapManagerEditor : Editor
+    {
+        public override void OnInspectorGUI()
+        {
+            base.OnInspectorGUI();
+            EarthMapManager.MapWidth = EditorGUILayout.IntField("Map Width", EarthMapManager.MapWidth);
+            EarthMapManager.MapHeight = EditorGUILayout.IntField("Map Height", EarthMapManager.MapHeight);
+            EarthMapManager.LocalWidth = EditorGUILayout.IntField("Local Width", EarthMapManager.LocalWidth);
+            EarthMapManager.LocalHeight = EditorGUILayout.IntField("Local Height", EarthMapManager.LocalHeight);
+        }
+    }
     public class EarthMapManager: MonoBehaviour
     {
         public static int MapWidth = 200, MapHeight = 100;
@@ -25,6 +38,7 @@ namespace DefaultNamespace
 
         public GameObject[] BaseAreaPrefabs;
 
+        [HideInInspector]
         public EarthMap EarthMap;
         
         private readonly List<MainLand> _mainLands = new List<MainLand>();

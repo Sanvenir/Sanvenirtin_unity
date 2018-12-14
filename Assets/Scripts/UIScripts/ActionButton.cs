@@ -6,12 +6,17 @@ namespace UIScripts
 {
     public class ActionButton: MonoBehaviour
     {
+        [HideInInspector]
         public Image ButtonImage;
+        [HideInInspector]
         public Text ButtonText;
         public Color ImageColor = new Color(0, 1, 1, 0.5f);
         public Color TextColor = Color.black;
+        [HideInInspector]
         public Vector2 TargetPos;
+        [HideInInspector]
         public float TargetScale;
+        [HideInInspector]
         public float TargetAlpha;
         private float _currentAlpha;
         public BaseOrder Order;

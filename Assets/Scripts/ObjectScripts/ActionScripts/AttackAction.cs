@@ -9,7 +9,7 @@ namespace ObjectScripts.ActionScripts
     public class AttackAction: BaseAction
     {
         public Character Target;
-        public string[] AttackComponentList = new []
+        public string[] AttackPartList = new []
         {
             "Top", "TopLow", "Center"
         };
@@ -30,10 +30,10 @@ namespace ObjectScripts.ActionScripts
                 return;
             }
 
-            var component = AttackComponentList[Utils.ProcessRandom.Next(AttackComponentList.Length)];
+            var part = AttackPartList[Utils.ProcessRandom.Next(AttackPartList.Length)];
             SceneManager.Instance.Print(
-                Self.Name + " attacked " + Target.Name + " on " + Self.Components[component].Name);
-            Target.Attacked(Self.GetBaseAttack(), component);
+                Self.Name + " attacked " + Target.Name + " on " + Self.BodyParts[part].Name);
+            Target.Attacked(Self.GetBaseAttack(), part);
             if (Self.AttackActionEffect == null) return;
             var instance = Object.Instantiate(
                 Self.AttackActionEffect, 

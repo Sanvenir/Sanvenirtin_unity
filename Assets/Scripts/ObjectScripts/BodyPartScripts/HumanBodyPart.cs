@@ -1,12 +1,12 @@
 using UtilScripts;
 
-namespace ObjectScripts.ComponentScripts
+namespace ObjectScripts.BodyPartScripts
 {
-    public static class HumanComponents
+    public static class HumanBodyPart
     {
-        public static SubstanceComponent CreateHead()
+        public static BodyPart CreateHead()
         {
-            return new SubstanceComponent
+            return new BodyPart
             {
                 Name = "Head",
                 Essential = true, 
@@ -16,9 +16,9 @@ namespace ObjectScripts.ComponentScripts
             };
         }
 
-        public static SubstanceComponent CreateNeck()
+        public static BodyPart CreateNeck()
         {
-            return new SubstanceComponent()
+            return new BodyPart()
             {
                 Name = "Neck",
                 Essential = true,
@@ -28,9 +28,9 @@ namespace ObjectScripts.ComponentScripts
             };
         }
 
-        public static SubstanceComponent CreateChest()
+        public static BodyPart CreateChest()
         {
-            return new SubstanceComponent()
+            return new BodyPart()
             {
                 Name = "Chest",
                 Essential = true,
@@ -41,9 +41,9 @@ namespace ObjectScripts.ComponentScripts
         }
         
 
-        public static SubstanceComponent CreateWaist()
+        public static BodyPart CreateWaist()
         {
-            return new SubstanceComponent()
+            return new BodyPart()
             {
                 Name = "Waist",
                 Essential = true,
@@ -54,9 +54,9 @@ namespace ObjectScripts.ComponentScripts
         }
         
         
-        public static SubstanceComponent CreateCrotch()
+        public static BodyPart CreateCrotch()
         {
-            return new SubstanceComponent()
+            return new BodyPart()
             {
                 Name = "Crotch",
                 Essential = true,
@@ -67,9 +67,9 @@ namespace ObjectScripts.ComponentScripts
         }
         
 
-        public static SubstanceComponent CreateLeftArm()
+        public static BodyPart CreateLeftArm()
         {
-            return new SubstanceComponent()
+            return new BodyPart()
             {
                 Name = "LeftArm",
                 Essential = false,
@@ -79,9 +79,9 @@ namespace ObjectScripts.ComponentScripts
             };
         }
 
-        public static SubstanceComponent CreateLeftHand()
+        public static BodyPart CreateLeftHand()
         {
-            return new SubstanceComponent()
+            return new BodyPart()
             {
                 Name = "LeftHand",
                 Essential = false,
@@ -91,9 +91,9 @@ namespace ObjectScripts.ComponentScripts
             };
         }
 
-        public static SubstanceComponent CreateRightArm()
+        public static BodyPart CreateRightArm()
         {
-            return new SubstanceComponent()
+            return new BodyPart()
             {
                 Name = "RightArm",
                 Essential = false,
@@ -103,9 +103,9 @@ namespace ObjectScripts.ComponentScripts
             };
         }
 
-        public static SubstanceComponent CreateRightHand()
+        public static BodyPart CreateRightHand()
         {
-            return new SubstanceComponent()
+            return new BodyPart()
             {
                 Name = "RightHand",
                 Essential = false,
@@ -115,9 +115,9 @@ namespace ObjectScripts.ComponentScripts
             };
         }
         
-        public static SubstanceComponent CreateLeftLeg()
+        public static BodyPart CreateLeftLeg()
         {
-            return new SubstanceComponent()
+            return new BodyPart()
             {
                 Name = "LeftLeg",
                 Essential = false,
@@ -127,9 +127,9 @@ namespace ObjectScripts.ComponentScripts
             };
         }
 
-        public static SubstanceComponent CreateLeftFoot()
+        public static BodyPart CreateLeftFoot()
         {
-            return new SubstanceComponent()
+            return new BodyPart()
             {
                 Name = "LeftFoot",
                 Essential = false,
@@ -139,9 +139,9 @@ namespace ObjectScripts.ComponentScripts
             };
         }
 
-        public static SubstanceComponent CreateRightLeg()
+        public static BodyPart CreateRightLeg()
         {
-            return new SubstanceComponent()
+            return new BodyPart()
             {
                 Name = "RightLeg",
                 Essential = false,
@@ -151,9 +151,9 @@ namespace ObjectScripts.ComponentScripts
             };
         }
 
-        public static SubstanceComponent CreateRightFoot()
+        public static BodyPart CreateRightFoot()
         {
-            return new SubstanceComponent()
+            return new BodyPart()
             {
                 Name = "RightFoot",
                 Essential = false,

@@ -1,33 +1,50 @@
 using System.Collections.Generic;
-using System.Linq;
 using AreaScripts;
-using Boo.Lang;
 using ExceptionScripts;
-using ObjectScripts.ComponentScripts;
+using UnityEditor;
 using UnityEngine;
 using UtilScripts;
+using BodyPart = ObjectScripts.BodyPartScripts.BodyPart;
 
 namespace ObjectScripts
 {
+//    [CustomEditor(typeof(Substance))]
+//    public class SubstanceEditor : Editor
+//    {
+//        public override void OnInspectorGUI()
+//        {
+//            base.OnInspectorGUI();
+//            var substance = (Substance) target;
+//            foreach (var part in substance.BodyParts.Values)
+//            {
+//                part.Defence = EditorGUILayout.IntField("Defense", part.Defence);
+//               
+//            }
+//        }
+//    }
     public class Substance : BaseObject
     {
+        [HideInInspector]
         public Vector2 WorldPos;
+        [HideInInspector]
         public Vector2Int WorldCoord;
+        
         public ContactFilter2D ContactFilter;
 
-        public Dictionary<string, SubstanceComponent> Components = new Dictionary<string, SubstanceComponent>();
+        public SortedList<string, BodyPart> BodyParts = new SortedList<string, BodyPart>();
 
+        [HideInInspector]
         public bool IsDestroy = false;
 
         // Component Key represent the place of this component
-        public virtual void Attacked(int damage, string componentKey, float defenceRatio = 1f)
+        public virtual void Attacked(int damage, string partKey, float defenceRatio = 1f)
         {
-            if (!Components.ContainsKey(componentKey))
+            if (!BodyParts.ContainsKey(partKey))
             {
                 return;
             }
 
-            if (!Components[componentKey].Damage(damage, defenceRatio))
+            if (!BodyParts[partKey].Damage(damage, defenceRatio))
                 return;
 
             IsDestroy = true;

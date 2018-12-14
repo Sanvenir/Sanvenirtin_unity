@@ -1,10 +1,10 @@
-using System;
 using UnityEngine;
 using UtilScripts;
 
-namespace ObjectScripts.ComponentScripts
+namespace ObjectScripts.BodyPartScripts
 {
-    public class SubstanceComponent
+    [SerializeField]
+    public class BodyPart
     {
         public string Name;
         public LimitValue Durability = new LimitValue(100);
@@ -19,13 +19,13 @@ namespace ObjectScripts.ComponentScripts
             if (Durability.Value > 0) return false;
             if (Essential) return true;   
             Available = false;
-            if (AttachSubstanceComponent == null) return false;
-            AttachSubstanceComponent.Damage(AttachSubstanceComponent.Durability.MaxValue, 0);
+            if (AttachBodyPart == null) return false;
+            AttachBodyPart.Damage(AttachBodyPart.Durability.MaxValue, 0);
             return false;
         }
 
         // If current components destroyed, attached component destroyed too
-        public SubstanceComponent AttachSubstanceComponent = null;
+        public BodyPart AttachBodyPart = null;
         
         // If essential is true, substance destroyed after the component destroyed
         public bool Essential;
