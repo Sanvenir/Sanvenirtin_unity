@@ -17,6 +17,9 @@ namespace ObjectScripts.CharacterController
         [HideInInspector]
         public Character Character;
 
+        private int _recoveredTime = 0;
+        private int _metabolismTime = 0;
+
         protected virtual void Awake()
         {
             Character = gameObject.GetComponent<Character>();
@@ -31,6 +34,23 @@ namespace ObjectScripts.CharacterController
         {
             Character.RefreshProperties();
             if (Character.Dead) return;
+            if (_recoveredTime < SceneManager.Instance.CurrentTime)
+            {
+                _recoveredTime += Character.GetReactTime();
+                Character.Recovering();
+            }
+
+            if (_metabolismTime < SceneManager.Instance.CurrentTime)
+            {
+                _metabolismTime += 10000 / Character.Metabolism;
+                Character.Hunger++;
+                if (Character.Health > 0)
+                {
+                    Character.Health--;
+                }
+            }
+            
+            
             if (!Character.IsTurn()) return;
             UpdateFunction();
         }

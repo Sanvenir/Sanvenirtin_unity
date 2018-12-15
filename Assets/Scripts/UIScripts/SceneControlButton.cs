@@ -22,6 +22,7 @@ namespace UIScripts
         [HideInInspector] public PlayerController PlayerController;
 
         public bool CameraFollowPlayer = true;
+        private Collider2D _hit;
 
         protected override void Awake()
         {
@@ -37,92 +38,39 @@ namespace UIScripts
             PlayerController = SceneManager.Instance.Player.GetComponent<PlayerController>();
         }
 
-        public override void OnPointerDown(PointerEventData eventData)
+        public override void OnPointerEnter(PointerEventData eventData)
         {
-            base.OnPointerClick(eventData);
-            var worldCoord = SceneManager.Instance.WorldPosToCoord(
-                SceneCursor.transform.position);
-            var direction = Utils.VectorToDirection(worldCoord - Player.WorldCoord);
-            switch (eventData.button)
-            {
-                case PointerEventData.InputButton.Left:
-                    CameraFollowPlayer = false;
-                    break;
-                case PointerEventData.InputButton.Right:
-                    var orderList = new List<BaseOrder>
-                    {
-                        new RestOrder("Rest", null, direction, worldCoord)
-                    };
-                    if (direction != Direction.None)
-                    {
-                        orderList.Add(
-                            new AttackDirectionOrder("Attack", null, direction, worldCoord));
-
-                        orderList.Add(
-                            new WalkToOrder("Walk To", null, direction, worldCoord));
-                    }
-
-                    var hit = Physics2D.OverlapPoint(SceneCursor.transform.position);
-                    if (hit == null) return;
-                    var targetCharacter = hit.GetComponent<Character>();
-                    if (targetCharacter != null && targetCharacter != Player)
-                    {
-                    }
-
-                    ActionMenu.StartUp(worldCoord, orderList);
-                    break;
-            }
+            base.OnPointerEnter(eventData);
+            SceneCursor.enabled = true;
         }
 
-        public override void OnPointerUp(PointerEventData eventData)
+        public override void OnPointerExit(PointerEventData eventData)
         {
-            base.OnPointerUp(eventData);
-            if (!ActionMenu.enabled) return;
-            var order = ActionMenu.EndUp();
-            PlayerController.CurrentOrder = order;
-        }
-//
-//        public override void OnPointerEnter(PointerEventData eventData)
-//        {
-//            base.OnPointerEnter(eventData);
-//            SceneCursor.enabled = true;
-//        }
-//
-//        public override void OnPointerExit(PointerEventData eventData)
-//        {
-//            base.OnPointerExit(eventData);
-//            SceneCursor.enabled = false;
-//        }
-
-        private void FixedUpdate()
-        {
-            if (Input.GetMouseButton(1)) return;
-            if (Input.GetMouseButton(0) && !CameraFollowPlayer)
+            base.OnPointerExit(eventData);
+            if (Input.GetMouseButton(0) || Input.GetMouseButton(1))
             {
-                _cursorTargetPos.x += Input.GetAxis("Mouse X") * 2;
-                _cursorTargetPos.y += Input.GetAxis("Mouse Y") * 2;
+                return;
             }
-            else
+
+            SceneCursor.enabled = false;
+        }
+
+        private void Update()
+        {
+            // If SceneCursor is disabled, do not update it
+            if (!SceneCursor.enabled)
             {
                 CameraFollowPlayer = true;
-                var mousePos = SceneManager.Instance.MainCamera
-                    .ScreenToWorldPoint(Input.mousePosition);
-                _cursorTargetPos = mousePos;
-            }
-//
-//            _cursorTargetPos.x = Mathf.Min(
-//                Player.transform.position.x + EarthMapManager.LocalWidth, _cursorTargetPos.x);
-//            _cursorTargetPos.x = Mathf.Max(
-//                Player.transform.position.x - EarthMapManager.LocalWidth, _cursorTargetPos.x);
-//            _cursorTargetPos.y = Mathf.Min(
-//                Player.transform.position.y + EarthMapManager.LocalHeight, _cursorTargetPos.y);
-//            _cursorTargetPos.y = Mathf.Max(
-//                Player.transform.position.y - EarthMapManager.LocalHeight, _cursorTargetPos.y);
-//            
+                if (!ActionMenu.enabled) return;
+                ActionMenu.EndUp();
+                return;
+            }           
+            
             SceneCursor.transform.position =
                 Utils.Vector2To3(SceneCursor.transform.position * 0.5f) +
                 SceneManager.Instance.NormalizeWorldPos(_cursorTargetPos) * 0.5f;
 
+            // Soft move the camera according to Scene Cursor or Player
             if (CameraFollowPlayer)
             {
                 SceneManager.Instance.CameraPos.transform.position =
@@ -136,11 +84,72 @@ namespace UIScripts
                     SceneCursor.transform.position * 0.1f;
             }
 
-            var hit = Physics2D.OverlapPoint(SceneCursor.transform.position);
-            if (hit != null)
+            // If a collider is chosen, highlight it; 
+            _hit = Physics2D.OverlapPoint(SceneCursor.transform.position);
+            
+            if (_hit != null)
             {
                 // TODO: Add Bloom Effect
             }
+            
+            // Control
+            
+            // If Right Mouse Button Holding, Scene Cursor no longer be updated
+            if (!Input.GetMouseButton(1))
+            {
+                // Soft move the Scene Cursor
+                // Left Mouse Button Holding, Camera following the cursor
+                // Else Camera following the player
+                if (Input.GetMouseButton(0))
+                {
+                    CameraFollowPlayer = false;
+                    _cursorTargetPos.x += Input.GetAxis("Mouse X") * 2;
+                    _cursorTargetPos.y += Input.GetAxis("Mouse Y") * 2;
+                }
+                else
+                {
+                    CameraFollowPlayer = true;
+                    var mousePos = SceneManager.Instance.MainCamera
+                        .ScreenToWorldPoint(Input.mousePosition);
+                    _cursorTargetPos = mousePos;
+                }
+            }
+
+            // Right Mouse Button Down, Show the order list
+            if (Input.GetMouseButtonDown(1))
+            {
+                var worldCoord = SceneManager.Instance.WorldPosToCoord(
+                    SceneCursor.transform.position);
+                var direction = Utils.VectorToDirection(worldCoord - Player.WorldCoord);
+                
+                var orderList = new List<BaseOrder>
+                {
+                    new RestOrder("Rest", null, direction, worldCoord)
+                };
+                if (direction != Direction.None)
+                {
+                    orderList.Insert(
+                        0, new WalkToOrder("Walk To", null, direction, worldCoord));
+                    orderList.Add(
+                        new AttackDirectionOrder("Attack", null, direction, worldCoord));
+                }
+                if (_hit == null) return;
+                var targetCharacter = _hit.GetComponent<Character>();
+                if (targetCharacter != null && targetCharacter != Player)
+                {
+                }
+
+                ActionMenu.StartUp(worldCoord, orderList);
+                return;
+            }
+
+            // Right Mouse Button Up, return the chosen order
+            if (Input.GetMouseButton(1)) return;
+            if (!ActionMenu.enabled) return;
+            var order = ActionMenu.EndUp();
+            PlayerController.CurrentOrder = order;
+ 
+
         }
     }
 }

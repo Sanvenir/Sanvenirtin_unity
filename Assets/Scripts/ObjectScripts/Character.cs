@@ -189,5 +189,22 @@ namespace ObjectScripts
         {
             return Strength;
         }
+
+        public virtual float GetBaseRecover()
+        {
+            return Metabolism / 1000f;
+        }
+        
+        public virtual int GetEndureRecover()
+        {
+            return Mathf.Min((int) (GetMaxEndure() * GetBaseRecover()), Endure);
+        }
+        
+        public virtual void Recovering()
+        {
+            var endureRec = GetEndureRecover();
+            Hunger += endureRec / 100;
+            Endure -= endureRec;
+        }
     }
 }

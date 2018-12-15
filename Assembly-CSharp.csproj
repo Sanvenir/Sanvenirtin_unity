@@ -94,6 +94,7 @@
     <Compile Include="Assets\Scripts\SceneManager.cs" />
     <Compile Include="Assets\Scripts\UIScripts\ActionButton.cs" />
     <Compile Include="Assets\Scripts\UIScripts\ActionMenu.cs" />
+    <Compile Include="Assets\Scripts\UIScripts\PropertyPanel.cs" />
     <Compile Include="Assets\Scripts\UIScripts\SceneControlButton.cs" />
     <Compile Include="Assets\Scripts\UtilScripts\Direction.cs" />
     <Compile Include="Assets\Scripts\UtilScripts\EarthMapCoord.cs" />
@@ -110,6 +111,9 @@
     <Compile Include="Assets\Tilemap\Tiles\Weighted Random Tile\WeightedRandomTile.cs" />
     <None Include="Assets\Tilemap\Tiles\Rule Tile\ScriptTemplates\NewCustomRuleTile.cs.txt" />
     <None Include="Assets\Tilemap\Brushes\Tint Brush Smooth\Shaders\TintedTilemap.shader" />
+    <Reference Include="Cinemachine">
+      <HintPath>C:/Users/Sanvenir/Sanvenirtin/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/Sanvenir/Sanvenirtin/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
@@ -119,14 +123,11 @@
     <Reference Include="Unity.PackageManagerUI.Editor">
       <HintPath>C:/Users/Sanvenir/Sanvenirtin/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/Sanvenir/Sanvenirtin/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
-    </Reference>
-    <Reference Include="Cinemachine">
-      <HintPath>C:/Users/Sanvenir/Sanvenirtin/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
-    </Reference>
     <Reference Include="com.unity.cinemachine.editor">
       <HintPath>C:/Users/Sanvenir/Sanvenirtin/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>C:/Users/Sanvenir/Sanvenirtin/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>E:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

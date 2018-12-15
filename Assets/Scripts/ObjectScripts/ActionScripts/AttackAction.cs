@@ -22,6 +22,7 @@ namespace ObjectScripts.ActionScripts
         {
             CostTime = Self.GetActTime();
             Self.ActivateTime += CostTime;
+            Self.Endure += Self.GetBaseAttack();
             check = !check || CheckAction();
             Self.AttackMovement(TargetDirection, CostTime);
             if (!check)

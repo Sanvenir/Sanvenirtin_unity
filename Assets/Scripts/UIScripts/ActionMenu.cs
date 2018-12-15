@@ -13,21 +13,21 @@ namespace UIScripts
     {
         
         // Setting
-        [Range(0.01f, 0.1f)]
+        [Range(0.01f, 10f)]
         public float ChangeAccuracy = 0.1f;
         
         public ActionButton ButtonPrefab;
         public Canvas MenuCanvas;
         
         [HideInInspector]
-        public List<ActionButton> ButtonInstances;
+        public List<ActionButton> ButtonInstances = new List<ActionButton>();
         
         [HideInInspector]
         public int CenterIndex;
         public BaseOrder CurrentOrder;
-
-        [HideInInspector]
-        public Vector2 PrevMousePos;
+        
+        private float _mouseY;
+        
         [HideInInspector]
         public Vector2 CenterPos;
 
@@ -38,9 +38,8 @@ namespace UIScripts
         {
             enabled = true;
             CenterPos = pos;
-            PrevMousePos = Input.mousePosition;
+            _mouseY = 0f;
             CenterIndex = 0;
-            ButtonInstances = new List<ActionButton>();
             foreach (var order in orderList)
             {
                 var instance = Instantiate(ButtonPrefab, transform);
@@ -61,6 +60,7 @@ namespace UIScripts
             {
                 Destroy(button.gameObject);
             }
+            ButtonInstances = new List<ActionButton>();
             return CurrentOrder;
         }
         
@@ -68,12 +68,13 @@ namespace UIScripts
         {
             for (_index = 0; _index != ButtonInstances.Count; ++_index)
             {
-                ButtonInstances[_index].TargetPos = CenterPos + Vector2.up * (CenterIndex - _index) * 2.0f;
+                ButtonInstances[_index].TargetPos = CenterPos + Vector2.up * (CenterIndex - _index);
                 ButtonInstances[_index].TargetAlpha = 1.0f;
                 ButtonInstances[_index].TargetScale = _index == CenterIndex ? 1.0f : 0.8f;
             }
 
-            CenterIndex = Utils.FloatToInt((PrevMousePos.y - Input.mousePosition.y) * ChangeAccuracy);
+            _mouseY -= Input.GetAxis("Mouse Y");
+            CenterIndex = Utils.FloatToInt(_mouseY * ChangeAccuracy);
             if (CenterIndex >= ButtonInstances.Count)
             {
                 CenterIndex = ButtonInstances.Count - 1;
