@@ -78,10 +78,12 @@ namespace UIScripts
             if (CenterIndex >= ButtonInstances.Count)
             {
                 CenterIndex = ButtonInstances.Count - 1;
+                _mouseY = Mathf.Min(_mouseY, CenterIndex / ChangeAccuracy + 1);
             }
-            if (CenterIndex < -1)
+            else if (CenterIndex < -1)
             {
                 CenterIndex = -1;
+                _mouseY = Mathf.Max(_mouseY, -1 / ChangeAccuracy - 1);
             }
             CurrentOrder = CenterIndex >= 0 ? ButtonInstances[CenterIndex].Order : null;
         }

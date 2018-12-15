@@ -18,6 +18,10 @@ namespace ObjectScripts
         {
             base.Initialize(worldCoord, areaIdentity);
             HumanBodyPart.CreateHumanBodyPart(this);
+            foreach (var part in GetAllBodyParts())
+            {
+                BodyParts.Add(part.Name, part);
+            }
         }
     }
 }

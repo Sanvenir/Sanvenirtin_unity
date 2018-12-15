@@ -11,22 +11,9 @@ using BodyPart = ObjectScripts.BodyPartScripts.BodyPart;
 
 namespace ObjectScripts
 {
-//    [CustomEditor(typeof(Substance))]
-//    public class SubstanceEditor : Editor
-//    {
-//        public override void OnInspectorGUI()
-//        {
-//            base.OnInspectorGUI();
-//            var substance = (Substance) target;
-//            foreach (var part in substance.BodyParts.Values)
-//            {
-//                part.Defence = EditorGUILayout.IntField("Defense", part.Defence);
-//               
-//            }
-//        }
-//    }
     public class Substance : BaseObject
     {
+
         [HideInInspector] public Vector2 WorldPos;
         [HideInInspector] public Vector2Int WorldCoord;
 
@@ -37,6 +24,7 @@ namespace ObjectScripts
         public List<BodyPart> HighParts = new List<BodyPart>();
         public List<BodyPart> MiddleParts = new List<BodyPart>();
         public List<BodyPart> LowParts = new List<BodyPart>();
+        public Dictionary<string, BodyPart> BodyParts = new Dictionary<string, BodyPart>();
 
         [HideInInspector] public bool IsDestroy = false;
 
