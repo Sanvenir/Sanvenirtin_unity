@@ -4,6 +4,42 @@ namespace ObjectScripts.BodyPartScripts
 {
     public static class HumanBodyPart
     {
+        public static void CreateHumanBodyPart(Human human)
+        {
+            var head = CreateHead();
+            var neck = CreateNeck();
+            var chest = CreateChest();
+            var waist = CreateWaist();
+            var crotch = CreateCrotch();
+            var leftArm = CreateLeftArm();
+            var leftHand = CreateLeftHand();
+            var rightArm = CreateRightArm();
+            var rightHand = CreateRightHand();
+            var leftLeg = CreateLeftLeg();
+            var leftFoot = CreateLeftFoot();
+            var rightLeg = CreateRightLeg();
+            var rightFoot = CreateRightFoot();
+
+            leftArm.AttachBodyPart = leftHand;
+            rightArm.AttachBodyPart = rightHand;
+            leftLeg.AttachBodyPart = leftFoot;
+            rightLeg.AttachBodyPart = rightFoot;
+
+            human.HighParts.Add(head);
+            human.HighParts.Add(neck);
+            human.HighParts.Add(chest);
+            human.MiddleParts.Add(waist);
+            human.MiddleParts.Add(crotch);
+            human.MiddleParts.Add(leftArm);
+            human.MiddleParts.Add(leftHand);
+            human.MiddleParts.Add(rightArm);
+            human.MiddleParts.Add(rightHand);
+            human.LowParts.Add(leftLeg);
+            human.LowParts.Add(leftFoot);
+            human.LowParts.Add(rightLeg);
+            human.LowParts.Add(rightFoot);
+
+        }
         public static BodyPart CreateHead()
         {
             return new BodyPart

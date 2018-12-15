@@ -1,4 +1,5 @@
 using System;
+using ObjectScripts.BodyPartScripts;
 using ObjectScripts.SpriteController;
 using UnityEngine;
 using UtilScripts;
@@ -9,10 +10,8 @@ namespace ObjectScripts.ActionScripts
     public class AttackAction: BaseAction
     {
         public Character Target;
-        public string[] AttackPartList = new []
-        {
-            "Top", "TopLow", "Center"
-        };
+
+        public PartPos AttackPart = PartPos.High;
         
         public AttackAction(Character self) : base(self)
         {
@@ -31,10 +30,11 @@ namespace ObjectScripts.ActionScripts
                 return;
             }
 
-            var part = AttackPartList[Utils.ProcessRandom.Next(AttackPartList.Length)];
+            var part = Utils.ProcessRandom.Next(Target.GetBodyParts(AttackPart).Count);
             SceneManager.Instance.Print(
-                Self.Name + " attacked " + Target.Name + " on " + Self.BodyParts[part].Name);
-            Target.Attacked(Self.GetBaseAttack(), part);
+                Self.Name + " attacked " + Target.Name + " on " + 
+                Target.GetBodyParts(AttackPart)[part].Name);
+            Target.Attacked(Self.GetBaseAttack(), Target.GetBodyParts(AttackPart)[part]);
             if (Self.AttackActionEffect == null) return;
             var instance = Object.Instantiate(
                 Self.AttackActionEffect, 

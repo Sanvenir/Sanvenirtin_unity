@@ -75,6 +75,7 @@
     <Compile Include="Assets\Scripts\ObjectScripts\BaseObject.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\BodyPartScripts\BodyPart.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\BodyPartScripts\HumanBodyPart.cs" />
+    <Compile Include="Assets\Scripts\ObjectScripts\BodyPartScripts\PartPos.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\Character.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\CharacterController\AiController.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\CharacterController\CharacterController.cs" />

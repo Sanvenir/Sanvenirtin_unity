@@ -37,6 +37,7 @@
             <e p="BodyPartScripts" t="Include">
               <e p="BodyPart.cs" t="Include" />
               <e p="HumanBodyPart.cs" t="Include" />
+              <e p="PartPos.cs" t="Include" />
             </e>
             <e p="Character.cs" t="Include" />
             <e p="CharacterController" t="Include">

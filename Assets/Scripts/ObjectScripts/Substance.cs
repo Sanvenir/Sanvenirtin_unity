@@ -1,6 +1,9 @@
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using AreaScripts;
 using ExceptionScripts;
+using ObjectScripts.BodyPartScripts;
 using UnityEditor;
 using UnityEngine;
 using UtilScripts;
@@ -24,34 +27,70 @@ namespace ObjectScripts
 //    }
     public class Substance : BaseObject
     {
-        [HideInInspector]
-        public Vector2 WorldPos;
-        [HideInInspector]
-        public Vector2Int WorldCoord;
-        
+        [HideInInspector] public Vector2 WorldPos;
+        [HideInInspector] public Vector2Int WorldCoord;
+
         public ContactFilter2D ContactFilter;
 
-        public SortedList<string, BodyPart> BodyParts = new SortedList<string, BodyPart>();
+        // public SortedList<string, BodyPart> BodyParts = new SortedList<string, BodyPart>();
+        public List<BodyPart> MidairParts = new List<BodyPart>();
+        public List<BodyPart> HighParts = new List<BodyPart>();
+        public List<BodyPart> MiddleParts = new List<BodyPart>();
+        public List<BodyPart> LowParts = new List<BodyPart>();
 
-        [HideInInspector]
-        public bool IsDestroy = false;
+        [HideInInspector] public bool IsDestroy = false;
 
-        // Component Key represent the place of this component
-        public virtual void Attacked(int damage, string partKey, float defenceRatio = 1f)
+        public virtual void Attacked(int damage, BodyPart bodyPart, float defenceRatio = 1f)
         {
-            if (!BodyParts.ContainsKey(partKey))
-            {
+            if (bodyPart == null)
                 return;
-            }
-
-            if (!BodyParts[partKey].Damage(damage, defenceRatio))
+            if (!bodyPart.Damage(damage, defenceRatio))
                 return;
-
             IsDestroy = true;
         }
 
         // Read Only
         public int AreaIdentity;
+
+        public IEnumerable<BodyPart> GetAllBodyParts()
+        {
+            foreach (var part in MidairParts)
+            {
+                yield return part;
+            }
+
+            foreach (var part in HighParts)
+            {
+                yield return part;
+            }
+
+            foreach (var part in MiddleParts)
+            {
+                yield return part;
+            }
+
+            foreach (var part in LowParts)
+            {
+                yield return part;
+            }
+        }
+
+        public List<BodyPart> GetBodyParts(PartPos partPos)
+        {
+            switch (partPos)
+            {
+                case PartPos.Midair:
+                    return MidairParts;
+                case PartPos.High:
+                    return HighParts;
+                case PartPos.Middle:
+                    return MiddleParts;
+                case PartPos.Low:
+                    return LowParts;
+                default:
+                    throw new ArgumentOutOfRangeException("partPos", partPos, null);
+            }
+        }
 
         public virtual void Initialize(Vector2Int worldCoord, int areaIdentity)
         {

@@ -1,7 +1,10 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using AreaScripts;
 using ObjectScripts.ActionScripts;
+using ObjectScripts.BodyPartScripts;
 using ObjectScripts.SpriteController;
 using UnityEngine;
 using UtilScripts;
@@ -16,9 +19,9 @@ namespace ObjectScripts
             return SceneManager.Instance.CurrentTime >= ActivateTime;
         }
 
-        public override void Attacked(int damage, string partKey, float defenceRatio = 1)
+        public override void Attacked(int damage, BodyPart bodyPart, float defenceRatio = 1)
         {
-            base.Attacked(damage, partKey, defenceRatio);
+            base.Attacked(damage, bodyPart, defenceRatio);
             Health += damage;
         }
 
@@ -85,10 +88,9 @@ namespace ObjectScripts
             _moveRatio = Mathf.Max(1, (int) (10 * Mathf.Log(Speed, 10 + MoveSpeed)));
             if (Dead && IsTurn())
             {
-                foreach (var key in BodyParts.Keys)
+                foreach (var part in GetAllBodyParts())
                 {
-                    // Roting
-                    Attacked(1, key, 0);
+                    Attacked(1, part, 0);
                 }
 
                 ActivateTime += 1000;
