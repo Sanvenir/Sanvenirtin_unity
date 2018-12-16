@@ -48,7 +48,7 @@ namespace ObjectScripts.BodyPartScripts
                 Essential = true, 
                 Size = 3,
                 Defence = 10,
-                Durability = new LimitValue(1000)
+                Durability = new LimitValue(10000)
             };
         }
 
@@ -60,7 +60,7 @@ namespace ObjectScripts.BodyPartScripts
                 Essential = true,
                 Size = 1,
                 Defence = 0,
-                Durability = new LimitValue(200)
+                Durability = new LimitValue(2000)
             };
         }
 
@@ -72,7 +72,7 @@ namespace ObjectScripts.BodyPartScripts
                 Essential = true,
                 Size = 10,
                 Defence = 10,
-                Durability = new LimitValue(2000)
+                Durability = new LimitValue(20000)
             };
         }
         
@@ -85,7 +85,7 @@ namespace ObjectScripts.BodyPartScripts
                 Essential = true,
                 Size = 5,
                 Defence = 5,
-                Durability = new LimitValue(1000)
+                Durability = new LimitValue(10000)
             };
         }
         
@@ -98,7 +98,7 @@ namespace ObjectScripts.BodyPartScripts
                 Essential = true,
                 Size = 10,
                 Defence = 5,
-                Durability = new LimitValue(2000)
+                Durability = new LimitValue(20000)
             };
         }
         
@@ -111,7 +111,7 @@ namespace ObjectScripts.BodyPartScripts
                 Essential = false,
                 Size = 3,
                 Defence = 10,
-                Durability = new LimitValue(500)
+                Durability = new LimitValue(5000)
             };
         }
 
@@ -123,7 +123,7 @@ namespace ObjectScripts.BodyPartScripts
                 Essential = false,
                 Size = 1,
                 Defence = 10,
-                Durability = new LimitValue(200)
+                Durability = new LimitValue(2000)
             };
         }
 
@@ -135,7 +135,7 @@ namespace ObjectScripts.BodyPartScripts
                 Essential = false,
                 Size = 3,
                 Defence = 10,
-                Durability = new LimitValue(500)
+                Durability = new LimitValue(5000)
             };
         }
 

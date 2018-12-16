@@ -7,15 +7,15 @@ namespace ObjectScripts.BodyPartScripts
     public class BodyPart
     {
         public string Name;
-        public LimitValue Durability = new LimitValue(100);
+        public LimitValue Durability = new LimitValue(1000);
         public int Size = 10;
-        public int Defence = 10;
+        public float Defence = 10;
         public bool Available = true;
         
         // Return: Whether the object should be destroyed
-        public bool Damage(int damage, float defenceRatio = 1f)
+        public bool Damage(float damage, float defenceRatio = 1f)
         {
-            Durability.Value -= Mathf.Max(0, damage - (int)(Defence * defenceRatio));
+            Durability.Value -= Mathf.Max(0f, damage - (Defence * defenceRatio));
             if (Durability.Value > 0) return false;
             if (Essential) return true;   
             Available = false;

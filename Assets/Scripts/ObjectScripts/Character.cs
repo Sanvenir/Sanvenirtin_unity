@@ -13,13 +13,14 @@ namespace ObjectScripts
 {
     public abstract class Character : Substance
     {
+        public CharacterController.CharacterController Controller;
 
         public bool IsTurn()
         {
             return SceneManager.Instance.CurrentTime >= ActivateTime;
         }
 
-        public override void Attacked(int damage, BodyPart bodyPart, float defenceRatio = 1)
+        public override void Attacked(float damage, BodyPart bodyPart, float defenceRatio = 1)
         {
             base.Attacked(damage, bodyPart, defenceRatio);
             Health += damage;
@@ -109,6 +110,7 @@ namespace ObjectScripts
             base.Initialize(worldCoord, areaIdentity);
             ActivateTime = SceneManager.Instance.CurrentTime;
             RefreshProperties();
+            Controller = GetComponent<CharacterController.CharacterController>();
         }
 
         public int ActivateTime;
@@ -116,24 +118,24 @@ namespace ObjectScripts
         
         // Properties
         public bool Dead = false;
-        public int Health = 0;
-        public int Sanity = 0;
-        public int Endure = 0;
-        public int Hunger = 0;
-        public int Marady = 0;  // Similar to Mana
+        public float Health = 0;
+        public float Sanity = 0;
+        public float Endure = 0;
+        public float Hunger = 0;
+        public float Marady = 0;  // Similar to Mana
 
-        public int Speed = 20;
-        public int MoveSpeed = 20;
-        public int ActSpeed = 20;
+        public float Speed = 100;
+        public float MoveSpeed = 100;
+        public float ActSpeed = 100;
 
-        public int Strength = 20;
-        public int Dexterity = 20;
-        public int Constitution = 20;
-        public int Metabolism = 20;
+        public float Strength = 100;
+        public float Dexterity = 100;
+        public float Constitution = 100;
+        public float Metabolism = 100;
 
-        public int WillPower = 20;
-        public int Intelligence = 20;
-        public int Perception = 20;
+        public float WillPower = 100;
+        public float Intelligence = 100;
+        public float Perception = 100;
 
         // Get Methods
         private int _reactTime;
@@ -167,45 +169,45 @@ namespace ObjectScripts
             return GetActRatio() * GetReactTime();
         }
 
-        public virtual int GetMaxHealth()
+        public virtual float GetMaxHealth()
         {
             return Constitution * 10;
         }
 
-        public virtual int GetMaxSanity()
+        public virtual float GetMaxSanity()
         {
             return WillPower * 10;
         }
 
-        public virtual int GetMaxEndure()
+        public virtual float GetMaxEndure()
         {
             return Constitution * 10;
         }
 
-        public virtual int GetMaxHunger()
+        public virtual float GetMaxHunger()
         {
             return 200;
         }
 
-        public virtual int GetBaseAttack()
+        public virtual float GetBaseAttack()
         {
             return Strength;
         }
 
         public virtual float GetBaseRecover()
         {
-            return Metabolism / 1000f;
+            return Metabolism / 100000f;
         }
         
-        public virtual int GetEndureRecover()
+        public virtual float GetEndureRecover()
         {
-            return Mathf.Min((int) (GetMaxEndure() * GetBaseRecover()), Endure);
+            return Mathf.Min((GetMaxEndure() * GetBaseRecover()), Endure);
         }
         
         public virtual void Recovering()
         {
             var endureRec = GetEndureRecover();
-            Hunger += endureRec / 100;
+            Hunger += endureRec / 100f;
             Endure -= endureRec;
         }
     }

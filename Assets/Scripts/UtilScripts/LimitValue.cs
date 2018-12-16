@@ -5,11 +5,11 @@ namespace UtilScripts
     [Serializable]
     public struct LimitValue
     {
-        public int MaxValue;
+        public float MaxValue;
 
-        private int _value;
+        private float _value;
 
-        public int Value
+        public float Value
         {
             set { _value = value > MaxValue ? MaxValue : value; }
             get { return _value; }

@@ -35,6 +35,10 @@ namespace ObjectScripts.ActionScripts
                 Self.Name + " attacked " + Target.Name + " on " + 
                 Target.GetBodyParts(AttackPart)[part].Name);
             Target.Attacked(Self.GetBaseAttack(), Target.GetBodyParts(AttackPart)[part]);
+            
+            // Affect target AIController
+            Target.Controller.GetHostility(Self, 10);
+            
             if (Self.AttackActionEffect == null) return;
             var instance = Object.Instantiate(
                 Self.AttackActionEffect, 

@@ -9,6 +9,7 @@ namespace ObjectScripts.CharacterController
     {
         public BaseAction NextAction;
         public BaseOrder CurrentOrder;
+        
         [HideInInspector]
         public Vector2Int TargetCoord;
         [HideInInspector]
@@ -98,8 +99,6 @@ namespace ObjectScripts.CharacterController
             if (CurrentOrder == null) return;
             CurrentOrder = CurrentOrder.DoOrder();
         }
-        
-        
 
         public override void UpdateFunction()
         {

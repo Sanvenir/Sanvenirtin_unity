@@ -42,7 +42,7 @@ namespace ObjectScripts.CharacterController
 
             if (_metabolismTime < SceneManager.Instance.CurrentTime)
             {
-                _metabolismTime += 10000 / Character.Metabolism;
+                _metabolismTime += 1000000 / (int)Character.Metabolism;
                 Character.Hunger++;
                 if (Character.Health > 0)
                 {
@@ -53,6 +53,11 @@ namespace ObjectScripts.CharacterController
             
             if (!Character.IsTurn()) return;
             UpdateFunction();
+        }
+
+        public virtual void GetHostility(Character hostility, int level)
+        {
+            
         }
 
 

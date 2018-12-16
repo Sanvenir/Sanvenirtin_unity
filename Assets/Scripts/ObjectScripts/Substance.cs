@@ -28,7 +28,7 @@ namespace ObjectScripts
 
         [HideInInspector] public bool IsDestroy = false;
 
-        public virtual void Attacked(int damage, BodyPart bodyPart, float defenceRatio = 1f)
+        public virtual void Attacked(float damage, BodyPart bodyPart, float defenceRatio = 1f)
         {
             if (bodyPart == null)
                 return;

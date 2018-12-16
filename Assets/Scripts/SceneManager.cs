@@ -44,6 +44,7 @@ public class SceneManager : MonoBehaviour
 	// UI Objects
 	public Camera MainCamera;
 	public GameObject CameraPos;
+	public Collider2D SceneCollider;
 	public Text GameLogger;
 	
 	// Script Objects
@@ -216,7 +217,7 @@ public class SceneManager : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		if (PlayerObject.IsTurn()) return;
+		if (PlayerObject != null && PlayerObject.IsTurn()) return;
 		CurrentTime += GetUpdateTime();
 	}
 

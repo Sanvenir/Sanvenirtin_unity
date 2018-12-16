@@ -16,8 +16,9 @@ namespace UIScripts
     {
         public ActionMenu ActionMenu;
         public SpriteRenderer SceneCursor;
-        private Vector3 _cursorTargetPos;
+        public GameObject GameCursor;
 
+        private Vector3 _cursorTargetPos;
         [HideInInspector] public Character Player;
         [HideInInspector] public PlayerController PlayerController;
 
@@ -29,6 +30,7 @@ namespace UIScripts
             base.Awake();
             ActionMenu = GetComponent<ActionMenu>();
             SceneCursor = GetComponentInChildren<SpriteRenderer>();
+            GameCursor = GameManager.Instance.GameCursor;
         }
 
         protected override void Start()
@@ -57,21 +59,13 @@ namespace UIScripts
 
         private void Update()
         {
-            // If SceneCursor is disabled, do not update it
-            if (!SceneCursor.enabled)
+            if (Player != null)
             {
-                CameraFollowPlayer = true;
-                if (!ActionMenu.enabled) return;
-                ActionMenu.EndUp();
-                return;
-            }           
-            
-            SceneCursor.transform.position =
-                Utils.Vector2To3(SceneCursor.transform.position * 0.5f) +
-                SceneManager.Instance.NormalizeWorldPos(_cursorTargetPos) * 0.5f;
+                SceneManager.Instance.SceneCollider.transform.position = Player.transform.position;
+            }
 
             // Soft move the camera according to Scene Cursor or Player
-            if (CameraFollowPlayer)
+            if (CameraFollowPlayer && Player != null)
             {
                 SceneManager.Instance.CameraPos.transform.position =
                     SceneManager.Instance.CameraPos.transform.position * 0.9f +
@@ -83,6 +77,22 @@ namespace UIScripts
                     SceneManager.Instance.CameraPos.transform.position * 0.9f +
                     SceneCursor.transform.position * 0.1f;
             }
+                        
+            // If SceneCursor is disabled, do not update it
+            if (!SceneCursor.enabled)
+            {
+                GameCursor.SetActive(true);
+                CameraFollowPlayer = true;
+                if (!ActionMenu.enabled) return;
+                ActionMenu.EndUp();
+                return;
+            }
+
+            GameCursor.SetActive(false);
+            
+            SceneCursor.transform.position =
+                Utils.Vector2To3(SceneCursor.transform.position * 0.5f) +
+                SceneManager.Instance.NormalizeWorldPos(_cursorTargetPos) * 0.5f;
 
             // If a collider is chosen, highlight it; 
             _hit = Physics2D.OverlapPoint(SceneCursor.transform.position);

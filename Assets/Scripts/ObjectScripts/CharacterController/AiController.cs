@@ -6,24 +6,22 @@ namespace ObjectScripts.CharacterController
 {
     public class AiController: CharacterController
     {
+        public BaseCondition Condition;
+
+        private void Start()
+        {
+            Condition = new BaseCondition(this);
+        }
 
         public override void UpdateFunction()
         {
-            if (Utils.ProcessRandom.Next(5) != 0)
-            {
-                WaitAction.DoAction();
-                return;
-            }
+            Condition.NextAction().DoAction();
+        }
 
-            WalkAction.TargetDirection = (Direction) Utils.ProcessRandom.Next(4);
-            if (WalkAction.CheckAction())
-            {
-                WalkAction.DoAction();
-                return;
-            }
-
-            WaitAction.DoAction();
-
+        public override void GetHostility(Character hostility, int level)
+        {
+            base.GetHostility(hostility, level);
+            Condition = new AttackCondition(this, hostility);
         }
     }
 }
