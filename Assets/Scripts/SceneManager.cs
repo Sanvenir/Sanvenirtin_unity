@@ -10,6 +10,7 @@ using DefaultNamespace;
 using ExceptionScripts;
 using ObjectScripts;
 using ObjectScripts.CharacterController;
+using UIScripts;
 using UnityEngine;
 using UnityEngine.UI;
 using UtilScripts;
@@ -46,6 +47,7 @@ public class SceneManager : MonoBehaviour
 	public GameObject CameraPos;
 	public Collider2D SceneCollider;
 	public Text GameLogger;
+	public BodyPartPanel BodyPartPanel;
 	
 	// Script Objects
 	public static SceneManager Instance = null;
@@ -207,6 +209,8 @@ public class SceneManager : MonoBehaviour
 			Destroy(e.Collider.gameObject);
 		}
 		Player.SetActive(true);
+		BodyPartPanel.enabled = true;
+
 	}
 
 	public int GetUpdateTime()

@@ -97,6 +97,8 @@
     <Compile Include="Assets\Scripts\SceneManager.cs" />
     <Compile Include="Assets\Scripts\UIScripts\ActionButton.cs" />
     <Compile Include="Assets\Scripts\UIScripts\ActionMenu.cs" />
+    <Compile Include="Assets\Scripts\UIScripts\BodyPartButton.cs" />
+    <Compile Include="Assets\Scripts\UIScripts\BodyPartPanel.cs" />
     <Compile Include="Assets\Scripts\UIScripts\PropertyPanel.cs" />
     <Compile Include="Assets\Scripts\UIScripts\SceneControlButton.cs" />
     <Compile Include="Assets\Scripts\UtilScripts\Direction.cs" />

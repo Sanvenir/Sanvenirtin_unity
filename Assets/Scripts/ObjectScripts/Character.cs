@@ -13,6 +13,7 @@ namespace ObjectScripts
 {
     public abstract class Character : Substance
     {
+        [HideInInspector]
         public CharacterController.CharacterController Controller;
 
         public bool IsTurn()
@@ -20,10 +21,15 @@ namespace ObjectScripts
             return SceneManager.Instance.CurrentTime >= ActivateTime;
         }
 
-        public override void Attacked(float damage, BodyPart bodyPart, float defenceRatio = 1)
+        public override float Attacked(float damage, BodyPart bodyPart, float defenceRatio = 1)
         {
-            base.Attacked(damage, bodyPart, defenceRatio);
+            damage = base.Attacked(damage, bodyPart, defenceRatio);
+            if (bodyPart.Essential && !bodyPart.Available)
+            {
+                Dead = true;
+            }
             Health += damage;
+            return damage;
         }
 
         public T MoveCheck<T>(Vector2Int delta)
@@ -198,6 +204,11 @@ namespace ObjectScripts
         {
             return Metabolism / 100000f;
         }
+
+        public virtual float GetHealthRecover()
+        {
+            return Mathf.Min((GetBaseRecover() * 100f), Health);
+        }
         
         public virtual float GetEndureRecover()
         {
@@ -207,8 +218,9 @@ namespace ObjectScripts
         public virtual void Recovering()
         {
             var endureRec = GetEndureRecover();
-            Hunger += endureRec / 100f;
+            Hunger += endureRec / 100f + GetBaseRecover() * 10f;
             Endure -= endureRec;
+            Health -= GetHealthRecover();
         }
     }
 }

@@ -12,7 +12,7 @@ namespace ObjectScripts.CharacterController.CtrlConditions
 
         public override BaseAction NextAction()
         {
-            if (TargetCharacter == null)
+            if (TargetCharacter == null || TargetCharacter.Dead)
             {
                 Controller.Condition = new BaseCondition(Controller);
                 return Controller.Condition.NextAction();

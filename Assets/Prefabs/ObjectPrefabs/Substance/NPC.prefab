@@ -87,8 +87,13 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
+  MidairParts: []
+  HighParts: []
+  MiddleParts: []
+  LowParts: []
   IsDestroy: 0
   AreaIdentity: 0
+  Controller: {fileID: 0}
   ActivateTime: 0
   AttackActionEffect: {fileID: 114661694037867342, guid: 115b145bf054290459e4b5ddf30fcc8f,
     type: 2}
@@ -102,12 +107,12 @@ MonoBehaviour:
   MoveSpeed: 10
   ActSpeed: 10
   Strength: 10
-  Dexterity: 20
-  Constitution: 20
-  Metabolism: 20
-  WillPower: 20
-  Intelligence: 20
-  Perception: 20
+  Dexterity: 10
+  Constitution: 10
+  Metabolism: 10
+  WillPower: 10
+  Intelligence: 10
+  Perception: 10
 --- !u!114 &114691038259227666
 MonoBehaviour:
   m_ObjectHideFlags: 1

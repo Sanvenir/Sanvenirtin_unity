@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using AreaScripts;
 using ExceptionScripts;
 using ObjectScripts.BodyPartScripts;
@@ -28,13 +29,18 @@ namespace ObjectScripts
 
         [HideInInspector] public bool IsDestroy = false;
 
-        public virtual void Attacked(float damage, BodyPart bodyPart, float defenceRatio = 1f)
+        public virtual float Attacked(float damage, BodyPart bodyPart, float defenceRatio = 1f)
         {
             if (bodyPart == null)
-                return;
-            if (!bodyPart.Damage(damage, defenceRatio))
-                return;
+                return 0;
+            damage = bodyPart.Damage(damage, defenceRatio);
+            if (GetAllBodyParts().Any(part => part.Available))
+            {
+                return damage;
+            }
+
             IsDestroy = true;
+            return damage;
         }
 
         // Read Only

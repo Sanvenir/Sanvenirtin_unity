@@ -1,9 +1,10 @@
+using System;
 using UnityEngine;
 using UtilScripts;
 
 namespace ObjectScripts.BodyPartScripts
 {
-    [SerializeField]
+    [Serializable]
     public class BodyPart
     {
         public string Name;
@@ -13,15 +14,15 @@ namespace ObjectScripts.BodyPartScripts
         public bool Available = true;
         
         // Return: Whether the object should be destroyed
-        public bool Damage(float damage, float defenceRatio = 1f)
+        public float Damage(float damage, float defenceRatio = 1f)
         {
-            Durability.Value -= Mathf.Max(0f, damage - (Defence * defenceRatio));
-            if (Durability.Value > 0) return false;
-            if (Essential) return true;   
+            damage = Mathf.Max(0f, damage - (Defence * defenceRatio));
+            Durability.Value -= damage;
+            if (Durability.Value > 0) return damage;   
             Available = false;
-            if (AttachBodyPart == null) return false;
+            if (AttachBodyPart == null) return 0;
             AttachBodyPart.Damage(AttachBodyPart.Durability.MaxValue, 0);
-            return false;
+            return 0;
         }
 
         // If current components destroyed, attached component destroyed too

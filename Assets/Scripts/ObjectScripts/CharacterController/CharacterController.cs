@@ -18,7 +18,6 @@ namespace ObjectScripts.CharacterController
         public Character Character;
 
         private int _recoveredTime = 0;
-        private int _metabolismTime = 0;
 
         protected virtual void Awake()
         {
@@ -26,6 +25,11 @@ namespace ObjectScripts.CharacterController
             WalkAction = new WalkAction(Character);
             WaitAction = new WaitAction(Character);
             AttackAction = new AttackAction(Character);
+        }
+
+        public virtual void Initialize()
+        {
+            
         }
 
         public abstract void UpdateFunction();
@@ -38,16 +42,6 @@ namespace ObjectScripts.CharacterController
             {
                 _recoveredTime += Character.GetReactTime();
                 Character.Recovering();
-            }
-
-            if (_metabolismTime < SceneManager.Instance.CurrentTime)
-            {
-                _metabolismTime += 1000000 / (int)Character.Metabolism;
-                Character.Hunger++;
-                if (Character.Health > 0)
-                {
-                    Character.Health--;
-                }
             }
             
             

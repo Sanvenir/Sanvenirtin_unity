@@ -24,6 +24,7 @@ namespace ObjectScripts.BodyPartScripts
             rightArm.AttachBodyPart = rightHand;
             leftLeg.AttachBodyPart = leftFoot;
             rightLeg.AttachBodyPart = rightFoot;
+            neck.AttachBodyPart = head;
 
             human.HighParts.Add(head);
             human.HighParts.Add(neck);
@@ -48,7 +49,7 @@ namespace ObjectScripts.BodyPartScripts
                 Essential = true, 
                 Size = 3,
                 Defence = 10,
-                Durability = new LimitValue(10000)
+                Durability = new LimitValue(500)
             };
         }
 
@@ -60,7 +61,7 @@ namespace ObjectScripts.BodyPartScripts
                 Essential = true,
                 Size = 1,
                 Defence = 0,
-                Durability = new LimitValue(2000)
+                Durability = new LimitValue(100)
             };
         }
 
@@ -72,7 +73,7 @@ namespace ObjectScripts.BodyPartScripts
                 Essential = true,
                 Size = 10,
                 Defence = 10,
-                Durability = new LimitValue(20000)
+                Durability = new LimitValue(1000)
             };
         }
         
@@ -82,10 +83,10 @@ namespace ObjectScripts.BodyPartScripts
             return new BodyPart()
             {
                 Name = "Waist",
-                Essential = true,
+                Essential = false,
                 Size = 5,
                 Defence = 5,
-                Durability = new LimitValue(10000)
+                Durability = new LimitValue(500)
             };
         }
         
@@ -95,10 +96,10 @@ namespace ObjectScripts.BodyPartScripts
             return new BodyPart()
             {
                 Name = "Crotch",
-                Essential = true,
+                Essential = false,
                 Size = 10,
                 Defence = 5,
-                Durability = new LimitValue(20000)
+                Durability = new LimitValue(200)
             };
         }
         
@@ -111,7 +112,7 @@ namespace ObjectScripts.BodyPartScripts
                 Essential = false,
                 Size = 3,
                 Defence = 10,
-                Durability = new LimitValue(5000)
+                Durability = new LimitValue(500)
             };
         }
 
@@ -123,7 +124,7 @@ namespace ObjectScripts.BodyPartScripts
                 Essential = false,
                 Size = 1,
                 Defence = 10,
-                Durability = new LimitValue(2000)
+                Durability = new LimitValue(100)
             };
         }
 
@@ -135,7 +136,7 @@ namespace ObjectScripts.BodyPartScripts
                 Essential = false,
                 Size = 3,
                 Defence = 10,
-                Durability = new LimitValue(5000)
+                Durability = new LimitValue(200)
             };
         }
 
@@ -147,7 +148,7 @@ namespace ObjectScripts.BodyPartScripts
                 Essential = false,
                 Size = 1,
                 Defence = 10,
-                Durability = new LimitValue(200)
+                Durability = new LimitValue(100)
             };
         }
         
@@ -159,7 +160,7 @@ namespace ObjectScripts.BodyPartScripts
                 Essential = false,
                 Size = 3,
                 Defence = 10,
-                Durability = new LimitValue(500)
+                Durability = new LimitValue(200)
             };
         }
 
@@ -171,7 +172,7 @@ namespace ObjectScripts.BodyPartScripts
                 Essential = false,
                 Size = 1,
                 Defence = 10,
-                Durability = new LimitValue(200)
+                Durability = new LimitValue(100)
             };
         }
 
@@ -183,7 +184,7 @@ namespace ObjectScripts.BodyPartScripts
                 Essential = false,
                 Size = 3,
                 Defence = 10,
-                Durability = new LimitValue(500)
+                Durability = new LimitValue(200)
             };
         }
 
@@ -195,7 +196,7 @@ namespace ObjectScripts.BodyPartScripts
                 Essential = false,
                 Size = 1,
                 Defence = 10,
-                Durability = new LimitValue(200)
+                Durability = new LimitValue(100)
             };
         }
     }

@@ -70,6 +70,8 @@
           <e p="UIScripts" t="Include">
             <e p="ActionButton.cs" t="Include" />
             <e p="ActionMenu.cs" t="Include" />
+            <e p="BodyPartButton.cs" t="Include" />
+            <e p="BodyPartPanel.cs" t="Include" />
             <e p="PropertyPanel.cs" t="Include" />
             <e p="SceneControlButton.cs" t="Include" />
           </e>
