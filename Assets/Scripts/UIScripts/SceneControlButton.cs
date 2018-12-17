@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using DefaultNamespace;
 using ObjectScripts;
 using ObjectScripts.CharacterController;
 using ObjectScripts.CharacterController.PlayerOrder;
+using SpriteGlow;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
@@ -17,13 +20,15 @@ namespace UIScripts
         public ActionMenu ActionMenu;
         public SpriteRenderer SceneCursor;
         public GameObject GameCursor;
+        public LayerMask SubstanceLayer;
 
         private Vector3 _cursorTargetPos;
         [HideInInspector] public Character Player;
         [HideInInspector] public PlayerController PlayerController;
 
-        public bool CameraFollowPlayer = true;
+        public bool CameraFollowPlayer;
         private Collider2D _hit;
+        private Collider2D _selected = null; 
 
         protected override void Awake()
         {
@@ -38,6 +43,7 @@ namespace UIScripts
             base.Start();
             Player = SceneManager.Instance.PlayerObject;
             PlayerController = SceneManager.Instance.Player.GetComponent<PlayerController>();
+            CameraFollowPlayer = true;
         }
 
         public override void OnPointerEnter(PointerEventData eventData)
@@ -55,6 +61,29 @@ namespace UIScripts
             }
 
             SceneCursor.enabled = false;
+        }
+
+        private void CancelSelected()
+        {
+            if (_selected == null) return;
+            var effect = _selected.GetComponent<SpriteRenderer>();
+            if (effect == null) return;
+
+            effect.color = Color.white;
+            _selected = null;
+        }
+
+        private void ChangeSelected(Collider2D hit)
+        {
+            if (_selected != null)
+            {
+                CancelSelected();
+            }
+            _selected = hit;
+            if (_selected == null) return;
+            var effect = _selected.GetComponent<SpriteRenderer>();
+            if (effect == null) return;
+            effect.color = Color.gray;
         }
 
         private void Update()
@@ -89,18 +118,25 @@ namespace UIScripts
             }
 
             GameCursor.SetActive(false);
-            
+            var targetPos = SceneManager.Instance.NormalizeWorldPos(_cursorTargetPos);
+
+
             SceneCursor.transform.position =
                 Utils.Vector2To3(SceneCursor.transform.position * 0.5f) +
-                SceneManager.Instance.NormalizeWorldPos(_cursorTargetPos) * 0.5f;
+                targetPos * 0.5f;
 
             // If a collider is chosen, highlight it; 
-            _hit = Physics2D.OverlapPoint(SceneCursor.transform.position);
-            
+            _hit = Physics2D.OverlapPoint(targetPos);
+        
             if (_hit != null)
             {
-                // TODO: Add Bloom Effect
+                ChangeSelected(_hit);
             }
+            else
+            {
+                CancelSelected();
+            }
+
             
             // Control
             

@@ -31,6 +31,7 @@ public class SceneManager : MonoBehaviour
 	public EarthMapManager EarthMapManager;
 	public GameObject Player;
 	public Grid Grid;
+	public SceneControlButton SceneControlButton;
 	
 	[HideInInspector]
 	public Dictionary<int, LocalArea> ActivateAreas;
@@ -82,6 +83,8 @@ public class SceneManager : MonoBehaviour
 		CenterArea = GenerateArea(initCoord.GetIdentity(), Vector2Int.zero);
 		
 		LoadSurroundMap();
+
+		SceneControlButton.enabled = true;
 	}
 
 	public Vector2 WorldCoordToPos(Vector2Int coord)
@@ -116,6 +119,10 @@ public class SceneManager : MonoBehaviour
 
 	public Vector2 NormalizeWorldPos(Vector2 pos)
 	{
+		if (CenterArea == null)
+		{
+			return Vector2.zero;
+		}
 		var coord = CenterArea.Tilemap.WorldToCell(pos);
 		return CenterArea.Tilemap.GetCellCenterWorld(coord);
 	}

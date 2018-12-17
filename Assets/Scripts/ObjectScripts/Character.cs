@@ -107,7 +107,11 @@ namespace ObjectScripts
             if (Health >= GetMaxHealth())
             {
                 Dead = true;
-                SubstanceSpriteController.SetDisable(true);
+            }
+
+            if (Dead)
+            {
+                SubstanceSpriteController.SetDisable(true);   
             }
         }
 

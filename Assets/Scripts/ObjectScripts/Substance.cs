@@ -5,6 +5,7 @@ using System.Linq;
 using AreaScripts;
 using ExceptionScripts;
 using ObjectScripts.BodyPartScripts;
+using SpriteGlow;
 using UnityEditor;
 using UnityEngine;
 using UtilScripts;
@@ -15,6 +16,7 @@ namespace ObjectScripts
     public class Substance : BaseObject
     {
 
+        [HideInInspector] public SpriteGlowEffect GlowEffect;
         [HideInInspector] public Vector2 WorldPos;
         [HideInInspector] public Vector2Int WorldCoord;
 
@@ -91,6 +93,7 @@ namespace ObjectScripts
             base.Initialize();
             AreaIdentity = areaIdentity;
             ContactFilter.useLayerMask = true;
+            GlowEffect = GetComponent<SpriteGlowEffect>();
             MoveTo(worldCoord);
         }
 

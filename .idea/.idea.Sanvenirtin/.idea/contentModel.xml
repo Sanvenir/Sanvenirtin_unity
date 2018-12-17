@@ -82,6 +82,12 @@
             <e p="Utils.cs" t="Include" />
           </e>
         </e>
+        <e p="SpriteGlow" t="Include">
+          <e p="LICENSE.txt" t="Include" />
+          <e p="SpriteGlowEffect.cs" t="Include" />
+          <e p="SpriteGlowMaterial.cs" t="Include" />
+          <e p="SpriteOutline.shader" t="Include" />
+        </e>
         <e p="Tilemap" t="Include">
           <e p="Brushes" t="Include">
             <e p="Coordinate Brush" t="Include">
