@@ -10,6 +10,7 @@
       <e p="Assets" t="Include">
         <e p="Scripts" t="Include">
           <e p="AreaScripts" t="Include">
+            <e p="BlockTile.cs" t="Include" />
             <e p="LocalArea.cs" t="Include" />
             <e p="RandomLocalArea.cs" t="Include" />
           </e>
@@ -33,6 +34,7 @@
               <e p="WaitAction.cs" t="Include" />
               <e p="WalkAction.cs" t="Include" />
             </e>
+            <e p="BaseItem.cs" t="Include" />
             <e p="BaseObject.cs" t="Include" />
             <e p="BodyPartScripts" t="Include">
               <e p="BodyPart.cs" t="Include" />

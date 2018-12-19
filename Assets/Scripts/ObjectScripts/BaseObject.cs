@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace ObjectScripts
 {
-    public class BaseObject: MonoBehaviour
+    public abstract class BaseObject: MonoBehaviour
     {
         public string Name;
         
@@ -11,6 +11,9 @@ namespace ObjectScripts
         public ISubstanceSpriteController SubstanceSpriteController;
         protected SpriteRenderer SpriteRenderer;
         protected Collider2D Collider2D;
+        
+        public abstract float GetSize();
+        public abstract float GetWeight();
 
         protected void Initialize()
         {

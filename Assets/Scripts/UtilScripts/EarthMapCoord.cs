@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using ExceptionScripts;
 using UnityEngine;
 using System.Linq;
-using DefaultNamespace;
+using MapScripts;
 
 namespace UtilScripts
 {

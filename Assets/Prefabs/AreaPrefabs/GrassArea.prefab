@@ -64,7 +64,9 @@ MonoBehaviour:
   SubstancePrefabs:
   - {fileID: 1015859919777768, guid: db01e0ef17a0cb243b9a94143e7e382e, type: 2}
   - {fileID: 1015859919777768, guid: db01e0ef17a0cb243b9a94143e7e382e, type: 2}
-  ObjectsGenerateRatio: 0.05
+  TestBlockTile: {fileID: 114984274561182258, guid: f42eb1e5e43e89e41a533377a05d68d4,
+    type: 2}
+  ObjectsGenerateRatio: 0.001
 --- !u!19719996 &2113883507045932898
 TilemapCollider2D:
   m_ObjectHideFlags: 1

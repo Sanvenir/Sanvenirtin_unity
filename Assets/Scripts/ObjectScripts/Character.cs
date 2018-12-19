@@ -32,20 +32,29 @@ namespace ObjectScripts
             return damage;
         }
 
-        public T MoveCheck<T>(Vector2Int delta)
+        public bool MoveCheck<T>(Vector2Int delta, out T collide)
             where T : Substance
         {
             Collider2D.offset = delta;
-            var substance = CheckCollider<T>();
+            var result = CheckCollider<T>(out collide);
             Collider2D.offset = Vector2.zero;
-            return substance;
+            return result;
         }
+        
+        public bool MoveCheck(Vector2Int delta)
+        {
+            Collider2D.offset = delta;
+            var result = CheckCollider();
+            Collider2D.offset = Vector2.zero;
+            return result;
+        }
+        
         public bool Move(Vector2Int delta, int moveTime, bool check = true)
         {
             if (delta == Vector2Int.zero) return true;
             var endPos = WorldPos + delta;
             SubstanceSpriteController.SetDirection(Utils.VectorToDirection(delta));
-            if (check && MoveCheck<Substance>(delta) != null)
+            if (check && !MoveCheck(delta))
             {
                 return false;
             }

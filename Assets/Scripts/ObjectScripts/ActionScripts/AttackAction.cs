@@ -48,7 +48,8 @@ namespace ObjectScripts.ActionScripts
 
         public override bool CheckAction()
         {
-            Target = Self.MoveCheck<Character>(Utils.DirectionToVector(TargetDirection));
+            // If There is no character to attack, return true
+            Self.MoveCheck(Utils.DirectionToVector(TargetDirection), out Target);
             return Target != null;
         }
     }

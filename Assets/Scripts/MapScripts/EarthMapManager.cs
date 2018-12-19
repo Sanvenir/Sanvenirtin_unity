@@ -1,23 +1,22 @@
 using System.Collections.Generic;
-using MapScripts;
 using UnityEditor;
 using UnityEngine;
 using UtilScripts;
 
-namespace DefaultNamespace
+namespace MapScripts
 {
-    [CustomEditor(typeof(EarthMapManager))]
-    public class EarthMapManagerEditor : Editor
-    {
-        public override void OnInspectorGUI()
-        {
-            base.OnInspectorGUI();
-            EarthMapManager.MapWidth = EditorGUILayout.IntField("Map Width", EarthMapManager.MapWidth);
-            EarthMapManager.MapHeight = EditorGUILayout.IntField("Map Height", EarthMapManager.MapHeight);
-            EarthMapManager.LocalWidth = EditorGUILayout.IntField("Local Width", EarthMapManager.LocalWidth);
-            EarthMapManager.LocalHeight = EditorGUILayout.IntField("Local Height", EarthMapManager.LocalHeight);
-        }
-    }
+//    [CustomEditor(typeof(EarthMapManager))]
+//    public class EarthMapManagerEditor : Editor
+//    {
+//        public override void OnInspectorGUI()
+//        {
+//            base.OnInspectorGUI();
+//            EarthMapManager.MapWidth = EditorGUILayout.IntField("Map Width", EarthMapManager.MapWidth);
+//            EarthMapManager.MapHeight = EditorGUILayout.IntField("Map Height", EarthMapManager.MapHeight);
+//            EarthMapManager.LocalWidth = EditorGUILayout.IntField("Local Width", EarthMapManager.LocalWidth);
+//            EarthMapManager.LocalHeight = EditorGUILayout.IntField("Local Height", EarthMapManager.LocalHeight);
+//        }
+//    }
     public class EarthMapManager: MonoBehaviour
     {
         public static int MapWidth = 200, MapHeight = 100;

@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using DefaultNamespace;
+using MapScripts;
 using ObjectScripts;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -73,7 +73,7 @@ namespace AreaScripts
             var instance = Instantiate(substancePrefab);
             var substance = instance.GetComponent<Substance>();
             substance.Initialize(worldCoord, Identity);
-            if (substance.CheckCollider<Substance>() == null) return instance;
+            if (substance.CheckCollider()) return instance;
             Destroy(instance);
             return null;
         }

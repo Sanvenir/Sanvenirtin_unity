@@ -13,7 +13,8 @@ namespace ObjectScripts.ActionScripts
 
         public override bool CheckAction()
         {
-            return Self.MoveCheck<Substance>(Utils.DirectionToVector(TargetDirection)) == null;
+            // If can not move, return true
+            return !Self.MoveCheck(Utils.DirectionToVector(TargetDirection));
         }
 
         public WalkAction(Character self) : base(self)

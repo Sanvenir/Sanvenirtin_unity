@@ -125,10 +125,19 @@ namespace ObjectScripts
             AreaIdentity = area.Identity;
         }
 
-        public Substance GetColliderAtWorldCoord(Vector2Int coord)
+        public bool CheckColliderAtWorldCoord(
+            Vector2Int coord, out Substance substance)
         {
             Collider2D.offset = coord - WorldCoord;
-            var result = CheckCollider<Substance>();
+            var result = CheckCollider(out substance);
+            Collider2D.offset = Vector2.zero;
+            return result;
+        }
+
+        public bool CheckColliderAtWorldCoord(Vector2Int coord)
+        {
+            Collider2D.offset = coord - WorldCoord;
+            var result = CheckCollider();
             Collider2D.offset = Vector2.zero;
             return result;
         }
@@ -143,14 +152,43 @@ namespace ObjectScripts
             }
         }
 
-        public T CheckCollider<T>()
+        public bool CheckCollider<T>(out T collide)
             where T : Substance
         {
             var colliders = new Collider2D[1];
             Collider2D.OverlapCollider(ContactFilter, colliders);
-            return colliders[0] == null
+            collide = colliders[0] == null
                 ? null
                 : colliders[0].GetComponent<T>();
+            return colliders[0] == null;
+        }
+        
+        public bool CheckCollider()
+        {
+            var colliders = new Collider2D[1];
+            Collider2D.OverlapCollider(ContactFilter, colliders);
+            return colliders[0] == null;
+        }
+        
+
+        public override float GetSize()
+        {
+            return Collider2D.bounds.size.magnitude;
+        }
+
+        private float _weight = 0;
+        public override float GetWeight()
+        {
+            _weight = 0;
+            foreach (var part in GetAllBodyParts())
+            {
+                if (part.Available)
+                {
+                    _weight += part.Weight;
+                }
+            }
+
+            return _weight;
         }
     }
 }

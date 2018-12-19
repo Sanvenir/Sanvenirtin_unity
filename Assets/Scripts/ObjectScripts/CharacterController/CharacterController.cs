@@ -133,7 +133,7 @@ namespace ObjectScripts.CharacterController
 
                     // TODO: Increment of GValue need to refactor according to ground properties
                     var newGValue = node.GValue + 1;
-                    if (Character.GetColliderAtWorldCoord(neighbour) != null ||
+                    if (!Character.CheckColliderAtWorldCoord(neighbour) ||
                         closedSet.Contains(neighbour)) continue;
 
                     if (openList.ContainsValue(neighbour))
@@ -188,7 +188,7 @@ namespace ObjectScripts.CharacterController
             }
 
             if ((dx & dy) == 0)
-                return Character.GetColliderAtWorldCoord(new Vector2Int(dx, dy) + Character.WorldCoord) == null
+                return Character.CheckColliderAtWorldCoord(new Vector2Int(dx, dy) + Character.WorldCoord)
                     ? new Vector2Int(dx, dy)
                     : Vector2Int.zero;
             var delta = new Vector2Int();
@@ -204,12 +204,12 @@ namespace ObjectScripts.CharacterController
                 altDelta.x = dx;
             }
 
-            if (Character.GetColliderAtWorldCoord(delta + Character.WorldCoord) == null)
+            if (Character.CheckColliderAtWorldCoord(delta + Character.WorldCoord))
             {
                 return delta;
             }
 
-            return Character.GetColliderAtWorldCoord(altDelta + Character.WorldCoord) == null ? altDelta : Vector2Int.zero;
+            return Character.CheckColliderAtWorldCoord(altDelta + Character.WorldCoord) ? altDelta : Vector2Int.zero;
         }
 
     }

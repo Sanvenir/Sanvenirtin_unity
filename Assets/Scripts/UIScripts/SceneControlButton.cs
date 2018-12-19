@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
-using DefaultNamespace;
 using ObjectScripts;
 using ObjectScripts.CharacterController;
 using ObjectScripts.CharacterController.PlayerOrder;
@@ -19,7 +18,6 @@ namespace UIScripts
     {
         public ActionMenu ActionMenu;
         public SpriteRenderer SceneCursor;
-        public GameObject GameCursor;
         public LayerMask SubstanceLayer;
 
         private Vector3 _cursorTargetPos;
@@ -35,7 +33,6 @@ namespace UIScripts
             base.Awake();
             ActionMenu = GetComponent<ActionMenu>();
             SceneCursor = GetComponentInChildren<SpriteRenderer>();
-            GameCursor = GameManager.Instance.GameCursor;
         }
 
         protected override void Start()
@@ -110,14 +107,14 @@ namespace UIScripts
             // If SceneCursor is disabled, do not update it
             if (!SceneCursor.enabled)
             {
-                GameCursor.SetActive(true);
+                GameManager.Instance.GameCursor.SetActive(true);
                 CameraFollowPlayer = true;
                 if (!ActionMenu.enabled) return;
                 ActionMenu.EndUp();
                 return;
             }
 
-            GameCursor.SetActive(false);
+            GameManager.Instance.GameCursor.SetActive(false);
             var targetPos = SceneManager.Instance.NormalizeWorldPos(_cursorTargetPos);
 
 

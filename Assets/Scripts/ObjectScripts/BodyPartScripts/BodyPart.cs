@@ -9,7 +9,8 @@ namespace ObjectScripts.BodyPartScripts
     {
         public string Name;
         public LimitValue Durability = new LimitValue(1000);
-        public int Size = 10;
+        public float Size = 10;
+        public float Weight = 10;
         public float Defence = 10;
         public bool Available = true;
         
