@@ -17,7 +17,6 @@ namespace UIScripts
         public float ChangeAccuracy = 0.1f;
         
         public ActionButton ButtonPrefab;
-        public Canvas MenuCanvas;
         
         [HideInInspector]
         public List<ActionButton> ButtonInstances = new List<ActionButton>();
@@ -25,6 +24,7 @@ namespace UIScripts
         [HideInInspector]
         public int CenterIndex;
         public BaseOrder CurrentOrder;
+        
         
         private float _mouseY;
         
@@ -44,7 +44,7 @@ namespace UIScripts
             {
                 var instance = Instantiate(ButtonPrefab, transform);
                 instance.SetText(order.Name);
-                instance.transform.position = pos;
+                instance.transform.position = CenterPos;
                 instance.Order = order;
                 ButtonInstances.Add(instance);
             }

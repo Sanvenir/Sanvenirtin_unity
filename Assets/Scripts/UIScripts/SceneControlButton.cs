@@ -15,19 +15,18 @@ using UtilScripts;
 
 namespace UIScripts
 {
-    [CustomEditor(typeof(SceneControlButton))]
-    public class SceneControlButtonEditor : Editor
-    {
-        public override void OnInspectorGUI()
-        {
-            base.OnInspectorGUI();
-        }
-    }
+//    [CustomEditor(typeof(SceneControlButton))]
+//    public class SceneControlButtonEditor : Editor
+//    {
+//        public override void OnInspectorGUI()
+//        {
+//            base.OnInspectorGUI();
+//        }
+//    }
     public class SceneControlButton : Button
     {
         public ActionMenu ActionMenu;
         public SpriteRenderer SceneCursor;
-        public LayerMask SubstanceLayer;
 
         private Vector3 _cursorTargetPos;
         [HideInInspector] public Character Player;
@@ -37,7 +36,8 @@ namespace UIScripts
 
         private Collider2D _cursorCollider;
         private readonly Collider2D[] _hits = new Collider2D[1];
-        private Collider2D _selected; 
+        private Collider2D _selected;
+        private int _selectedOriginLayer;
 
         protected override void Awake()
         {
@@ -76,21 +76,29 @@ namespace UIScripts
             if (_selected == null) return;
             var effect = _selected.GetComponent<SpriteRenderer>();
             if (effect == null) return;
-
+            effect.sortingLayerID = _selectedOriginLayer;
             effect.color = Color.white;
             _selected = null;
         }
 
         private void ChangeSelected()
         {
-            if (_selected != _hits[0])
+            if (_selected == _hits[0])
+            {
+                return;
+            }
+
+            if (_selected != null)
             {
                 CancelSelected();
-            }
+            } 
+            
             _selected = _hits[0];
             if (_selected == null) return;
             var effect = _selected.GetComponent<SpriteRenderer>();
             if (effect == null) return;
+            _selectedOriginLayer = effect.sortingLayerID;
+            effect.sortingLayerName = "OnTop";
             effect.color = Color.gray;
         }
 
@@ -186,13 +194,8 @@ namespace UIScripts
                     orderList.Add(
                         new AttackDirectionOrder("Attack", null, direction, worldCoord));
                 }
-                if (_hits[0] == null) return;
-                var targetCharacter = _hits[0].GetComponent<Character>();
-                if (targetCharacter != null && targetCharacter != Player)
-                {
-                }
-
-                ActionMenu.StartUp(worldCoord, orderList);
+                
+                ActionMenu.StartUp(targetPos, orderList);
                 return;
             }
 

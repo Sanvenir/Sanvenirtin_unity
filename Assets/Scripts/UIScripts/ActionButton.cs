@@ -40,7 +40,7 @@ namespace UIScripts
             ButtonText.color = TextColor * alpha;
         }
 
-        private void FixedUpdate()
+        private void Update()
         {
             transform.position = TargetPos * 0.1f + (Vector2)transform.position * 0.9f;
             transform.localScale = Vector3.one * TargetScale * 0.1f + 

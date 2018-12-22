@@ -57,7 +57,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.4
 --- !u!114 &114566145580136664
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -72,20 +72,6 @@ MonoBehaviour:
   Name: Tree
   WorldPos: {x: 0, y: 0}
   WorldCoord: {x: 0, y: 0}
-  ContactFilter:
-    useTriggers: 0
-    useLayerMask: 1
-    useDepth: 0
-    useOutsideDepth: 0
-    useNormalAngle: 0
-    useOutsideNormalAngle: 0
-    layerMask:
-      serializedVersion: 2
-      m_Bits: 256
-    minDepth: 0
-    maxDepth: 0
-    minNormalAngle: 0
-    maxNormalAngle: 0
   AirParts: []
   HighParts: []
   MiddleParts: []
