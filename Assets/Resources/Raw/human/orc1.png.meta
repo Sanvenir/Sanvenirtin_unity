@@ -194,18 +194,18 @@ TextureImporter:
       name: orc1_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 4
         y: 252
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: de28714de00528246a5e84e8b4496152
+      spriteID: de4f59d25ae3f4b4b8903f4f66bf76c7
       vertices: []
       indices: 
       edges: []
@@ -214,18 +214,18 @@ TextureImporter:
       name: orc1_1
       rect:
         serializedVersion: 2
-        x: 26
+        x: 29
         y: 252
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 19
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 30822f72f5c67144084cced5a4011a88
+      spriteID: 30ef3435133aee84b9e588e8415f9dbf
       vertices: []
       indices: 
       edges: []
@@ -234,18 +234,18 @@ TextureImporter:
       name: orc1_2
       rect:
         serializedVersion: 2
-        x: 52
+        x: 56
         y: 252
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 75e7fb88bf57e6b47a63dfbc3b948ccb
+      spriteID: 6a5bf87bf2608b94eb9b30ec9ed4949d
       vertices: []
       indices: 
       edges: []
@@ -254,18 +254,18 @@ TextureImporter:
       name: orc1_3
       rect:
         serializedVersion: 2
-        x: 78
+        x: 81
         y: 252
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 19
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 573dc6876206043479ec370ef05ed5a5
+      spriteID: 34efb0cb7515b0744985160ea9ca62a9
       vertices: []
       indices: 
       edges: []
@@ -274,18 +274,18 @@ TextureImporter:
       name: orc1_4
       rect:
         serializedVersion: 2
-        x: 104
+        x: 107
         y: 252
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 19
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 030d0c9b45981d94cb618b4c91b43de7
+      spriteID: 69d0b6f529af36d4388067a051a9c7bd
       vertices: []
       indices: 
       edges: []
@@ -294,18 +294,18 @@ TextureImporter:
       name: orc1_5
       rect:
         serializedVersion: 2
-        x: 130
+        x: 133
         y: 252
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 19
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 90098144fe37da341974f5161b44df4f
+      spriteID: 00b39b8503f075f498690975995ccde8
       vertices: []
       indices: 
       edges: []
@@ -314,18 +314,18 @@ TextureImporter:
       name: orc1_6
       rect:
         serializedVersion: 2
-        x: 156
+        x: 159
         y: 252
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 18
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 648155d2729aa0d40aae71082b699a28
+      spriteID: cd134aa6ad5b1404f9dd839f02da59fc
       vertices: []
       indices: 
       edges: []
@@ -334,18 +334,18 @@ TextureImporter:
       name: orc1_7
       rect:
         serializedVersion: 2
-        x: 182
+        x: 185
         y: 252
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 19
+        height: 31
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b6f6ef09e04b3e74bb9e0c1177f30751
+      spriteID: ac5745b554f0bea49a7654464acb2b64
       vertices: []
       indices: 
       edges: []
@@ -354,18 +354,18 @@ TextureImporter:
       name: orc1_8
       rect:
         serializedVersion: 2
-        x: 208
+        x: 211
         y: 252
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 18
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 86b79a331f682d5499bfcdce1685860b
+      spriteID: 621fa332dae85fb409974eb32c9f12a0
       vertices: []
       indices: 
       edges: []
@@ -374,18 +374,18 @@ TextureImporter:
       name: orc1_9
       rect:
         serializedVersion: 2
-        x: 234
+        x: 236
         y: 252
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 21
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4408121c3b0d86f408a6807865de6113
+      spriteID: 8594c1d0245a82f44a6a0587b36eb334
       vertices: []
       indices: 
       edges: []
@@ -394,18 +394,18 @@ TextureImporter:
       name: orc1_10
       rect:
         serializedVersion: 2
-        x: 260
+        x: 262
         y: 252
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 21
+        height: 34
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1a7248270ee32aa41ac7db5b532f7127
+      spriteID: 2357b13592851e8479a93e72f24d0d29
       vertices: []
       indices: 
       edges: []
@@ -414,18 +414,18 @@ TextureImporter:
       name: orc1_11
       rect:
         serializedVersion: 2
-        x: 286
+        x: 288
         y: 252
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 21
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a38303006104eda46b7b9cd7c78059ab
+      spriteID: b22b40303386b8d469f9766eae6fbd91
       vertices: []
       indices: 
       edges: []
@@ -434,18 +434,18 @@ TextureImporter:
       name: orc1_12
       rect:
         serializedVersion: 2
-        x: 0
+        x: 4
         y: 216
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 41cb9c8184c9dba43ab2d59b8cd06169
+      spriteID: e1501d69dd76e0d4b9aecd2a4bff37e8
       vertices: []
       indices: 
       edges: []
@@ -454,18 +454,18 @@ TextureImporter:
       name: orc1_13
       rect:
         serializedVersion: 2
-        x: 26
+        x: 30
         y: 216
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fbb00b794738fa24ba535225bc63dd31
+      spriteID: e89aa38ac14a76041a59436c94240b69
       vertices: []
       indices: 
       edges: []
@@ -474,18 +474,18 @@ TextureImporter:
       name: orc1_14
       rect:
         serializedVersion: 2
-        x: 52
+        x: 56
         y: 216
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fe34f0f393bd6db449c697bfa4f552a9
+      spriteID: 9372dce381737c04b834ecc7253add8d
       vertices: []
       indices: 
       edges: []
@@ -494,18 +494,18 @@ TextureImporter:
       name: orc1_15
       rect:
         serializedVersion: 2
-        x: 78
+        x: 82
         y: 216
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9f58714721b4cfb4ea3173f82ffa5c5c
+      spriteID: b4bf74a651245be45baad8a10837aba3
       vertices: []
       indices: 
       edges: []
@@ -514,18 +514,18 @@ TextureImporter:
       name: orc1_16
       rect:
         serializedVersion: 2
-        x: 104
+        x: 108
         y: 216
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 212d8942e8476d74ebd06c875a8e2c56
+      spriteID: f51c51c63b693b74481ad2162e735fff
       vertices: []
       indices: 
       edges: []
@@ -534,18 +534,18 @@ TextureImporter:
       name: orc1_17
       rect:
         serializedVersion: 2
-        x: 130
+        x: 134
         y: 216
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1b2cf21e5c365a2408481e84fd28e073
+      spriteID: 4ff5a2b073dcd8545830f5804b5d03db
       vertices: []
       indices: 
       edges: []
@@ -554,18 +554,18 @@ TextureImporter:
       name: orc1_18
       rect:
         serializedVersion: 2
-        x: 156
+        x: 160
         y: 216
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1f31560535501c742ac718d736ccdbe6
+      spriteID: 8131d15d21068eb40b50502c73763762
       vertices: []
       indices: 
       edges: []
@@ -574,18 +574,18 @@ TextureImporter:
       name: orc1_19
       rect:
         serializedVersion: 2
-        x: 182
+        x: 186
         y: 216
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 31
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f47d0e6f7a216524180424d859dd6e0c
+      spriteID: d96e9184cdadf674599b8dbad5154a62
       vertices: []
       indices: 
       edges: []
@@ -594,18 +594,18 @@ TextureImporter:
       name: orc1_20
       rect:
         serializedVersion: 2
-        x: 208
+        x: 212
         y: 216
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c1965ebcdc3077340a6112aacde7eec2
+      spriteID: 54de1f255a1754f40afcbef1362237b9
       vertices: []
       indices: 
       edges: []
@@ -614,18 +614,18 @@ TextureImporter:
       name: orc1_21
       rect:
         serializedVersion: 2
-        x: 234
+        x: 238
         y: 216
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 19
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2c353521782c9c9459a535ca196b30f6
+      spriteID: 8a8c6bc211679de4faf26a5c1bff313c
       vertices: []
       indices: 
       edges: []
@@ -634,18 +634,18 @@ TextureImporter:
       name: orc1_22
       rect:
         serializedVersion: 2
-        x: 260
+        x: 264
         y: 216
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 19
+        height: 34
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e5b4701ca6d902248a7d23624ef65542
+      spriteID: aa44bbfa11eb8e246bce4de637854410
       vertices: []
       indices: 
       edges: []
@@ -654,18 +654,18 @@ TextureImporter:
       name: orc1_23
       rect:
         serializedVersion: 2
-        x: 286
+        x: 290
         y: 216
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 19
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 00a76603cdfd23a4197acdd9464c886c
+      spriteID: 436aedc2d18b1fd48928f507a6a3e3e3
       vertices: []
       indices: 
       edges: []
@@ -674,18 +674,18 @@ TextureImporter:
       name: orc1_24
       rect:
         serializedVersion: 2
-        x: 0
+        x: 4
         y: 180
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7b508063a8e98ba43ad24e7755eee6b1
+      spriteID: b90e7649e4a47a04bb3deca91e7a3ba2
       vertices: []
       indices: 
       edges: []
@@ -694,18 +694,18 @@ TextureImporter:
       name: orc1_25
       rect:
         serializedVersion: 2
-        x: 26
+        x: 30
         y: 180
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4bf85ab51ddc5c444b7e4c68e4cac899
+      spriteID: 9e88d6f84827c7949b2e8dfc0b499a33
       vertices: []
       indices: 
       edges: []
@@ -714,18 +714,18 @@ TextureImporter:
       name: orc1_26
       rect:
         serializedVersion: 2
-        x: 52
+        x: 56
         y: 180
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dafc4f5d044f8a24fbdd0d5148056c59
+      spriteID: 5c2cc26317533d549abd266244c59632
       vertices: []
       indices: 
       edges: []
@@ -734,18 +734,18 @@ TextureImporter:
       name: orc1_27
       rect:
         serializedVersion: 2
-        x: 78
+        x: 82
         y: 180
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ad698a2ead99a194bbde400a6f07f51f
+      spriteID: 1e96dc360892fdc40a751b4aabcf9fc8
       vertices: []
       indices: 
       edges: []
@@ -754,18 +754,18 @@ TextureImporter:
       name: orc1_28
       rect:
         serializedVersion: 2
-        x: 104
+        x: 108
         y: 180
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c8f6437fa0ea5464cb87943581d0d279
+      spriteID: 22589643a2cf2d84390f57b736ed722b
       vertices: []
       indices: 
       edges: []
@@ -774,18 +774,18 @@ TextureImporter:
       name: orc1_29
       rect:
         serializedVersion: 2
-        x: 130
+        x: 134
         y: 180
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2ddd1e5d8bed69948a8522eab3109010
+      spriteID: b444e28efa80c444db702066e7c86746
       vertices: []
       indices: 
       edges: []
@@ -794,18 +794,18 @@ TextureImporter:
       name: orc1_30
       rect:
         serializedVersion: 2
-        x: 156
+        x: 159
         y: 180
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 18
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b68a45bc6233e4b4c84ea11c100bc4e1
+      spriteID: cfa3bd8bf866d7246a666fdd7cd21b04
       vertices: []
       indices: 
       edges: []
@@ -814,18 +814,18 @@ TextureImporter:
       name: orc1_31
       rect:
         serializedVersion: 2
-        x: 182
+        x: 186
         y: 180
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 31
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: abaf9f164426c0f4ebafa1f41e4c064e
+      spriteID: a19eeba1d5112044da84c777405b9d21
       vertices: []
       indices: 
       edges: []
@@ -834,18 +834,18 @@ TextureImporter:
       name: orc1_32
       rect:
         serializedVersion: 2
-        x: 208
+        x: 211
         y: 180
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 18
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a9e6892b716342b4d92d8f0422fd9eab
+      spriteID: 53cb10904940dbe429a70dbbd8f43bdc
       vertices: []
       indices: 
       edges: []
@@ -854,18 +854,18 @@ TextureImporter:
       name: orc1_33
       rect:
         serializedVersion: 2
-        x: 234
+        x: 236
         y: 180
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 19
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0162c8333dc7b9a44a1d6b1439054127
+      spriteID: 54fb47a1ef6e67144a9ea88ffe52546f
       vertices: []
       indices: 
       edges: []
@@ -874,18 +874,18 @@ TextureImporter:
       name: orc1_34
       rect:
         serializedVersion: 2
-        x: 260
+        x: 262
         y: 180
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 19
+        height: 34
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 78c59ec49703ef146b95345d770eaeca
+      spriteID: f212dc77c5c37ad4ba47939856cdf772
       vertices: []
       indices: 
       edges: []
@@ -894,18 +894,18 @@ TextureImporter:
       name: orc1_35
       rect:
         serializedVersion: 2
-        x: 286
+        x: 288
         y: 180
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 19
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 87ec3da82cdd44d4a9fbd2f4bc91b2c8
+      spriteID: 9299d0f7d523bff47ac9eaf7cbe8d61d
       vertices: []
       indices: 
       edges: []
@@ -914,18 +914,18 @@ TextureImporter:
       name: orc1_36
       rect:
         serializedVersion: 2
-        x: 0
+        x: 4
         y: 144
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f2c5ff577b3373445a6df953051c2cf0
+      spriteID: 050aa3e447d790f41aa5a559bb40f570
       vertices: []
       indices: 
       edges: []
@@ -934,18 +934,18 @@ TextureImporter:
       name: orc1_37
       rect:
         serializedVersion: 2
-        x: 26
+        x: 29
         y: 144
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 19
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 32423720e4541994a9e4312e82ce4f40
+      spriteID: 7465a97868bf08348b3cf132d02a18f8
       vertices: []
       indices: 
       edges: []
@@ -954,18 +954,18 @@ TextureImporter:
       name: orc1_38
       rect:
         serializedVersion: 2
-        x: 52
+        x: 56
         y: 144
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 46630dcd454463545ba185ecf423a027
+      spriteID: a7a765a2fbffe734696f1791449d34e1
       vertices: []
       indices: 
       edges: []
@@ -974,18 +974,18 @@ TextureImporter:
       name: orc1_39
       rect:
         serializedVersion: 2
-        x: 78
+        x: 81
         y: 144
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 19
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 733f81f6f1e9392448c953e2263003e4
+      spriteID: 0abe757412169ab47a7530045aa42571
       vertices: []
       indices: 
       edges: []
@@ -994,18 +994,18 @@ TextureImporter:
       name: orc1_40
       rect:
         serializedVersion: 2
-        x: 104
+        x: 107
         y: 144
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 19
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3897188c3df098d47819efe134fcc6b5
+      spriteID: cc80baee4ca048a4eadeec3e7dbda309
       vertices: []
       indices: 
       edges: []
@@ -1014,18 +1014,18 @@ TextureImporter:
       name: orc1_41
       rect:
         serializedVersion: 2
-        x: 130
+        x: 133
         y: 144
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 19
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 90686d9205ab9a5409732feaf82689f9
+      spriteID: 47a7a83f0fc00114d84f29b542a1f0e6
       vertices: []
       indices: 
       edges: []
@@ -1034,18 +1034,18 @@ TextureImporter:
       name: orc1_42
       rect:
         serializedVersion: 2
-        x: 156
+        x: 160
         y: 144
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 18
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5587108148ad0644e8e65e08402101f0
+      spriteID: 77a3d45241e602c48a6748dfff9ab322
       vertices: []
       indices: 
       edges: []
@@ -1054,18 +1054,18 @@ TextureImporter:
       name: orc1_43
       rect:
         serializedVersion: 2
-        x: 182
+        x: 185
         y: 144
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 19
+        height: 31
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0a2f1fe2a78c2f540827fe8ce71485ec
+      spriteID: 21ab065d2aca7bf4ba5c0bd417956508
       vertices: []
       indices: 
       edges: []
@@ -1074,18 +1074,18 @@ TextureImporter:
       name: orc1_44
       rect:
         serializedVersion: 2
-        x: 208
+        x: 212
         y: 144
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 18
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 532c2379a4f044b44ad425e8ede00ce0
+      spriteID: 93aeb92671c083c4e91971a1a4b92b17
       vertices: []
       indices: 
       edges: []
@@ -1094,18 +1094,18 @@ TextureImporter:
       name: orc1_45
       rect:
         serializedVersion: 2
-        x: 234
+        x: 236
         y: 144
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 21
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: caacd66b1f921cb4ababf8f37e6c79a7
+      spriteID: feaaf27ddbec77f43ae4799d814a248f
       vertices: []
       indices: 
       edges: []
@@ -1114,18 +1114,18 @@ TextureImporter:
       name: orc1_46
       rect:
         serializedVersion: 2
-        x: 260
+        x: 262
         y: 144
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 21
+        height: 34
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3b7fa383114f56446a47251431c19ba5
+      spriteID: b4693e3cc1fbf2b4d9d3f143fc46b920
       vertices: []
       indices: 
       edges: []
@@ -1134,18 +1134,18 @@ TextureImporter:
       name: orc1_47
       rect:
         serializedVersion: 2
-        x: 286
+        x: 288
         y: 144
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 21
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 17478445c9cf13649acf465eff2b8b0f
+      spriteID: 7638949f22c1d934aa79f6a18eec2f7f
       vertices: []
       indices: 
       edges: []
@@ -1154,18 +1154,18 @@ TextureImporter:
       name: orc1_48
       rect:
         serializedVersion: 2
-        x: 0
+        x: 3
         y: 108
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 19
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bc2c2a99335135242ae0c8906d6cec7f
+      spriteID: 0f3374670ecb8b14fbd450685dda4bb2
       vertices: []
       indices: 
       edges: []
@@ -1174,18 +1174,18 @@ TextureImporter:
       name: orc1_49
       rect:
         serializedVersion: 2
-        x: 26
+        x: 29
         y: 108
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 19
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 55d9598b634a5b946af9e07b9aaf1309
+      spriteID: 24bc5314f1bb1a047b3745717e5993e5
       vertices: []
       indices: 
       edges: []
@@ -1194,18 +1194,18 @@ TextureImporter:
       name: orc1_50
       rect:
         serializedVersion: 2
-        x: 52
+        x: 55
         y: 108
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 19
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 361ab933cbfbc7f4d821c3b7fd87f1d8
+      spriteID: 481ac9debf1bc014fa0b86a6f7b81d3f
       vertices: []
       indices: 
       edges: []
@@ -1214,18 +1214,18 @@ TextureImporter:
       name: orc1_51
       rect:
         serializedVersion: 2
-        x: 78
+        x: 82
         y: 108
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 75058dabe7f2c744ab6eba14cac2236e
+      spriteID: a68f709009ed0934ca80fc5377dc53b5
       vertices: []
       indices: 
       edges: []
@@ -1234,18 +1234,18 @@ TextureImporter:
       name: orc1_52
       rect:
         serializedVersion: 2
-        x: 104
+        x: 107
         y: 108
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 19
+        height: 31
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6f11c7ab704dbc34694a9ad761af0d30
+      spriteID: 79c949b02ef2beb4e805392b117f438f
       vertices: []
       indices: 
       edges: []
@@ -1254,18 +1254,18 @@ TextureImporter:
       name: orc1_53
       rect:
         serializedVersion: 2
-        x: 130
+        x: 134
         y: 108
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6fb3af35f5e04de4e94c9cb200aabac0
+      spriteID: 695d8d80bf899fa47afc36c4944fd9cb
       vertices: []
       indices: 
       edges: []
@@ -1274,18 +1274,18 @@ TextureImporter:
       name: orc1_54
       rect:
         serializedVersion: 2
-        x: 156
+        x: 158
         y: 108
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 21
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 17aa60d5f4553604bb5905092c0dac81
+      spriteID: 322d073c7b1b9dc4db86a99be3fff86f
       vertices: []
       indices: 
       edges: []
@@ -1294,18 +1294,18 @@ TextureImporter:
       name: orc1_55
       rect:
         serializedVersion: 2
-        x: 182
+        x: 184
         y: 108
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 21
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2ef1e73e50ae0a149be3200c262451f0
+      spriteID: 6b48a57222330fb40b74ad740d6828be
       vertices: []
       indices: 
       edges: []
@@ -1314,18 +1314,18 @@ TextureImporter:
       name: orc1_56
       rect:
         serializedVersion: 2
-        x: 208
+        x: 210
         y: 108
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 21
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1bc29b4dbb66b154cabfc1926973c672
+      spriteID: 6f1ad5acbc8f2bc4dad0668617ec2a11
       vertices: []
       indices: 
       edges: []
@@ -1334,18 +1334,18 @@ TextureImporter:
       name: orc1_57
       rect:
         serializedVersion: 2
-        x: 234
+        x: 235
         y: 108
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 23
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 144a0657948814141a556aead52db96c
+      spriteID: e4158b0bf3896024292968928ada9ff4
       vertices: []
       indices: 
       edges: []
@@ -1354,18 +1354,18 @@ TextureImporter:
       name: orc1_58
       rect:
         serializedVersion: 2
-        x: 260
+        x: 261
         y: 108
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 23
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6cec5d76e4e3b0a4bb7a79136c6da805
+      spriteID: 0d33afca7b5f7584191bde5abc63db45
       vertices: []
       indices: 
       edges: []
@@ -1374,18 +1374,18 @@ TextureImporter:
       name: orc1_59
       rect:
         serializedVersion: 2
-        x: 286
+        x: 287
         y: 108
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 23
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f8d41e077c899514a90099c976e8cdf8
+      spriteID: d2a4272932856d74c88f789e0e387816
       vertices: []
       indices: 
       edges: []
@@ -1394,18 +1394,18 @@ TextureImporter:
       name: orc1_60
       rect:
         serializedVersion: 2
-        x: 0
+        x: 4
         y: 72
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3bc00eb58d7165247896c2b2778d4e79
+      spriteID: 36a42cc9645b4de429c9248bb24a7b8e
       vertices: []
       indices: 
       edges: []
@@ -1414,18 +1414,18 @@ TextureImporter:
       name: orc1_61
       rect:
         serializedVersion: 2
-        x: 26
+        x: 30
         y: 72
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f9f82c70cd2514944910ab405ed4f0d9
+      spriteID: ba4b3765719bd4b4796101f43ef4722c
       vertices: []
       indices: 
       edges: []
@@ -1434,18 +1434,18 @@ TextureImporter:
       name: orc1_62
       rect:
         serializedVersion: 2
-        x: 52
+        x: 56
         y: 72
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 46c6d9ffac88fe94a832ae0c3afe5658
+      spriteID: 08b42d07e694b7e4e826b21753afa697
       vertices: []
       indices: 
       edges: []
@@ -1454,18 +1454,18 @@ TextureImporter:
       name: orc1_63
       rect:
         serializedVersion: 2
-        x: 78
+        x: 82
         y: 72
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 185684eced4f4114db66936c5c424df1
+      spriteID: 8b9672f5c9816ae42a5104be86db758c
       vertices: []
       indices: 
       edges: []
@@ -1474,18 +1474,18 @@ TextureImporter:
       name: orc1_64
       rect:
         serializedVersion: 2
-        x: 104
+        x: 108
         y: 72
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 31
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 254887a6851ed1f47bb118a33451c254
+      spriteID: 2d0fcf0a8d02b1c47a8df4f3a0b0f528
       vertices: []
       indices: 
       edges: []
@@ -1494,18 +1494,18 @@ TextureImporter:
       name: orc1_65
       rect:
         serializedVersion: 2
-        x: 130
+        x: 134
         y: 72
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 84d057a86eb723c44993576b7b332fc9
+      spriteID: 7bd18cd305b53594dae126240cc99d38
       vertices: []
       indices: 
       edges: []
@@ -1514,18 +1514,18 @@ TextureImporter:
       name: orc1_66
       rect:
         serializedVersion: 2
-        x: 156
+        x: 160
         y: 72
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 18
+        height: 31
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1bae11ed03f756a44891a5bedf50cb21
+      spriteID: 48e86d2d430fdd34c9ca915e470363af
       vertices: []
       indices: 
       edges: []
@@ -1534,18 +1534,18 @@ TextureImporter:
       name: orc1_67
       rect:
         serializedVersion: 2
-        x: 182
+        x: 186
         y: 72
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bef972c6a20b9a942a0d366497e14798
+      spriteID: 023d608ebb81223428d3e6aad58e8667
       vertices: []
       indices: 
       edges: []
@@ -1554,18 +1554,18 @@ TextureImporter:
       name: orc1_68
       rect:
         serializedVersion: 2
-        x: 208
+        x: 212
         y: 72
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 31
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 244bf67ce53137a41a9aa1134980f6b5
+      spriteID: 67b05123e9112ea4cb3e3b31ca5f5fc7
       vertices: []
       indices: 
       edges: []
@@ -1574,18 +1574,18 @@ TextureImporter:
       name: orc1_69
       rect:
         serializedVersion: 2
-        x: 234
+        x: 238
         y: 72
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 19
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f3f392c4e6e4fd045bdea82459fc6690
+      spriteID: 0160fd8a1504dbe42b563c30b145357e
       vertices: []
       indices: 
       edges: []
@@ -1594,18 +1594,18 @@ TextureImporter:
       name: orc1_70
       rect:
         serializedVersion: 2
-        x: 260
+        x: 264
         y: 72
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 18
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bc3dc8dbaa7d3a643ab78131282383be
+      spriteID: cb5d7836224935c4c94bbacd22cdd07b
       vertices: []
       indices: 
       edges: []
@@ -1614,18 +1614,18 @@ TextureImporter:
       name: orc1_71
       rect:
         serializedVersion: 2
-        x: 286
+        x: 290
         y: 72
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 18
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 64db61af7e41a1846930c845bebc77ad
+      spriteID: 98214eae41e94934794e0883fbdb5f7f
       vertices: []
       indices: 
       edges: []
@@ -1634,18 +1634,18 @@ TextureImporter:
       name: orc1_72
       rect:
         serializedVersion: 2
-        x: 0
+        x: 4
         y: 36
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 63b842b6fbdc7bf45925dd6a4cb0535f
+      spriteID: 93d821984678bb340b3b874cfe596e44
       vertices: []
       indices: 
       edges: []
@@ -1654,18 +1654,18 @@ TextureImporter:
       name: orc1_73
       rect:
         serializedVersion: 2
-        x: 26
+        x: 30
         y: 36
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f97b212157bf6904195b720d9cecdf7e
+      spriteID: 5871d30bd98bbfa44b4b5e6199ebae27
       vertices: []
       indices: 
       edges: []
@@ -1674,18 +1674,18 @@ TextureImporter:
       name: orc1_74
       rect:
         serializedVersion: 2
-        x: 52
+        x: 56
         y: 36
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 439170ff143b83546a141b57e2662a05
+      spriteID: c81845dd5f5139946bd433d36167e939
       vertices: []
       indices: 
       edges: []
@@ -1694,18 +1694,18 @@ TextureImporter:
       name: orc1_75
       rect:
         serializedVersion: 2
-        x: 78
+        x: 82
         y: 36
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dcf33d63424ec7f46967a98692c88860
+      spriteID: 625913e1852532c418f8d88f06096d1c
       vertices: []
       indices: 
       edges: []
@@ -1714,18 +1714,18 @@ TextureImporter:
       name: orc1_76
       rect:
         serializedVersion: 2
-        x: 104
+        x: 108
         y: 36
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 31
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d34428582d93d2b42b70e3830246b20e
+      spriteID: da8f8549ecb172a49ad75baa8f7e22ab
       vertices: []
       indices: 
       edges: []
@@ -1734,18 +1734,18 @@ TextureImporter:
       name: orc1_77
       rect:
         serializedVersion: 2
-        x: 130
+        x: 134
         y: 36
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4280528b5af23af41bee44e69eade249
+      spriteID: 712d85ce168039c499c100356f80c6f9
       vertices: []
       indices: 
       edges: []
@@ -1754,18 +1754,18 @@ TextureImporter:
       name: orc1_78
       rect:
         serializedVersion: 2
-        x: 156
+        x: 160
         y: 36
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 31
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4c0502d87116b1840b714df998e378d2
+      spriteID: 6fe8eadc8df02ae4e8f0d3b6109da619
       vertices: []
       indices: 
       edges: []
@@ -1774,18 +1774,18 @@ TextureImporter:
       name: orc1_79
       rect:
         serializedVersion: 2
-        x: 182
+        x: 186
         y: 36
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: af36c97e3cf0d034bbc88a721833d9de
+      spriteID: d7914dcb1ead3204aa84d88fe11b14b3
       vertices: []
       indices: 
       edges: []
@@ -1794,18 +1794,18 @@ TextureImporter:
       name: orc1_80
       rect:
         serializedVersion: 2
-        x: 208
+        x: 211
         y: 36
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 18
+        height: 31
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9745149a4c99fe34e85140f2e772202e
+      spriteID: 95b92f56a115cf74cb30cbe290e41821
       vertices: []
       indices: 
       edges: []
@@ -1814,18 +1814,18 @@ TextureImporter:
       name: orc1_81
       rect:
         serializedVersion: 2
-        x: 234
+        x: 237
         y: 36
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 18
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2da33302909964f429863b6b624b855d
+      spriteID: e02af623e72852b488b1c2b52bf7907e
       vertices: []
       indices: 
       edges: []
@@ -1834,18 +1834,18 @@ TextureImporter:
       name: orc1_82
       rect:
         serializedVersion: 2
-        x: 260
+        x: 263
         y: 36
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 18
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 721897c2ef930e24682c91aea11f18ee
+      spriteID: 4956379f4d569574b9a5c2b81b8c5e70
       vertices: []
       indices: 
       edges: []
@@ -1854,18 +1854,18 @@ TextureImporter:
       name: orc1_83
       rect:
         serializedVersion: 2
-        x: 286
+        x: 288
         y: 36
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 19
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d85b1e71c2db7ce4dab830070fe7b894
+      spriteID: 75edbfc15b1366b42b3a75d8d8c8211d
       vertices: []
       indices: 
       edges: []
@@ -1874,18 +1874,18 @@ TextureImporter:
       name: orc1_84
       rect:
         serializedVersion: 2
-        x: 0
+        x: 3
         y: 0
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 19
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ad370849fb8eb5b418e53f43509e24eb
+      spriteID: 5c2890f477479e342aad2488a10ab393
       vertices: []
       indices: 
       edges: []
@@ -1894,18 +1894,18 @@ TextureImporter:
       name: orc1_85
       rect:
         serializedVersion: 2
-        x: 26
+        x: 29
         y: 0
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 19
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d49a5709b0699094dabe76ba9f108d84
+      spriteID: 6abd0f92fb6d42645ac182f90305e336
       vertices: []
       indices: 
       edges: []
@@ -1914,18 +1914,18 @@ TextureImporter:
       name: orc1_86
       rect:
         serializedVersion: 2
-        x: 52
+        x: 55
         y: 0
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 19
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4792fd8d7c0568540bfc0712163fca18
+      spriteID: 13da80596afe12545b19b053073e6340
       vertices: []
       indices: 
       edges: []
@@ -1934,18 +1934,18 @@ TextureImporter:
       name: orc1_87
       rect:
         serializedVersion: 2
-        x: 78
+        x: 82
         y: 0
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cb44cc9786fbd9e4cb897410f171b585
+      spriteID: 059217ea60774164e9a516f59be283f0
       vertices: []
       indices: 
       edges: []
@@ -1954,18 +1954,18 @@ TextureImporter:
       name: orc1_88
       rect:
         serializedVersion: 2
-        x: 104
+        x: 107
         y: 0
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 19
+        height: 31
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8d641e7fbb5677a489ecc9d996ea838e
+      spriteID: bbc6d42215b25fc468ca9a1ec1e55e7a
       vertices: []
       indices: 
       edges: []
@@ -1974,18 +1974,18 @@ TextureImporter:
       name: orc1_89
       rect:
         serializedVersion: 2
-        x: 130
+        x: 134
         y: 0
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8a57edafb6c93a344b65f6870d904fd8
+      spriteID: bdd41e77654ba364cb53571c27eb04de
       vertices: []
       indices: 
       edges: []
@@ -1994,18 +1994,18 @@ TextureImporter:
       name: orc1_90
       rect:
         serializedVersion: 2
-        x: 156
+        x: 158
         y: 0
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 21
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5337317a655fb3a4a99192ff79e168c2
+      spriteID: 175bd1f8db0d55646ab0099f65ab089c
       vertices: []
       indices: 
       edges: []
@@ -2014,18 +2014,18 @@ TextureImporter:
       name: orc1_91
       rect:
         serializedVersion: 2
-        x: 182
+        x: 184
         y: 0
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 21
+        height: 31
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 00dedeaf5838b054d9132046c3f2fbd3
+      spriteID: 16d0726256ca8a34e8ad0b5a824e5829
       vertices: []
       indices: 
       edges: []
@@ -2034,18 +2034,18 @@ TextureImporter:
       name: orc1_92
       rect:
         serializedVersion: 2
-        x: 208
+        x: 210
         y: 0
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 21
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f857c58ce1260114890691135ca15a7c
+      spriteID: ee3c556b94b1612479c1c3773e5be069
       vertices: []
       indices: 
       edges: []
@@ -2054,18 +2054,18 @@ TextureImporter:
       name: orc1_93
       rect:
         serializedVersion: 2
-        x: 234
+        x: 235
         y: 0
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 23
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 02a01e796b50cce4f8be6a86f1dc06ec
+      spriteID: a7c8932752e9b814991dfa8b46996594
       vertices: []
       indices: 
       edges: []
@@ -2074,18 +2074,18 @@ TextureImporter:
       name: orc1_94
       rect:
         serializedVersion: 2
-        x: 260
+        x: 261
         y: 0
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 23
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3cb8f9ad17801034fa1a1e46e48af8cc
+      spriteID: 84b209ee05c6b0f4583da4ee27665d15
       vertices: []
       indices: 
       edges: []
@@ -2094,18 +2094,18 @@ TextureImporter:
       name: orc1_95
       rect:
         serializedVersion: 2
-        x: 286
+        x: 287
         y: 0
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 23
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f7b243e67dc40734ca14dce82797f10a
+      spriteID: fc8d33a7d87c5ee44b1601f7097e7740
       vertices: []
       indices: 
       edges: []

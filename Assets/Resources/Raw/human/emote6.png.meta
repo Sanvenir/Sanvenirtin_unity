@@ -194,18 +194,18 @@ TextureImporter:
       name: emote6_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 4
         y: 252
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 31
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fec7bc5cc72b2694489ad43d36efff0a
+      spriteID: b5352b6a7e4376d4892fcc017710d71b
       vertices: []
       indices: 
       edges: []
@@ -214,18 +214,18 @@ TextureImporter:
       name: emote6_1
       rect:
         serializedVersion: 2
-        x: 26
+        x: 30
         y: 252
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 31
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 85379d8a7a1d5c54fb44b75c4a9161b9
+      spriteID: a5d3c67d03b9ac8488290dd3e70bd28b
       vertices: []
       indices: 
       edges: []
@@ -234,18 +234,18 @@ TextureImporter:
       name: emote6_2
       rect:
         serializedVersion: 2
-        x: 52
+        x: 56
         y: 252
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 31
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 23fe91c81e279d64b887b4507a631237
+      spriteID: 1878f03be91182143b755c218b0fa2fb
       vertices: []
       indices: 
       edges: []
@@ -254,18 +254,18 @@ TextureImporter:
       name: emote6_3
       rect:
         serializedVersion: 2
-        x: 78
+        x: 80
         y: 252
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 21
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fbd9606f1e3f98f48a3b4ec9814af156
+      spriteID: 363ba0d233e7bb14da3c7d40802f8948
       vertices: []
       indices: 
       edges: []
@@ -274,18 +274,18 @@ TextureImporter:
       name: emote6_4
       rect:
         serializedVersion: 2
-        x: 104
+        x: 106
         y: 252
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 21
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bd0c0cd5528268149ade9beeea6dc350
+      spriteID: 99a629afbde0dd14e9ec5b03ab67c61b
       vertices: []
       indices: 
       edges: []
@@ -294,18 +294,18 @@ TextureImporter:
       name: emote6_5
       rect:
         serializedVersion: 2
-        x: 130
+        x: 132
         y: 252
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 21
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9acab2c76b3296248a417952a89f1519
+      spriteID: 5a4ba7a55639ccc4f8041278ececd24d
       vertices: []
       indices: 
       edges: []
@@ -314,18 +314,18 @@ TextureImporter:
       name: emote6_6
       rect:
         serializedVersion: 2
-        x: 156
+        x: 158
         y: 252
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 21
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3cd70c80e8352d042b0ca4165964256d
+      spriteID: 4ca90f0c7a54b4d42845be6417f3d1f5
       vertices: []
       indices: 
       edges: []
@@ -334,18 +334,18 @@ TextureImporter:
       name: emote6_7
       rect:
         serializedVersion: 2
-        x: 182
+        x: 184
         y: 252
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 21
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bb42396b4e1eafb45ae46c912edb7ead
+      spriteID: 1b6e3332ffb0cd847852fc85c08e3a10
       vertices: []
       indices: 
       edges: []
@@ -354,18 +354,18 @@ TextureImporter:
       name: emote6_8
       rect:
         serializedVersion: 2
-        x: 208
+        x: 210
         y: 252
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 21
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 064c5494f4d348043b46bf05e1bb18ef
+      spriteID: 8b27228f7a744a14fa51080ed6ba256e
       vertices: []
       indices: 
       edges: []
@@ -374,18 +374,18 @@ TextureImporter:
       name: emote6_9
       rect:
         serializedVersion: 2
-        x: 234
+        x: 236
         y: 252
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 21
+        height: 31
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1824806776319fa46896354529a8e934
+      spriteID: 7af9091a60474434b86ea439b09ed314
       vertices: []
       indices: 
       edges: []
@@ -394,18 +394,18 @@ TextureImporter:
       name: emote6_10
       rect:
         serializedVersion: 2
-        x: 260
+        x: 262
         y: 252
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 21
+        height: 31
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 41ea72f4c9ead62449e3cc6bc69bfc9c
+      spriteID: 6cb23884c2404394b856140aeffd1437
       vertices: []
       indices: 
       edges: []
@@ -414,18 +414,18 @@ TextureImporter:
       name: emote6_11
       rect:
         serializedVersion: 2
-        x: 286
+        x: 288
         y: 252
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 21
+        height: 31
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2560a0d9e08775741a26fb85fbc3b271
+      spriteID: 9adc16f7d9bacc842b719cc0f7c20d4c
       vertices: []
       indices: 
       edges: []
@@ -434,18 +434,18 @@ TextureImporter:
       name: emote6_12
       rect:
         serializedVersion: 2
-        x: 0
+        x: 4
         y: 216
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 31
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 547e903b25e07aa48b946eded43ea025
+      spriteID: 1a44a4806c284e2449c6dc94ba1fcf5f
       vertices: []
       indices: 
       edges: []
@@ -454,18 +454,18 @@ TextureImporter:
       name: emote6_13
       rect:
         serializedVersion: 2
-        x: 26
+        x: 30
         y: 216
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 31
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5aa576c50409ac54f998cfaa0ae5a891
+      spriteID: ae9313d7309f82a4d8fc02e9c564e8ac
       vertices: []
       indices: 
       edges: []
@@ -474,18 +474,18 @@ TextureImporter:
       name: emote6_14
       rect:
         serializedVersion: 2
-        x: 52
+        x: 56
         y: 216
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 31
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1d03b06928c21474da8becae084ba281
+      spriteID: 0d7f5e929c95299449e4debe2586a9fc
       vertices: []
       indices: 
       edges: []
@@ -494,18 +494,18 @@ TextureImporter:
       name: emote6_15
       rect:
         serializedVersion: 2
-        x: 78
+        x: 80
         y: 216
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 21
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 11033ba48426cd04094d1d19f468c441
+      spriteID: fa97ea4a765d9114ba1a45480b5e10dc
       vertices: []
       indices: 
       edges: []
@@ -514,18 +514,18 @@ TextureImporter:
       name: emote6_16
       rect:
         serializedVersion: 2
-        x: 104
+        x: 106
         y: 216
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 21
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7bb63544fd847c24595128f475bb2f4c
+      spriteID: 97fd493579d6d0a41948c7ea7d710609
       vertices: []
       indices: 
       edges: []
@@ -534,18 +534,18 @@ TextureImporter:
       name: emote6_17
       rect:
         serializedVersion: 2
-        x: 130
+        x: 132
         y: 216
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 21
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 39dbda6cb5eeb2b4abef06c1d76f9102
+      spriteID: 94dda869cb820894cbc467c3b250782b
       vertices: []
       indices: 
       edges: []
@@ -554,18 +554,18 @@ TextureImporter:
       name: emote6_18
       rect:
         serializedVersion: 2
-        x: 156
+        x: 158
         y: 216
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 21
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5c95ddcc44a895b409a791f96c1bfc3b
+      spriteID: f7ad416fc9515e24b82b3bbd80143801
       vertices: []
       indices: 
       edges: []
@@ -574,18 +574,18 @@ TextureImporter:
       name: emote6_19
       rect:
         serializedVersion: 2
-        x: 182
+        x: 184
         y: 216
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 21
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6150b650327511243a4cca8363568f42
+      spriteID: de7f59b2b7f8e17489cd6fe3b45fbb8e
       vertices: []
       indices: 
       edges: []
@@ -594,18 +594,18 @@ TextureImporter:
       name: emote6_20
       rect:
         serializedVersion: 2
-        x: 208
+        x: 210
         y: 216
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 21
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0114bcd7f655820409daab71aca5c74a
+      spriteID: bc6ddccda3d792442b065f6fecb5d9ff
       vertices: []
       indices: 
       edges: []
@@ -614,18 +614,18 @@ TextureImporter:
       name: emote6_21
       rect:
         serializedVersion: 2
-        x: 234
+        x: 236
         y: 216
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 21
+        height: 31
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bcfdb06fc204dfe4b98fc288f1926765
+      spriteID: a9e01e32d8e37f945ae2171c4bbea405
       vertices: []
       indices: 
       edges: []
@@ -634,18 +634,18 @@ TextureImporter:
       name: emote6_22
       rect:
         serializedVersion: 2
-        x: 260
+        x: 262
         y: 216
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 21
+        height: 31
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eb7a99981510a1943a0a2f7d2fd0d99f
+      spriteID: 56ba5e8b353648146b03bf671fb50ef2
       vertices: []
       indices: 
       edges: []
@@ -654,18 +654,18 @@ TextureImporter:
       name: emote6_23
       rect:
         serializedVersion: 2
-        x: 286
+        x: 288
         y: 216
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 21
+        height: 31
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9c4ab7f178921044b8161bfa96cd1458
+      spriteID: 4b106d50dae19bc45aa36cf69f1aea35
       vertices: []
       indices: 
       edges: []
@@ -674,18 +674,18 @@ TextureImporter:
       name: emote6_24
       rect:
         serializedVersion: 2
-        x: 0
+        x: 4
         y: 180
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 31
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d44a5e3f2c0428c409ea3a4e219d10f8
+      spriteID: 5261598c9381cac46b6bd2db8cd61c20
       vertices: []
       indices: 
       edges: []
@@ -694,18 +694,18 @@ TextureImporter:
       name: emote6_25
       rect:
         serializedVersion: 2
-        x: 26
+        x: 30
         y: 180
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 31
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ed27f2df486faf04f93086dbe5c5e61d
+      spriteID: f18ec0fc014459d46b84b512d8ee17ed
       vertices: []
       indices: 
       edges: []
@@ -714,18 +714,18 @@ TextureImporter:
       name: emote6_26
       rect:
         serializedVersion: 2
-        x: 52
+        x: 56
         y: 180
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 31
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e9faa06ccb6ceb54ba9701ec508d0878
+      spriteID: 13d794f95024f6b4899fef4b19a7818b
       vertices: []
       indices: 
       edges: []
@@ -734,18 +734,18 @@ TextureImporter:
       name: emote6_27
       rect:
         serializedVersion: 2
-        x: 78
+        x: 80
         y: 180
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 21
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bc988cb4b03ca9b4db47bd22c4c863d8
+      spriteID: 7716b9a5a975b8b4c909867af2189403
       vertices: []
       indices: 
       edges: []
@@ -754,18 +754,18 @@ TextureImporter:
       name: emote6_28
       rect:
         serializedVersion: 2
-        x: 104
+        x: 106
         y: 180
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 21
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0ab0fa754238e854aaa565f3d58f13da
+      spriteID: 93b7b365395c0b645958b250720e6faf
       vertices: []
       indices: 
       edges: []
@@ -774,18 +774,18 @@ TextureImporter:
       name: emote6_29
       rect:
         serializedVersion: 2
-        x: 130
+        x: 132
         y: 180
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 21
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b70651c7a9d245d4b9853df72d58ab2a
+      spriteID: 3387b3e69fd3e974ea1fe8e2dc772f1f
       vertices: []
       indices: 
       edges: []
@@ -794,18 +794,18 @@ TextureImporter:
       name: emote6_30
       rect:
         serializedVersion: 2
-        x: 156
+        x: 158
         y: 180
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 21
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 34ff0325c957d8248863d8f36af7b9a5
+      spriteID: 53f263dc36c44fb4ea9d0818486758f9
       vertices: []
       indices: 
       edges: []
@@ -814,18 +814,18 @@ TextureImporter:
       name: emote6_31
       rect:
         serializedVersion: 2
-        x: 182
+        x: 184
         y: 180
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 21
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 67c7194403162ef499ff2f80379c31c8
+      spriteID: 43d82cba295830f439e24bd1b400b61e
       vertices: []
       indices: 
       edges: []
@@ -834,18 +834,18 @@ TextureImporter:
       name: emote6_32
       rect:
         serializedVersion: 2
-        x: 208
+        x: 210
         y: 180
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 21
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8319e3d7265449a4895b38fe6c9e9ae5
+      spriteID: b63410cf5371ea64db91061188b58ac2
       vertices: []
       indices: 
       edges: []
@@ -854,18 +854,18 @@ TextureImporter:
       name: emote6_33
       rect:
         serializedVersion: 2
-        x: 234
+        x: 236
         y: 180
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 21
+        height: 31
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fdbdd4bfac2369f439e35b05f98a0c23
+      spriteID: 175e2a1333f8c584caf22fd1afa3ffea
       vertices: []
       indices: 
       edges: []
@@ -874,18 +874,18 @@ TextureImporter:
       name: emote6_34
       rect:
         serializedVersion: 2
-        x: 260
+        x: 262
         y: 180
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 21
+        height: 31
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9652b78a85affe64a8bf5daa0ca330af
+      spriteID: f0348cd1e9c2a5b4b8ad1a9425377f52
       vertices: []
       indices: 
       edges: []
@@ -894,18 +894,18 @@ TextureImporter:
       name: emote6_35
       rect:
         serializedVersion: 2
-        x: 286
+        x: 288
         y: 180
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 21
+        height: 31
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b3647ec5ccc073f4eb31d192fb24c990
+      spriteID: 080218a7e14d38748a6d0d6994f564e3
       vertices: []
       indices: 
       edges: []
@@ -914,18 +914,18 @@ TextureImporter:
       name: emote6_36
       rect:
         serializedVersion: 2
-        x: 0
+        x: 4
         y: 144
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 31
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2604435358337f14caee360822d599a1
+      spriteID: 427f001a6f9f9e1458b90326efceb5b6
       vertices: []
       indices: 
       edges: []
@@ -934,18 +934,18 @@ TextureImporter:
       name: emote6_37
       rect:
         serializedVersion: 2
-        x: 26
+        x: 30
         y: 144
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 31
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d99627211737c034683f1313f10eb7d4
+      spriteID: dc4c9ec0c2329f1488e26856d750ebf5
       vertices: []
       indices: 
       edges: []
@@ -954,18 +954,18 @@ TextureImporter:
       name: emote6_38
       rect:
         serializedVersion: 2
-        x: 52
+        x: 56
         y: 144
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 31
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d2b57bd3a853ae240a185cecbcd20d34
+      spriteID: 31db9876625300b428a6ef3aefce6063
       vertices: []
       indices: 
       edges: []
@@ -974,18 +974,18 @@ TextureImporter:
       name: emote6_39
       rect:
         serializedVersion: 2
-        x: 78
+        x: 80
         y: 144
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 21
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1faf664c6b2e4b4478ca1eecb8a2d95f
+      spriteID: a4239cfb917677d4392a26804d000a33
       vertices: []
       indices: 
       edges: []
@@ -994,18 +994,18 @@ TextureImporter:
       name: emote6_40
       rect:
         serializedVersion: 2
-        x: 104
+        x: 106
         y: 144
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 21
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6631c9a13cc79a64b96ee78b052f5580
+      spriteID: 400ca9b9fd7bbd241a348e50c55c7097
       vertices: []
       indices: 
       edges: []
@@ -1014,18 +1014,18 @@ TextureImporter:
       name: emote6_41
       rect:
         serializedVersion: 2
-        x: 130
+        x: 132
         y: 144
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 21
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eb99ac2a18316604383d0a31430a0896
+      spriteID: 890e373e2f19abb4286a404b6e09a19e
       vertices: []
       indices: 
       edges: []
@@ -1034,18 +1034,18 @@ TextureImporter:
       name: emote6_42
       rect:
         serializedVersion: 2
-        x: 156
+        x: 158
         y: 144
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 21
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e958631cab76d85479502fe138a93f57
+      spriteID: 629f50a0c3b9ff8469615d9a614f434b
       vertices: []
       indices: 
       edges: []
@@ -1054,18 +1054,18 @@ TextureImporter:
       name: emote6_43
       rect:
         serializedVersion: 2
-        x: 182
+        x: 184
         y: 144
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 21
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e3541c545772e0941a39c2395007175c
+      spriteID: d119a11c5913dc345ba1a7be4078d0a0
       vertices: []
       indices: 
       edges: []
@@ -1074,18 +1074,18 @@ TextureImporter:
       name: emote6_44
       rect:
         serializedVersion: 2
-        x: 208
+        x: 210
         y: 144
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 21
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 176e45ebf6974474dba064d3223e06d8
+      spriteID: 6491e9e99f8ef0e4d81a6f139514cbf0
       vertices: []
       indices: 
       edges: []
@@ -1094,18 +1094,18 @@ TextureImporter:
       name: emote6_45
       rect:
         serializedVersion: 2
-        x: 234
+        x: 236
         y: 144
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 21
+        height: 31
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 91e2ca981c0da154a87fca14b99b5832
+      spriteID: 405348fa6cba20a43ba872934b8e6262
       vertices: []
       indices: 
       edges: []
@@ -1114,18 +1114,18 @@ TextureImporter:
       name: emote6_46
       rect:
         serializedVersion: 2
-        x: 260
+        x: 262
         y: 144
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 21
+        height: 31
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 707dc4ecbc5dc2d49aec9bb601a50d89
+      spriteID: 056c0be5d71788144b27726a0d91be0b
       vertices: []
       indices: 
       edges: []
@@ -1134,18 +1134,18 @@ TextureImporter:
       name: emote6_47
       rect:
         serializedVersion: 2
-        x: 286
+        x: 288
         y: 144
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 21
+        height: 31
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c7564730c6e51d449ab98b9a2f5b424b
+      spriteID: f81fbb6876f71e440adcdddd29d833dd
       vertices: []
       indices: 
       edges: []
@@ -1154,18 +1154,18 @@ TextureImporter:
       name: emote6_48
       rect:
         serializedVersion: 2
-        x: 0
+        x: 3
         y: 108
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 19
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8520590ed07cc864ea39a5ac1075cecb
+      spriteID: d52e0c94d71ad2542ace65baf0ba943e
       vertices: []
       indices: 
       edges: []
@@ -1174,18 +1174,18 @@ TextureImporter:
       name: emote6_49
       rect:
         serializedVersion: 2
-        x: 26
+        x: 29
         y: 108
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 19
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: efd317dfe18be804c90a763a7b147e77
+      spriteID: 577cf61f0a4e8404498f8f93e2d14a33
       vertices: []
       indices: 
       edges: []
@@ -1194,18 +1194,18 @@ TextureImporter:
       name: emote6_50
       rect:
         serializedVersion: 2
-        x: 52
+        x: 55
         y: 108
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 19
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c7365313bbd7a8f4a837afe2b332504f
+      spriteID: 470a3c9676d9f194fbbb58cff0f82f6a
       vertices: []
       indices: 
       edges: []
@@ -1214,18 +1214,18 @@ TextureImporter:
       name: emote6_51
       rect:
         serializedVersion: 2
-        x: 78
+        x: 82
         y: 108
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 141da28277e5580418d9be4ef26035be
+      spriteID: dce66b6f4f14e8948a40f32c2253495d
       vertices: []
       indices: 
       edges: []
@@ -1234,18 +1234,18 @@ TextureImporter:
       name: emote6_52
       rect:
         serializedVersion: 2
-        x: 104
+        x: 108
         y: 108
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dd348b54ccc9bee4ea29630e5afffa79
+      spriteID: 280a47f0c49e69d429b7bf41924b4998
       vertices: []
       indices: 
       edges: []
@@ -1254,18 +1254,18 @@ TextureImporter:
       name: emote6_53
       rect:
         serializedVersion: 2
-        x: 130
+        x: 134
         y: 108
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 20196f14a4cbcc04aaea7e401070e902
+      spriteID: fb566c37c54f0114f9d24b91e5956870
       vertices: []
       indices: 
       edges: []
@@ -1274,18 +1274,18 @@ TextureImporter:
       name: emote6_54
       rect:
         serializedVersion: 2
-        x: 156
+        x: 160
         y: 108
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 28
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 60592a43f7820ba4a83bb7959e1cdfb7
+      spriteID: e3f8f9c6458c58e438be49844ec19c0b
       vertices: []
       indices: 
       edges: []
@@ -1294,18 +1294,18 @@ TextureImporter:
       name: emote6_55
       rect:
         serializedVersion: 2
-        x: 182
+        x: 186
         y: 108
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 28
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 98f6ff2b39890ec429a8008dc82e2390
+      spriteID: bb2cd255b19e1aa4e8b4d385e117c2dd
       vertices: []
       indices: 
       edges: []
@@ -1314,18 +1314,18 @@ TextureImporter:
       name: emote6_56
       rect:
         serializedVersion: 2
-        x: 208
+        x: 212
         y: 108
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 28
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 33fc0d04b01bc6f4e8e60e74fc6a8380
+      spriteID: 883e2de16b309b14581af987f627466e
       vertices: []
       indices: 
       edges: []
@@ -1334,18 +1334,18 @@ TextureImporter:
       name: emote6_57
       rect:
         serializedVersion: 2
-        x: 234
+        x: 238
         y: 108
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 365afe17156db254da7f5c598b26b412
+      spriteID: e38968f1c837bc04a8a16455fad0deed
       vertices: []
       indices: 
       edges: []
@@ -1354,18 +1354,18 @@ TextureImporter:
       name: emote6_58
       rect:
         serializedVersion: 2
-        x: 260
+        x: 264
         y: 108
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7bf2fd037b049b44a8de959d3550cbc7
+      spriteID: b10ad48c65a82f84bbf793ddababb3a8
       vertices: []
       indices: 
       edges: []
@@ -1374,18 +1374,18 @@ TextureImporter:
       name: emote6_59
       rect:
         serializedVersion: 2
-        x: 286
+        x: 290
         y: 108
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 74215e1551e2df7439c52dc735955edb
+      spriteID: 746cbc5df034c624eaedd492b4c8a1d3
       vertices: []
       indices: 
       edges: []
@@ -1394,18 +1394,18 @@ TextureImporter:
       name: emote6_60
       rect:
         serializedVersion: 2
-        x: 0
+        x: 3
         y: 72
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 19
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ac0db7c0b53cdaa42ad13f1a2d8c6f1a
+      spriteID: 1707f284963ce504985f36eda7cbb69d
       vertices: []
       indices: 
       edges: []
@@ -1414,18 +1414,18 @@ TextureImporter:
       name: emote6_61
       rect:
         serializedVersion: 2
-        x: 26
+        x: 29
         y: 72
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 19
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f41156e229cc5f244906747c1a95345b
+      spriteID: ee520d27a0535ff4c893c90552efa9cb
       vertices: []
       indices: 
       edges: []
@@ -1434,18 +1434,18 @@ TextureImporter:
       name: emote6_62
       rect:
         serializedVersion: 2
-        x: 52
+        x: 55
         y: 72
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 19
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e6f9ee74398ab8c48b0ac57a6be89d5e
+      spriteID: 067d95b8e844ffe48a9a20c4605520a4
       vertices: []
       indices: 
       edges: []
@@ -1454,18 +1454,18 @@ TextureImporter:
       name: emote6_63
       rect:
         serializedVersion: 2
-        x: 78
+        x: 82
         y: 72
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 63bd27989e9588d43a00068ea37ec3aa
+      spriteID: e300b77dafe672a45864450f68b2452b
       vertices: []
       indices: 
       edges: []
@@ -1474,18 +1474,18 @@ TextureImporter:
       name: emote6_64
       rect:
         serializedVersion: 2
-        x: 104
+        x: 108
         y: 72
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a4f19864c5d020d41b43b858704a351e
+      spriteID: 021582ff1f0f38c4cb04576e4c204247
       vertices: []
       indices: 
       edges: []
@@ -1494,18 +1494,18 @@ TextureImporter:
       name: emote6_65
       rect:
         serializedVersion: 2
-        x: 130
+        x: 134
         y: 72
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 24357688b58e57549b264b31aa49b866
+      spriteID: 9e8e9abbe9a55024b859a05230e4123c
       vertices: []
       indices: 
       edges: []
@@ -1514,18 +1514,18 @@ TextureImporter:
       name: emote6_66
       rect:
         serializedVersion: 2
-        x: 156
+        x: 160
         y: 72
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 28
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7d64f3b1123935c4a96124ce1d06f8a9
+      spriteID: 8afb43e6ca887334e8809910da4e4787
       vertices: []
       indices: 
       edges: []
@@ -1534,18 +1534,18 @@ TextureImporter:
       name: emote6_67
       rect:
         serializedVersion: 2
-        x: 182
+        x: 186
         y: 72
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 28
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8ed62b65f48f95246920487d3665980d
+      spriteID: 5449d482315eb6643bfee65254186138
       vertices: []
       indices: 
       edges: []
@@ -1554,18 +1554,18 @@ TextureImporter:
       name: emote6_68
       rect:
         serializedVersion: 2
-        x: 208
+        x: 212
         y: 72
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 28
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d4a21b7df32b8584b92cd5de6692afa7
+      spriteID: 541c43153e258c0428b924c4b999817d
       vertices: []
       indices: 
       edges: []
@@ -1574,18 +1574,18 @@ TextureImporter:
       name: emote6_69
       rect:
         serializedVersion: 2
-        x: 234
+        x: 238
         y: 72
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6373d694c2250b6418dec1e64a46c5a8
+      spriteID: 74e8c2a22d8223049bcf62b0ab420d4d
       vertices: []
       indices: 
       edges: []
@@ -1594,18 +1594,18 @@ TextureImporter:
       name: emote6_70
       rect:
         serializedVersion: 2
-        x: 260
+        x: 264
         y: 72
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b7d00c70b1bffca4faad89af2d6f5cdc
+      spriteID: 94ac7d4892dd7424b9d8e98112324736
       vertices: []
       indices: 
       edges: []
@@ -1614,18 +1614,18 @@ TextureImporter:
       name: emote6_71
       rect:
         serializedVersion: 2
-        x: 286
+        x: 290
         y: 72
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1f501282422167d4caada9c46a6f0387
+      spriteID: 5826d4d8d94531a4cbe2e0c1c4c381d0
       vertices: []
       indices: 
       edges: []
@@ -1634,18 +1634,18 @@ TextureImporter:
       name: emote6_72
       rect:
         serializedVersion: 2
-        x: 0
+        x: 3
         y: 36
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 19
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 38a55ae31c0c39f4b8ecdc6d61420e87
+      spriteID: 403de2b5f56656640953885c50c65880
       vertices: []
       indices: 
       edges: []
@@ -1654,18 +1654,18 @@ TextureImporter:
       name: emote6_73
       rect:
         serializedVersion: 2
-        x: 26
+        x: 29
         y: 36
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 19
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e8152faa5dcf5944f8f4cc5b677f9100
+      spriteID: 8eae0abc2f39b684c8620ecd1cccd9d2
       vertices: []
       indices: 
       edges: []
@@ -1674,18 +1674,18 @@ TextureImporter:
       name: emote6_74
       rect:
         serializedVersion: 2
-        x: 52
+        x: 55
         y: 36
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 19
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cca2a6273a795a94b89ed19b4e97fc11
+      spriteID: 90f6258a0f04dbc4eb7709aeda942cce
       vertices: []
       indices: 
       edges: []
@@ -1694,18 +1694,18 @@ TextureImporter:
       name: emote6_75
       rect:
         serializedVersion: 2
-        x: 78
+        x: 82
         y: 36
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 527b9f014ea3d4948bd1713b8d74a5a9
+      spriteID: 6641d5ccd02576a409485a21cebcdd81
       vertices: []
       indices: 
       edges: []
@@ -1714,18 +1714,18 @@ TextureImporter:
       name: emote6_76
       rect:
         serializedVersion: 2
-        x: 104
+        x: 108
         y: 36
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3dd4c9429a257314eade81f965f32f85
+      spriteID: a0a68867df5dd2046ae97ab0a7fbc3f5
       vertices: []
       indices: 
       edges: []
@@ -1734,18 +1734,18 @@ TextureImporter:
       name: emote6_77
       rect:
         serializedVersion: 2
-        x: 130
+        x: 134
         y: 36
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f9b51af63cc688444836cf8e2e50d91c
+      spriteID: 64ed02df70db9f84e9d5b7143d2ad1b8
       vertices: []
       indices: 
       edges: []
@@ -1754,18 +1754,18 @@ TextureImporter:
       name: emote6_78
       rect:
         serializedVersion: 2
-        x: 156
+        x: 160
         y: 36
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 28
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b9bd9c5b61e69a24bbd5b15d4f67b0ae
+      spriteID: 103f061dbd341cd458e1f2fe20be808f
       vertices: []
       indices: 
       edges: []
@@ -1774,18 +1774,18 @@ TextureImporter:
       name: emote6_79
       rect:
         serializedVersion: 2
-        x: 182
+        x: 186
         y: 36
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 28
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 22575218ec92a4049b09cced5760ec87
+      spriteID: 6ccfbbc1cd85b1a4f834295082fcdb8f
       vertices: []
       indices: 
       edges: []
@@ -1794,18 +1794,18 @@ TextureImporter:
       name: emote6_80
       rect:
         serializedVersion: 2
-        x: 208
+        x: 212
         y: 36
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 28
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1b87932aa799417459f437f1fdcf9c05
+      spriteID: 9d47c2ef1b57e1e47a94df654b4933ca
       vertices: []
       indices: 
       edges: []
@@ -1814,18 +1814,18 @@ TextureImporter:
       name: emote6_81
       rect:
         serializedVersion: 2
-        x: 234
+        x: 238
         y: 36
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5269648190a3b694a91cb40152918d7b
+      spriteID: 0772e512f3a290843945386d1c436d2f
       vertices: []
       indices: 
       edges: []
@@ -1834,18 +1834,18 @@ TextureImporter:
       name: emote6_82
       rect:
         serializedVersion: 2
-        x: 260
+        x: 264
         y: 36
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: daf032e3e8eddcc41b96d27542b683a9
+      spriteID: 7f970ec7de8463649947a1152b50e447
       vertices: []
       indices: 
       edges: []
@@ -1854,18 +1854,18 @@ TextureImporter:
       name: emote6_83
       rect:
         serializedVersion: 2
-        x: 286
+        x: 290
         y: 36
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c5cf3ad7ced4ee1458d873b8ff509e87
+      spriteID: b766a973395c2a34887932e079c42742
       vertices: []
       indices: 
       edges: []
@@ -1874,18 +1874,18 @@ TextureImporter:
       name: emote6_84
       rect:
         serializedVersion: 2
-        x: 0
+        x: 3
         y: 0
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 19
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 39420aa8a5354a64d8bfd51c2c418ffd
+      spriteID: 7c9871c2f234d884da4ea4ad078f7ebd
       vertices: []
       indices: 
       edges: []
@@ -1894,18 +1894,18 @@ TextureImporter:
       name: emote6_85
       rect:
         serializedVersion: 2
-        x: 26
+        x: 29
         y: 0
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 19
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cf6a290abe238f049bf28a8f03b2e320
+      spriteID: 90a0b03b68bf94a4caae2b8d1281cd0c
       vertices: []
       indices: 
       edges: []
@@ -1914,18 +1914,18 @@ TextureImporter:
       name: emote6_86
       rect:
         serializedVersion: 2
-        x: 52
+        x: 55
         y: 0
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 19
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fe701e7c6b5b17543878abd0db83c429
+      spriteID: 43c2beb91b682fe4bb43466a9bec2596
       vertices: []
       indices: 
       edges: []
@@ -1934,18 +1934,18 @@ TextureImporter:
       name: emote6_87
       rect:
         serializedVersion: 2
-        x: 78
+        x: 82
         y: 0
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 02fd905496abf8d4ba5b5c81f7cf10b6
+      spriteID: d24ab9e5959a6ba42885c7ef9b49f9da
       vertices: []
       indices: 
       edges: []
@@ -1954,18 +1954,18 @@ TextureImporter:
       name: emote6_88
       rect:
         serializedVersion: 2
-        x: 104
+        x: 108
         y: 0
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c35cbc95f1318eb4294079387d13e0b3
+      spriteID: 30f19020c65ddcc47aad1524d4304c6f
       vertices: []
       indices: 
       edges: []
@@ -1974,18 +1974,18 @@ TextureImporter:
       name: emote6_89
       rect:
         serializedVersion: 2
-        x: 130
+        x: 134
         y: 0
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 903e6239e55ea1f49ba1629f17418dc7
+      spriteID: 37d5fcbc95252284db6f6898da23c5b2
       vertices: []
       indices: 
       edges: []
@@ -1994,18 +1994,18 @@ TextureImporter:
       name: emote6_90
       rect:
         serializedVersion: 2
-        x: 156
+        x: 160
         y: 0
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 28
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: deca96b3a12578441a672edc92fa88c2
+      spriteID: 08f52db69ff57ae46a72274eefb5e0df
       vertices: []
       indices: 
       edges: []
@@ -2014,18 +2014,18 @@ TextureImporter:
       name: emote6_91
       rect:
         serializedVersion: 2
-        x: 182
+        x: 186
         y: 0
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 28
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4c85681a90caa414cb30367ced4eca35
+      spriteID: 52dc24f42b12cd144af75cb4c99bc405
       vertices: []
       indices: 
       edges: []
@@ -2034,18 +2034,18 @@ TextureImporter:
       name: emote6_92
       rect:
         serializedVersion: 2
-        x: 208
+        x: 212
         y: 0
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 28
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6e1afab35b88f844ebb0ea00f0693a55
+      spriteID: 3c9a6097a2ac90d42896055acaa58024
       vertices: []
       indices: 
       edges: []
@@ -2054,18 +2054,18 @@ TextureImporter:
       name: emote6_93
       rect:
         serializedVersion: 2
-        x: 234
+        x: 238
         y: 0
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cba181a7b93739e4ba81cad05704f9a1
+      spriteID: 0a7f32dcb77ad8b4abdbe79b9f5901fc
       vertices: []
       indices: 
       edges: []
@@ -2074,18 +2074,18 @@ TextureImporter:
       name: emote6_94
       rect:
         serializedVersion: 2
-        x: 260
+        x: 264
         y: 0
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 94141560bfc6d5242acbc2edb6fe0fac
+      spriteID: b3c0e464aa3919c469b47e45661a5a19
       vertices: []
       indices: 
       edges: []
@@ -2094,18 +2094,18 @@ TextureImporter:
       name: emote6_95
       rect:
         serializedVersion: 2
-        x: 286
+        x: 290
         y: 0
-        width: 26
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 17
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d76e259e404939649a32c5ff1d3a0673
+      spriteID: a851b5973a0f3b8498bba044706a36aa
       vertices: []
       indices: 
       edges: []

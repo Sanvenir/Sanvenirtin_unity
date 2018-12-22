@@ -1,5 +1,6 @@
 using System;
 using ObjectScripts;
+using ObjectScripts.CharSubstance;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -31,11 +32,11 @@ namespace UIScripts
             SanityBar.value = Player.Sanity;
             EndureBar.value = Player.Endure;
             HungerBar.value = Player.Hunger;
-            HealthValue.text = string.Format("Health\t {0:F0}", Player.Health);
-            SanityValue.text = string.Format("Sanity\t {0:F0}", Player.Sanity);
-            EndureValue.text = string.Format("Endure\t {0:F0}", Player.Endure);
-            HungerValue.text = string.Format("Hunger\t {0:F0}", Player.Hunger);
-            MaradyValue.text = string.Format("Marady\t {0:F0}", Player.Marady);
+            HealthValue.text = string.Format("Health\t {0:F2}", Player.Health);
+            SanityValue.text = string.Format("Sanity\t {0:F2}", Player.Sanity);
+            EndureValue.text = string.Format("Endure\t {0:F2}", Player.Endure);
+            HungerValue.text = string.Format("Hunger\t {0:F2}", Player.Hunger);
+            MaradyValue.text = string.Format("Marady\t {0:F2}", Player.Marady);
         }
     }
 }

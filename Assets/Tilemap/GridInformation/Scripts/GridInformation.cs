@@ -17,7 +17,7 @@ namespace UnityEngine.Tilemaps
     }
 
     [Serializable]
-    [AddComponentMenu("Tilemap/Grid Information")]
+    [AddComponentMenu("OutsideTilemap/Grid Information")]
     public class GridInformation : MonoBehaviour, ISerializationCallbackReceiver
     {
         internal struct GridInformationValue

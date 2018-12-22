@@ -1,3 +1,5 @@
+using ObjectScripts.CharSubstance;
+
 namespace ObjectScripts.ActionScripts
 {
     public class WaitAction: BaseAction

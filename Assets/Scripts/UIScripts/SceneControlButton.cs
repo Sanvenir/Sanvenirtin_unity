@@ -4,6 +4,7 @@ using Cinemachine;
 using ObjectScripts;
 using ObjectScripts.CharacterController;
 using ObjectScripts.CharacterController.PlayerOrder;
+using ObjectScripts.CharSubstance;
 using SpriteGlow;
 using UnityEditor;
 using UnityEngine;
@@ -14,6 +15,14 @@ using UtilScripts;
 
 namespace UIScripts
 {
+    [CustomEditor(typeof(SceneControlButton))]
+    public class SceneControlButtonEditor : Editor
+    {
+        public override void OnInspectorGUI()
+        {
+            base.OnInspectorGUI();
+        }
+    }
     public class SceneControlButton : Button
     {
         public ActionMenu ActionMenu;
@@ -25,14 +34,16 @@ namespace UIScripts
         [HideInInspector] public PlayerController PlayerController;
 
         public bool CameraFollowPlayer;
-        private Collider2D _hit;
-        private Collider2D _selected = null; 
+
+        private Collider2D _cursorCollider;
+        private readonly Collider2D[] _hits = new Collider2D[1];
+        private Collider2D _selected; 
 
         protected override void Awake()
         {
             base.Awake();
             ActionMenu = GetComponent<ActionMenu>();
-            SceneCursor = GetComponentInChildren<SpriteRenderer>();
+            _cursorCollider = SceneCursor.GetComponent<Collider2D>();
         }
 
         protected override void Start()
@@ -70,13 +81,13 @@ namespace UIScripts
             _selected = null;
         }
 
-        private void ChangeSelected(Collider2D hit)
+        private void ChangeSelected()
         {
-            if (_selected != null)
+            if (_selected != _hits[0])
             {
                 CancelSelected();
             }
-            _selected = hit;
+            _selected = _hits[0];
             if (_selected == null) return;
             var effect = _selected.GetComponent<SpriteRenderer>();
             if (effect == null) return;
@@ -123,11 +134,10 @@ namespace UIScripts
                 targetPos * 0.5f;
 
             // If a collider is chosen, highlight it; 
-            _hit = Physics2D.OverlapPoint(targetPos);
-        
-            if (_hit != null)
+            if ( _cursorCollider.OverlapCollider(
+                     SceneManager.Instance.BlockFilter, _hits) != 0)
             {
-                ChangeSelected(_hit);
+                ChangeSelected();
             }
             else
             {
@@ -176,8 +186,8 @@ namespace UIScripts
                     orderList.Add(
                         new AttackDirectionOrder("Attack", null, direction, worldCoord));
                 }
-                if (_hit == null) return;
-                var targetCharacter = _hit.GetComponent<Character>();
+                if (_hits[0] == null) return;
+                var targetCharacter = _hits[0].GetComponent<Character>();
                 if (targetCharacter != null && targetCharacter != Player)
                 {
                 }

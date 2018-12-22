@@ -791,7 +791,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.225111, y: -9.999999, z: -10}
+  m_LocalPosition: {x: -2.9567208, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -883,6 +883,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1050116500}
+  - {fileID: 1723872565}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -970,7 +971,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 747551687}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.733147, y: -10.986514, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1280,6 +1281,20 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   LoadingRange: 2
+  BlockFilter:
+    useTriggers: 0
+    useLayerMask: 1
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 0
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 256
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 0
+    maxNormalAngle: 0
   EarthMapManager: {fileID: 1202584583}
   Player: {fileID: 1471056960}
   Grid: {fileID: 96773922}
@@ -1332,8 +1347,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1723872565}
+  m_Children: []
   m_Father: {fileID: 566657036}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1385,7 +1399,6 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   ActionMenu: {fileID: 1050116504}
   SceneCursor: {fileID: 1723872566}
-  GameCursor: {fileID: 0}
   SubstanceLayer:
     serializedVersion: 2
     m_Bits: 0
@@ -1946,6 +1959,7 @@ MonoBehaviour:
   - {fileID: 1241627332216534, guid: 664336fe2edfcc74d846a46e47c842be, type: 2}
   - {fileID: 1356108723583216, guid: 0546b17126898844786fa919daef239b, type: 2}
   - {fileID: 1806148339641488, guid: c56f391cfa1d75d4c9565aa82895036f, type: 2}
+  RandomSeed: Random
 --- !u!4 &1202584584
 Transform:
   m_ObjectHideFlags: 0
@@ -1991,7 +2005,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.0000014989683}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: -0.865034}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1210254261
@@ -2491,25 +2505,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b65287e860ad4a10b1579d129b9540e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: Player
-  GlowEffect: {fileID: 0}
+  Name: Hero
   WorldPos: {x: 0, y: 0}
   WorldCoord: {x: 0, y: 0}
-  ContactFilter:
-    useTriggers: 0
-    useLayerMask: 1
-    useDepth: 0
-    useOutsideDepth: 0
-    useNormalAngle: 0
-    useOutsideNormalAngle: 0
-    layerMask:
-      serializedVersion: 2
-      m_Bits: 256
-    minDepth: 0
-    maxDepth: 0
-    minNormalAngle: 0
-    maxNormalAngle: 0
-  MidairParts: []
+  AirParts: []
   HighParts: []
   MiddleParts: []
   LowParts: []
@@ -2525,16 +2524,163 @@ MonoBehaviour:
   Endure: 0
   Hunger: 0
   Marady: 0
-  Speed: 20
-  MoveSpeed: 20
-  ActSpeed: 20
-  Strength: 20
-  Dexterity: 20
-  Constitution: 20
-  Metabolism: 20
-  WillPower: 20
-  Intelligence: 20
-  Perception: 20
+  Speed: 200
+  MoveSpeed: 200
+  ActSpeed: 200
+  Strength: 200
+  Dexterity: 200
+  Constitution: 200
+  Metabolism: 200
+  WillPower: 200
+  Intelligence: 200
+  Perception: 200
+  Head:
+    Name: Head
+    HitPoint:
+      MaxValue: 1000
+    Size: 10
+    Weight: 10
+    Defence: 10
+    Available: 1
+    Substance: {fileID: 0}
+    Essential: 1
+    Components:
+    - {fileID: 114898461014695738, guid: a16b7be3f6820634b8719308438575f0, type: 2}
+  Neck:
+    Name: Neck
+    HitPoint:
+      MaxValue: 1000
+    Size: 10
+    Weight: 10
+    Defence: 10
+    Available: 1
+    Substance: {fileID: 0}
+    Essential: 1
+    Components:
+    - {fileID: 114898461014695738, guid: a16b7be3f6820634b8719308438575f0, type: 2}
+  Chest:
+    Name: Chest
+    HitPoint:
+      MaxValue: 1000
+    Size: 10
+    Weight: 10
+    Defence: 10
+    Available: 1
+    Substance: {fileID: 0}
+    Essential: 1
+    Components:
+    - {fileID: 114898461014695738, guid: a16b7be3f6820634b8719308438575f0, type: 2}
+  Waist:
+    Name: Waist
+    HitPoint:
+      MaxValue: 1000
+    Size: 10
+    Weight: 10
+    Defence: 10
+    Available: 1
+    Substance: {fileID: 0}
+    Essential: 0
+    Components:
+    - {fileID: 114898461014695738, guid: a16b7be3f6820634b8719308438575f0, type: 2}
+  Crotch:
+    Name: Crotch
+    HitPoint:
+      MaxValue: 1000
+    Size: 10
+    Weight: 10
+    Defence: 10
+    Available: 1
+    Substance: {fileID: 0}
+    Essential: 0
+    Components: []
+  LeftArm:
+    Name: LeftArm
+    HitPoint:
+      MaxValue: 1000
+    Size: 5
+    Weight: 10
+    Defence: 10
+    Available: 1
+    Substance: {fileID: 0}
+    Essential: 0
+    Components: []
+  LeftHand:
+    Name: LeftHand
+    HitPoint:
+      MaxValue: 1000
+    Size: 2
+    Weight: 10
+    Defence: 10
+    Available: 1
+    Substance: {fileID: 0}
+    Essential: 0
+    Components: []
+  RightArm:
+    Name: RightArm
+    HitPoint:
+      MaxValue: 1000
+    Size: 5
+    Weight: 10
+    Defence: 10
+    Available: 1
+    Substance: {fileID: 0}
+    Essential: 0
+    Components: []
+  RightHand:
+    Name: RightHand
+    HitPoint:
+      MaxValue: 1000
+    Size: 2
+    Weight: 10
+    Defence: 10
+    Available: 1
+    Substance: {fileID: 0}
+    Essential: 0
+    Components: []
+  LeftLeg:
+    Name: LeftLeg
+    HitPoint:
+      MaxValue: 1000
+    Size: 5
+    Weight: 10
+    Defence: 10
+    Available: 1
+    Substance: {fileID: 0}
+    Essential: 0
+    Components: []
+  LeftFoot:
+    Name: LeftFoot
+    HitPoint:
+      MaxValue: 1000
+    Size: 2
+    Weight: 10
+    Defence: 10
+    Available: 1
+    Substance: {fileID: 0}
+    Essential: 0
+    Components: []
+  RightLeg:
+    Name: RightLeg
+    HitPoint:
+      MaxValue: 1000
+    Size: 5
+    Weight: 10
+    Defence: 10
+    Available: 1
+    Substance: {fileID: 0}
+    Essential: 0
+    Components: []
+  RightFoot:
+    Name: RightFoot
+    HitPoint:
+      MaxValue: 1000
+    Size: 2
+    Weight: 10
+    Defence: 10
+    Available: 1
+    Substance: {fileID: 0}
+    Essential: 0
+    Components: []
 --- !u!212 &1471056962
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2568,7 +2714,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1347936931
-  m_SortingLayer: 3
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2605,25 +2751,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 191b03d372a240e0b15b631635a83540, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Sprites:
-  - {fileID: 21300000, guid: 520c0a1f44f5d7241ad47ddec7d1bf15, type: 3}
-  - {fileID: 21300002, guid: 520c0a1f44f5d7241ad47ddec7d1bf15, type: 3}
-  - {fileID: 21300004, guid: 520c0a1f44f5d7241ad47ddec7d1bf15, type: 3}
-  - {fileID: 21300006, guid: 520c0a1f44f5d7241ad47ddec7d1bf15, type: 3}
-  - {fileID: 21300008, guid: 520c0a1f44f5d7241ad47ddec7d1bf15, type: 3}
-  - {fileID: 21300010, guid: 520c0a1f44f5d7241ad47ddec7d1bf15, type: 3}
-  - {fileID: 21300012, guid: 520c0a1f44f5d7241ad47ddec7d1bf15, type: 3}
-  - {fileID: 21300014, guid: 520c0a1f44f5d7241ad47ddec7d1bf15, type: 3}
-  - {fileID: 21300016, guid: 520c0a1f44f5d7241ad47ddec7d1bf15, type: 3}
-  - {fileID: 21300018, guid: 520c0a1f44f5d7241ad47ddec7d1bf15, type: 3}
-  - {fileID: 21300020, guid: 520c0a1f44f5d7241ad47ddec7d1bf15, type: 3}
-  - {fileID: 21300022, guid: 520c0a1f44f5d7241ad47ddec7d1bf15, type: 3}
   DisabledSprite: {fileID: 21300020, guid: 16a0c3dd0028dbc48a2e3066feb20e54, type: 3}
   Speed: 10
   TargetDirection: 0
-  NextMoving: 0
-  CurrentMoving: 0
-  isDisabled: 0
+  Moving: 0
+  IsDisabled: 0
+  MoveUpSprites:
+  - {fileID: 21300080, guid: 5df250409f6f3024e990d5a6d9fa8f6c, type: 3}
+  - {fileID: 21300078, guid: 5df250409f6f3024e990d5a6d9fa8f6c, type: 3}
+  - {fileID: 21300080, guid: 5df250409f6f3024e990d5a6d9fa8f6c, type: 3}
+  - {fileID: 21300082, guid: 5df250409f6f3024e990d5a6d9fa8f6c, type: 3}
+  MoveDownSprites:
+  - {fileID: 21300008, guid: 5df250409f6f3024e990d5a6d9fa8f6c, type: 3}
+  - {fileID: 21300006, guid: 5df250409f6f3024e990d5a6d9fa8f6c, type: 3}
+  - {fileID: 21300008, guid: 5df250409f6f3024e990d5a6d9fa8f6c, type: 3}
+  - {fileID: 21300010, guid: 5df250409f6f3024e990d5a6d9fa8f6c, type: 3}
+  MoveLeftSprites:
+  - {fileID: 21300032, guid: 5df250409f6f3024e990d5a6d9fa8f6c, type: 3}
+  - {fileID: 21300030, guid: 5df250409f6f3024e990d5a6d9fa8f6c, type: 3}
+  - {fileID: 21300032, guid: 5df250409f6f3024e990d5a6d9fa8f6c, type: 3}
+  - {fileID: 21300034, guid: 5df250409f6f3024e990d5a6d9fa8f6c, type: 3}
+  MoveRightSprites:
+  - {fileID: 21300056, guid: 5df250409f6f3024e990d5a6d9fa8f6c, type: 3}
+  - {fileID: 21300054, guid: 5df250409f6f3024e990d5a6d9fa8f6c, type: 3}
+  - {fileID: 21300056, guid: 5df250409f6f3024e990d5a6d9fa8f6c, type: 3}
+  - {fileID: 21300058, guid: 5df250409f6f3024e990d5a6d9fa8f6c, type: 3}
+  MoveNoneSprites:
+  - {fileID: 21300008, guid: 5df250409f6f3024e990d5a6d9fa8f6c, type: 3}
+  StopUpSprites:
+  - {fileID: 21300080, guid: 5df250409f6f3024e990d5a6d9fa8f6c, type: 3}
+  StopDownSprites:
+  - {fileID: 21300008, guid: 5df250409f6f3024e990d5a6d9fa8f6c, type: 3}
+  StopLeftSprites:
+  - {fileID: 21300032, guid: 5df250409f6f3024e990d5a6d9fa8f6c, type: 3}
+  StopRightSprites:
+  - {fileID: 21300056, guid: 5df250409f6f3024e990d5a6d9fa8f6c, type: 3}
+  StopNoneSprites:
+  - {fileID: 21300008, guid: 5df250409f6f3024e990d5a6d9fa8f6c, type: 3}
 --- !u!114 &1471056965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2653,7 +2817,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.2
+  m_Radius: 0.4
 --- !u!1 &1484060018
 GameObject:
   m_ObjectHideFlags: 0
@@ -3102,6 +3266,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1723872565}
   - component: {fileID: 1723872566}
+  - component: {fileID: 1723872567}
   m_Layer: 0
   m_Name: SceneCursor
   m_TagString: Untagged
@@ -3116,11 +3281,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1723872564}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 541.40625, y: 433.125, z: 0}
-  m_LocalScale: {x: 200, y: 200, z: 200}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 20, y: 20, z: 1}
   m_Children: []
-  m_Father: {fileID: 1050116500}
-  m_RootOrder: 0
+  m_Father: {fileID: 566657036}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1723872566
 SpriteRenderer:
@@ -3155,7 +3320,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1005229567
-  m_SortingLayer: 6
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 8ad5320611c40cd4fae78b144fd9eb88, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
@@ -3168,6 +3333,31 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &1723872567
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1723872564}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 0.2, y: 0.2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1843407361
 GameObject:
   m_ObjectHideFlags: 0
@@ -3382,7 +3572,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1943787628}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -17.088125, y: -10.986514, z: -10}
+  m_LocalPosition: {x: -2.9567208, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1399268793}

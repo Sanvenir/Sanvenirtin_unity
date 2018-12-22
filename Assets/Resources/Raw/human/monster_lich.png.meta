@@ -110,18 +110,18 @@ TextureImporter:
       name: monster_lich_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 6
         y: 150
-        width: 47
-        height: 50
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 32
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 62bf1f90acc27804c95580ba1faf8d6f
+      spriteID: fd1f8be025658f44ba2a8524138fec81
       vertices: []
       indices: 
       edges: []
@@ -130,18 +130,18 @@ TextureImporter:
       name: monster_lich_1
       rect:
         serializedVersion: 2
-        x: 47
+        x: 53
         y: 150
-        width: 47
-        height: 50
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 33
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eebf970ee7103224caefd17384d3c3dd
+      spriteID: e93ad5452ea41b040aa240463a7100f2
       vertices: []
       indices: 
       edges: []
@@ -150,18 +150,18 @@ TextureImporter:
       name: monster_lich_2
       rect:
         serializedVersion: 2
-        x: 94
+        x: 100
         y: 150
-        width: 47
-        height: 50
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 32
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f33eda25093463445864b963edaaf6f6
+      spriteID: 65db86babbbb22349bb448e6dff97621
       vertices: []
       indices: 
       edges: []
@@ -170,18 +170,18 @@ TextureImporter:
       name: monster_lich_3
       rect:
         serializedVersion: 2
-        x: 0
+        x: 6
         y: 100
-        width: 47
-        height: 50
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 35
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4f771f0b3819cdc4cb0200a178b45a3e
+      spriteID: cc131b7e652072642ba56a5315442f4b
       vertices: []
       indices: 
       edges: []
@@ -190,18 +190,18 @@ TextureImporter:
       name: monster_lich_4
       rect:
         serializedVersion: 2
-        x: 47
+        x: 53
         y: 100
-        width: 47
-        height: 50
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 32
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8f197c36a2aa70640ad6d70f4f43d939
+      spriteID: 27187c431cd8d6648a56a557672f6dd4
       vertices: []
       indices: 
       edges: []
@@ -210,18 +210,18 @@ TextureImporter:
       name: monster_lich_5
       rect:
         serializedVersion: 2
-        x: 94
+        x: 100
         y: 100
-        width: 47
-        height: 50
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 32
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 34be5d56bc5f17d4dac758221f552af8
+      spriteID: 70092a4bd7483b947857f9902ce25bb1
       vertices: []
       indices: 
       edges: []
@@ -230,18 +230,18 @@ TextureImporter:
       name: monster_lich_6
       rect:
         serializedVersion: 2
-        x: 0
+        x: 6
         y: 50
-        width: 47
-        height: 50
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 32
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0b5cf89916d36f5418a7bd3295322506
+      spriteID: 7407a025778024f4b9ef4cce629ef25b
       vertices: []
       indices: 
       edges: []
@@ -250,18 +250,18 @@ TextureImporter:
       name: monster_lich_7
       rect:
         serializedVersion: 2
-        x: 47
+        x: 53
         y: 50
-        width: 47
-        height: 50
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 32
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e181892753f11db478ddae0c25a67b5b
+      spriteID: 5d7986ab6a2bdfb4697b0353cbd63300
       vertices: []
       indices: 
       edges: []
@@ -270,18 +270,18 @@ TextureImporter:
       name: monster_lich_8
       rect:
         serializedVersion: 2
-        x: 94
+        x: 97
         y: 50
-        width: 47
-        height: 50
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 35
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 78553ccc6cd961c4d90d9481c227ccc7
+      spriteID: e7a9b2bdc2b4b76459da36f0fad641ff
       vertices: []
       indices: 
       edges: []
@@ -290,18 +290,18 @@ TextureImporter:
       name: monster_lich_9
       rect:
         serializedVersion: 2
-        x: 0
+        x: 6
         y: 0
-        width: 47
-        height: 50
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 33
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7d8eca40fe67e1242b4694443becc109
+      spriteID: 91f99d842656fbd4e856c49984e13b83
       vertices: []
       indices: 
       edges: []
@@ -310,18 +310,18 @@ TextureImporter:
       name: monster_lich_10
       rect:
         serializedVersion: 2
-        x: 47
+        x: 53
         y: 0
-        width: 47
-        height: 50
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 33
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 94bda347d17914044afb3753df646166
+      spriteID: a5e0c0a3b59e9fd4093e8f327e9887db
       vertices: []
       indices: 
       edges: []
@@ -330,18 +330,18 @@ TextureImporter:
       name: monster_lich_11
       rect:
         serializedVersion: 2
-        x: 94
+        x: 100
         y: 0
-        width: 47
-        height: 50
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 33
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e5f9de4ca83af9745aa5fdf609ef77eb
+      spriteID: 4b41548d7b8fffa4ebee93e21197b5fa
       vertices: []
       indices: 
       edges: []

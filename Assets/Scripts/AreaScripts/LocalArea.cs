@@ -67,14 +67,23 @@ namespace AreaScripts
             }
         }
 
-        public GameObject GenerateSubstance(GameObject substancePrefab, Vector2Int worldCoord)
+        public Substance GenerateSubstance(Substance substancePrefab, Vector2Int worldCoord)
         {
             var pos = SceneManager.Instance.WorldCoordToPos(worldCoord);
             var instance = Instantiate(substancePrefab);
-            var substance = instance.GetComponent<Substance>();
-            substance.Initialize(worldCoord, Identity);
-            if (substance.CheckCollider()) return instance;
+            instance.Initialize(worldCoord, Identity);
+            if (instance.CheckCollider()) return instance;
             Destroy(instance);
+            return null;
+        }
+
+        public static BuildingTilemap GenerateBuilding(BuildingTilemap buildingTilemap, Vector2Int worldCoord)
+        {
+            var instance = Instantiate(
+                buildingTilemap, SceneManager.Instance.Grid.transform);
+            instance.Initialize(worldCoord);
+            if (instance.CheckCollider()) return instance;
+            Destroy(instance.gameObject);
             return null;
         }
     }

@@ -110,18 +110,18 @@ TextureImporter:
       name: monster_lizardman2_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 9
         y: 150
-        width: 47
-        height: 50
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 27
+        height: 45
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4e66aa14fdbb53d46ba873fcca97724d
+      spriteID: 5899e5f130fc4a847b5fe02385406d73
       vertices: []
       indices: 
       edges: []
@@ -130,18 +130,18 @@ TextureImporter:
       name: monster_lizardman2_1
       rect:
         serializedVersion: 2
-        x: 47
+        x: 55
         y: 150
-        width: 47
-        height: 50
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 29
+        height: 46
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 436a9cb71843a6149876a6ee0c977fea
+      spriteID: be6eefbbadc4ad34e9154b0c676d2d0f
       vertices: []
       indices: 
       edges: []
@@ -150,18 +150,18 @@ TextureImporter:
       name: monster_lizardman2_2
       rect:
         serializedVersion: 2
-        x: 94
+        x: 103
         y: 150
-        width: 47
-        height: 50
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 27
+        height: 45
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f4771a676d6df7d4eaaf696c3a1b9302
+      spriteID: 620a9659b099c264489b570355adf604
       vertices: []
       indices: 
       edges: []
@@ -170,18 +170,18 @@ TextureImporter:
       name: monster_lizardman2_3
       rect:
         serializedVersion: 2
-        x: 0
+        x: 6
         y: 100
-        width: 47
-        height: 50
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 28
+        height: 44
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 368745d3163f57c44a2bc41015cff248
+      spriteID: e576d549bf3c24e40a2a7a11fbf36171
       vertices: []
       indices: 
       edges: []
@@ -190,18 +190,18 @@ TextureImporter:
       name: monster_lizardman2_4
       rect:
         serializedVersion: 2
-        x: 47
+        x: 53
         y: 100
-        width: 47
-        height: 50
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 28
+        height: 45
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1a446e3037b58594b87febaf90109798
+      spriteID: 664439aa2f0924547bee72595e88e4f2
       vertices: []
       indices: 
       edges: []
@@ -210,18 +210,18 @@ TextureImporter:
       name: monster_lizardman2_5
       rect:
         serializedVersion: 2
-        x: 94
+        x: 100
         y: 100
-        width: 47
-        height: 50
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 30
+        height: 44
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d208743e00e8377449b373481c57b97a
+      spriteID: fdc46aa69c6671f4eaa10535539ddc34
       vertices: []
       indices: 
       edges: []
@@ -230,18 +230,18 @@ TextureImporter:
       name: monster_lizardman2_6
       rect:
         serializedVersion: 2
-        x: 0
+        x: 9
         y: 50
-        width: 47
-        height: 50
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 30
+        height: 44
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: efb84e490c25cf848bbd963db8a29f14
+      spriteID: 73ba54a5c13e8d44ebc04d9148aecee3
       vertices: []
       indices: 
       edges: []
@@ -250,18 +250,18 @@ TextureImporter:
       name: monster_lizardman2_7
       rect:
         serializedVersion: 2
-        x: 47
+        x: 58
         y: 50
-        width: 47
-        height: 50
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 28
+        height: 45
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c6db0aa8a6c9a2c47a1a422795c89427
+      spriteID: fc538166c04f79d45a224b64953571bb
       vertices: []
       indices: 
       edges: []
@@ -270,18 +270,18 @@ TextureImporter:
       name: monster_lizardman2_8
       rect:
         serializedVersion: 2
-        x: 94
+        x: 105
         y: 50
-        width: 47
-        height: 50
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 28
+        height: 44
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 74478a2deaf545248a7b2939a5cfea05
+      spriteID: 8c666b6a69a1e3e46acbba87125675f6
       vertices: []
       indices: 
       edges: []
@@ -290,18 +290,18 @@ TextureImporter:
       name: monster_lizardman2_9
       rect:
         serializedVersion: 2
-        x: 0
+        x: 9
         y: 0
-        width: 47
-        height: 50
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 27
+        height: 45
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4b8064b8b78531a4ba73a13271d7ba71
+      spriteID: 5499cd3d915aaa9449a35400c8026f53
       vertices: []
       indices: 
       edges: []
@@ -310,18 +310,18 @@ TextureImporter:
       name: monster_lizardman2_10
       rect:
         serializedVersion: 2
-        x: 47
+        x: 55
         y: 0
-        width: 47
-        height: 50
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 29
+        height: 46
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 26211c13f98949243843e3b835500bbb
+      spriteID: 10d854168cf572c4ab9afe2b66caf0cb
       vertices: []
       indices: 
       edges: []
@@ -330,18 +330,18 @@ TextureImporter:
       name: monster_lizardman2_11
       rect:
         serializedVersion: 2
-        x: 94
+        x: 103
         y: 0
-        width: 47
-        height: 50
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 27
+        height: 45
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 46cb632b09f84524786d47ee6e4b0e7d
+      spriteID: d0a6c113f3066ed459b298ed745f85d1
       vertices: []
       indices: 
       edges: []

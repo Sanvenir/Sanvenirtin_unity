@@ -57,7 +57,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\AreaScripts\BlockTile.cs" />
+    <Compile Include="Assets\Scripts\AreaScripts\BuildingTilemap.cs" />
     <Compile Include="Assets\Scripts\AreaScripts\LocalArea.cs" />
     <Compile Include="Assets\Scripts\AreaScripts\RandomLocalArea.cs" />
     <Compile Include="Assets\Scripts\ExceptionScripts\AreaNotFoundCondition.cs" />
@@ -73,12 +73,12 @@
     <Compile Include="Assets\Scripts\ObjectScripts\ActionScripts\BaseAction.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\ActionScripts\WaitAction.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\ActionScripts\WalkAction.cs" />
-    <Compile Include="Assets\Scripts\ObjectScripts\BaseItem.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\BaseObject.cs" />
+    <Compile Include="Assets\Scripts\ObjectScripts\BasicItem\BasicItem.cs" />
+    <Compile Include="Assets\Scripts\ObjectScripts\BasicItem\RawMeat.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\BodyPartScripts\BodyPart.cs" />
-    <Compile Include="Assets\Scripts\ObjectScripts\BodyPartScripts\HumanBodyPart.cs" />
+    <Compile Include="Assets\Scripts\ObjectScripts\BodyPartScripts\CharacterBodyPart.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\BodyPartScripts\PartPos.cs" />
-    <Compile Include="Assets\Scripts\ObjectScripts\Character.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\CharacterController\AiController.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\CharacterController\CharacterController.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\CharacterController\CtrlConditions\AttackCondition.cs" />
@@ -90,11 +90,15 @@
     <Compile Include="Assets\Scripts\ObjectScripts\CharacterController\PlayerOrder\BaseOrder.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\CharacterController\PlayerOrder\RestOrder.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\CharacterController\PlayerOrder\WalkToOrder.cs" />
-    <Compile Include="Assets\Scripts\ObjectScripts\Human.cs" />
+    <Compile Include="Assets\Scripts\ObjectScripts\CharSubstance\Character.cs" />
+    <Compile Include="Assets\Scripts\ObjectScripts\CharSubstance\Dragon.cs" />
+    <Compile Include="Assets\Scripts\ObjectScripts\CharSubstance\Human.cs" />
+    <Compile Include="Assets\Scripts\ObjectScripts\CharSubstance\Wolf.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\SpriteController\DynamicSubstanceSpriteController.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\SpriteController\EffectController.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\SpriteController\ISubstanceSpriteController.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\SpriteController\StaticSubstanceSpriteController.cs" />
+    <Compile Include="Assets\Scripts\ObjectScripts\StaticSubstance\Tree.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\Substance.cs" />
     <Compile Include="Assets\Scripts\SceneManager.cs" />
     <Compile Include="Assets\Scripts\UIScripts\ActionButton.cs" />

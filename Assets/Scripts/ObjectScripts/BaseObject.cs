@@ -1,3 +1,4 @@
+using System.Text;
 using ObjectScripts.SpriteController;
 using UnityEngine;
 
@@ -6,9 +7,11 @@ namespace ObjectScripts
     public abstract class BaseObject: MonoBehaviour
     {
         public string Name;
+        public StringBuilder Describe;
         
         [HideInInspector]
         public ISubstanceSpriteController SubstanceSpriteController;
+
         protected SpriteRenderer SpriteRenderer;
         protected Collider2D Collider2D;
         

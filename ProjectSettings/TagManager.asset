@@ -17,7 +17,7 @@ TagManager:
   - BlockLayer
   - EffectLayer
   - GroundLayer
-  - 
+  - ItemLayer
   - 
   - 
   - 
@@ -45,8 +45,14 @@ TagManager:
   - name: Ground
     uniqueID: 2070484925
     locked: 0
+  - name: GroundDecorate
+    uniqueID: 108263815
+    locked: 0
   - name: Abstract
     uniqueID: 803096645
+    locked: 0
+  - name: Block
+    uniqueID: 1416852521
     locked: 0
   - name: Substance
     uniqueID: 2947030365

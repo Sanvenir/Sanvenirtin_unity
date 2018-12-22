@@ -1,4 +1,5 @@
 using ObjectScripts.CharacterController.CtrlConditions;
+using ObjectScripts.CharSubstance;
 using UnityEngine;
 using UtilScripts;
 

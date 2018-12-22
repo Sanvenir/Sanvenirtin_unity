@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using ObjectScripts.ActionScripts;
+using ObjectScripts.CharSubstance;
 using UnityEngine;
 using UtilScripts;
 

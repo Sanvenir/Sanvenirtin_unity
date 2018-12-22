@@ -10,6 +10,7 @@ using ExceptionScripts;
 using MapScripts;
 using ObjectScripts;
 using ObjectScripts.CharacterController;
+using ObjectScripts.CharSubstance;
 using UIScripts;
 using UnityEngine;
 using UnityEngine.UI;
@@ -26,6 +27,7 @@ public class SceneManager : MonoBehaviour
 	public int InitMapX, InitMapY;
 	public LayerMask GroundLayer;
 	public int LoadingRange = 2;
+	public ContactFilter2D BlockFilter;
 
 	// Game Objects
 	public EarthMapManager EarthMapManager;
@@ -207,6 +209,7 @@ public class SceneManager : MonoBehaviour
 	{
 		CurrentTime = 0;
 		PlayerObject = Player.GetComponent<Character>();
+		Player.SetActive(true);
 		try
 		{
 			PlayerObject.Initialize(Vector2Int.zero, CenterArea.Identity);
@@ -215,7 +218,6 @@ public class SceneManager : MonoBehaviour
 		{
 			Destroy(e.Collider.gameObject);
 		}
-		Player.SetActive(true);
 		BodyPartPanel.enabled = true;
 
 	}

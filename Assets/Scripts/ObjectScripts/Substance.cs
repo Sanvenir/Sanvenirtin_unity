@@ -15,27 +15,39 @@ namespace ObjectScripts
 {
     public class Substance : BaseObject
     {
-
-        [HideInInspector] public SpriteGlowEffect GlowEffect;
         [HideInInspector] public Vector2 WorldPos;
         [HideInInspector] public Vector2Int WorldCoord;
 
-        public ContactFilter2D ContactFilter;
-
         // public SortedList<string, BodyPart> BodyParts = new SortedList<string, BodyPart>();
-        public List<BodyPart> MidairParts = new List<BodyPart>();
+        [HideInInspector]
+        public List<BodyPart> AirParts = new List<BodyPart>();
+        [HideInInspector]
         public List<BodyPart> HighParts = new List<BodyPart>();
+        [HideInInspector]
         public List<BodyPart> MiddleParts = new List<BodyPart>();
+        [HideInInspector]
         public List<BodyPart> LowParts = new List<BodyPart>();
         public Dictionary<string, BodyPart> BodyParts = new Dictionary<string, BodyPart>();
 
         [HideInInspector] public bool IsDestroy = false;
+
+        public void SetDisable()
+        {
+            SubstanceSpriteController.SetDisable(true);
+            gameObject.layer = LayerMask.NameToLayer("ItemLayer");
+        }
 
         public virtual float Attacked(float damage, BodyPart bodyPart, float defenceRatio = 1f)
         {
             if (bodyPart == null)
                 return 0;
             damage = bodyPart.Damage(damage, defenceRatio);
+
+            if (bodyPart.Essential && !bodyPart.Available)
+            {
+                SetDisable();
+            }
+            
             if (GetAllBodyParts().Any(part => part.Available))
             {
                 return damage;
@@ -46,11 +58,12 @@ namespace ObjectScripts
         }
 
         // Read Only
+        [HideInInspector]
         public int AreaIdentity;
 
         public IEnumerable<BodyPart> GetAllBodyParts()
         {
-            foreach (var part in MidairParts)
+            foreach (var part in AirParts)
             {
                 yield return part;
             }
@@ -76,7 +89,7 @@ namespace ObjectScripts
             switch (partPos)
             {
                 case PartPos.Midair:
-                    return MidairParts;
+                    return AirParts;
                 case PartPos.High:
                     return HighParts;
                 case PartPos.Middle:
@@ -91,10 +104,14 @@ namespace ObjectScripts
         public virtual void Initialize(Vector2Int worldCoord, int areaIdentity)
         {
             base.Initialize();
+            gameObject.layer = LayerMask.NameToLayer("BlockLayer");
             AreaIdentity = areaIdentity;
-            ContactFilter.useLayerMask = true;
-            GlowEffect = GetComponent<SpriteGlowEffect>();
             MoveTo(worldCoord);
+            foreach (var part in GetAllBodyParts())
+            {
+                part.HitPoint.Value = part.HitPoint.MaxValue;
+                part.Substance = this;
+            }
         }
 
         public void MoveTo(Vector2Int worldCoord)
@@ -156,7 +173,7 @@ namespace ObjectScripts
             where T : Substance
         {
             var colliders = new Collider2D[1];
-            Collider2D.OverlapCollider(ContactFilter, colliders);
+            Collider2D.OverlapCollider(SceneManager.Instance.BlockFilter, colliders);
             collide = colliders[0] == null
                 ? null
                 : colliders[0].GetComponent<T>();
@@ -166,7 +183,7 @@ namespace ObjectScripts
         public bool CheckCollider()
         {
             var colliders = new Collider2D[1];
-            Collider2D.OverlapCollider(ContactFilter, colliders);
+            Collider2D.OverlapCollider(SceneManager.Instance.BlockFilter, colliders);
             return colliders[0] == null;
         }
         

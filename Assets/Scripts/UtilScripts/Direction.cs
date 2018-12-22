@@ -1,5 +1,8 @@
+using System;
+
 namespace UtilScripts
 {
+    [Serializable]
     public enum Direction
     {
         Down = 0,

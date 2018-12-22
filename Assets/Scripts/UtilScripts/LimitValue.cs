@@ -21,5 +21,10 @@ namespace UtilScripts
             _value = value;
         }
 
+        public float GetRemainRatio()
+        {
+            return _value / MaxValue;
+        }
+
     }
 }

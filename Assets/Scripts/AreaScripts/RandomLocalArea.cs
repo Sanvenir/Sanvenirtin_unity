@@ -1,38 +1,46 @@
+using System.Net;
+using ObjectScripts;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using UtilScripts;
 
 namespace AreaScripts
 {
-    public class RandomLocalArea: LocalArea
+    public class RandomLocalArea : LocalArea
     {
-
-        public TileBase GroundTile;
-        public GameObject[] SubstancePrefabs;
-        public BlockTile TestBlockTile;
+        public TileBase[] GroundTiles;
+        public Substance[] SubstancePrefabs;
+        public BuildingTilemap[] BuildingTilemaps;
         public float ObjectsGenerateRatio = 0.1f;
+        public float BuildingProbability = 0.5f;
 
         public override void Initialize(int identity, Vector2Int startCoord)
         {
             base.Initialize(identity, startCoord);
             foreach (var coord in IterateWorldCoordV3())
             {
-                Tilemap.SetTile(coord, GroundTile);
+                Tilemap.SetTile(
+                    coord, GroundTiles[Utils.ProcessRandom.Next(GroundTiles.Length)]);
             }
 
             foreach (var coord in IterateWorldCoord())
             {
-
-                if ((Utils.ProcessRandom.NextDouble() < 0.001f))
-                {
-                    var blockTileInstance = Instantiate(TestBlockTile, SceneManager.Instance.Grid.transform);
-                    blockTileInstance.Initialize(coord);
-                }
-                if (!(Utils.ProcessRandom.NextDouble() < ObjectsGenerateRatio)) continue;
+                if (SubstancePrefabs.Length == 0 ||
+                    !(Utils.ProcessRandom.NextDouble() < ObjectsGenerateRatio)) continue;
                 var index = Utils.ProcessRandom.Next(SubstancePrefabs.Length);
-                var instance = GenerateSubstance(SubstancePrefabs[index], coord);
-                
+                GenerateSubstance(SubstancePrefabs[index], coord);
             }
+
+            if (BuildingTilemaps.Length == 0 ||
+                !(Utils.ProcessRandom.NextDouble() < BuildingProbability)) return;
+            var building = BuildingTilemaps[
+                Utils.ProcessRandom.Next(BuildingTilemaps.Length)];
+            var buildingCoord = new Vector2Int(
+                Utils.ProcessRandom.Next(LocalWidth - building.BuildingWidth),
+                Utils.ProcessRandom.Next(LocalHeight - building.BuildingHeight)
+            );
+            
+            GenerateBuilding(building, startCoord + buildingCoord);
         }
     }
 }

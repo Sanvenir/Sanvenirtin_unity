@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Globalization;
 using UnityEditor;
 using UnityEngine;
 using UtilScripts;
@@ -37,6 +39,10 @@ namespace MapScripts
 
         public GameObject[] BaseAreaPrefabs;
 
+        public string RandomSeed = "Random";
+        
+        public static System.Random ProcessRandom;
+
         [HideInInspector]
         public EarthMap EarthMap;
         
@@ -44,12 +50,19 @@ namespace MapScripts
 
         public void GenerateMap()
         {
+            if (RandomSeed.Equals("random"))
+            {
+                RandomSeed = DateTime.Now.ToString(CultureInfo.CurrentCulture);
+            }
+
+            ProcessRandom = new System.Random(RandomSeed.GetHashCode());
+            
             EarthMap = new EarthMap(MapWidth, MapHeight);
             MainLand.SetMap(EarthMap);
 
             foreach(var coord in EarthMap.IterateMap())
             {
-                EarthMap.SetMap(coord, Utils.ProcessRandom.Next(0, 100) < LandPercent ? 1 : 0);
+                EarthMap.SetMap(coord, ProcessRandom.Next(0, 100) < LandPercent ? 1 : 0);
             }
             
             //Smooth the Map
@@ -95,7 +108,7 @@ namespace MapScripts
                     flagMap.SetFlag(regionCoord);
                 }
                 if (newRegion.Count < LandThresholdSize &&
-                    Utils.ProcessRandom.Next(0, 100) < LandErasePercent)
+                    ProcessRandom.Next(0, 100) < LandErasePercent)
                 {
                     // Randomly erase lands with small size.
                     foreach (var regionCoord in newRegion)
@@ -112,7 +125,7 @@ namespace MapScripts
             {
                 foreach (var coord in mainLand.Coords)
                 {
-                    EarthMap.SetMap(coord, Utils.ProcessRandom.Next(1, BaseAreaPrefabs.Length));
+                    EarthMap.SetMap(coord, ProcessRandom.Next(1, BaseAreaPrefabs.Length));
                 }
             }
 
@@ -186,8 +199,8 @@ namespace MapScripts
 
             public FlagMap(int width, int height)
             {
-                this._width = width;
-                this._height = height;
+                _width = width;
+                _height = height;
                 _mapFlags = new bool[width, height];
             }
 

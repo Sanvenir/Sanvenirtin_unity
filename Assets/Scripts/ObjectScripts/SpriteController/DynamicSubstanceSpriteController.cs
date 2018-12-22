@@ -7,8 +7,6 @@ namespace ObjectScripts.SpriteController
 {
 	public class DynamicSubstanceSpriteController : MonoBehaviour, ISubstanceSpriteController
 	{
-
-		public Sprite[] Sprites;
 		public Sprite DisabledSprite;
 
 		public int Speed = 10;
@@ -16,38 +14,59 @@ namespace ObjectScripts.SpriteController
 		[HideInInspector]
 		public Direction TargetDirection = Direction.Down;
 		private Direction _movingDirection;
-
+		
 		[HideInInspector]
-		public bool NextMoving = false;
+		public bool Moving = false;
+		
 		[HideInInspector]
-		public bool CurrentMoving = false;
-		[HideInInspector]
-		public bool isDisabled = false;
+		public bool IsDisabled = false;
 
 		private SpriteRenderer _spriteRenderer;
-		
-		private static readonly Dictionary<Direction, int[]> AnimationsSequences = 
-			new Dictionary<Direction, int[]>
-			{
-				{Direction.Down, new []{1, 0, 1, 2}},
-				{Direction.Left, new []{4, 3, 4, 5}},
-				{Direction.Right, new []{7, 6, 7, 8}}, 
-				{Direction.Up, new []{10, 9, 10, 11}},
-				{Direction.None, new []{1, 4, 7, 10}}
-			};
+
+		public Dictionary<Direction, List<Sprite>> MoveSprites;
+		public Dictionary<Direction, List<Sprite>> StopSprites;
+
+		public List<Sprite> MoveUpSprites;
+		public List<Sprite> MoveDownSprites;
+		public List<Sprite> MoveLeftSprites;
+		public List<Sprite> MoveRightSprites;
+		public List<Sprite> MoveNoneSprites;
+		public List<Sprite> StopUpSprites;
+		public List<Sprite> StopDownSprites;
+		public List<Sprite> StopLeftSprites;
+		public List<Sprite> StopRightSprites;
+		public List<Sprite> StopNoneSprites;
+
+		private List<Sprite> _currentSprites;
 	
 		// Use this for initialization
 		private void Start()
 		{
 			_spriteRenderer = GetComponent<SpriteRenderer>();
-			_spriteRenderer.sprite = Sprites[0];
 			_movingDirection = TargetDirection;
+			MoveSprites = new Dictionary<Direction, List<Sprite>>
+			{
+				{Direction.Up, MoveUpSprites}, 
+				{Direction.Down, MoveDownSprites},
+				{Direction.Left, MoveLeftSprites},
+				{Direction.Right, MoveRightSprites},
+				{Direction.None, MoveNoneSprites}
+			};
+			StopSprites = new Dictionary<Direction, List<Sprite>>
+			{
+				{Direction.Up, StopUpSprites}, 
+				{Direction.Down, StopDownSprites},
+				{Direction.Left, StopLeftSprites},
+				{Direction.Right, StopRightSprites},
+				{Direction.None, StopNoneSprites}
+			};
+			_spriteRenderer.sprite = StopSprites[_movingDirection][0];
 		}
 	
 		// Update is called once per frame
 		void Update ()
 		{
-			if (isDisabled)
+			if (IsDisabled)
 			{
 				_spriteRenderer.sprite = DisabledSprite;
 				return;
@@ -88,31 +107,28 @@ namespace ObjectScripts.SpriteController
 					
 				}
 			}
-			var timeIndex = (int) (Time.time * Speed);
-			var index = timeIndex % AnimationsSequences[_movingDirection].Length;
-			if (Sprites[AnimationsSequences[_movingDirection][index]] ==
-			    Sprites[AnimationsSequences[_movingDirection][0]])
-			{
-				CurrentMoving = NextMoving;
-			}
+
+			_currentSprites = Moving ? MoveSprites[_movingDirection] : StopSprites[_movingDirection];
 			
-			_spriteRenderer.sprite = CurrentMoving ? Sprites[AnimationsSequences[_movingDirection][index]] : Sprites[AnimationsSequences[_movingDirection][0]];
+			var timeIndex = (int) (Time.time * Speed);
+			var index = timeIndex % _currentSprites.Count;
+
+			_spriteRenderer.sprite = _currentSprites[index];
 		}
 
 		public void StartMoving()
 		{
-			NextMoving = true;
-			CurrentMoving = true;
+			Moving = true;
 		}
 
 		public void StopMoving()
 		{
-			NextMoving = false;
+			Moving = false;
 		}
 
 		public void SetDisable(bool disabled)
 		{
-			isDisabled = disabled;
+			IsDisabled = disabled;
 		}
 
 
@@ -123,7 +139,7 @@ namespace ObjectScripts.SpriteController
 
 		public bool IsMoving()
 		{
-			return NextMoving;
+			return Moving;
 		}
 	}
 }

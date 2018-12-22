@@ -60,13 +60,17 @@ MonoBehaviour:
   LocalWidth: 0
   LocalHeight: 0
   Tilemap: {fileID: 0}
-  GroundTile: {fileID: 11400000, guid: effe9052600cbee4e86aed13c5955dc6, type: 2}
+  GroundTiles:
+  - {fileID: 11400000, guid: da60fa3edfbcb6a478840b954643b3dd, type: 2}
+  - {fileID: 11400000, guid: ec0bfc9bff2150246a3ac19235f2dff3, type: 2}
+  - {fileID: 11400000, guid: 9fc847025f114e8469d118fc8e406cb8, type: 2}
+  - {fileID: 11400000, guid: ffbab0ce03b5b9e429b82acdd561bf4e, type: 2}
   SubstancePrefabs:
-  - {fileID: 1015859919777768, guid: db01e0ef17a0cb243b9a94143e7e382e, type: 2}
-  - {fileID: 1015859919777768, guid: db01e0ef17a0cb243b9a94143e7e382e, type: 2}
-  TestBlockTile: {fileID: 114984274561182258, guid: f42eb1e5e43e89e41a533377a05d68d4,
-    type: 2}
-  ObjectsGenerateRatio: 0.001
+  - {fileID: 114233185142075284, guid: 502819dbc0ad3594e887b214a8841351, type: 2}
+  BuildingTilemaps:
+  - {fileID: 114984274561182258, guid: f42eb1e5e43e89e41a533377a05d68d4, type: 2}
+  ObjectsGenerateRatio: 0.02
+  BuildingProbability: 0.5
 --- !u!19719996 &2113883506203157934
 TilemapCollider2D:
   m_ObjectHideFlags: 1

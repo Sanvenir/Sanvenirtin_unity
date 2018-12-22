@@ -1,3 +1,4 @@
+using ObjectScripts.CharSubstance;
 using UnityEditor;
 using UnityEngine;
 using UtilScripts;

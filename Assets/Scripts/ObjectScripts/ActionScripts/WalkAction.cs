@@ -1,3 +1,4 @@
+using ObjectScripts.CharSubstance;
 using UtilScripts;
 
 namespace ObjectScripts.ActionScripts

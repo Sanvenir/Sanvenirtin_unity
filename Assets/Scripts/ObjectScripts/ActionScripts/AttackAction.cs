@@ -1,5 +1,6 @@
 using System;
 using ObjectScripts.BodyPartScripts;
+using ObjectScripts.CharSubstance;
 using ObjectScripts.SpriteController;
 using UnityEngine;
 using UtilScripts;
@@ -11,10 +12,11 @@ namespace ObjectScripts.ActionScripts
     {
         public Character Target;
 
-        public PartPos AttackPart = PartPos.High;
+        public PartPos AttackPart;
         
         public AttackAction(Character self) : base(self)
         {
+            AttackPart = (PartPos)Utils.ProcessRandom.Next(3);
         }
 
         public override void DoAction(bool check = true)

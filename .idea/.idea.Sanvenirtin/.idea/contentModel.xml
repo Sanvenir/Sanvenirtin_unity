@@ -10,7 +10,7 @@
       <e p="Assets" t="Include">
         <e p="Scripts" t="Include">
           <e p="AreaScripts" t="Include">
-            <e p="BlockTile.cs" t="Include" />
+            <e p="BuildingTilemap.cs" t="Include" />
             <e p="LocalArea.cs" t="Include" />
             <e p="RandomLocalArea.cs" t="Include" />
           </e>
@@ -34,14 +34,16 @@
               <e p="WaitAction.cs" t="Include" />
               <e p="WalkAction.cs" t="Include" />
             </e>
-            <e p="BaseItem.cs" t="Include" />
             <e p="BaseObject.cs" t="Include" />
+            <e p="BasicItem" t="Include">
+              <e p="BasicItem.cs" t="Include" />
+              <e p="RawMeat.cs" t="Include" />
+            </e>
             <e p="BodyPartScripts" t="Include">
               <e p="BodyPart.cs" t="Include" />
-              <e p="HumanBodyPart.cs" t="Include" />
+              <e p="CharacterBodyPart.cs" t="Include" />
               <e p="PartPos.cs" t="Include" />
             </e>
-            <e p="Character.cs" t="Include" />
             <e p="CharacterController" t="Include">
               <e p="AiController.cs" t="Include" />
               <e p="CharacterController.cs" t="Include" />
@@ -59,12 +61,20 @@
                 <e p="WalkToOrder.cs" t="Include" />
               </e>
             </e>
-            <e p="Human.cs" t="Include" />
+            <e p="CharSubstance" t="Include">
+              <e p="Character.cs" t="Include" />
+              <e p="Dragon.cs" t="Include" />
+              <e p="Human.cs" t="Include" />
+              <e p="Wolf.cs" t="Include" />
+            </e>
             <e p="SpriteController" t="Include">
               <e p="DynamicSubstanceSpriteController.cs" t="Include" />
               <e p="EffectController.cs" t="Include" />
               <e p="ISubstanceSpriteController.cs" t="Include" />
               <e p="StaticSubstanceSpriteController.cs" t="Include" />
+            </e>
+            <e p="StaticSubstance" t="Include">
+              <e p="Tree.cs" t="Include" />
             </e>
             <e p="Substance.cs" t="Include" />
           </e>

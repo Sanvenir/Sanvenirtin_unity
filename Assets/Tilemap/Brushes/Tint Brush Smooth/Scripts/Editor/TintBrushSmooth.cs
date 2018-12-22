@@ -100,7 +100,7 @@ namespace UnityEditor
 		{
 			brush.m_Color = EditorGUILayout.ColorField("Color", brush.m_Color);
 			brush.m_Blend = EditorGUILayout.Slider("Blend", brush.m_Blend, 0f, 1f);
-			GUILayout.Label("Note: Tilemap needs to use TintedTilemap.shader!");
+			GUILayout.Label("Note: OutsideTilemap needs to use TintedTilemap.shader!");
 		}
 	}
 }

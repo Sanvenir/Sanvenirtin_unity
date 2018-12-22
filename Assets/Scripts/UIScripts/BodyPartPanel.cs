@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using ObjectScripts;
 using ObjectScripts.BodyPartScripts;
 using ObjectScripts.CharacterController;
+using ObjectScripts.CharSubstance;
 using UnityEngine;
 
 namespace UIScripts

@@ -49,8 +49,8 @@ namespace ObjectScripts.SpriteController
         {
             if (_disabled)
             {
+                if (DisabledSprite == null) return;
                 _spriteRenderer.sprite = DisabledSprite;
-
                 return;
             }
 

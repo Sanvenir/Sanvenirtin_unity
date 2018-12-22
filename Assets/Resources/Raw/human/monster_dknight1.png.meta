@@ -110,18 +110,18 @@ TextureImporter:
       name: monster_dknight1_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 6
         y: 150
-        width: 47
-        height: 50
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 34
+        height: 40
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d5390bb29d6993d44ae7e5647349d317
+      spriteID: d6472fdcb4c276d49aa9dc1294f4f658
       vertices: []
       indices: 
       edges: []
@@ -130,18 +130,18 @@ TextureImporter:
       name: monster_dknight1_1
       rect:
         serializedVersion: 2
-        x: 47
+        x: 53
         y: 150
-        width: 47
-        height: 50
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 34
+        height: 41
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c3ea12c75aa167b4192ea64c444426a7
+      spriteID: 2e3a3546aceea2f4c83dccea1bf4f1bd
       vertices: []
       indices: 
       edges: []
@@ -150,18 +150,18 @@ TextureImporter:
       name: monster_dknight1_2
       rect:
         serializedVersion: 2
-        x: 94
+        x: 100
         y: 150
-        width: 47
-        height: 50
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 34
+        height: 40
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 391cb2c69633bb0488528cae1fbe0aa2
+      spriteID: a865ce00779a21747ac7537d9cdae014
       vertices: []
       indices: 
       edges: []
@@ -170,18 +170,18 @@ TextureImporter:
       name: monster_dknight1_3
       rect:
         serializedVersion: 2
-        x: 0
+        x: 11
         y: 100
-        width: 47
-        height: 50
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 24
+        height: 40
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4b9bc2e48877bc64590c4964c4947e3d
+      spriteID: 5dcc2c925a5cd0849b39846aba390420
       vertices: []
       indices: 
       edges: []
@@ -190,18 +190,18 @@ TextureImporter:
       name: monster_dknight1_4
       rect:
         serializedVersion: 2
-        x: 47
+        x: 58
         y: 100
-        width: 47
-        height: 50
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 24
+        height: 41
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f00d660098df3f34391e76f479d35224
+      spriteID: 81c2a840f42fe62449a8a127d53e9683
       vertices: []
       indices: 
       edges: []
@@ -210,18 +210,18 @@ TextureImporter:
       name: monster_dknight1_5
       rect:
         serializedVersion: 2
-        x: 94
+        x: 104
         y: 100
-        width: 47
-        height: 50
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 26
+        height: 40
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f653f18d727d7554290634572abc1ebe
+      spriteID: a4bfcd852867eaf4fa524a782b8e4e8a
       vertices: []
       indices: 
       edges: []
@@ -230,18 +230,18 @@ TextureImporter:
       name: monster_dknight1_6
       rect:
         serializedVersion: 2
-        x: 0
+        x: 9
         y: 50
-        width: 47
-        height: 50
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 26
+        height: 40
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 21c478816fe6e4a4ab699cec01948b03
+      spriteID: 7457a6af6fc971946922ba7af14f6e3f
       vertices: []
       indices: 
       edges: []
@@ -250,18 +250,18 @@ TextureImporter:
       name: monster_dknight1_7
       rect:
         serializedVersion: 2
-        x: 47
+        x: 57
         y: 50
-        width: 47
-        height: 50
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 24
+        height: 41
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d63cfdb926e501b44a724000fea99e75
+      spriteID: 849620e10785d8d4b88d54a536bd73c4
       vertices: []
       indices: 
       edges: []
@@ -270,18 +270,18 @@ TextureImporter:
       name: monster_dknight1_8
       rect:
         serializedVersion: 2
-        x: 94
+        x: 104
         y: 50
-        width: 47
-        height: 50
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 24
+        height: 40
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e920e26f53918ad418e51623f3af9a44
+      spriteID: 972a5afe06967004d84731906249f374
       vertices: []
       indices: 
       edges: []
@@ -290,18 +290,18 @@ TextureImporter:
       name: monster_dknight1_9
       rect:
         serializedVersion: 2
-        x: 0
+        x: 6
         y: 0
-        width: 47
-        height: 50
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 34
+        height: 40
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1dd61a30848843946b516d3d6869d44e
+      spriteID: 9ef8995fe99340e4fabcaa010c77d74b
       vertices: []
       indices: 
       edges: []
@@ -310,18 +310,18 @@ TextureImporter:
       name: monster_dknight1_10
       rect:
         serializedVersion: 2
-        x: 47
+        x: 53
         y: 0
-        width: 47
-        height: 50
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 34
+        height: 41
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fb204341174fee54b86fbb54df153e1f
+      spriteID: 33ba21ae199309748a73cc51eef4c527
       vertices: []
       indices: 
       edges: []
@@ -330,18 +330,18 @@ TextureImporter:
       name: monster_dknight1_11
       rect:
         serializedVersion: 2
-        x: 94
+        x: 100
         y: 0
-        width: 47
-        height: 50
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 34
+        height: 40
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2d2372f0bdee7ff46ad691a317ca9669
+      spriteID: 7f40e7a149bf38c43989b371f6b70109
       vertices: []
       indices: 
       edges: []

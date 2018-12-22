@@ -28,8 +28,8 @@ namespace UIScripts
 
         private void Update()
         {
-            DurabilityBar.maxValue = BodyPart.Durability.MaxValue;
-            DurabilityBar.value = BodyPart.Durability.Value;
+            DurabilityBar.maxValue = BodyPart.HitPoint.MaxValue;
+            DurabilityBar.value = BodyPart.HitPoint.Value;
         }
     }
 }
