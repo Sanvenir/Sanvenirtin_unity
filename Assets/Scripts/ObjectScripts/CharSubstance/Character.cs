@@ -8,7 +8,6 @@ namespace ObjectScripts.CharSubstance
 {
     public abstract class Character : Substance
     {
-        [HideInInspector]
         public CharacterController.CharacterController Controller;
 
         public bool IsTurn()
@@ -48,7 +47,7 @@ namespace ObjectScripts.CharSubstance
         {
             if (delta == Vector2Int.zero) return true;
             var endPos = WorldPos + delta;
-            SubstanceSpriteController.SetDirection(Utils.VectorToDirection(delta));
+            SpriteController.SetDirection(Utils.VectorToDirection(delta));
             if (check && !MoveCheck(delta))
             {
                 return false;
@@ -67,25 +66,25 @@ namespace ObjectScripts.CharSubstance
             var moveVector = (end - transform.position) / moveSteps;
             for (; moveSteps != 0; moveSteps--)
             {
-                SubstanceSpriteController.StartMoving();
+                SpriteController.StartMoving();
                 transform.position += moveVector;
                 SpriteRenderer.sortingOrder = -Utils.FloatToInt(transform.position.y);
                 Collider2D.offset = end - transform.position;
                 yield return null;
             }
 
-            SubstanceSpriteController.StopMoving();
+            SpriteController.StopMoving();
         }
 
         public void TurnTo(Direction direction)
         {
-            SubstanceSpriteController.SetDirection(direction);
+            SpriteController.SetDirection(direction);
         }
 
         public void AttackMovement(Direction direction, int attTime, float intense=0.5f)
         {
             var delta = (Vector2)Utils.DirectionToVector(direction) * intense;
-            SubstanceSpriteController.SetDirection(direction);
+            SpriteController.SetDirection(direction);
             transform.position = delta + WorldPos;
             Collider2D.offset = -delta;
             StartCoroutine(SmoothMovement(WorldPos, attTime));
@@ -125,7 +124,6 @@ namespace ObjectScripts.CharSubstance
             base.Initialize(worldCoord, areaIdentity);
             ActivateTime = SceneManager.Instance.CurrentTime;
             RefreshProperties();
-            Controller = GetComponent<CharacterController.CharacterController>();
         }
 
         [HideInInspector]

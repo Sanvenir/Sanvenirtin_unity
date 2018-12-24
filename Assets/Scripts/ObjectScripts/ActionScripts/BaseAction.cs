@@ -12,6 +12,7 @@ namespace ObjectScripts.ActionScripts
         protected int CostTime;
         public Direction TargetDirection;
         public Vector2Int TargetCoord;
+        public BaseObject TargetObject;
 
         public BaseAction(Character self)
         {

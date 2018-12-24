@@ -3,7 +3,7 @@ using UtilScripts;
 
 namespace ObjectScripts.SpriteController
 {
-    public class StaticSubstanceSpriteController : MonoBehaviour, ISubstanceSpriteController
+    public class StaticSpriteController : SpriteController
     {
         public Sprite[] Sprites;
         public Sprite DisabledSprite;
@@ -11,36 +11,35 @@ namespace ObjectScripts.SpriteController
         public float Speed = 3;
         private bool _disabled = false;
 
-        private SpriteRenderer _spriteRenderer;
+        public SpriteRenderer SpriteRenderer;
 
         private void Start()
         {
-            _spriteRenderer = GetComponent<SpriteRenderer>();
-            _spriteRenderer.sprite = Sprites[0];
+            SpriteRenderer.sprite = Sprites[0];
             if (DisabledSprite == null)
             {
                 DisabledSprite = Sprites[0];
             }
         }
 
-        public void SetDirection(Direction direction)
+        public override void SetDirection(Direction direction)
         {
         }
 
-        public bool IsMoving()
+        public override bool IsMoving()
         {
             return false;
         }
 
-        public void StartMoving()
+        public override void StartMoving()
         {
         }
 
-        public void StopMoving()
+        public override void StopMoving()
         {
         }
 
-        public void SetDisable(bool disabled)
+        public override void SetDisable(bool disabled)
         {
             _disabled = disabled;
         }
@@ -50,13 +49,13 @@ namespace ObjectScripts.SpriteController
             if (_disabled)
             {
                 if (DisabledSprite == null) return;
-                _spriteRenderer.sprite = DisabledSprite;
+                SpriteRenderer.sprite = DisabledSprite;
                 return;
             }
 
             var timeIndex = (int) (Time.time * Speed);
             var index = timeIndex % Sprites.Length;
-            _spriteRenderer.sprite = Sprites[index];
+            SpriteRenderer.sprite = Sprites[index];
         }
     }
 }

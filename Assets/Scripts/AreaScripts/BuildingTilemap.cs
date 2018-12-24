@@ -17,8 +17,6 @@ namespace AreaScripts
 
         private void Awake()
         {
-            OutsideTilemap = GetComponent<Tilemap>();
-            OutsideTilemapRenderer = GetComponent<TilemapRenderer>();
         }
 
         public void Initialize(Vector2 startPos)

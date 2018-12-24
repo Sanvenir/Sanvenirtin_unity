@@ -21,7 +21,8 @@ GameObject:
   - component: {fileID: 4380746734156514}
   - component: {fileID: 212370470651645388}
   - component: {fileID: 114898461014695738}
-  m_Layer: 0
+  - component: {fileID: 58834145358047370}
+  m_Layer: 11
   m_Name: RawMeat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35,12 +36,27 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1942657663325402}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -60.43428, y: -14.481497, z: 0}
+  m_LocalPosition: {x: -20.568703, y: -3.4481394, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &58834145358047370
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1942657663325402}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.25
 --- !u!114 &114898461014695738
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -53,6 +69,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Raw Meat
+  SpriteRenderer: {fileID: 212370470651645388}
+  Collider2D: {fileID: 58834145358047370}
   Weight: 10
   Size: 10
 --- !u!212 &212370470651645388
@@ -90,7 +108,7 @@ SpriteRenderer:
   m_SortingLayerID: 803096645
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 456a4616fdbf7724fb8fb526dffed68c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7d69a98b3a65d8342a167dfcd602cd1c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

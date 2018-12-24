@@ -165,16 +165,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 025b1796eef94e7cae6c56bde0d66b57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DurabilityBar: {fileID: 0}
-  Text: {fileID: 0}
+  DurabilityBar: {fileID: 114943403213157986}
+  Text: {fileID: 114092458854247894}
   BodyPart:
     Name: 
-    Durability:
+    HitPoint:
       MaxValue: 1000
     Size: 10
+    Weight: 10
     Defence: 10
     Available: 1
+    Substance: {fileID: 0}
     Essential: 0
+    Components: []
 --- !u!114 &114836595984334942
 MonoBehaviour:
   m_ObjectHideFlags: 1

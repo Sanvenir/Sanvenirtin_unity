@@ -8,21 +8,16 @@ namespace ObjectScripts
     {
         public string Name;
         public StringBuilder Describe;
-        
-        [HideInInspector]
-        public ISubstanceSpriteController SubstanceSpriteController;
 
-        protected SpriteRenderer SpriteRenderer;
-        protected Collider2D Collider2D;
+        public SpriteRenderer SpriteRenderer;
+        
+        public Collider2D Collider2D;
         
         public abstract float GetSize();
         public abstract float GetWeight();
 
         protected void Initialize()
         {
-            SubstanceSpriteController = GetComponent<ISubstanceSpriteController>();
-            SpriteRenderer = GetComponent<SpriteRenderer>();
-            Collider2D = GetComponent<Collider2D>();
         }
     }
 }

@@ -39,11 +39,10 @@ namespace ObjectScripts.BodyPartScripts
                     continue;
                 }
 
-                Object.Instantiate(component);
-                component.transform.position =
-                    Substance.transform.position + new Vector3(
+                Object.Instantiate(component).transform.position =
+                    Substance.WorldPos + new Vector2(
                         (float) Utils.ProcessRandom.NextDouble() - 0.5f,
-                        (float) Utils.ProcessRandom.NextDouble() - 0.5f, 0);
+                        (float) Utils.ProcessRandom.NextDouble() - 0.5f);
             }
 
             if (AttachBodyPart == null) return;

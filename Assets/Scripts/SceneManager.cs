@@ -28,12 +28,14 @@ public class SceneManager : MonoBehaviour
 	public LayerMask GroundLayer;
 	public int LoadingRange = 2;
 	public ContactFilter2D BlockFilter;
+	public ContactFilter2D ItemFilter;
 
 	// Game Objects
 	public EarthMapManager EarthMapManager;
 	public GameObject Player;
 	public Grid Grid;
 	public SceneControlButton SceneControlButton;
+	public ObjectListMenu ObjectListMenu;
 	
 	[HideInInspector]
 	public Dictionary<int, LocalArea> ActivateAreas;

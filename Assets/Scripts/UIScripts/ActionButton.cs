@@ -6,9 +6,7 @@ namespace UIScripts
 {
     public class ActionButton: MonoBehaviour
     {
-        [HideInInspector]
         public Image ButtonImage;
-        [HideInInspector]
         public Text ButtonText;
         public Color ImageColor = new Color(0, 1, 1, 0.5f);
         public Color TextColor = Color.black;
@@ -23,8 +21,6 @@ namespace UIScripts
 
         private void Awake()
         {
-            ButtonImage = GetComponent<Image>();
-            ButtonText = GetComponentInChildren<Text>();
             _currentAlpha = 0;
             SetAlpha(_currentAlpha);
         }

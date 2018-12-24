@@ -8,18 +8,10 @@ namespace UIScripts
 {
     public class BodyPartButton: MonoBehaviour
     {
-        [HideInInspector]
         public Slider DurabilityBar;
-        [HideInInspector]
         public Text Text;
         [HideInInspector]
         public BodyPart BodyPart;
-
-        private void Awake()
-        {
-            DurabilityBar = GetComponent<Slider>();
-            Text = GetComponentInChildren<Text>();
-        }
 
         private void Start()
         {

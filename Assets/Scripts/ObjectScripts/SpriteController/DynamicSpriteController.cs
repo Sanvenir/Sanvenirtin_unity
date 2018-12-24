@@ -5,7 +5,7 @@ using UtilScripts;
 
 namespace ObjectScripts.SpriteController
 {
-	public class DynamicSubstanceSpriteController : MonoBehaviour, ISubstanceSpriteController
+	public class DynamicSpriteController : SpriteController
 	{
 		public Sprite DisabledSprite;
 
@@ -21,7 +21,7 @@ namespace ObjectScripts.SpriteController
 		[HideInInspector]
 		public bool IsDisabled = false;
 
-		private SpriteRenderer _spriteRenderer;
+		public SpriteRenderer SpriteRenderer;
 
 		public Dictionary<Direction, List<Sprite>> MoveSprites;
 		public Dictionary<Direction, List<Sprite>> StopSprites;
@@ -42,7 +42,6 @@ namespace ObjectScripts.SpriteController
 		// Use this for initialization
 		private void Start()
 		{
-			_spriteRenderer = GetComponent<SpriteRenderer>();
 			_movingDirection = TargetDirection;
 			MoveSprites = new Dictionary<Direction, List<Sprite>>
 			{
@@ -60,7 +59,7 @@ namespace ObjectScripts.SpriteController
 				{Direction.Right, StopRightSprites},
 				{Direction.None, StopNoneSprites}
 			};
-			_spriteRenderer.sprite = StopSprites[_movingDirection][0];
+			SpriteRenderer.sprite = StopSprites[_movingDirection][0];
 		}
 	
 		// Update is called once per frame
@@ -68,7 +67,7 @@ namespace ObjectScripts.SpriteController
 		{
 			if (IsDisabled)
 			{
-				_spriteRenderer.sprite = DisabledSprite;
+				SpriteRenderer.sprite = DisabledSprite;
 				return;
 			}
 			if (TargetDirection != _movingDirection)
@@ -113,31 +112,31 @@ namespace ObjectScripts.SpriteController
 			var timeIndex = (int) (Time.time * Speed);
 			var index = timeIndex % _currentSprites.Count;
 
-			_spriteRenderer.sprite = _currentSprites[index];
+			SpriteRenderer.sprite = _currentSprites[index];
 		}
 
-		public void StartMoving()
+		public override void StartMoving()
 		{
 			Moving = true;
 		}
 
-		public void StopMoving()
+		public override void StopMoving()
 		{
 			Moving = false;
 		}
 
-		public void SetDisable(bool disabled)
+		public override void SetDisable(bool disabled)
 		{
 			IsDisabled = disabled;
 		}
 
 
-		public void SetDirection(Direction direction)
+		public override void SetDirection(Direction direction)
 		{
 			TargetDirection = direction;
 		}
 
-		public bool IsMoving()
+		public override bool IsMoving()
 		{
 			return Moving;
 		}

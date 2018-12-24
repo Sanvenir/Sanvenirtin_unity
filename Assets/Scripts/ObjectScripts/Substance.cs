@@ -5,6 +5,7 @@ using System.Linq;
 using AreaScripts;
 using ExceptionScripts;
 using ObjectScripts.BodyPartScripts;
+using ObjectScripts.SpriteController;
 using SpriteGlow;
 using UnityEditor;
 using UnityEngine;
@@ -17,6 +18,8 @@ namespace ObjectScripts
     {
         [HideInInspector] public Vector2 WorldPos;
         [HideInInspector] public Vector2Int WorldCoord;
+        
+        public SpriteController.SpriteController SpriteController;
 
         // public SortedList<string, BodyPart> BodyParts = new SortedList<string, BodyPart>();
         [HideInInspector]
@@ -33,7 +36,7 @@ namespace ObjectScripts
 
         public void SetDisable()
         {
-            SubstanceSpriteController.SetDisable(true);
+            SpriteController.SetDisable(true);
             gameObject.layer = LayerMask.NameToLayer("ItemLayer");
         }
 

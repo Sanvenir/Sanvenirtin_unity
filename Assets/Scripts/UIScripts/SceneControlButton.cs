@@ -57,7 +57,12 @@ namespace UIScripts
         public override void OnPointerEnter(PointerEventData eventData)
         {
             base.OnPointerEnter(eventData);
+            if (SceneCursor.enabled) return;
             SceneCursor.enabled = true;
+            _cursorTargetPos = SceneManager.Instance.MainCamera
+                .ScreenToWorldPoint(Input.mousePosition);
+            SceneCursor.transform.position = 
+                SceneManager.Instance.NormalizeWorldPos(_cursorTargetPos);
         }
 
         public override void OnPointerExit(PointerEventData eventData)
@@ -179,13 +184,15 @@ namespace UIScripts
             // Right Mouse Button Down, Show the order list
             if (Input.GetMouseButtonDown(1))
             {
+                SceneManager.Instance.ObjectListMenu.gameObject.SetActive(false);
                 var worldCoord = SceneManager.Instance.WorldPosToCoord(
                     SceneCursor.transform.position);
                 var direction = Utils.VectorToDirection(worldCoord - Player.WorldCoord);
                 
                 var orderList = new List<BaseOrder>
                 {
-                    new RestOrder("Rest", null, direction, worldCoord)
+                    new RestOrder("Rest", Player, direction, Player.WorldCoord),
+                    new PickupOrder("Pick Up", Player, direction, Player.WorldCoord)
                 };
                 if (direction != Direction.None)
                 {

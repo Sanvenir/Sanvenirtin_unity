@@ -31,6 +31,7 @@
             <e p="ActionScripts" t="Include">
               <e p="AttackAction.cs" t="Include" />
               <e p="BaseAction.cs" t="Include" />
+              <e p="PickupAction.cs" t="Include" />
               <e p="WaitAction.cs" t="Include" />
               <e p="WalkAction.cs" t="Include" />
             </e>
@@ -57,6 +58,7 @@
               <e p="PlayerOrder" t="Include">
                 <e p="AttackDirectionOrder.cs" t="Include" />
                 <e p="BaseOrder.cs" t="Include" />
+                <e p="PickupOrder.cs" t="Include" />
                 <e p="RestOrder.cs" t="Include" />
                 <e p="WalkToOrder.cs" t="Include" />
               </e>
@@ -68,10 +70,10 @@
               <e p="Wolf.cs" t="Include" />
             </e>
             <e p="SpriteController" t="Include">
-              <e p="DynamicSubstanceSpriteController.cs" t="Include" />
+              <e p="DynamicSpriteController.cs" t="Include" />
               <e p="EffectController.cs" t="Include" />
-              <e p="ISubstanceSpriteController.cs" t="Include" />
-              <e p="StaticSubstanceSpriteController.cs" t="Include" />
+              <e p="SpriteController.cs" t="Include" />
+              <e p="StaticSpriteController.cs" t="Include" />
             </e>
             <e p="StaticSubstance" t="Include">
               <e p="Tree.cs" t="Include" />
@@ -84,6 +86,8 @@
             <e p="ActionMenu.cs" t="Include" />
             <e p="BodyPartButton.cs" t="Include" />
             <e p="BodyPartPanel.cs" t="Include" />
+            <e p="ObjectIcon.cs" t="Include" />
+            <e p="ObjectListMenu.cs" t="Include" />
             <e p="PropertyPanel.cs" t="Include" />
             <e p="SceneControlButton.cs" t="Include" />
           </e>

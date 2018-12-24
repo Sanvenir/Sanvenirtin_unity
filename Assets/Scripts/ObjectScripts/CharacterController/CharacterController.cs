@@ -15,14 +15,12 @@ namespace ObjectScripts.CharacterController
         public WaitAction WaitAction;
         public AttackAction AttackAction;
         
-        [HideInInspector]
         public Character Character;
 
         private int _recoveredTime = 0;
 
         protected virtual void Awake()
         {
-            Character = gameObject.GetComponent<Character>();
             WalkAction = new WalkAction(Character);
             WaitAction = new WaitAction(Character);
             AttackAction = new AttackAction(Character);
