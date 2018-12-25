@@ -38,6 +38,7 @@ GameObject:
   - component: {fileID: 224321081596147206}
   - component: {fileID: 222930379148944324}
   - component: {fileID: 114763859177116452}
+  - component: {fileID: 114986012062736528}
   m_Layer: 5
   m_Name: FetchSlot
   m_TagString: Untagged
@@ -99,6 +100,30 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114986012062736528
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1969818064525308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6540b0d3758c4523b8ed3222c3779acd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FetchObjectImage: {fileID: 114180313262406718}
+  FetchObject: {fileID: 0}
+  BodyPart:
+    Name: 
+    HitPoint:
+      MaxValue: 1000
+    Size: 10
+    Weight: 10
+    Defence: 10
+    Available: 1
+    Substance: {fileID: 0}
+    Essential: 0
+    Components: []
 --- !u!222 &222841224880331250
 CanvasRenderer:
   m_ObjectHideFlags: 1
