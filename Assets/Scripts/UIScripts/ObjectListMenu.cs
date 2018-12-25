@@ -22,6 +22,7 @@ namespace UIScripts
                 var instance = Instantiate(IconPrefab, Content.transform);
                 instance.ObjectImage.sprite = baseObject.SpriteRenderer.sprite;
                 instance.ObjectName.text = baseObject.Name;
+                instance.BaseObject = baseObject;
             }
         }
 

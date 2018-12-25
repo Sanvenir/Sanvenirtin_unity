@@ -168,6 +168,7 @@ namespace UIScripts
                 // Else Camera following the player
                 if (Input.GetMouseButton(0))
                 {
+                    SceneManager.Instance.ObjectListMenu.gameObject.SetActive(false);
                     CameraFollowPlayer = false;
                     _cursorTargetPos.x += Input.GetAxis("Mouse X") * 2;
                     _cursorTargetPos.y += Input.GetAxis("Mouse Y") * 2;

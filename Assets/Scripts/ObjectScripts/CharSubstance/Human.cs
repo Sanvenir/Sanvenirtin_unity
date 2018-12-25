@@ -55,6 +55,10 @@ namespace ObjectScripts.CharSubstance
             {
                 BodyParts.Add(part.Name, part);
             }
+
+            FetchDictionary.Add(LeftHand, null);
+            FetchDictionary.Add(RightHand, null);
+            
             base.Initialize(worldCoord, areaIdentity);
         }
     }

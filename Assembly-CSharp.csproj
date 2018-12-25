@@ -107,6 +107,8 @@
     <Compile Include="Assets\Scripts\UIScripts\ActionMenu.cs" />
     <Compile Include="Assets\Scripts\UIScripts\BodyPartButton.cs" />
     <Compile Include="Assets\Scripts\UIScripts\BodyPartPanel.cs" />
+    <Compile Include="Assets\Scripts\UIScripts\FetchObjectList.cs" />
+    <Compile Include="Assets\Scripts\UIScripts\FetchObjectSlot.cs" />
     <Compile Include="Assets\Scripts\UIScripts\ObjectIcon.cs" />
     <Compile Include="Assets\Scripts\UIScripts\ObjectListMenu.cs" />
     <Compile Include="Assets\Scripts\UIScripts\PropertyPanel.cs" />

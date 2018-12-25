@@ -18,10 +18,8 @@ using UtilScripts;
 
 public class SceneManager : MonoBehaviour
 {
-
 	// Settings
-	[Range(1, 100)]
-	public int ReactFrames = 1;
+	[Range(1, 100)] public int ReactFrames = 1;
 	public int CurrentTime;
 	public string RandomSeed = "Random";
 	public int InitMapX, InitMapY;
@@ -36,24 +34,22 @@ public class SceneManager : MonoBehaviour
 	public Grid Grid;
 	public SceneControlButton SceneControlButton;
 	public ObjectListMenu ObjectListMenu;
-	
-	[HideInInspector]
-	public Dictionary<int, LocalArea> ActivateAreas;
-	[HideInInspector]
-	public HashSet<int> EdgeIdentities;
-	[HideInInspector]
-	public LocalArea CenterArea;
-	
-	[HideInInspector]
-	public Character PlayerObject;
-	
+
+	[HideInInspector] public Dictionary<int, LocalArea> ActivateAreas;
+	[HideInInspector] public HashSet<int> EdgeIdentities;
+	[HideInInspector] public LocalArea CenterArea;
+
+	[HideInInspector] public Character PlayerObject;
+
+	[HideInInspector] public PlayerController PlayerController;
+
 	// UI Objects
 	public Camera MainCamera;
 	public GameObject CameraPos;
 	public Collider2D SceneCollider;
 	public Text GameLogger;
 	public BodyPartPanel BodyPartPanel;
-	
+
 	// Script Objects
 	public static SceneManager Instance = null;
 	[SerializeField] private StringBuilder _loggerText;
@@ -70,7 +66,7 @@ public class SceneManager : MonoBehaviour
 		{
 			Destroy(gameObject);
 		}
-		
+
 		if (RandomSeed.Equals("random"))
 		{
 			RandomSeed = DateTime.Now.ToString(CultureInfo.CurrentCulture);
@@ -79,16 +75,31 @@ public class SceneManager : MonoBehaviour
 		ClearLog();
 
 		Utils.ProcessRandom = new System.Random(RandomSeed.GetHashCode());
-		
+
 		EarthMapManager.GenerateMap();
 		ActivateAreas = new Dictionary<int, LocalArea>();
 
 		var initCoord = new EarthMapCoord(InitMapX, InitMapY);
 		CenterArea = GenerateArea(initCoord.GetIdentity(), Vector2Int.zero);
-		
+
 		LoadSurroundMap();
 
 		SceneControlButton.enabled = true;
+
+		CurrentTime = 0;
+		PlayerObject = Player.GetComponent<Character>();
+		PlayerController = Player.GetComponent<PlayerController>();
+		Player.SetActive(true);
+		try
+		{
+			PlayerObject.Initialize(Vector2Int.zero, CenterArea.Identity);
+		}
+		catch (CoordOccupiedException e)
+		{
+			Destroy(e.Collider.gameObject);
+		}
+
+		BodyPartPanel.enabled = true;
 	}
 
 	public Vector2 WorldCoordToPos(Vector2Int coord)
@@ -106,8 +117,8 @@ public class SceneManager : MonoBehaviour
 	{
 		return Utils.Vector3IntTo2(CenterArea.Tilemap.WorldToCell(pos));
 	}
-	
-	
+
+
 //	public LocalArea WorldCoordToArea(Vector2Int coord)
 //	{
 //		foreach (var area in ActivateAreas.Values)
@@ -127,6 +138,7 @@ public class SceneManager : MonoBehaviour
 		{
 			return Vector2.zero;
 		}
+
 		var coord = CenterArea.Tilemap.WorldToCell(pos);
 		return CenterArea.Tilemap.GetCellCenterWorld(coord);
 	}
@@ -142,7 +154,7 @@ public class SceneManager : MonoBehaviour
 		_loggerText = new StringBuilder();
 		GameLogger.text = _loggerText.ToString();
 	}
-	
+
 	public void LoadSurroundMap()
 	{
 		// The center area must been initialized;
@@ -161,18 +173,20 @@ public class SceneManager : MonoBehaviour
 			{
 				var identity = centerCoord.GetDeltaCoord(dx, dy).GetIdentity();
 				activateIdentities.Add(identity);
-				if (dx == LoadingRange || dx == -LoadingRange || 
+				if (dx == LoadingRange || dx == -LoadingRange ||
 				    dy == LoadingRange || dy == -LoadingRange)
 				{
 					EdgeIdentities.Add(identity);
 				}
+
 				if (ActivateAreas.ContainsKey(identity))
 				{
 					continue;
 				}
+
 				var area = GenerateArea(
 					identity,
-					CenterArea.WorldStartCoord + 
+					CenterArea.WorldStartCoord +
 					new Vector2Int(
 						dx * EarthMapManager.LocalWidth, dy * EarthMapManager.LocalHeight));
 			}
@@ -189,7 +203,7 @@ public class SceneManager : MonoBehaviour
 			{
 				continue;
 			}
-			
+
 			// Destroy inactivate areas
 			Destroy(ActivateAreas[areaIdentity].gameObject);
 			ActivateAreas.Remove(areaIdentity);
@@ -207,30 +221,17 @@ public class SceneManager : MonoBehaviour
 	}
 
 	// Use this for initialization
-	void Start ()
+	void Start()
 	{
-		CurrentTime = 0;
-		PlayerObject = Player.GetComponent<Character>();
-		Player.SetActive(true);
-		try
-		{
-			PlayerObject.Initialize(Vector2Int.zero, CenterArea.Identity);
-		}
-		catch (CoordOccupiedException e)
-		{
-			Destroy(e.Collider.gameObject);
-		}
-		BodyPartPanel.enabled = true;
-
 	}
 
 	public int GetUpdateTime()
 	{
 		return Math.Max(1, PlayerObject.GetReactTime() / ReactFrames);
 	}
-	
+
 	// Update is called once per frame
-	void Update ()
+	void Update()
 	{
 		if (PlayerObject != null && PlayerObject.IsTurn()) return;
 		CurrentTime += GetUpdateTime();

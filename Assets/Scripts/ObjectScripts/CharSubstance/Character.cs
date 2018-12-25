@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using ObjectScripts.BodyPartScripts;
 using ObjectScripts.SpriteController;
 using UnityEngine;
@@ -18,9 +19,31 @@ namespace ObjectScripts.CharSubstance
         public override float Attacked(float damage, BodyPart bodyPart, float defenceRatio = 1)
         {
             damage = base.Attacked(damage, bodyPart, defenceRatio);
-            if (bodyPart.Essential && !bodyPart.Available)
+            if (!bodyPart.Available)
             {
-                Dead = true;
+                if (FetchDictionary.ContainsKey(bodyPart) && 
+                    FetchDictionary[bodyPart] != null)
+                {
+                    FetchDictionary[bodyPart].gameObject.SetActive(true);
+                    FetchDictionary[bodyPart].transform.position =
+                        WorldPos + new Vector2(
+                            (float) Utils.ProcessRandom.NextDouble() - 0.5f,
+                            (float) Utils.ProcessRandom.NextDouble() - 0.5f);
+                }
+                if (bodyPart.AttachBodyPart != null && 
+                    FetchDictionary.ContainsKey(bodyPart.AttachBodyPart) && 
+                    FetchDictionary[bodyPart.AttachBodyPart] != null)
+                {
+                    FetchDictionary[bodyPart.AttachBodyPart].gameObject.SetActive(true);
+                    FetchDictionary[bodyPart.AttachBodyPart].transform.position =
+                        WorldPos + new Vector2(
+                            (float) Utils.ProcessRandom.NextDouble() - 0.5f,
+                            (float) Utils.ProcessRandom.NextDouble() - 0.5f);
+                }
+                if (bodyPart.Essential)
+                {
+                    Dead = true;
+                }
             }
             Health += damage;
             return damage;
@@ -125,6 +148,8 @@ namespace ObjectScripts.CharSubstance
             ActivateTime = SceneManager.Instance.CurrentTime;
             RefreshProperties();
         }
+
+        public Dictionary<BodyPart, BaseObject> FetchDictionary = new Dictionary<BodyPart, BaseObject>();
 
         [HideInInspector]
         public int ActivateTime;
@@ -237,6 +262,7 @@ namespace ObjectScripts.CharSubstance
             Health -= GetHealthRecover();
             foreach (var part in GetAllBodyParts())
             {
+                if(!part.Available) continue;
                 part.HitPoint.Value += GetHealthRecover();
             }
         }
