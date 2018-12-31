@@ -16,7 +16,5 @@ namespace ObjectScripts.BasicItem
         {
             return Weight;
         }
-
-        public abstract void Eat(Character character);
     }
 }

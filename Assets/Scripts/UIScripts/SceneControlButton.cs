@@ -168,7 +168,7 @@ namespace UIScripts
                 // Else Camera following the player
                 if (Input.GetMouseButton(0))
                 {
-                    SceneManager.Instance.ObjectListMenu.gameObject.SetActive(false);
+                    CancelPanels();
                     CameraFollowPlayer = false;
                     _cursorTargetPos.x += Input.GetAxis("Mouse X") * 2;
                     _cursorTargetPos.y += Input.GetAxis("Mouse Y") * 2;
@@ -185,7 +185,7 @@ namespace UIScripts
             // Right Mouse Button Down, Show the order list
             if (Input.GetMouseButtonDown(1))
             {
-                SceneManager.Instance.ObjectListMenu.gameObject.SetActive(false);
+                CancelPanels();
                 var worldCoord = SceneManager.Instance.WorldPosToCoord(
                     SceneCursor.transform.position);
                 var direction = Utils.VectorToDirection(worldCoord - Player.WorldCoord);
@@ -214,6 +214,12 @@ namespace UIScripts
             PlayerController.CurrentOrder = order;
  
 
+        }
+
+        public void CancelPanels()
+        {
+            SceneManager.Instance.ObjectListMenu.EndUp();
+            SceneManager.Instance.ObjectActPanel.EndUp();
         }
     }
 }

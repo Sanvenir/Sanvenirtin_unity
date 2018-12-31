@@ -68,6 +68,7 @@ namespace ObjectScripts.SpriteController
 			if (IsDisabled)
 			{
 				SpriteRenderer.sprite = DisabledSprite;
+				SpriteRenderer.sortingLayerName = "Abstract";
 				return;
 			}
 			if (TargetDirection != _movingDirection)

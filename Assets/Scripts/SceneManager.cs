@@ -34,6 +34,7 @@ public class SceneManager : MonoBehaviour
 	public Grid Grid;
 	public SceneControlButton SceneControlButton;
 	public ObjectListMenu ObjectListMenu;
+	public ObjectActPanel ObjectActPanel;
 
 	[HideInInspector] public Dictionary<int, LocalArea> ActivateAreas;
 	[HideInInspector] public HashSet<int> EdgeIdentities;

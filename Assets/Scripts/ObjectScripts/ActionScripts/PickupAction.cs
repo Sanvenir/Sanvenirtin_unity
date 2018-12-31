@@ -23,6 +23,7 @@ namespace ObjectScripts.ActionScripts
             
             foreach (var key in Self.FetchDictionary.Keys)
             {
+                if (!key.Available) continue;
                 if (Self.FetchDictionary[key] != null) continue;
                 Self.FetchDictionary[key] = TargetObject;
                 TargetObject.gameObject.SetActive(false);
@@ -35,6 +36,7 @@ namespace ObjectScripts.ActionScripts
         {
             foreach (var key in Self.FetchDictionary.Keys)
             {
+                if (!key.Available) continue;
                 if (Self.FetchDictionary[key] != null) continue;
                 _fetchPart = key;
                 return true;

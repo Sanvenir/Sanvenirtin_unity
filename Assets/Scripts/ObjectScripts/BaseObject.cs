@@ -1,4 +1,7 @@
+using System;
+using System.Collections.Generic;
 using System.Text;
+using ObjectScripts.ActionScripts;
 using ObjectScripts.SpriteController;
 using UnityEngine;
 
@@ -7,7 +10,7 @@ namespace ObjectScripts
     public abstract class BaseObject: MonoBehaviour
     {
         public string Name;
-        public StringBuilder Describe;
+        public StringBuilder Info = new StringBuilder();
 
         public SpriteRenderer SpriteRenderer;
         
@@ -18,6 +21,15 @@ namespace ObjectScripts
 
         protected void Initialize()
         {
+        }
+
+        private void LateUpdate()
+        {
+            if ((SceneManager.Instance.Player.transform.position -
+                 transform.position).sqrMagnitude > 5000)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }

@@ -31,6 +31,7 @@
             <e p="ActionScripts" t="Include">
               <e p="AttackAction.cs" t="Include" />
               <e p="BaseAction.cs" t="Include" />
+              <e p="ConsumeAction.cs" t="Include" />
               <e p="PickupAction.cs" t="Include" />
               <e p="WaitAction.cs" t="Include" />
               <e p="WalkAction.cs" t="Include" />
@@ -38,6 +39,7 @@
             <e p="BaseObject.cs" t="Include" />
             <e p="BasicItem" t="Include">
               <e p="BasicItem.cs" t="Include" />
+              <e p="IConsumeItem.cs" t="Include" />
               <e p="RawMeat.cs" t="Include" />
             </e>
             <e p="BodyPartScripts" t="Include">
@@ -88,6 +90,7 @@
             <e p="BodyPartPanel.cs" t="Include" />
             <e p="FetchObjectList.cs" t="Include" />
             <e p="FetchObjectSlot.cs" t="Include" />
+            <e p="ObjectActPanel.cs" t="Include" />
             <e p="ObjectIcon.cs" t="Include" />
             <e p="ObjectListMenu.cs" t="Include" />
             <e p="PropertyPanel.cs" t="Include" />
@@ -105,6 +108,31 @@
           <e p="SpriteGlowEffect.cs" t="Include" />
           <e p="SpriteGlowMaterial.cs" t="Include" />
           <e p="SpriteOutline.shader" t="Include" />
+        </e>
+        <e p="TextMesh Pro" t="Include">
+          <e p="Resources" t="Include">
+            <e p="LineBreaking Following Characters.txt" t="Include" />
+            <e p="LineBreaking Leading Characters.txt" t="Include" />
+            <e p="Shaders" t="Include">
+              <e p="TMP_Bitmap-Custom-Atlas.shader" t="Include" />
+              <e p="TMP_Bitmap-Mobile.shader" t="Include" />
+              <e p="TMP_Bitmap.shader" t="Include" />
+              <e p="TMP_SDF Overlay.shader" t="Include" />
+              <e p="TMP_SDF-Mobile Masking.shader" t="Include" />
+              <e p="TMP_SDF-Mobile Overlay.shader" t="Include" />
+              <e p="TMP_SDF-Mobile.shader" t="Include" />
+              <e p="TMP_SDF-Surface-Mobile.shader" t="Include" />
+              <e p="TMP_SDF-Surface.shader" t="Include" />
+              <e p="TMP_SDF.shader" t="Include" />
+              <e p="TMP_Sprite.shader" t="Include" />
+              <e p="TMPro.cginc" t="Include" />
+              <e p="TMPro_Properties.cginc" t="Include" />
+              <e p="TMPro_Surface.cginc" t="Include" />
+            </e>
+          </e>
+          <e p="Sprites" t="Include">
+            <e p="EmojiOne Attribution.txt" t="Include" />
+          </e>
         </e>
         <e p="Tilemap" t="Include">
           <e p="Brushes" t="Include">

@@ -20,6 +20,11 @@ namespace UIScripts
 
         private void Update()
         {
+            if (!BodyPart.Available)
+            {
+                DurabilityBar.value = 0;
+                return;
+            };
             DurabilityBar.maxValue = BodyPart.HitPoint.MaxValue;
             DurabilityBar.value = BodyPart.HitPoint.Value;
         }

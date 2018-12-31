@@ -2,9 +2,9 @@ using ObjectScripts.CharSubstance;
 
 namespace ObjectScripts.BasicItem
 {
-    public class RawMeat: BasicItem
+    public class RawMeat: BasicItem, IConsumeItem
     {
-        public override void Eat(Character character)
+        public void DoConsume(Character character)
         {
             Weight -= 1;
             character.Hunger -= 10;

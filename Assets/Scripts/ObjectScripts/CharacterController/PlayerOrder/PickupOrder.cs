@@ -12,13 +12,10 @@ namespace ObjectScripts.CharacterController.PlayerOrder
 
         public override BaseOrder DoOrder()
         {
-            SceneManager.Instance.ObjectListMenu.enabled = false;
-            SceneManager.Instance.ObjectListMenu.ColliderList =
-                Physics2D.OverlapCircleAll(TargetCoord, 2.0f, SceneManager.Instance.ItemFilter.layerMask);
-            SceneManager.Instance.ObjectListMenu.gameObject.SetActive(true);
-            SceneManager.Instance.ObjectListMenu.enabled = true;
-            
-            return base.DoOrder();
+            var colliders = Physics2D.OverlapCircleAll(TargetCoord, 2.0f, SceneManager.Instance.ItemFilter.layerMask);
+            if (colliders.Length == 0) return null;
+            SceneManager.Instance.ObjectListMenu.StartUp(colliders);
+            return null;
         }
     }
 }

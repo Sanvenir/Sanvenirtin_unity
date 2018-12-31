@@ -6,13 +6,13 @@ namespace UIScripts
 {
     public class ObjectListMenu: MonoBehaviour
     {
-        public Collider2D[] ColliderList;
         public GridLayoutGroup Content;
         public ObjectIcon IconPrefab;
 
-        private void OnEnable()
+        public void StartUp(Collider2D[] colliderList)
         {
-            foreach (var objectCollider in ColliderList)
+            gameObject.SetActive(true);
+            foreach (var objectCollider in colliderList)
             {
                 if (objectCollider == null) return;
 
@@ -26,12 +26,14 @@ namespace UIScripts
             }
         }
 
-        private void OnDisable()
+        public void EndUp()
         {
             foreach (var child in Content.GetComponentsInChildren<ObjectIcon>())
             {
                 Destroy(child.gameObject);
             }
+
+            gameObject.SetActive(false);
         }
     }
 }

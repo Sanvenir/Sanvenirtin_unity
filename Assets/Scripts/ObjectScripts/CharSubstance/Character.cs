@@ -16,30 +16,34 @@ namespace ObjectScripts.CharSubstance
             return SceneManager.Instance.CurrentTime >= ActivateTime;
         }
 
+        public void DropFetchObject(BodyPart bodyPart)
+        {
+            if (!FetchDictionary.ContainsKey(bodyPart)) return;
+            if (FetchDictionary[bodyPart] == null) return;
+            
+            FetchDictionary[bodyPart].gameObject.SetActive(true);
+            FetchDictionary[bodyPart].transform.position =
+                WorldPos + new Vector2(
+                    (float) Utils.ProcessRandom.NextDouble() - 0.5f,
+                    (float) Utils.ProcessRandom.NextDouble() - 0.5f);
+            FetchDictionary[bodyPart] = null;
+        }
+
         public override float Attacked(float damage, BodyPart bodyPart, float defenceRatio = 1)
         {
+            if (!bodyPart.Available)
+            {
+                return 0;
+            }
             damage = base.Attacked(damage, bodyPart, defenceRatio);
             if (!bodyPart.Available)
             {
-                if (FetchDictionary.ContainsKey(bodyPart) && 
-                    FetchDictionary[bodyPart] != null)
+                DropFetchObject(bodyPart);
+                if (bodyPart.AttachBodyPart != null)
                 {
-                    FetchDictionary[bodyPart].gameObject.SetActive(true);
-                    FetchDictionary[bodyPart].transform.position =
-                        WorldPos + new Vector2(
-                            (float) Utils.ProcessRandom.NextDouble() - 0.5f,
-                            (float) Utils.ProcessRandom.NextDouble() - 0.5f);
+                    DropFetchObject(bodyPart.AttachBodyPart);
                 }
-                if (bodyPart.AttachBodyPart != null && 
-                    FetchDictionary.ContainsKey(bodyPart.AttachBodyPart) && 
-                    FetchDictionary[bodyPart.AttachBodyPart] != null)
-                {
-                    FetchDictionary[bodyPart.AttachBodyPart].gameObject.SetActive(true);
-                    FetchDictionary[bodyPart.AttachBodyPart].transform.position =
-                        WorldPos + new Vector2(
-                            (float) Utils.ProcessRandom.NextDouble() - 0.5f,
-                            (float) Utils.ProcessRandom.NextDouble() - 0.5f);
-                }
+                
                 if (bodyPart.Essential)
                 {
                     Dead = true;

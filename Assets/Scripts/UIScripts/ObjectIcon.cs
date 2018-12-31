@@ -24,6 +24,10 @@ namespace UIScripts
 
         public void OnPointerClick(PointerEventData eventData)
         {
+            if (SceneManager.Instance.ObjectListMenu.GetComponentsInChildren<ObjectIcon>().Length == 1)
+            {
+                SceneManager.Instance.ObjectListMenu.EndUp();
+            }
             if (eventData.button != PointerEventData.InputButton.Right) return;
             var action = new PickupAction(_playerController.Character)
             {

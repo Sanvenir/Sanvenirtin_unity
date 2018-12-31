@@ -12,17 +12,22 @@ namespace AreaScripts
         public Tilemap InsideTilemap;
         public Collider2D BlockCollider;
         public ContactFilter2D ContactFilter;
+
+        [HideInInspector] public LocalArea Area;
         public int BuildingWidth;
         public int BuildingHeight;
+        
+        
 
         private void Awake()
         {
         }
 
-        public void Initialize(Vector2 startPos)
+        public void Initialize(Vector2 startPos, LocalArea area)
         {
             OutsideTilemap.transform.position = startPos;
             OutsideTilemapRenderer.sortingOrder = -(int) startPos.y;
+            Area = area;
         }
 
         public bool CheckCollider()
@@ -42,6 +47,14 @@ namespace AreaScripts
 
             OutsideTilemapRenderer.enabled = !InsideTilemap.HasTile(
                 InsideTilemap.WorldToCell(SceneManager.Instance.PlayerObject.WorldPos));
+        }
+
+        private void LateUpdate()
+        {
+            if (Area == null)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }

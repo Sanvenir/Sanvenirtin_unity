@@ -1,4 +1,5 @@
 using ObjectScripts.ActionScripts;
+using ObjectScripts.BodyPartScripts;
 using ObjectScripts.CharSubstance;
 using UtilScripts;
 
@@ -21,6 +22,7 @@ namespace ObjectScripts.CharacterController.CtrlConditions
 
             Controller.AttackAction.TargetDirection =
                 Utils.VectorToDirection(TargetCharacter.WorldCoord - Controller.Character.WorldCoord);
+            Controller.AttackAction.AttackPart = (PartPos) Utils.ProcessRandom.Next(3);
             if (Controller.AttackAction.CheckAction() && 
                 Controller.AttackAction.Target == TargetCharacter)
             {

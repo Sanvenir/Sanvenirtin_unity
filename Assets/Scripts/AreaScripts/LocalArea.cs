@@ -77,11 +77,11 @@ namespace AreaScripts
             return null;
         }
 
-        public static BuildingTilemap GenerateBuilding(BuildingTilemap buildingTilemap, Vector2Int worldCoord)
+        public BuildingTilemap GenerateBuilding(BuildingTilemap buildingTilemap, Vector2Int worldCoord)
         {
             var instance = Instantiate(
                 buildingTilemap, SceneManager.Instance.Grid.transform);
-            instance.Initialize(worldCoord);
+            instance.Initialize(worldCoord, this);
             if (instance.CheckCollider()) return instance;
             Destroy(instance.gameObject);
             return null;
