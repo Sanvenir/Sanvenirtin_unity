@@ -95,9 +95,13 @@
     <Compile Include="Assets\Scripts\ObjectScripts\CharacterController\PlayerOrder\RestOrder.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\CharacterController\PlayerOrder\WalkToOrder.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\CharSubstance\Character.cs" />
+    <Compile Include="Assets\Scripts\ObjectScripts\CharSubstance\CharacterProperties.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\CharSubstance\Dragon.cs" />
+    <Compile Include="Assets\Scripts\ObjectScripts\CharSubstance\Gender.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\CharSubstance\Human.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\CharSubstance\Wolf.cs" />
+    <Compile Include="Assets\Scripts\ObjectScripts\ISubstanceFactory.cs" />
+    <Compile Include="Assets\Scripts\ObjectScripts\RaceScripts\BasicRace.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\SpriteController\DynamicSpriteController.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\SpriteController\EffectController.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\SpriteController\SpriteController.cs" />

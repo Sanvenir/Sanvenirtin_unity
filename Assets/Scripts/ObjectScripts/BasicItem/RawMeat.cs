@@ -7,7 +7,7 @@ namespace ObjectScripts.BasicItem
         public void DoConsume(Character character)
         {
             Weight -= 1;
-            character.Hunger -= 10;
+            character.Properties.Hunger -= 10;
             if (Weight <= 0)
             {
                 Destroy(gameObject);

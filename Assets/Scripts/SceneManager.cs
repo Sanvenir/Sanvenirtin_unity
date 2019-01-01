@@ -228,7 +228,7 @@ public class SceneManager : MonoBehaviour
 
 	public int GetUpdateTime()
 	{
-		return Math.Max(1, PlayerObject.GetReactTime() / ReactFrames);
+		return Math.Max(1, PlayerObject.Properties.GetReactTime() / ReactFrames);
 	}
 
 	// Update is called once per frame

@@ -22,7 +22,7 @@ namespace ObjectScripts.CharacterController.CtrlConditions
                 return Controller.Condition.NextAction();
             }
             var incVec = Controller.AStarFinder(
-                TargetCharacter.WorldCoord, (int)Controller.Character.Intelligence);
+                TargetCharacter.WorldCoord, (int)Controller.Character.Properties.Intelligence);
 
             if (incVec == Vector2Int.zero) return base.NextAction();
             

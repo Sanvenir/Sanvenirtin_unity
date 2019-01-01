@@ -7,7 +7,7 @@ namespace ObjectScripts.ActionScripts
     {
         public override void DoAction(bool check = true)
         {
-            CostTime = Self.GetMoveTime();
+            CostTime = Self.Properties.GetMoveTime();
             Self.ActivateTime += CostTime;
             Self.Move(Utils.DirectionToVector(TargetDirection), CostTime, check);
         }

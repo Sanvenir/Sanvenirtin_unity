@@ -6,7 +6,7 @@ namespace ObjectScripts.ActionScripts
     {
         public override void DoAction(bool check = true)
         {
-            Self.ActivateTime += Self.GetReactTime();
+            Self.ActivateTime += Self.Properties.GetReactTime();
         }
 
         public override bool CheckAction()

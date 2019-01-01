@@ -25,7 +25,7 @@ namespace ObjectScripts.ActionScripts
                 return;
             }
             
-            CostTime = Self.GetActTime();
+            CostTime = Self.Properties.GetActTime();
             Self.ActivateTime += CostTime;
 
             Self.FetchDictionary[FetchPart] = TargetObject;

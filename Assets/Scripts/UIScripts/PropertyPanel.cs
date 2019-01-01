@@ -23,20 +23,20 @@ namespace UIScripts
 
         private void Update()
         {
-            HealthBar.maxValue = Player.GetMaxHealth();
-            SanityBar.maxValue = Player.GetMaxSanity();
-            EndureBar.maxValue = Player.GetMaxEndure();
-            HungerBar.maxValue = Player.GetMaxHunger();
+            HealthBar.maxValue = Player.Properties.GetMaxHealth();
+            SanityBar.maxValue = Player.Properties.GetMaxSanity();
+            EndureBar.maxValue = Player.Properties.GetMaxEndure();
+            HungerBar.maxValue = Player.Properties.GetMaxHunger();
 
-            HealthBar.value = Player.Health;
-            SanityBar.value = Player.Sanity;
-            EndureBar.value = Player.Endure;
-            HungerBar.value = Player.Hunger;
-            HealthValue.text = string.Format("Health\t {0:F2}", Player.Health);
-            SanityValue.text = string.Format("Sanity\t {0:F2}", Player.Sanity);
-            EndureValue.text = string.Format("Endure\t {0:F2}", Player.Endure);
-            HungerValue.text = string.Format("Hunger\t {0:F2}", Player.Hunger);
-            MaradyValue.text = string.Format("Marady\t {0:F2}", Player.Marady);
+            HealthBar.value = Player.Properties.Health;
+            SanityBar.value = Player.Properties.Sanity;
+            EndureBar.value = Player.Properties.Endure;
+            HungerBar.value = Player.Properties.Hunger;
+            HealthValue.text = string.Format("Health\t {0:F2}", Player.Properties.Health);
+            SanityValue.text = string.Format("Sanity\t {0:F2}", Player.Properties.Sanity);
+            EndureValue.text = string.Format("Endure\t {0:F2}", Player.Properties.Endure);
+            HungerValue.text = string.Format("Hunger\t {0:F2}", Player.Properties.Hunger);
+            MaradyValue.text = string.Format("Marady\t {0:F2}", Player.Properties.Marady);
         }
     }
 }

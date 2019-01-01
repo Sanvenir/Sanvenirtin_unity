@@ -21,9 +21,9 @@ namespace ObjectScripts.ActionScripts
 
         public override void DoAction(bool check = true)
         {
-            CostTime = Self.GetActTime();
+            CostTime = Self.Properties.GetActTime();
             Self.ActivateTime += CostTime;
-            Self.Endure += Self.GetBaseAttack();
+            Self.Properties.Endure += Self.Properties.GetBaseAttack();
             check = !check || CheckAction();
             Self.AttackMovement(TargetDirection, CostTime);
             if (!check)
@@ -36,7 +36,7 @@ namespace ObjectScripts.ActionScripts
             SceneManager.Instance.Print(
                 Self.Name + " attacked " + Target.Name + " on " + 
                 Target.GetBodyParts(AttackPart)[part].Name);
-            Target.Attacked(Self.GetBaseAttack(), Target.GetBodyParts(AttackPart)[part]);
+            Target.Attacked(Self.Properties.GetBaseAttack(), Target.GetBodyParts(AttackPart)[part]);
             
             // Affect target AIController
             Target.Controller.GetHostility(Self, 10);

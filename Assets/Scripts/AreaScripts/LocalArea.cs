@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using MapScripts;
 using ObjectScripts;
+using ObjectScripts.CharSubstance;
+using ObjectScripts.RaceScripts;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using UtilScripts;
@@ -73,7 +75,19 @@ namespace AreaScripts
             var instance = Instantiate(substancePrefab);
             instance.Initialize(worldCoord, Identity);
             if (instance.CheckCollider()) return instance;
-            Destroy(instance);
+            Destroy(instance.gameObject);
+            return null;
+        }
+
+        public BasicRace GenerateRace(BasicRace race, Vector2Int worldCoord)
+        {
+            var pos = SceneManager.Instance.WorldCoordToPos(worldCoord);
+            var instance = Instantiate(race);
+            race.RefactorGameObject();
+            var character = instance.GetComponent<Character>();
+            character.Initialize(worldCoord, Identity);
+            if (character.CheckCollider()) return instance;
+            Destroy(instance.gameObject);
             return null;
         }
 

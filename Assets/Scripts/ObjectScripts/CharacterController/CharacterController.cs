@@ -39,7 +39,7 @@ namespace ObjectScripts.CharacterController
             if (Character.Dead) return;
             if (_recoveredTime < SceneManager.Instance.CurrentTime)
             {
-                _recoveredTime += Character.GetReactTime();
+                _recoveredTime += Character.Properties.GetReactTime();
                 Character.Recovering();
             }
             

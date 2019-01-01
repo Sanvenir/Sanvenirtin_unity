@@ -66,9 +66,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9d240e0f99e2a3f4da153bfc1eddb735, type: 2}
   - {fileID: 11400000, guid: e0f2b1c91d8f76d4ea4eebb7aa059286, type: 2}
   SubstancePrefabs:
-  - {fileID: 114233185142075284, guid: 502819dbc0ad3594e887b214a8841351, type: 2}
+  - {fileID: 114566145580136664, guid: 0dce885337da32d49978572551cb6377, type: 2}
   BuildingTilemaps:
   - {fileID: 114984274561182258, guid: f42eb1e5e43e89e41a533377a05d68d4, type: 2}
+  Races:
+  - {fileID: 114396500208513456, guid: 6570fec23155b964688528789beadd1b, type: 2}
   ObjectsGenerateRatio: 0.02
   BuildingProbability: 0.5
 --- !u!19719996 &2113883504895507058

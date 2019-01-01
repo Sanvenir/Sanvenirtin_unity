@@ -14,7 +14,7 @@ namespace ObjectScripts.ActionScripts
 
         public override void DoAction(bool check = true)
         {
-            CostTime = Self.GetActTime();
+            CostTime = Self.Properties.GetActTime();
             Self.ActivateTime += CostTime;
             _item.DoConsume(Self);
         }

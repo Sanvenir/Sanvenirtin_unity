@@ -67,9 +67,15 @@
             </e>
             <e p="CharSubstance" t="Include">
               <e p="Character.cs" t="Include" />
+              <e p="CharacterProperties.cs" t="Include" />
               <e p="Dragon.cs" t="Include" />
+              <e p="Gender.cs" t="Include" />
               <e p="Human.cs" t="Include" />
               <e p="Wolf.cs" t="Include" />
+            </e>
+            <e p="ISubstanceFactory.cs" t="Include" />
+            <e p="RaceScripts" t="Include">
+              <e p="BasicRace.cs" t="Include" />
             </e>
             <e p="SpriteController" t="Include">
               <e p="DynamicSpriteController.cs" t="Include" />

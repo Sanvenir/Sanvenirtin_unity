@@ -1957,7 +1957,6 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  ActionMenu: {fileID: 1050116504}
   SceneCursor: {fileID: 1723872566}
   Player: {fileID: 1471056961}
   PlayerController: {fileID: 1471056965}
@@ -2004,7 +2003,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1050116499}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c13d6798a12448ba89b19a96cb5063f, type: 3}
+  m_Script: {fileID: 11500000, guid: 4f41ab0cc031461483b3efa8f11e5648, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ChangeAccuracy: 1.5
@@ -2562,7 +2561,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000015258789}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1210254261
@@ -3284,25 +3283,30 @@ MonoBehaviour:
   IsDestroy: 0
   AreaIdentity: 0
   Controller: {fileID: 1471056965}
+  Properties:
+    Health: 0
+    Sanity: 0
+    Endure: 0
+    Hunger: 0
+    Marady: 0
+    Speed: 10
+    MoveSpeed: 10
+    ActSpeed: 10
+    Strength: 10
+    Dexterity: 10
+    Constitution: 10
+    Metabolism: 10
+    WillPower: 10
+    Intelligence: 10
+    Perception: 10
+    Gender: 1
+    Race: Human
+    Age: 0
+    Lifetime: 0
   ActivateTime: 0
   AttackActionEffect: {fileID: 114661694037867342, guid: 115b145bf054290459e4b5ddf30fcc8f,
     type: 2}
   Dead: 0
-  Health: 0
-  Sanity: 0
-  Endure: 0
-  Hunger: 0
-  Marady: 0
-  Speed: 200
-  MoveSpeed: 200
-  ActSpeed: 200
-  Strength: 200
-  Dexterity: 200
-  Constitution: 200
-  Metabolism: 200
-  WillPower: 200
-  Intelligence: 200
-  Perception: 200
   Head:
     Name: Head
     HitPoint:
