@@ -4,7 +4,7 @@ using UtilScripts;
 
 namespace ObjectScripts.CharacterController.PlayerOrder
 {
-    public class BaseOrder
+    public class BaseOrder: INamed
     {
         public static PlayerController Controller;
         public Character TargetCharacter;
@@ -30,6 +30,11 @@ namespace ObjectScripts.CharacterController.PlayerOrder
             TargetCharacter = targetCharacter;
             TargetDirection = targetDirection;
             TargetCoord = targetCoord;
+        }
+
+        public string GetName()
+        {
+            return Name;
         }
     }
 }

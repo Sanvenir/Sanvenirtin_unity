@@ -1,10 +1,11 @@
 using ObjectScripts.CharacterController.PlayerOrder;
 using UnityEngine;
 using UnityEngine.UI;
+using UtilScripts;
 
 namespace UIScripts
 {
-    public class ActionButton: MonoBehaviour
+    public class SelectionButton: MonoBehaviour
     {
         public Image ButtonImage;
         public Text ButtonText;
@@ -17,7 +18,6 @@ namespace UIScripts
         [HideInInspector]
         public float TargetAlpha;
         private float _currentAlpha;
-        public BaseOrder Order;
 
         private void Awake()
         {

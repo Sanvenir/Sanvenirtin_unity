@@ -84,10 +84,10 @@
           </e>
           <e p="SceneManager.cs" t="Include" />
           <e p="UIScripts" t="Include">
-            <e p="ActionButton.cs" t="Include" />
             <e p="ActionMenu.cs" t="Include" />
             <e p="BodyPartButton.cs" t="Include" />
             <e p="BodyPartPanel.cs" t="Include" />
+            <e p="BodyPartSelectMenu.cs" t="Include" />
             <e p="FetchObjectList.cs" t="Include" />
             <e p="FetchObjectSlot.cs" t="Include" />
             <e p="ObjectActPanel.cs" t="Include" />
@@ -95,10 +95,13 @@
             <e p="ObjectListMenu.cs" t="Include" />
             <e p="PropertyPanel.cs" t="Include" />
             <e p="SceneControlButton.cs" t="Include" />
+            <e p="SelectionButton.cs" t="Include" />
+            <e p="SelectionMenu.cs" t="Include" />
           </e>
           <e p="UtilScripts" t="Include">
             <e p="Direction.cs" t="Include" />
             <e p="EarthMapCoord.cs" t="Include" />
+            <e p="INamed.cs" t="Include" />
             <e p="LimitValue.cs" t="Include" />
             <e p="Utils.cs" t="Include" />
           </e>

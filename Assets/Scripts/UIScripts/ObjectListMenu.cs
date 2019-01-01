@@ -11,6 +11,7 @@ namespace UIScripts
 
         public void StartUp(Collider2D[] colliderList)
         {
+            EndUp();
             gameObject.SetActive(true);
             foreach (var objectCollider in colliderList)
             {

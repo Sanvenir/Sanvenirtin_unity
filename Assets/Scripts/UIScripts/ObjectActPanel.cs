@@ -26,6 +26,7 @@ namespace UIScripts
 
         public void StartUp(BaseObject baseObject)
         {
+            EndUp();
             gameObject.SetActive(true);
             _playerController = SceneManager.Instance.PlayerController;
             BaseObject = baseObject;

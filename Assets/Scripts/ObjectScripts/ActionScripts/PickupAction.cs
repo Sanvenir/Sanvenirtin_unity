@@ -1,3 +1,5 @@
+
+using System.Collections.Generic;
 using ObjectScripts.BodyPartScripts;
 using ObjectScripts.CharSubstance;
 
@@ -5,44 +7,47 @@ namespace ObjectScripts.ActionScripts
 {
     public class PickupAction: BaseAction
     {
-        private BodyPart _fetchPart;
+        public BodyPart FetchPart;
+        public List<BodyPart> FetchParts;
         public PickupAction(Character self) : base(self)
         {
         }
 
         public override void DoAction(bool check = true)
         {
-            CostTime = Self.GetActTime();
-            Self.ActivateTime += CostTime;
-            if (!check)
+            // If check is true, this action check whether any BodyParts is available (for player), 
+            //    so the RefreshFetchParts should be called first, and body part index should
+            //    be chosen;
+            if (FetchParts == null || !FetchParts.Contains(FetchPart))
             {
-                Self.FetchDictionary[_fetchPart] = TargetObject;
-                TargetObject.gameObject.SetActive(false);
+                if(check)
+                    SceneManager.Instance.Print("You cannot fetch this item");
                 return;
             }
             
+            CostTime = Self.GetActTime();
+            Self.ActivateTime += CostTime;
+
+            Self.FetchDictionary[FetchPart] = TargetObject;
+            TargetObject.gameObject.SetActive(false);
+        }
+
+        public void RefreshFetchParts()
+        {
+            FetchParts = new List<BodyPart>();
             foreach (var key in Self.FetchDictionary.Keys)
             {
                 if (!key.Available) continue;
                 if (Self.FetchDictionary[key] != null) continue;
-                Self.FetchDictionary[key] = TargetObject;
-                TargetObject.gameObject.SetActive(false);
-                
-                return;
+                FetchParts.Add(key);
             }
         }
 
         public override bool CheckAction()
         {
-            foreach (var key in Self.FetchDictionary.Keys)
-            {
-                if (!key.Available) continue;
-                if (Self.FetchDictionary[key] != null) continue;
-                _fetchPart = key;
-                return true;
-            }   
-            SceneManager.Instance.Print("You have no hand to fetch this item");
-            return false;
+            RefreshFetchParts();
+            FetchPart = FetchParts[0];
+            return FetchParts.Count != 0;
         }
     }
 }

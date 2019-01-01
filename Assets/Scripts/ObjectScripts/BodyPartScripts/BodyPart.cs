@@ -7,7 +7,7 @@ using Object = UnityEngine.Object;
 namespace ObjectScripts.BodyPartScripts
 {
     [Serializable]
-    public class BodyPart
+    public class BodyPart: INamed
     {
         public string Name;
         public LimitValue HitPoint = new LimitValue(1000);
@@ -56,5 +56,9 @@ namespace ObjectScripts.BodyPartScripts
         public bool Essential;
 
         public List<BasicItem.BasicItem> Components;
+        public string GetName()
+        {
+            return Name;
+        }
     }
 }

@@ -25,7 +25,7 @@ namespace UIScripts
 //    }
     public class SceneControlButton : Button
     {
-        public ActionMenu ActionMenu;
+        public SelectionMenu<BaseOrder> SelectionMenu;
         public SpriteRenderer SceneCursor;
 
         private Vector3 _cursorTargetPos;
@@ -42,7 +42,7 @@ namespace UIScripts
         protected override void Awake()
         {
             base.Awake();
-            ActionMenu = GetComponent<ActionMenu>();
+            SelectionMenu = GetComponent<SelectionMenu<BaseOrder>>();
             _cursorCollider = SceneCursor.GetComponent<Collider2D>();
         }
 
@@ -133,8 +133,8 @@ namespace UIScripts
             {
                 GameManager.Instance.GameCursor.SetActive(true);
                 CameraFollowPlayer = true;
-                if (!ActionMenu.enabled) return;
-                ActionMenu.EndUp();
+                if (!SelectionMenu.enabled) return;
+                SelectionMenu.EndUp();
                 return;
             }
 
@@ -203,14 +203,14 @@ namespace UIScripts
                         new AttackDirectionOrder("Attack", null, direction, worldCoord));
                 }
                 
-                ActionMenu.StartUp(targetPos, orderList);
+                SelectionMenu.StartUp(targetPos, orderList);
                 return;
             }
 
             // Right Mouse Button Up, return the chosen order
             if (Input.GetMouseButton(1)) return;
-            if (!ActionMenu.enabled) return;
-            var order = ActionMenu.EndUp();
+            if (!SelectionMenu.enabled) return;
+            var order = SelectionMenu.EndUp();
             PlayerController.CurrentOrder = order;
  
 

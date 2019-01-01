@@ -105,10 +105,10 @@
     <Compile Include="Assets\Scripts\ObjectScripts\StaticSubstance\Tree.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\Substance.cs" />
     <Compile Include="Assets\Scripts\SceneManager.cs" />
-    <Compile Include="Assets\Scripts\UIScripts\ActionButton.cs" />
     <Compile Include="Assets\Scripts\UIScripts\ActionMenu.cs" />
     <Compile Include="Assets\Scripts\UIScripts\BodyPartButton.cs" />
     <Compile Include="Assets\Scripts\UIScripts\BodyPartPanel.cs" />
+    <Compile Include="Assets\Scripts\UIScripts\BodyPartSelectMenu.cs" />
     <Compile Include="Assets\Scripts\UIScripts\FetchObjectList.cs" />
     <Compile Include="Assets\Scripts\UIScripts\FetchObjectSlot.cs" />
     <Compile Include="Assets\Scripts\UIScripts\ObjectActPanel.cs" />
@@ -116,8 +116,11 @@
     <Compile Include="Assets\Scripts\UIScripts\ObjectListMenu.cs" />
     <Compile Include="Assets\Scripts\UIScripts\PropertyPanel.cs" />
     <Compile Include="Assets\Scripts\UIScripts\SceneControlButton.cs" />
+    <Compile Include="Assets\Scripts\UIScripts\SelectionButton.cs" />
+    <Compile Include="Assets\Scripts\UIScripts\SelectionMenu.cs" />
     <Compile Include="Assets\Scripts\UtilScripts\Direction.cs" />
     <Compile Include="Assets\Scripts\UtilScripts\EarthMapCoord.cs" />
+    <Compile Include="Assets\Scripts\UtilScripts\INamed.cs" />
     <Compile Include="Assets\Scripts\UtilScripts\LimitValue.cs" />
     <Compile Include="Assets\Scripts\UtilScripts\Utils.cs" />
     <Compile Include="Assets\SpriteGlow\SpriteGlowEffect.cs" />

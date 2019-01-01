@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 namespace UIScripts
 {
-    public class ObjectIcon: MonoBehaviour, IPointerClickHandler
+    public class ObjectIcon: MonoBehaviour, IPointerDownHandler
     {
         public Text ObjectName;
         public Image ObjectImage;
@@ -15,27 +15,42 @@ namespace UIScripts
         [HideInInspector]
         public BaseObject BaseObject;
 
+        public BodyPartSelectMenu BodyPartSelectMenu;
+
         private PlayerController _playerController;
+
+        private PickupAction _pickupAction;
 
         private void Start()
         {
             _playerController = SceneManager.Instance.PlayerController;
         }
 
-        public void OnPointerClick(PointerEventData eventData)
+        public void OnPointerDown(PointerEventData eventData)
         {
-            if (SceneManager.Instance.ObjectListMenu.GetComponentsInChildren<ObjectIcon>().Length == 1)
-            {
-                SceneManager.Instance.ObjectListMenu.EndUp();
-            }
             if (eventData.button != PointerEventData.InputButton.Right) return;
-            var action = new PickupAction(_playerController.Character)
+            _pickupAction = new PickupAction(_playerController.Character)
             {
                 TargetObject = BaseObject
             };
 
-            if (!action.CheckAction()) return;
-            _playerController.NextAction = action;
+            _pickupAction.RefreshFetchParts();
+            BodyPartSelectMenu.StartUp(transform.position, _pickupAction.FetchParts);
+        }
+
+        private void LateUpdate()
+        {
+            if (!Input.GetMouseButtonUp(1)) return;
+            var result = BodyPartSelectMenu.EndUp();
+            if (result == null) return;
+
+            _pickupAction.FetchPart = result;
+            _playerController.NextAction = _pickupAction;
+            
+            if (SceneManager.Instance.ObjectListMenu.GetComponentsInChildren<ObjectIcon>().Length == 1)
+            {
+                SceneManager.Instance.ObjectListMenu.EndUp();
+            }
             Destroy(gameObject);
         }
     }
