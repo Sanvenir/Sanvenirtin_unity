@@ -79,11 +79,11 @@ namespace AreaScripts
             return null;
         }
 
-        public BasicRace GenerateRace(BasicRace race, Vector2Int worldCoord)
+        public Character RandomGenerateRaceCharacters(Character raceCharacter, Vector2Int worldCoord)
         {
             var pos = SceneManager.Instance.WorldCoordToPos(worldCoord);
-            var instance = Instantiate(race);
-            race.RefactorGameObject();
+            var instance = Instantiate(raceCharacter);
+            GameSetting.Instance.RaceList[instance.RaceIndex].RandomRefactor(instance);
             var character = instance.GetComponent<Character>();
             character.Initialize(worldCoord, Identity);
             if (character.CheckCollider()) return instance;

@@ -11,6 +11,7 @@ using MapScripts;
 using ObjectScripts;
 using ObjectScripts.CharacterController;
 using ObjectScripts.CharSubstance;
+using ObjectScripts.RaceScripts;
 using UIScripts;
 using UnityEngine;
 using UnityEngine.UI;

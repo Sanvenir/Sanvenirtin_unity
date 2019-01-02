@@ -22,14 +22,15 @@ namespace ObjectScripts
         public SpriteController.SpriteController SpriteController;
 
         // public SortedList<string, BodyPart> BodyParts = new SortedList<string, BodyPart>();
+        private readonly List<BodyPart> _unreachableParts = new List<BodyPart>();
+
+        private readonly List<BodyPart> _highParts = new List<BodyPart>();
+
+        private readonly List<BodyPart> _middleParts = new List<BodyPart>();
+
+        private readonly List<BodyPart> _lowParts = new List<BodyPart>();
+        
         [HideInInspector]
-        public List<BodyPart> AirParts = new List<BodyPart>();
-        [HideInInspector]
-        public List<BodyPart> HighParts = new List<BodyPart>();
-        [HideInInspector]
-        public List<BodyPart> MiddleParts = new List<BodyPart>();
-        [HideInInspector]
-        public List<BodyPart> LowParts = new List<BodyPart>();
         public Dictionary<string, BodyPart> BodyParts = new Dictionary<string, BodyPart>();
 
         [HideInInspector] public bool IsDestroy = false;
@@ -51,7 +52,7 @@ namespace ObjectScripts
                 SetDisable();
             }
             
-            if (GetAllBodyParts().Any(part => part.Available))
+            if (BodyParts.Values.Any(part => part.Available))
             {
                 return damage;
             }
@@ -64,41 +65,20 @@ namespace ObjectScripts
         [HideInInspector]
         public int AreaIdentity;
 
-        public IEnumerable<BodyPart> GetAllBodyParts()
-        {
-            foreach (var part in AirParts)
-            {
-                yield return part;
-            }
-
-            foreach (var part in HighParts)
-            {
-                yield return part;
-            }
-
-            foreach (var part in MiddleParts)
-            {
-                yield return part;
-            }
-
-            foreach (var part in LowParts)
-            {
-                yield return part;
-            }
-        }
-
         public List<BodyPart> GetBodyParts(PartPos partPos)
         {
             switch (partPos)
             {
-                case PartPos.Midair:
-                    return AirParts;
+                case PartPos.Unreachable:
+                    return _unreachableParts;
                 case PartPos.High:
-                    return HighParts;
+                    return _highParts;
                 case PartPos.Middle:
-                    return MiddleParts;
+                    return _middleParts;
                 case PartPos.Low:
-                    return LowParts;
+                    return _lowParts;
+                case PartPos.Arbitrary:
+                    return BodyParts.Values.ToList();
                 default:
                     throw new ArgumentOutOfRangeException("partPos", partPos, null);
             }
@@ -110,10 +90,33 @@ namespace ObjectScripts
             gameObject.layer = LayerMask.NameToLayer("BlockLayer");
             AreaIdentity = areaIdentity;
             MoveTo(worldCoord);
-            foreach (var part in GetAllBodyParts())
+            foreach (var part in BodyParts.Values)
             {
                 part.HitPoint.Value = part.HitPoint.MaxValue;
                 part.Substance = this;
+                switch (part.PartPos)
+                {
+                    case PartPos.Unreachable:
+                        _unreachableParts.Add(part);
+                        break;
+                    case PartPos.Arbitrary:
+                        _unreachableParts.Add(part);
+                        _highParts.Add(part);
+                        _middleParts.Add(part);
+                        _lowParts.Add(part);
+                        break;
+                    case PartPos.High:
+                        _highParts.Add(part);
+                        break;
+                    case PartPos.Middle:
+                        _middleParts.Add(part);
+                        break;
+                    case PartPos.Low:
+                        _lowParts.Add(part);
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
             }
         }
 
@@ -200,7 +203,7 @@ namespace ObjectScripts
         public override float GetWeight()
         {
             _weight = 0;
-            foreach (var part in GetAllBodyParts())
+            foreach (var part in BodyParts.Values)
             {
                 if (part.Available)
                 {

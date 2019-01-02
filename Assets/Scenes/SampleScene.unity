@@ -1170,6 +1170,158 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &705778989
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 705778991}
+  - component: {fileID: 705778990}
+  m_Layer: 0
+  m_Name: GameSetting
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &705778990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 705778989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 003cbf8bcbd343bab54da9d892b46a30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ComponentList: []
+  RaceList:
+  - AppearRatio: 0
+    Name: Human
+    StandardProperties:
+      Speed: 10
+      MoveSpeed: 10
+      ActSpeed: 10
+      Strength: 10
+      Dexterity: 10
+      Constitution: 10
+      Metabolism: 10
+      WillPower: 10
+      Intelligence: 10
+      Perception: 10
+      Lifetime: 0
+      BodyParts:
+      - Name: Head
+        HitPoint:
+          MaxValue: 1000
+        Size: 10
+        Weight: 10
+        Defence: 10
+        Available: 1
+        PartPos: 1
+        AttachBodyPart: 
+        Essential: 1
+        Fetchable: 0
+        ComponentIndex: 0
+      - Name: LeftArm
+        HitPoint:
+          MaxValue: 1000
+        Size: 10
+        Weight: 10
+        Defence: 10
+        Available: 1
+        PartPos: 2
+        AttachBodyPart: LeftHand
+        Essential: 0
+        Fetchable: 0
+        ComponentIndex: 0
+      - Name: RightArm
+        HitPoint:
+          MaxValue: 1000
+        Size: 10
+        Weight: 10
+        Defence: 10
+        Available: 1
+        PartPos: 2
+        AttachBodyPart: RightHand
+        Essential: 0
+        Fetchable: 0
+        ComponentIndex: 0
+      - Name: LeftHand
+        HitPoint:
+          MaxValue: 1000
+        Size: 10
+        Weight: 10
+        Defence: 10
+        Available: 1
+        PartPos: 2
+        AttachBodyPart: 
+        Essential: 0
+        Fetchable: 1
+        ComponentIndex: 0
+      - Name: RightHand
+        HitPoint:
+          MaxValue: 1000
+        Size: 10
+        Weight: 10
+        Defence: 10
+        Available: 1
+        PartPos: 2
+        AttachBodyPart: 
+        Essential: 0
+        Fetchable: 1
+        ComponentIndex: 0
+    SpriteList:
+    - Sprites:
+      - {fileID: 21300006, guid: 535edfc49be88574d80171235f6aed27, type: 3}
+      - {fileID: 21300008, guid: 535edfc49be88574d80171235f6aed27, type: 3}
+      - {fileID: 21300010, guid: 535edfc49be88574d80171235f6aed27, type: 3}
+      - {fileID: 21300030, guid: 535edfc49be88574d80171235f6aed27, type: 3}
+      - {fileID: 21300032, guid: 535edfc49be88574d80171235f6aed27, type: 3}
+      - {fileID: 21300034, guid: 535edfc49be88574d80171235f6aed27, type: 3}
+      - {fileID: 21300054, guid: 535edfc49be88574d80171235f6aed27, type: 3}
+      - {fileID: 21300056, guid: 535edfc49be88574d80171235f6aed27, type: 3}
+      - {fileID: 21300058, guid: 535edfc49be88574d80171235f6aed27, type: 3}
+      - {fileID: 21300078, guid: 535edfc49be88574d80171235f6aed27, type: 3}
+      - {fileID: 21300080, guid: 535edfc49be88574d80171235f6aed27, type: 3}
+      - {fileID: 21300082, guid: 535edfc49be88574d80171235f6aed27, type: 3}
+      DisabledSprite: {fileID: 21300012, guid: 903229811b7965a4591b184cab38aa3e, type: 3}
+      MaxAge: 30
+      MinAge: 10
+      Gender: 2
+    - Sprites:
+      - {fileID: 21300000, guid: fb0d03fd8615a5b40b204924343facf8, type: 3}
+      - {fileID: 21300002, guid: fb0d03fd8615a5b40b204924343facf8, type: 3}
+      - {fileID: 21300004, guid: fb0d03fd8615a5b40b204924343facf8, type: 3}
+      - {fileID: 21300024, guid: fb0d03fd8615a5b40b204924343facf8, type: 3}
+      - {fileID: 21300026, guid: fb0d03fd8615a5b40b204924343facf8, type: 3}
+      - {fileID: 21300028, guid: fb0d03fd8615a5b40b204924343facf8, type: 3}
+      - {fileID: 21300048, guid: fb0d03fd8615a5b40b204924343facf8, type: 3}
+      - {fileID: 21300050, guid: fb0d03fd8615a5b40b204924343facf8, type: 3}
+      - {fileID: 21300052, guid: fb0d03fd8615a5b40b204924343facf8, type: 3}
+      - {fileID: 21300072, guid: fb0d03fd8615a5b40b204924343facf8, type: 3}
+      - {fileID: 21300074, guid: fb0d03fd8615a5b40b204924343facf8, type: 3}
+      - {fileID: 21300076, guid: fb0d03fd8615a5b40b204924343facf8, type: 3}
+      DisabledSprite: {fileID: 21300012, guid: 903229811b7965a4591b184cab38aa3e, type: 3}
+      MaxAge: 30
+      MinAge: 10
+      Gender: 1
+--- !u!4 &705778991
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 705778989}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -34.683243, y: -24.596558, z: -0.0077574034}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &709854532
 GameObject:
   m_ObjectHideFlags: 0
@@ -1958,7 +2110,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   SceneCursor: {fileID: 1723872566}
-  Player: {fileID: 1471056961}
+  Player: {fileID: 0}
   PlayerController: {fileID: 1471056965}
   CameraFollowPlayer: 1
 --- !u!114 &1050116502
@@ -3276,19 +3428,10 @@ MonoBehaviour:
   WorldPos: {x: 0, y: 0}
   WorldCoord: {x: 0, y: 0}
   SpriteController: {fileID: 1471056964}
-  AirParts: []
-  HighParts: []
-  MiddleParts: []
-  LowParts: []
   IsDestroy: 0
   AreaIdentity: 0
   Controller: {fileID: 1471056965}
   Properties:
-    Health: 0
-    Sanity: 0
-    Endure: 0
-    Hunger: 0
-    Marady: 0
     Speed: 10
     MoveSpeed: 10
     ActSpeed: 10
@@ -3299,161 +3442,80 @@ MonoBehaviour:
     WillPower: 10
     Intelligence: 10
     Perception: 10
-    Gender: 1
-    Race: Human
-    Age: 0
     Lifetime: 0
+    BodyParts:
+    - Name: Head
+      HitPoint:
+        MaxValue: 1000
+      Size: 10
+      Weight: 10
+      Defence: 10
+      Available: 1
+      PartPos: 1
+      AttachBodyPart: 
+      Essential: 1
+      Fetchable: 0
+      ComponentIndex: 0
+    - Name: LeftArm
+      HitPoint:
+        MaxValue: 1000
+      Size: 10
+      Weight: 10
+      Defence: 10
+      Available: 1
+      PartPos: 2
+      AttachBodyPart: LeftHand
+      Essential: 0
+      Fetchable: 0
+      ComponentIndex: 0
+    - Name: RightArm
+      HitPoint:
+        MaxValue: 1000
+      Size: 10
+      Weight: 10
+      Defence: 10
+      Available: 1
+      PartPos: 2
+      AttachBodyPart: RightHand
+      Essential: 0
+      Fetchable: 0
+      ComponentIndex: 0
+    - Name: LeftHand
+      HitPoint:
+        MaxValue: 1000
+      Size: 10
+      Weight: 10
+      Defence: 10
+      Available: 1
+      PartPos: 2
+      AttachBodyPart: 
+      Essential: 0
+      Fetchable: 0
+      ComponentIndex: 0
+    - Name: RightHand
+      HitPoint:
+        MaxValue: 1000
+      Size: 10
+      Weight: 10
+      Defence: 10
+      Available: 1
+      PartPos: 2
+      AttachBodyPart: 
+      Essential: 0
+      Fetchable: 0
+      ComponentIndex: 0
+  RaceIndex: 0
   ActivateTime: 0
   AttackActionEffect: {fileID: 114661694037867342, guid: 115b145bf054290459e4b5ddf30fcc8f,
     type: 2}
+  Health: 0
+  Sanity: 0
+  Endure: 0
+  Hunger: 0
+  Marady: 0
+  Age: 0
+  Gender: 1
   Dead: 0
-  Head:
-    Name: Head
-    HitPoint:
-      MaxValue: 1000
-    Size: 10
-    Weight: 10
-    Defence: 10
-    Available: 1
-    Substance: {fileID: 0}
-    Essential: 1
-    Components:
-    - {fileID: 114898461014695738, guid: a16b7be3f6820634b8719308438575f0, type: 2}
-  Neck:
-    Name: Neck
-    HitPoint:
-      MaxValue: 1000
-    Size: 10
-    Weight: 10
-    Defence: 10
-    Available: 1
-    Substance: {fileID: 0}
-    Essential: 1
-    Components:
-    - {fileID: 114898461014695738, guid: a16b7be3f6820634b8719308438575f0, type: 2}
-  Chest:
-    Name: Chest
-    HitPoint:
-      MaxValue: 1000
-    Size: 10
-    Weight: 10
-    Defence: 10
-    Available: 1
-    Substance: {fileID: 0}
-    Essential: 1
-    Components:
-    - {fileID: 114898461014695738, guid: a16b7be3f6820634b8719308438575f0, type: 2}
-  Waist:
-    Name: Waist
-    HitPoint:
-      MaxValue: 1000
-    Size: 10
-    Weight: 10
-    Defence: 10
-    Available: 1
-    Substance: {fileID: 0}
-    Essential: 0
-    Components:
-    - {fileID: 114898461014695738, guid: a16b7be3f6820634b8719308438575f0, type: 2}
-  Crotch:
-    Name: Crotch
-    HitPoint:
-      MaxValue: 1000
-    Size: 10
-    Weight: 10
-    Defence: 10
-    Available: 1
-    Substance: {fileID: 0}
-    Essential: 0
-    Components: []
-  LeftArm:
-    Name: LeftArm
-    HitPoint:
-      MaxValue: 1000
-    Size: 5
-    Weight: 10
-    Defence: 10
-    Available: 1
-    Substance: {fileID: 0}
-    Essential: 0
-    Components: []
-  LeftHand:
-    Name: LeftHand
-    HitPoint:
-      MaxValue: 1000
-    Size: 2
-    Weight: 10
-    Defence: 10
-    Available: 1
-    Substance: {fileID: 0}
-    Essential: 0
-    Components: []
-  RightArm:
-    Name: RightArm
-    HitPoint:
-      MaxValue: 1000
-    Size: 5
-    Weight: 10
-    Defence: 10
-    Available: 1
-    Substance: {fileID: 0}
-    Essential: 0
-    Components: []
-  RightHand:
-    Name: RightHand
-    HitPoint:
-      MaxValue: 1000
-    Size: 2
-    Weight: 10
-    Defence: 10
-    Available: 1
-    Substance: {fileID: 0}
-    Essential: 0
-    Components: []
-  LeftLeg:
-    Name: LeftLeg
-    HitPoint:
-      MaxValue: 1000
-    Size: 5
-    Weight: 10
-    Defence: 10
-    Available: 1
-    Substance: {fileID: 0}
-    Essential: 0
-    Components: []
-  LeftFoot:
-    Name: LeftFoot
-    HitPoint:
-      MaxValue: 1000
-    Size: 2
-    Weight: 10
-    Defence: 10
-    Available: 1
-    Substance: {fileID: 0}
-    Essential: 0
-    Components: []
-  RightLeg:
-    Name: RightLeg
-    HitPoint:
-      MaxValue: 1000
-    Size: 5
-    Weight: 10
-    Defence: 10
-    Available: 1
-    Substance: {fileID: 0}
-    Essential: 0
-    Components: []
-  RightFoot:
-    Name: RightFoot
-    HitPoint:
-      MaxValue: 1000
-    Size: 2
-    Weight: 10
-    Defence: 10
-    Available: 1
-    Substance: {fileID: 0}
-    Essential: 0
-    Components: []
 --- !u!212 &1471056962
 SpriteRenderer:
   m_ObjectHideFlags: 0

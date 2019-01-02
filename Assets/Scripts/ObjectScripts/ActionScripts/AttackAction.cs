@@ -16,23 +16,27 @@ namespace ObjectScripts.ActionScripts
         
         public AttackAction(Character self) : base(self)
         {
-            AttackPart = (PartPos)Utils.ProcessRandom.Next(3);
+            AttackPart = PartPos.Arbitrary;
         }
 
         public override void DoAction(bool check = true)
         {
             CostTime = Self.Properties.GetActTime();
             Self.ActivateTime += CostTime;
-            Self.Properties.Endure += Self.Properties.GetBaseAttack();
+            Self.Endure += Self.Properties.GetBaseAttack();
             check = !check || CheckAction();
             Self.AttackMovement(TargetDirection, CostTime);
+
+            var attackBodyParts = Target.GetBodyParts(AttackPart);
+            if (attackBodyParts.Count == 0) check = false;
+            
             if (!check)
             {
                 SceneManager.Instance.Print(Self.name + " attacked empty");
                 return;
             }
 
-            var part = Utils.ProcessRandom.Next(Target.GetBodyParts(AttackPart).Count);
+            var part = Utils.ProcessRandom.Next(attackBodyParts.Count);
             SceneManager.Instance.Print(
                 Self.Name + " attacked " + Target.Name + " on " + 
                 Target.GetBodyParts(AttackPart)[part].Name);

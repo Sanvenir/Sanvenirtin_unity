@@ -42,6 +42,7 @@ namespace UIScripts
 
         public void StartUp(Vector2 pos, List<T> selectionList)
         {
+            if (selectionList.Count == 0) return;
             enabled = true;
             CenterPos = pos;
             _mouseY = 0f;
@@ -56,7 +57,6 @@ namespace UIScripts
             }
 
             CurrentSelect = SelectionList[CenterIndex];
-
         }
         
         public T EndUp()

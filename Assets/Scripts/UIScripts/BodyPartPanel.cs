@@ -22,7 +22,7 @@ namespace UIScripts
 
         private void OnEnable()
         {
-            foreach (var part in Player.GetAllBodyParts())
+            foreach (var part in Player.BodyParts.Values)
             {
                 GenerateBodyPart(part);
             }

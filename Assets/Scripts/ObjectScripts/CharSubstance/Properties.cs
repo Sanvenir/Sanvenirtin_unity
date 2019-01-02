@@ -1,17 +1,14 @@
 using System;
+using System.Collections.Generic;
+using ObjectScripts.BodyPartScripts;
 using UnityEngine;
+using UtilScripts;
 
 namespace ObjectScripts.CharSubstance
 {
     [Serializable]
-    public class CharacterProperties
+    public class Properties
     {
-        [HideInInspector] public float Health = 0;
-        [HideInInspector] public float Sanity = 0;
-        [HideInInspector] public float Endure = 0;
-        [HideInInspector] public float Hunger = 0;
-        [HideInInspector] public float Marady = 0; // Similar to Mana
-
         public float Speed = 10;
         public float MoveSpeed = 10;
         public float ActSpeed = 10;
@@ -25,82 +22,97 @@ namespace ObjectScripts.CharSubstance
         public float Intelligence = 10;
         public float Perception = 10;
 
-
-        public Gender Gender;
-        public string Race;
-        public int Age;
         public int Lifetime;
+        
+        public List<BodyPart> BodyParts = new List<BodyPart>
+        {
+            {CharacterBodyPart.CreateHead()},
+            {CharacterBodyPart.CreateLeftArm()},
+            {CharacterBodyPart.CreateRightArm()},
+            {CharacterBodyPart.CreateLeftHand()},
+            {CharacterBodyPart.CreateRightHand()},
+            
+        };
+
+//        public Dictionary<string, BodyPart> BodyParts = new Dictionary<string, BodyPart>
+//        {
+//            {"Head", CharacterBodyPart.CreateHead()},
+//            {"LeftArm", CharacterBodyPart.CreateLeftArm()}, 
+//            {"RightArm", CharacterBodyPart.CreateRightArm()},
+//            {"LeftHand", CharacterBodyPart.CreateLeftHand()},
+//            {"RightHand", CharacterBodyPart.CreateRightHand()}
+//        };
 
         // Get Methods
         private int _reactTime;
 
-        public virtual int GetReactTime()
+        public int GetReactTime()
         {
             return _reactTime;
         }
 
         private int _actRatio;
 
-        public virtual int GetActRatio()
+        public int GetActRatio()
         {
             return _actRatio;
         }
 
         private int _moveRatio;
 
-        public virtual int GetMoveRatio()
+        public int GetMoveRatio()
         {
             return _moveRatio;
         }
 
-        public virtual int GetMoveTime()
+        public int GetMoveTime()
         {
             return GetMoveRatio() * GetReactTime();
         }
 
-        public virtual int GetActTime()
+        public int GetActTime()
         {
             return GetActRatio() * GetReactTime();
         }
 
-        public virtual float GetMaxHealth()
+        public float GetMaxHealth()
         {
             return Constitution * 10;
         }
 
-        public virtual float GetMaxSanity()
+        public float GetMaxSanity()
         {
             return WillPower * 10;
         }
 
-        public virtual float GetMaxEndure()
+        public float GetMaxEndure()
         {
             return Constitution * 10;
         }
 
-        public virtual float GetMaxHunger()
+        public float GetMaxHunger()
         {
             return 200;
         }
 
-        public virtual float GetBaseAttack()
+        public float GetBaseAttack()
         {
             return Strength;
         }
 
-        public virtual float GetBaseRecover()
+        public float GetBaseRecover()
         {
             return Metabolism / 10000f;
         }
 
-        public virtual float GetHealthRecover()
+        public float GetHealthRecover()
         {
-            return Mathf.Min((GetBaseRecover() * 10f), Health);
+            return GetBaseRecover() * 10f;
         }
 
-        public virtual float GetEndureRecover()
+        public float GetEndureRecover()
         {
-            return Mathf.Min((GetMaxEndure() * GetBaseRecover()), Endure);
+            return GetMaxEndure() * GetBaseRecover();
         }
 
         public void RefreshProperties()

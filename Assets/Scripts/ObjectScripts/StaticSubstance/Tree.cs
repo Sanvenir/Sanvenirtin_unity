@@ -10,14 +10,15 @@ namespace ObjectScripts.StaticSubstance
         
         public override void Initialize(Vector2Int worldCoord, int areaIdentity)
         {
-            base.Initialize(worldCoord, areaIdentity);
-            MiddleParts.Add(TreeBody);
-            LowParts.Add(TreeStump);
+            BodyParts.Add("TreeStump", TreeStump);
+            BodyParts.Add("TreeBody", TreeBody);
 
-            TreeStump.AttachBodyPart = TreeBody;
+            TreeStump.AttachBodyPart = TreeBody.Name;
             
             BodyParts.Add(TreeBody.Name, TreeBody);
             BodyParts.Add(TreeStump.Name, TreeStump);
+            
+            base.Initialize(worldCoord, areaIdentity);
         }
     }
 }

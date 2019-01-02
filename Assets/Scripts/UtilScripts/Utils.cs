@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using ExceptionScripts;
 using UnityEditor;
 using UnityEngine;
@@ -112,8 +113,25 @@ namespace UtilScripts
         {
             return vector3;
         }
-        
-        
+
+        public static Dictionary<TKey, TValue> CloneDictionaryCloningValues<TKey, TValue>
+            (Dictionary<TKey, TValue> original) where TValue : ICloneable
+        {
+            var ret = new Dictionary<TKey, TValue>(original.Count,
+                original.Comparer);
+            foreach (var entry in original)
+            {
+                ret.Add(entry.Key, (TValue) entry.Value.Clone());
+            }
+
+            return ret;
+        }
+        public static List<TValue> CloneDictionaryCloningValues<TValue>
+            (IEnumerable<TValue> original) where TValue : ICloneable
+        {
+            return original.Select(entry => (TValue) entry.Clone()).ToList();
+        }
+
 //        public static void ProgressBar (float value, string label)
 //        {
 //            // Get a rect for the progress bar using the same margins as a textfield:

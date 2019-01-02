@@ -2,9 +2,10 @@ namespace ObjectScripts.BodyPartScripts
 {
     public enum PartPos
     {
-        Midair = -1, // Can not be attacked by normal attack
-        High = 0,
-        Middle = 1,
-        Low = 2
+        Unreachable = -1, // Can not be attacked by normal attack
+        Arbitrary = 0,
+        High = 1,
+        Middle = 2,
+        Low = 3,
     }
 }

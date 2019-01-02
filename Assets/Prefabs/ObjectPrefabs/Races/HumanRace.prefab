@@ -24,8 +24,7 @@ GameObject:
   - component: {fileID: 114717772600095978}
   - component: {fileID: 58667543570485070}
   - component: {fileID: 114048760322502142}
-  - component: {fileID: 114396500208513456}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: HumanRace
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,107 +71,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Character: {fileID: 114717772600095978}
---- !u!114 &114396500208513456
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1831966881937792}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa66ac4970134e8b98c40ef058a17514, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AppearRatio: 0.01
-  StandardProperties:
-    Health: 0
-    Sanity: 0
-    Endure: 0
-    Hunger: 0
-    Marady: 0
-    Speed: 10
-    MoveSpeed: 10
-    ActSpeed: 10
-    Strength: 10
-    Dexterity: 10
-    Constitution: 10
-    Metabolism: 10
-    WillPower: 10
-    Intelligence: 10
-    Perception: 10
-    Gender: 0
-    Race: 
-    Age: 0
-    Lifetime: 100
-  SpriteList:
-  - Sprites:
-    - {fileID: 21300000, guid: 5df250409f6f3024e990d5a6d9fa8f6c, type: 3}
-    - {fileID: 21300002, guid: 5df250409f6f3024e990d5a6d9fa8f6c, type: 3}
-    - {fileID: 21300004, guid: 5df250409f6f3024e990d5a6d9fa8f6c, type: 3}
-    - {fileID: 21300024, guid: 5df250409f6f3024e990d5a6d9fa8f6c, type: 3}
-    - {fileID: 21300026, guid: 5df250409f6f3024e990d5a6d9fa8f6c, type: 3}
-    - {fileID: 21300028, guid: 5df250409f6f3024e990d5a6d9fa8f6c, type: 3}
-    - {fileID: 21300048, guid: 5df250409f6f3024e990d5a6d9fa8f6c, type: 3}
-    - {fileID: 21300050, guid: 5df250409f6f3024e990d5a6d9fa8f6c, type: 3}
-    - {fileID: 21300052, guid: 5df250409f6f3024e990d5a6d9fa8f6c, type: 3}
-    - {fileID: 21300072, guid: 5df250409f6f3024e990d5a6d9fa8f6c, type: 3}
-    - {fileID: 21300074, guid: 5df250409f6f3024e990d5a6d9fa8f6c, type: 3}
-    - {fileID: 21300076, guid: 5df250409f6f3024e990d5a6d9fa8f6c, type: 3}
-    DisabledSprite: {fileID: 21300012, guid: 903229811b7965a4591b184cab38aa3e, type: 3}
-    MaxAge: 40
-    MinAge: 20
-    Gender: 1
-  - Sprites:
-    - {fileID: 21300108, guid: 5df250409f6f3024e990d5a6d9fa8f6c, type: 3}
-    - {fileID: 21300110, guid: 5df250409f6f3024e990d5a6d9fa8f6c, type: 3}
-    - {fileID: 21300112, guid: 5df250409f6f3024e990d5a6d9fa8f6c, type: 3}
-    - {fileID: 21300132, guid: 5df250409f6f3024e990d5a6d9fa8f6c, type: 3}
-    - {fileID: 21300134, guid: 5df250409f6f3024e990d5a6d9fa8f6c, type: 3}
-    - {fileID: 21300136, guid: 5df250409f6f3024e990d5a6d9fa8f6c, type: 3}
-    - {fileID: 21300156, guid: 5df250409f6f3024e990d5a6d9fa8f6c, type: 3}
-    - {fileID: 21300158, guid: 5df250409f6f3024e990d5a6d9fa8f6c, type: 3}
-    - {fileID: 21300160, guid: 5df250409f6f3024e990d5a6d9fa8f6c, type: 3}
-    - {fileID: 21300180, guid: 5df250409f6f3024e990d5a6d9fa8f6c, type: 3}
-    - {fileID: 21300182, guid: 5df250409f6f3024e990d5a6d9fa8f6c, type: 3}
-    - {fileID: 21300184, guid: 5df250409f6f3024e990d5a6d9fa8f6c, type: 3}
-    DisabledSprite: {fileID: 21300012, guid: 903229811b7965a4591b184cab38aa3e, type: 3}
-    MaxAge: 100
-    MinAge: 60
-    Gender: 1
-  - Sprites:
-    - {fileID: 21300018, guid: d48dd7f34c69826439fcb1715f371716, type: 3}
-    - {fileID: 21300020, guid: d48dd7f34c69826439fcb1715f371716, type: 3}
-    - {fileID: 21300022, guid: d48dd7f34c69826439fcb1715f371716, type: 3}
-    - {fileID: 21300042, guid: d48dd7f34c69826439fcb1715f371716, type: 3}
-    - {fileID: 21300044, guid: d48dd7f34c69826439fcb1715f371716, type: 3}
-    - {fileID: 21300046, guid: d48dd7f34c69826439fcb1715f371716, type: 3}
-    - {fileID: 21300066, guid: d48dd7f34c69826439fcb1715f371716, type: 3}
-    - {fileID: 21300068, guid: d48dd7f34c69826439fcb1715f371716, type: 3}
-    - {fileID: 21300070, guid: d48dd7f34c69826439fcb1715f371716, type: 3}
-    - {fileID: 21300090, guid: d48dd7f34c69826439fcb1715f371716, type: 3}
-    - {fileID: 21300092, guid: d48dd7f34c69826439fcb1715f371716, type: 3}
-    - {fileID: 21300094, guid: d48dd7f34c69826439fcb1715f371716, type: 3}
-    DisabledSprite: {fileID: 21300012, guid: 903229811b7965a4591b184cab38aa3e, type: 3}
-    MaxAge: 30
-    MinAge: 10
-    Gender: 2
-  - Sprites:
-    - {fileID: 21300000, guid: 96a2360a3e9ee774a934df04c2a6cbf3, type: 3}
-    - {fileID: 21300002, guid: 96a2360a3e9ee774a934df04c2a6cbf3, type: 3}
-    - {fileID: 21300004, guid: 96a2360a3e9ee774a934df04c2a6cbf3, type: 3}
-    - {fileID: 21300024, guid: 96a2360a3e9ee774a934df04c2a6cbf3, type: 3}
-    - {fileID: 21300026, guid: 96a2360a3e9ee774a934df04c2a6cbf3, type: 3}
-    - {fileID: 21300028, guid: 96a2360a3e9ee774a934df04c2a6cbf3, type: 3}
-    - {fileID: 21300048, guid: 96a2360a3e9ee774a934df04c2a6cbf3, type: 3}
-    - {fileID: 21300050, guid: 96a2360a3e9ee774a934df04c2a6cbf3, type: 3}
-    - {fileID: 21300052, guid: 96a2360a3e9ee774a934df04c2a6cbf3, type: 3}
-    - {fileID: 21300072, guid: 96a2360a3e9ee774a934df04c2a6cbf3, type: 3}
-    - {fileID: 21300074, guid: 96a2360a3e9ee774a934df04c2a6cbf3, type: 3}
-    - {fileID: 21300076, guid: 96a2360a3e9ee774a934df04c2a6cbf3, type: 3}
-    DisabledSprite: {fileID: 21300012, guid: 903229811b7965a4591b184cab38aa3e, type: 3}
-    MaxAge: 10
-    MinAge: 5
-    Gender: 2
 --- !u!114 &114717772600095978
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -190,19 +88,10 @@ MonoBehaviour:
   WorldPos: {x: 0, y: 0}
   WorldCoord: {x: 0, y: 0}
   SpriteController: {fileID: 114927581382262564}
-  AirParts: []
-  HighParts: []
-  MiddleParts: []
-  LowParts: []
   IsDestroy: 0
   AreaIdentity: 0
   Controller: {fileID: 114048760322502142}
   Properties:
-    Health: 0
-    Sanity: 0
-    Endure: 0
-    Hunger: 0
-    Marady: 0
     Speed: 10
     MoveSpeed: 10
     ActSpeed: 10
@@ -213,156 +102,80 @@ MonoBehaviour:
     WillPower: 10
     Intelligence: 10
     Perception: 10
-    Gender: 0
-    Race: 
-    Age: 0
     Lifetime: 0
+    BodyParts:
+    - Name: Head
+      HitPoint:
+        MaxValue: 1000
+      Size: 10
+      Weight: 10
+      Defence: 10
+      Available: 1
+      PartPos: 1
+      AttachBodyPart: 
+      Essential: 1
+      Fetchable: 0
+      ComponentIndex: 0
+    - Name: LeftArm
+      HitPoint:
+        MaxValue: 1000
+      Size: 10
+      Weight: 10
+      Defence: 10
+      Available: 1
+      PartPos: 2
+      AttachBodyPart: LeftHand
+      Essential: 0
+      Fetchable: 0
+      ComponentIndex: 0
+    - Name: RightArm
+      HitPoint:
+        MaxValue: 1000
+      Size: 10
+      Weight: 10
+      Defence: 10
+      Available: 1
+      PartPos: 2
+      AttachBodyPart: RightHand
+      Essential: 0
+      Fetchable: 0
+      ComponentIndex: 0
+    - Name: LeftHand
+      HitPoint:
+        MaxValue: 1000
+      Size: 10
+      Weight: 10
+      Defence: 10
+      Available: 1
+      PartPos: 2
+      AttachBodyPart: 
+      Essential: 0
+      Fetchable: 0
+      ComponentIndex: 0
+    - Name: RightHand
+      HitPoint:
+        MaxValue: 1000
+      Size: 10
+      Weight: 10
+      Defence: 10
+      Available: 1
+      PartPos: 2
+      AttachBodyPart: 
+      Essential: 0
+      Fetchable: 0
+      ComponentIndex: 0
+  RaceIndex: 0
   ActivateTime: 0
-  AttackActionEffect: {fileID: 0}
+  AttackActionEffect: {fileID: 114661694037867342, guid: 115b145bf054290459e4b5ddf30fcc8f,
+    type: 2}
+  Health: 0
+  Sanity: 0
+  Endure: 0
+  Hunger: 0
+  Marady: 0
+  Age: 0
+  Gender: 0
   Dead: 0
-  Head:
-    Name: Head
-    HitPoint:
-      MaxValue: 1000
-    Size: 10
-    Weight: 10
-    Defence: 10
-    Available: 1
-    Substance: {fileID: 0}
-    Essential: 1
-    Components: []
-  Neck:
-    Name: Neck
-    HitPoint:
-      MaxValue: 1000
-    Size: 10
-    Weight: 10
-    Defence: 10
-    Available: 1
-    Substance: {fileID: 0}
-    Essential: 1
-    Components: []
-  Chest:
-    Name: Chest
-    HitPoint:
-      MaxValue: 1000
-    Size: 10
-    Weight: 10
-    Defence: 10
-    Available: 1
-    Substance: {fileID: 0}
-    Essential: 1
-    Components: []
-  Waist:
-    Name: Waist
-    HitPoint:
-      MaxValue: 1000
-    Size: 10
-    Weight: 10
-    Defence: 10
-    Available: 1
-    Substance: {fileID: 0}
-    Essential: 0
-    Components: []
-  Crotch:
-    Name: Crotch
-    HitPoint:
-      MaxValue: 1000
-    Size: 10
-    Weight: 10
-    Defence: 10
-    Available: 1
-    Substance: {fileID: 0}
-    Essential: 0
-    Components: []
-  LeftArm:
-    Name: LeftArm
-    HitPoint:
-      MaxValue: 1000
-    Size: 10
-    Weight: 10
-    Defence: 10
-    Available: 1
-    Substance: {fileID: 0}
-    Essential: 0
-    Components: []
-  LeftHand:
-    Name: LeftHand
-    HitPoint:
-      MaxValue: 1000
-    Size: 10
-    Weight: 10
-    Defence: 10
-    Available: 1
-    Substance: {fileID: 0}
-    Essential: 0
-    Components: []
-  RightArm:
-    Name: RightArm
-    HitPoint:
-      MaxValue: 1000
-    Size: 10
-    Weight: 10
-    Defence: 10
-    Available: 1
-    Substance: {fileID: 0}
-    Essential: 0
-    Components: []
-  RightHand:
-    Name: RightHand
-    HitPoint:
-      MaxValue: 1000
-    Size: 10
-    Weight: 10
-    Defence: 10
-    Available: 1
-    Substance: {fileID: 0}
-    Essential: 0
-    Components: []
-  LeftLeg:
-    Name: LeftLeg
-    HitPoint:
-      MaxValue: 1000
-    Size: 10
-    Weight: 10
-    Defence: 10
-    Available: 1
-    Substance: {fileID: 0}
-    Essential: 0
-    Components: []
-  LeftFoot:
-    Name: LeftFoot
-    HitPoint:
-      MaxValue: 1000
-    Size: 10
-    Weight: 10
-    Defence: 10
-    Available: 1
-    Substance: {fileID: 0}
-    Essential: 0
-    Components: []
-  RightLeg:
-    Name: RightLeg
-    HitPoint:
-      MaxValue: 1000
-    Size: 10
-    Weight: 10
-    Defence: 10
-    Available: 1
-    Substance: {fileID: 0}
-    Essential: 0
-    Components: []
-  RightFoot:
-    Name: RightFoot
-    HitPoint:
-      MaxValue: 1000
-    Size: 10
-    Weight: 10
-    Defence: 10
-    Available: 1
-    Substance: {fileID: 0}
-    Essential: 0
-    Components: []
 --- !u!114 &114927581382262564
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -374,22 +187,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 191b03d372a240e0b15b631635a83540, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DisabledSprite: {fileID: 0}
+  DisabledSprite: {fileID: 21300012, guid: 903229811b7965a4591b184cab38aa3e, type: 3}
   Speed: 10
   TargetDirection: 0
   Moving: 0
   IsDisabled: 0
-  SpriteRenderer: {fileID: 0}
-  MoveUpSprites: []
-  MoveDownSprites: []
-  MoveLeftSprites: []
-  MoveRightSprites: []
-  MoveNoneSprites: []
-  StopUpSprites: []
-  StopDownSprites: []
-  StopLeftSprites: []
-  StopRightSprites: []
-  StopNoneSprites: []
+  SpriteRenderer: {fileID: 212962551414652834}
+  MoveUpSprites:
+  - {fileID: 21300074, guid: 96a2360a3e9ee774a934df04c2a6cbf3, type: 3}
+  - {fileID: 21300072, guid: 96a2360a3e9ee774a934df04c2a6cbf3, type: 3}
+  - {fileID: 21300074, guid: 96a2360a3e9ee774a934df04c2a6cbf3, type: 3}
+  - {fileID: 21300076, guid: 96a2360a3e9ee774a934df04c2a6cbf3, type: 3}
+  MoveDownSprites:
+  - {fileID: 21300002, guid: 96a2360a3e9ee774a934df04c2a6cbf3, type: 3}
+  - {fileID: 21300000, guid: 96a2360a3e9ee774a934df04c2a6cbf3, type: 3}
+  - {fileID: 21300002, guid: 96a2360a3e9ee774a934df04c2a6cbf3, type: 3}
+  - {fileID: 21300004, guid: 96a2360a3e9ee774a934df04c2a6cbf3, type: 3}
+  MoveLeftSprites:
+  - {fileID: 21300026, guid: 96a2360a3e9ee774a934df04c2a6cbf3, type: 3}
+  - {fileID: 21300024, guid: 96a2360a3e9ee774a934df04c2a6cbf3, type: 3}
+  - {fileID: 21300026, guid: 96a2360a3e9ee774a934df04c2a6cbf3, type: 3}
+  - {fileID: 21300028, guid: 96a2360a3e9ee774a934df04c2a6cbf3, type: 3}
+  MoveRightSprites:
+  - {fileID: 21300050, guid: 96a2360a3e9ee774a934df04c2a6cbf3, type: 3}
+  - {fileID: 21300048, guid: 96a2360a3e9ee774a934df04c2a6cbf3, type: 3}
+  - {fileID: 21300050, guid: 96a2360a3e9ee774a934df04c2a6cbf3, type: 3}
+  - {fileID: 21300052, guid: 96a2360a3e9ee774a934df04c2a6cbf3, type: 3}
+  MoveNoneSprites:
+  - {fileID: 21300002, guid: 96a2360a3e9ee774a934df04c2a6cbf3, type: 3}
+  StopUpSprites:
+  - {fileID: 21300074, guid: 96a2360a3e9ee774a934df04c2a6cbf3, type: 3}
+  StopDownSprites:
+  - {fileID: 21300002, guid: 96a2360a3e9ee774a934df04c2a6cbf3, type: 3}
+  StopLeftSprites:
+  - {fileID: 21300026, guid: 96a2360a3e9ee774a934df04c2a6cbf3, type: 3}
+  StopRightSprites:
+  - {fileID: 21300050, guid: 96a2360a3e9ee774a934df04c2a6cbf3, type: 3}
+  StopNoneSprites:
+  - {fileID: 21300002, guid: 96a2360a3e9ee774a934df04c2a6cbf3, type: 3}
 --- !u!212 &212962551414652834
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -422,8 +257,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1347936931
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

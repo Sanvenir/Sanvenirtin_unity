@@ -6,18 +6,21 @@ using ObjectScripts.SpriteController;
 using UnityEditor;
 using UnityEngine;
 using UtilScripts;
+using BodyPart = ObjectScripts.BodyPartScripts.BodyPart;
 
 namespace ObjectScripts.RaceScripts
 {
-    public class BasicRace : MonoBehaviour
+    [Serializable]
+    public class BasicRace
     {
         public float AppearRatio;
+        public string Name;
 
-        public CharacterProperties StandardProperties;
+        public Properties StandardProperties = new Properties();
 
         public List<RandomSprite> SpriteList;
 
-        public virtual void RefactorGameObject()
+        public void RandomRefactor(Character character)
         {
             if (SpriteList.Count == 0)
             {
@@ -26,11 +29,11 @@ namespace ObjectScripts.RaceScripts
             
             var randomSprite = SpriteList[Utils.ProcessRandom.Next(SpriteList.Count)];
 
-            var age = Utils.ProcessRandom.Next(randomSprite.MinAge, randomSprite.MaxAge);
-            var character = GetComponent<Character>();
-            character.Properties = RefactorProperties(age, randomSprite.Gender);
+            character.Age = Utils.ProcessRandom.Next(randomSprite.MinAge, randomSprite.MaxAge);
+            character.Gender = randomSprite.Gender;
+            RefactorGameObject(character);
             
-            var staticSpriteController = GetComponent<StaticSpriteController>();
+            var staticSpriteController = character.GetComponent<StaticSpriteController>();
             if (staticSpriteController != null)
             {
                 if (randomSprite.DisabledSprite != null)
@@ -39,7 +42,7 @@ namespace ObjectScripts.RaceScripts
                 return;
             }
             
-            var dynamicSpriteController = GetComponent<DynamicSpriteController>();
+            var dynamicSpriteController = character.GetComponent<DynamicSpriteController>();
             if (dynamicSpriteController == null) return;
             if (randomSprite.DisabledSprite != null)
                 dynamicSpriteController.DisabledSprite = randomSprite.DisabledSprite;
@@ -97,12 +100,21 @@ namespace ObjectScripts.RaceScripts
             {
                 {randomSprite.Sprites[1]}
             };
-
         }
 
-        private CharacterProperties RefactorProperties(int age, Gender gender)
+        public void RefactorGameObject(Character character)
         {
-            var properties = new CharacterProperties
+            character.BodyParts = new Dictionary<string, BodyPart>();
+            character.Properties = CreateProperties(character.Age, character.Gender);
+            foreach (var bodyPart in StandardProperties.BodyParts)
+            {
+                character.BodyParts.Add(bodyPart.Name, (BodyPart)bodyPart.Clone());
+            }
+        }
+
+        private Properties CreateProperties(int age, Gender gender)
+        {
+            var properties = new Properties
             {
                 Speed = StandardProperties.Speed,
                 MoveSpeed = StandardProperties.MoveSpeed,
@@ -114,8 +126,7 @@ namespace ObjectScripts.RaceScripts
                 WillPower = StandardProperties.WillPower,
                 Intelligence = StandardProperties.Intelligence,
                 Perception = StandardProperties.Perception,
-                Gender = gender,
-                Age = age
+                BodyParts = StandardProperties.BodyParts
             };
             properties.RefreshProperties();
             return properties;
@@ -131,6 +142,13 @@ namespace ObjectScripts.RaceScripts
             public int MinAge;
 
             public Gender Gender;
+        }
+
+        public void SaveProperties()
+        {
+            JsonData.SaveCharacterPropertiesToFile(
+                Application.dataPath + "/Resources/GameData/" + Name + "Properties.json",
+                StandardProperties);
         }
     }
 }

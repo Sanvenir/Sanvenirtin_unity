@@ -1,5 +1,6 @@
 using System.Net;
 using ObjectScripts;
+using ObjectScripts.CharSubstance;
 using ObjectScripts.RaceScripts;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -12,7 +13,8 @@ namespace AreaScripts
         public TileBase[] GroundTiles;
         public Substance[] SubstancePrefabs;
         public BuildingTilemap[] BuildingTilemaps;
-        public BasicRace[] Races;
+        public Character[] RaceCharacters;
+        public float[] RaceAppearRatio;
         
         public float ObjectsGenerateRatio = 0.1f;
         public float BuildingProbability = 0.5f;
@@ -30,11 +32,11 @@ namespace AreaScripts
             {
 
                 var check = (float)Utils.ProcessRandom.NextDouble();
-                foreach (var race in Races)
+                for (var i = 0; i < RaceCharacters.Length; ++i)
                 {
-                    check -= race.AppearRatio;
+                    check -= RaceAppearRatio[i];
                     if (!(check < 0)) continue;
-                    GenerateRace(race, coord);
+                    RandomGenerateRaceCharacters(RaceCharacters[i], coord);
                     break;
                 }
 

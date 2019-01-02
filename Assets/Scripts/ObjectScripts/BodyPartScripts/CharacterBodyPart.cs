@@ -11,7 +11,8 @@ namespace ObjectScripts.BodyPartScripts
             return new BodyPart
             {
                 Name = "Head",
-                Essential = true
+                Essential = true,
+                PartPos = PartPos.High
             };
         }
 
@@ -20,7 +21,8 @@ namespace ObjectScripts.BodyPartScripts
             return new BodyPart
             {
                 Name = "Neck",
-                Essential = true
+                Essential = true,
+                PartPos = PartPos.High
             };
         }
 
@@ -29,7 +31,8 @@ namespace ObjectScripts.BodyPartScripts
             return new BodyPart
             {
                 Name = "Chest",
-                Essential = true
+                Essential = true,
+                PartPos = PartPos.Middle
             };
         }
         
@@ -39,7 +42,8 @@ namespace ObjectScripts.BodyPartScripts
             return new BodyPart
             {
                 Name = "Waist",
-                Essential = false
+                Essential = false,
+                PartPos = PartPos.Middle
             };
         }
         
@@ -49,7 +53,8 @@ namespace ObjectScripts.BodyPartScripts
             return new BodyPart
             {
                 Name = "Crotch",
-                Essential = false
+                Essential = false,
+                PartPos = PartPos.Low
             };
         }
         
@@ -59,7 +64,9 @@ namespace ObjectScripts.BodyPartScripts
             return new BodyPart
             {
                 Name = "LeftArm",
-                Essential = false
+                Essential = false,
+                PartPos = PartPos.Middle, 
+                AttachBodyPart = "LeftHand"
             };
         }
 
@@ -68,7 +75,8 @@ namespace ObjectScripts.BodyPartScripts
             return new BodyPart
             {
                 Name = "LeftHand",
-                Essential = false
+                Essential = false,
+                PartPos = PartPos.Middle
             };
         }
 
@@ -77,7 +85,9 @@ namespace ObjectScripts.BodyPartScripts
             return new BodyPart
             {
                 Name = "RightArm",
-                Essential = false
+                Essential = false,
+                PartPos = PartPos.Middle, 
+                AttachBodyPart = "RightHand"
             };
         }
 
@@ -86,7 +96,8 @@ namespace ObjectScripts.BodyPartScripts
             return new BodyPart
             {
                 Name = "RightHand",
-                Essential = false
+                Essential = false,
+                PartPos = PartPos.Middle
             };
         }
         
@@ -95,7 +106,8 @@ namespace ObjectScripts.BodyPartScripts
             return new BodyPart
             {
                 Name = "LeftLeg",
-                Essential = false
+                Essential = false,
+                PartPos = PartPos.Low
             };
         }
 
@@ -104,7 +116,8 @@ namespace ObjectScripts.BodyPartScripts
             return new BodyPart
             {
                 Name = "LeftFoot",
-                Essential = false
+                Essential = false,
+                PartPos = PartPos.Low
             };
         }
 
@@ -113,7 +126,8 @@ namespace ObjectScripts.BodyPartScripts
             return new BodyPart
             {
                 Name = "RightLeg",
-                Essential = false
+                Essential = false,
+                PartPos = PartPos.Low
             };
         }
 
@@ -122,7 +136,8 @@ namespace ObjectScripts.BodyPartScripts
             return new BodyPart
             {
                 Name = "RightFoot",
-                Essential = false
+                Essential = false,
+                PartPos = PartPos.Low
             };
         }
 
@@ -131,7 +146,8 @@ namespace ObjectScripts.BodyPartScripts
             return new BodyPart
             {
                 Name = "LeftWing",
-                Essential = false
+                Essential = false,
+                PartPos = PartPos.Low
             };
         }
 
@@ -140,7 +156,8 @@ namespace ObjectScripts.BodyPartScripts
             return new BodyPart
             {
                 Name = "RightWing",
-                Essential = false
+                Essential = false,
+                PartPos = PartPos.Middle
             };
         }
 
@@ -149,7 +166,8 @@ namespace ObjectScripts.BodyPartScripts
             return new BodyPart
             {
                 Name = "Tail",
-                Essential = false
+                Essential = false,
+                PartPos = PartPos.Middle
             };
         }
     }

@@ -66,6 +66,7 @@
     <Compile Include="Assets\Scripts\ExceptionScripts\GameCondition.cs" />
     <Compile Include="Assets\Scripts\ExceptionScripts\GameException.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\GameSetting.cs" />
     <Compile Include="Assets\Scripts\MapScripts\EarthMap.cs" />
     <Compile Include="Assets\Scripts\MapScripts\EarthMapManager.cs" />
     <Compile Include="Assets\Scripts\MapScripts\MainLand.cs" />
@@ -80,6 +81,7 @@
     <Compile Include="Assets\Scripts\ObjectScripts\BasicItem\IConsumeItem.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\BasicItem\RawMeat.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\BodyPartScripts\BodyPart.cs" />
+    <Compile Include="Assets\Scripts\ObjectScripts\BodyPartScripts\BodyPartList.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\BodyPartScripts\CharacterBodyPart.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\BodyPartScripts\PartPos.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\CharacterController\AiController.cs" />
@@ -95,11 +97,9 @@
     <Compile Include="Assets\Scripts\ObjectScripts\CharacterController\PlayerOrder\RestOrder.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\CharacterController\PlayerOrder\WalkToOrder.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\CharSubstance\Character.cs" />
-    <Compile Include="Assets\Scripts\ObjectScripts\CharSubstance\CharacterProperties.cs" />
-    <Compile Include="Assets\Scripts\ObjectScripts\CharSubstance\Dragon.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\CharSubstance\Gender.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\CharSubstance\Human.cs" />
-    <Compile Include="Assets\Scripts\ObjectScripts\CharSubstance\Wolf.cs" />
+    <Compile Include="Assets\Scripts\ObjectScripts\CharSubstance\Properties.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\ISubstanceFactory.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\RaceScripts\BasicRace.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\SpriteController\DynamicSpriteController.cs" />
@@ -108,6 +108,7 @@
     <Compile Include="Assets\Scripts\ObjectScripts\SpriteController\StaticSpriteController.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\StaticSubstance\Tree.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\Substance.cs" />
+    <Compile Include="Assets\Scripts\ObjectScripts\SubstanceProperties.cs" />
     <Compile Include="Assets\Scripts\SceneManager.cs" />
     <Compile Include="Assets\Scripts\UIScripts\ActionMenu.cs" />
     <Compile Include="Assets\Scripts\UIScripts\BodyPartButton.cs" />
@@ -125,7 +126,9 @@
     <Compile Include="Assets\Scripts\UtilScripts\Direction.cs" />
     <Compile Include="Assets\Scripts\UtilScripts\EarthMapCoord.cs" />
     <Compile Include="Assets\Scripts\UtilScripts\INamed.cs" />
+    <Compile Include="Assets\Scripts\UtilScripts\JsonData.cs" />
     <Compile Include="Assets\Scripts\UtilScripts\LimitValue.cs" />
+    <Compile Include="Assets\Scripts\UtilScripts\Text\TextLogger.cs" />
     <Compile Include="Assets\Scripts\UtilScripts\Utils.cs" />
     <Compile Include="Assets\SpriteGlow\SpriteGlowEffect.cs" />
     <Compile Include="Assets\SpriteGlow\SpriteGlowMaterial.cs" />

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using ObjectScripts.BodyPartScripts;
@@ -10,8 +11,9 @@ namespace ObjectScripts.CharSubstance
     public abstract class Character : Substance
     {
         public CharacterController.CharacterController Controller;
-        public CharacterProperties Properties;
-
+        public Properties Properties;
+        public int RaceIndex = 0;
+        
         public bool IsTurn()
         {
             return SceneManager.Instance.CurrentTime >= ActivateTime;
@@ -40,9 +42,9 @@ namespace ObjectScripts.CharSubstance
             if (!bodyPart.Available)
             {
                 DropFetchObject(bodyPart);
-                if (bodyPart.AttachBodyPart != null)
+                if (bodyPart.AttachBodyPart != string.Empty)
                 {
-                    DropFetchObject(bodyPart.AttachBodyPart);
+                    DropFetchObject(BodyParts[bodyPart.AttachBodyPart]);
                 }
                 
                 if (bodyPart.Essential)
@@ -50,7 +52,7 @@ namespace ObjectScripts.CharSubstance
                     Dead = true;
                 }
             }
-            Properties.Health += damage;
+            Health += damage;
             return damage;
         }
 
@@ -76,10 +78,12 @@ namespace ObjectScripts.CharSubstance
             if (delta == Vector2Int.zero) return true;
             var endPos = WorldPos + delta;
             SpriteController.SetDirection(Utils.VectorToDirection(delta));
-            if (check && !MoveCheck(delta))
-            {
-                return false;
-            }
+//            if (check && !MoveCheck(delta))
+//            {
+//                return false;
+//            }
+
+            if (!MoveCheck(delta)) return false;
 
             Collider2D.offset = delta;
             WorldCoord += delta;
@@ -124,7 +128,7 @@ namespace ObjectScripts.CharSubstance
             Properties.RefreshProperties();
             if (Dead && IsTurn())
             {
-                foreach (var part in GetAllBodyParts())
+                foreach (var part in BodyParts.Values)
                 {
                     if (!part.Available) continue;
                     Attacked(1, part, 0);
@@ -134,7 +138,7 @@ namespace ObjectScripts.CharSubstance
                 return;
             }
 
-            if (Properties.Health >= Properties.GetMaxHealth())
+            if (Health >= Properties.GetMaxHealth())
             {
                 Dead = true;
             }
@@ -147,8 +151,16 @@ namespace ObjectScripts.CharSubstance
 
         public override void Initialize(Vector2Int worldCoord, int areaIdentity)
         {
-            base.Initialize(worldCoord, areaIdentity);
+            GameSetting.Instance.RaceList[RaceIndex].RefactorGameObject(this);
             ActivateTime = SceneManager.Instance.CurrentTime;
+            base.Initialize(worldCoord, areaIdentity);
+            foreach (var bodyPart in BodyParts.Values)
+            {
+                if (bodyPart.Fetchable)
+                {
+                    FetchDictionary.Add(bodyPart, null);
+                }
+            }
             RefreshProperties();
         }
 
@@ -159,16 +171,25 @@ namespace ObjectScripts.CharSubstance
         public EffectController AttackActionEffect;
         
         // Properties
+        [HideInInspector] public float Health = 0;
+        [HideInInspector] public float Sanity = 0;
+        [HideInInspector] public float Endure = 0;
+        [HideInInspector] public float Hunger = 0;
+        [HideInInspector] public float Marady = 0; // Similar to Mana
+        public int Age;
+        public Gender Gender;
+
         [HideInInspector]
         public bool Dead = false;
 
         public virtual void Recovering()
         {
-            var endureRec = Properties.GetEndureRecover();
-            Properties.Hunger += endureRec / 100f + Properties.GetBaseRecover() * 10f;
-            Properties.Endure -= endureRec;
-            Properties.Health -= Properties.GetHealthRecover();
-            foreach (var part in GetAllBodyParts())
+            var endureRec = Mathf.Min(Properties.GetEndureRecover(), Endure);
+            Hunger += endureRec / 100f + Properties.GetBaseRecover() * 10f;
+            Endure -= endureRec;
+            Health -= Properties.GetHealthRecover();
+            if (Health < 0) Health = 0;
+            foreach (var part in BodyParts.Values)
             {
                 if(!part.Available) continue;
                 part.HitPoint.Value += Properties.GetHealthRecover();
