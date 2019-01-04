@@ -3,6 +3,7 @@ using ObjectScripts.BasicItem;
 using ObjectScripts.BodyPartScripts;
 using ObjectScripts.RaceScripts;
 using UnityEngine;
+using UtilScripts.Text;
 
 public class GameSetting: MonoBehaviour
 {
@@ -29,9 +30,5 @@ public class GameSetting: MonoBehaviour
                 }
 
                 DontDestroyOnLoad(gameObject);
-                foreach (var race in RaceList)
-                {
-                        race.SaveProperties();
-                }
         }
 }

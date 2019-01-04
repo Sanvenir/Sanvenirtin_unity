@@ -26,22 +26,89 @@ namespace ObjectScripts.CharSubstance
         
         public List<BodyPart> BodyParts = new List<BodyPart>
         {
-            {CharacterBodyPart.CreateHead()},
-            {CharacterBodyPart.CreateLeftArm()},
-            {CharacterBodyPart.CreateRightArm()},
-            {CharacterBodyPart.CreateLeftHand()},
-            {CharacterBodyPart.CreateRightHand()},
-            
+            new BodyPart
+            {
+                Name = "Head",
+                Essential = true,
+                PartPos = PartPos.High
+            },
+            new BodyPart
+            {
+                Name = "Neck",
+                Essential = true,
+                PartPos = PartPos.High
+            },
+            new BodyPart
+            {
+                Name = "Chest",
+                Essential = true,
+                PartPos = PartPos.Middle
+            },
+            new BodyPart
+            {
+            Name = "Waist",
+            Essential = false,
+            PartPos = PartPos.Middle
+            },
+            new BodyPart
+            {
+                Name = "Crotch",
+                Essential = false,
+                PartPos = PartPos.Low
+            },
+            new BodyPart
+            {
+                Name = "LeftArm",
+                Essential = false,
+                PartPos = PartPos.Middle, 
+                AttachBodyPart = "LeftHand"
+            },
+            new BodyPart
+            {
+                Name = "LeftHand",
+                Essential = false,
+                PartPos = PartPos.Middle, 
+                Fetchable = true
+            },
+            new BodyPart
+            {
+                Name = "RightArm",
+                Essential = false,
+                PartPos = PartPos.Middle, 
+                AttachBodyPart = "RightHand"
+            },
+            new BodyPart
+            {
+                Name = "RightHand",
+                Essential = false,
+                PartPos = PartPos.Middle,
+                Fetchable = true
+            },
+            new BodyPart
+            {
+                Name = "LeftLeg",
+                Essential = false,
+                PartPos = PartPos.Low
+            },
+            new BodyPart
+            {
+                Name = "LeftFoot",
+                Essential = false,
+                PartPos = PartPos.Low
+            },
+            new BodyPart
+            {
+                Name = "RightLeg",
+                Essential = false,
+                PartPos = PartPos.Low
+            },
+            new BodyPart
+            {
+                Name = "RightFoot",
+                Essential = false,
+                PartPos = PartPos.Low
+            }
         };
-
-//        public Dictionary<string, BodyPart> BodyParts = new Dictionary<string, BodyPart>
-//        {
-//            {"Head", CharacterBodyPart.CreateHead()},
-//            {"LeftArm", CharacterBodyPart.CreateLeftArm()}, 
-//            {"RightArm", CharacterBodyPart.CreateRightArm()},
-//            {"LeftHand", CharacterBodyPart.CreateLeftHand()},
-//            {"RightHand", CharacterBodyPart.CreateRightHand()}
-//        };
 
         // Get Methods
         private int _reactTime;

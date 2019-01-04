@@ -1,0 +1,210 @@
+{
+    "Speed": 10.0,
+    "MoveSpeed": 10.0,
+    "ActSpeed": 10.0,
+    "Strength": 10.0,
+    "Dexterity": 10.0,
+    "Constitution": 10.0,
+    "Metabolism": 10.0,
+    "WillPower": 10.0,
+    "Intelligence": 10.0,
+    "Perception": 10.0,
+    "Lifetime": 0,
+    "BodyParts": [
+        {
+            "Name": "Head",
+            "HitPoint": {
+                "MaxValue": 1000.0
+            },
+            "Size": 10.0,
+            "Weight": 10.0,
+            "Defence": 10.0,
+            "Available": true,
+            "PartPos": 1,
+            "AttachBodyPart": "",
+            "Essential": true,
+            "Fetchable": false,
+            "ComponentIndex": 0
+        },
+        {
+            "Name": "Neck",
+            "HitPoint": {
+                "MaxValue": 1000.0
+            },
+            "Size": 10.0,
+            "Weight": 10.0,
+            "Defence": 10.0,
+            "Available": true,
+            "PartPos": 1,
+            "AttachBodyPart": "",
+            "Essential": true,
+            "Fetchable": false,
+            "ComponentIndex": 0
+        },
+        {
+            "Name": "Chest",
+            "HitPoint": {
+                "MaxValue": 1000.0
+            },
+            "Size": 10.0,
+            "Weight": 10.0,
+            "Defence": 10.0,
+            "Available": true,
+            "PartPos": 2,
+            "AttachBodyPart": "",
+            "Essential": true,
+            "Fetchable": false,
+            "ComponentIndex": 0
+        },
+        {
+            "Name": "Waist",
+            "HitPoint": {
+                "MaxValue": 1000.0
+            },
+            "Size": 10.0,
+            "Weight": 10.0,
+            "Defence": 10.0,
+            "Available": true,
+            "PartPos": 2,
+            "AttachBodyPart": "",
+            "Essential": false,
+            "Fetchable": false,
+            "ComponentIndex": 0
+        },
+        {
+            "Name": "Crotch",
+            "HitPoint": {
+                "MaxValue": 1000.0
+            },
+            "Size": 10.0,
+            "Weight": 10.0,
+            "Defence": 10.0,
+            "Available": true,
+            "PartPos": 3,
+            "AttachBodyPart": "",
+            "Essential": false,
+            "Fetchable": false,
+            "ComponentIndex": 0
+        },
+        {
+            "Name": "LeftArm",
+            "HitPoint": {
+                "MaxValue": 1000.0
+            },
+            "Size": 10.0,
+            "Weight": 10.0,
+            "Defence": 10.0,
+            "Available": true,
+            "PartPos": 2,
+            "AttachBodyPart": "LeftHand",
+            "Essential": false,
+            "Fetchable": false,
+            "ComponentIndex": 0
+        },
+        {
+            "Name": "LeftHand",
+            "HitPoint": {
+                "MaxValue": 1000.0
+            },
+            "Size": 10.0,
+            "Weight": 10.0,
+            "Defence": 10.0,
+            "Available": true,
+            "PartPos": 2,
+            "AttachBodyPart": "",
+            "Essential": false,
+            "Fetchable": true,
+            "ComponentIndex": 0
+        },
+        {
+            "Name": "RightArm",
+            "HitPoint": {
+                "MaxValue": 1000.0
+            },
+            "Size": 10.0,
+            "Weight": 10.0,
+            "Defence": 10.0,
+            "Available": true,
+            "PartPos": 2,
+            "AttachBodyPart": "RightHand",
+            "Essential": false,
+            "Fetchable": false,
+            "ComponentIndex": 0
+        },
+        {
+            "Name": "RightHand",
+            "HitPoint": {
+                "MaxValue": 1000.0
+            },
+            "Size": 10.0,
+            "Weight": 10.0,
+            "Defence": 10.0,
+            "Available": true,
+            "PartPos": 2,
+            "AttachBodyPart": "",
+            "Essential": false,
+            "Fetchable": true,
+            "ComponentIndex": 0
+        },
+        {
+            "Name": "LeftLeg",
+            "HitPoint": {
+                "MaxValue": 1000.0
+            },
+            "Size": 10.0,
+            "Weight": 10.0,
+            "Defence": 10.0,
+            "Available": true,
+            "PartPos": 3,
+            "AttachBodyPart": "",
+            "Essential": false,
+            "Fetchable": false,
+            "ComponentIndex": 0
+        },
+        {
+            "Name": "LeftFoot",
+            "HitPoint": {
+                "MaxValue": 1000.0
+            },
+            "Size": 10.0,
+            "Weight": 10.0,
+            "Defence": 10.0,
+            "Available": true,
+            "PartPos": 3,
+            "AttachBodyPart": "",
+            "Essential": false,
+            "Fetchable": false,
+            "ComponentIndex": 0
+        },
+        {
+            "Name": "RightLeg",
+            "HitPoint": {
+                "MaxValue": 1000.0
+            },
+            "Size": 10.0,
+            "Weight": 10.0,
+            "Defence": 10.0,
+            "Available": true,
+            "PartPos": 3,
+            "AttachBodyPart": "",
+            "Essential": false,
+            "Fetchable": false,
+            "ComponentIndex": 0
+        },
+        {
+            "Name": "RightFoot",
+            "HitPoint": {
+                "MaxValue": 1000.0
+            },
+            "Size": 10.0,
+            "Weight": 10.0,
+            "Defence": 10.0,
+            "Available": true,
+            "PartPos": 3,
+            "AttachBodyPart": "",
+            "Essential": false,
+            "Fetchable": false,
+            "ComponentIndex": 0
+        }
+    ]
+}

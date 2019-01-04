@@ -7,22 +7,29 @@ namespace UtilScripts
 {
     public class JsonData
     {
-        public static Properties LoadCharacterPropertiesFromFile(string path)
+        public static T LoadDataFromFile<T>(string dir, string name)
         {
+            dir = Path.Combine(Application.dataPath, dir);
+            var path = Path.Combine(dir, string.Format("{0}.json", name));
+            
             if (!File.Exists(path))
             {
-                return null;
+                return default(T);
             }
 
             var sr = new StreamReader(path);
 
             var json = sr.ReadToEnd();
             sr.Close();
-            return json.Length > 0 ? JsonUtility.FromJson<Properties>(json) : null;
+            return json.Length > 0 ? JsonUtility.FromJson<T>(json) : default(T);
         }
 
-        public static void SaveCharacterPropertiesToFile(string path, Properties properties)
+        public static void SaveDataToFile(string dir, string name, object properties)
         {
+            dir = Path.Combine(Application.dataPath, dir);
+            var path = Path.Combine(dir, string.Format("{0}.json", name));
+            
+            Directory.CreateDirectory(dir);
             var sw = new StreamWriter(path);
             var json = JsonUtility.ToJson(properties, true);
             sw.Write(json);

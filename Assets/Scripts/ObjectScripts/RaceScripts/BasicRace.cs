@@ -6,6 +6,7 @@ using ObjectScripts.SpriteController;
 using UnityEditor;
 using UnityEngine;
 using UtilScripts;
+using UtilScripts.Text;
 using BodyPart = ObjectScripts.BodyPartScripts.BodyPart;
 
 namespace ObjectScripts.RaceScripts
@@ -13,10 +14,34 @@ namespace ObjectScripts.RaceScripts
     [Serializable]
     public class BasicRace
     {
-        public float AppearRatio;
         public string Name;
+        public const string SaveDir = "Resources/GameData/RaceProperties/";
+        public string NameFormat = "general";
 
-        public Properties StandardProperties = new Properties();
+        private RandomName _randomName;
+
+        public RandomName RandomName
+        {
+            get { return _randomName ?? (_randomName = RandomName.LoadFromFile(NameFormat)); }
+        }
+
+        private Properties _standardProperties;
+        public Properties StandardProperties
+        {
+            get
+            {
+                if (_standardProperties != null)
+                    return _standardProperties;
+
+                _standardProperties = JsonData.LoadDataFromFile<Properties>(SaveDir, Name);
+                if (_standardProperties != null)
+                    return _standardProperties;
+
+                _standardProperties = new Properties();
+                SaveProperties();
+                return _standardProperties;
+            }
+        }
 
         public List<RandomSprite> SpriteList;
 
@@ -26,13 +51,15 @@ namespace ObjectScripts.RaceScripts
             {
                 throw new GameException("SpriteList not set");
             }
-            
-            var randomSprite = SpriteList[Utils.ProcessRandom.Next(SpriteList.Count)];
 
+            var randomSprite = SpriteList[Utils.ProcessRandom.Next(SpriteList.Count)];
+            
             character.Age = Utils.ProcessRandom.Next(randomSprite.MinAge, randomSprite.MaxAge);
             character.Gender = randomSprite.Gender;
+            character.Name = RandomName.GenerateName(character.Gender);
+
             RefactorGameObject(character);
-            
+
             var staticSpriteController = character.GetComponent<StaticSpriteController>();
             if (staticSpriteController != null)
             {
@@ -41,45 +68,45 @@ namespace ObjectScripts.RaceScripts
                 staticSpriteController.Sprites = randomSprite.Sprites;
                 return;
             }
-            
+
             var dynamicSpriteController = character.GetComponent<DynamicSpriteController>();
             if (dynamicSpriteController == null) return;
             if (randomSprite.DisabledSprite != null)
                 dynamicSpriteController.DisabledSprite = randomSprite.DisabledSprite;
             dynamicSpriteController.MoveDownSprites = new List<Sprite>()
             {
-                {randomSprite.Sprites[1]}, 
-                {randomSprite.Sprites[0]}, 
-                {randomSprite.Sprites[1]}, 
-                {randomSprite.Sprites[2]}, 
+                {randomSprite.Sprites[1]},
+                {randomSprite.Sprites[0]},
+                {randomSprite.Sprites[1]},
+                {randomSprite.Sprites[2]},
             };
             dynamicSpriteController.MoveLeftSprites = new List<Sprite>()
             {
-                {randomSprite.Sprites[4]}, 
-                {randomSprite.Sprites[3]}, 
-                {randomSprite.Sprites[4]}, 
-                {randomSprite.Sprites[5]}, 
+                {randomSprite.Sprites[4]},
+                {randomSprite.Sprites[3]},
+                {randomSprite.Sprites[4]},
+                {randomSprite.Sprites[5]},
             };
             dynamicSpriteController.MoveRightSprites = new List<Sprite>()
             {
-                {randomSprite.Sprites[7]}, 
-                {randomSprite.Sprites[6]}, 
-                {randomSprite.Sprites[7]}, 
-                {randomSprite.Sprites[8]}, 
+                {randomSprite.Sprites[7]},
+                {randomSprite.Sprites[6]},
+                {randomSprite.Sprites[7]},
+                {randomSprite.Sprites[8]},
             };
             dynamicSpriteController.MoveUpSprites = new List<Sprite>()
             {
-                {randomSprite.Sprites[10]}, 
-                {randomSprite.Sprites[9]}, 
-                {randomSprite.Sprites[10]}, 
-                {randomSprite.Sprites[11]}, 
+                {randomSprite.Sprites[10]},
+                {randomSprite.Sprites[9]},
+                {randomSprite.Sprites[10]},
+                {randomSprite.Sprites[11]},
             };
             dynamicSpriteController.MoveNoneSprites = new List<Sprite>()
             {
                 {randomSprite.Sprites[1]}
             };
-                
-                
+
+
             dynamicSpriteController.StopDownSprites = new List<Sprite>()
             {
                 {randomSprite.Sprites[1]}
@@ -106,9 +133,9 @@ namespace ObjectScripts.RaceScripts
         {
             character.BodyParts = new Dictionary<string, BodyPart>();
             character.Properties = CreateProperties(character.Age, character.Gender);
-            foreach (var bodyPart in StandardProperties.BodyParts)
+            foreach (var bodyPart in _standardProperties.BodyParts)
             {
-                character.BodyParts.Add(bodyPart.Name, (BodyPart)bodyPart.Clone());
+                character.BodyParts.Add(bodyPart.Name, (BodyPart) bodyPart.Clone());
             }
         }
 
@@ -126,7 +153,8 @@ namespace ObjectScripts.RaceScripts
                 WillPower = StandardProperties.WillPower,
                 Intelligence = StandardProperties.Intelligence,
                 Perception = StandardProperties.Perception,
-                BodyParts = StandardProperties.BodyParts
+                BodyParts = StandardProperties.BodyParts, 
+                Lifetime = StandardProperties.Lifetime
             };
             properties.RefreshProperties();
             return properties;
@@ -146,9 +174,7 @@ namespace ObjectScripts.RaceScripts
 
         public void SaveProperties()
         {
-            JsonData.SaveCharacterPropertiesToFile(
-                Application.dataPath + "/Resources/GameData/" + Name + "Properties.json",
-                StandardProperties);
+            JsonData.SaveDataToFile(SaveDir, Name, _standardProperties);
         }
     }
 }

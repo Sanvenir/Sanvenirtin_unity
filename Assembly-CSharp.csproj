@@ -82,7 +82,6 @@
     <Compile Include="Assets\Scripts\ObjectScripts\BasicItem\RawMeat.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\BodyPartScripts\BodyPart.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\BodyPartScripts\BodyPartList.cs" />
-    <Compile Include="Assets\Scripts\ObjectScripts\BodyPartScripts\CharacterBodyPart.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\BodyPartScripts\PartPos.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\CharacterController\AiController.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\CharacterController\CharacterController.cs" />
@@ -128,6 +127,7 @@
     <Compile Include="Assets\Scripts\UtilScripts\INamed.cs" />
     <Compile Include="Assets\Scripts\UtilScripts\JsonData.cs" />
     <Compile Include="Assets\Scripts\UtilScripts\LimitValue.cs" />
+    <Compile Include="Assets\Scripts\UtilScripts\Text\RandomName.cs" />
     <Compile Include="Assets\Scripts\UtilScripts\Text\TextLogger.cs" />
     <Compile Include="Assets\Scripts\UtilScripts\Utils.cs" />
     <Compile Include="Assets\SpriteGlow\SpriteGlowEffect.cs" />

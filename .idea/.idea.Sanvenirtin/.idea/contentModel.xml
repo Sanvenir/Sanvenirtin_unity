@@ -46,7 +46,6 @@
             <e p="BodyPartScripts" t="Include">
               <e p="BodyPart.cs" t="Include" />
               <e p="BodyPartList.cs" t="Include" />
-              <e p="CharacterBodyPart.cs" t="Include" />
               <e p="PartPos.cs" t="Include" />
             </e>
             <e p="CharacterController" t="Include">
@@ -112,6 +111,7 @@
             <e p="JsonData.cs" t="Include" />
             <e p="LimitValue.cs" t="Include" />
             <e p="Text" t="Include">
+              <e p="RandomName.cs" t="Include" />
               <e p="TextLogger.cs" t="Include" />
             </e>
             <e p="Utils.cs" t="Include" />
