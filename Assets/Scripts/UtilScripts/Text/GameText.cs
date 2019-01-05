@@ -8,13 +8,12 @@ namespace UtilScripts.Text
     public class GameText
     {
         public const string SaveDir = @"Resources\GameData\GameText";
-        public const string SaveName = "Text-ZH";
+        public const string SaveName = "Text-Lang-ZH";
         
         public string AttackDirectionOrder = "攻击";
         public string PickupOrder = "拾起";
         public string RestOrder = "休息";
         public string WalkToOrder = "移至";
-
         public string ConsumeAct = "食用";
 
         private static GameText _instance = null;
