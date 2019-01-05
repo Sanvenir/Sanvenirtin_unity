@@ -10,6 +10,7 @@ using SpriteGlow;
 using UnityEditor;
 using UnityEngine;
 using UtilScripts;
+using UtilScripts.Text;
 using BodyPart = ObjectScripts.BodyPartScripts.BodyPart;
 
 namespace ObjectScripts
@@ -30,7 +31,7 @@ namespace ObjectScripts
 
         private readonly List<BodyPart> _lowParts = new List<BodyPart>();
         
-        [HideInInspector]
+        [NonSerialized]
         public Dictionary<string, BodyPart> BodyParts = new Dictionary<string, BodyPart>();
 
         [HideInInspector] public bool IsDestroy = false;
@@ -169,6 +170,8 @@ namespace ObjectScripts
         {
             if (IsDestroy)
             {
+                SceneManager.Instance.Print(
+                    GameText.Instance.GetSubstanceDestroyLog(TextName));
                 Destroy(gameObject);
 
                 //TODO: Add dropping objects here

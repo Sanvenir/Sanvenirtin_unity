@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UtilScripts;
+using UtilScripts.Text;
 using Object = UnityEngine.Object;
 
 namespace ObjectScripts.BodyPartScripts
@@ -10,6 +11,7 @@ namespace ObjectScripts.BodyPartScripts
     public class BodyPart: INamed, ICloneable
     {
         public string Name;
+        public string TextName;
         public LimitValue HitPoint = new LimitValue(1000);
         public float Size = 10;
         public float Weight = 10;
@@ -31,6 +33,7 @@ namespace ObjectScripts.BodyPartScripts
             return new BodyPart()
             {
                 Name = Name,
+                TextName = TextName,
                 HitPoint = HitPoint,
                 Size = Size,
                 Weight = Weight,
@@ -61,7 +64,9 @@ namespace ObjectScripts.BodyPartScripts
 
         public void Destroy()
         {
-            SceneManager.Instance.Print(Substance.Name + "'s " + Name + " is destroyed!");
+            SceneManager.Instance.Print(
+                GameText.Instance.GetBodyPartDestroyLog(
+                    Substance.TextName, TextName));
             Available = false;
 
             if (AttachBodyPart != string.Empty &&
@@ -84,9 +89,9 @@ namespace ObjectScripts.BodyPartScripts
         }
 
         
-        public string GetName()
+        public string GetTextName()
         {
-            return Name;
+            return TextName;
         }
     }
 }

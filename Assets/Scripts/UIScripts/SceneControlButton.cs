@@ -192,15 +192,15 @@ namespace UIScripts
                 
                 var orderList = new List<BaseOrder>
                 {
-                    new RestOrder("Rest", Player, direction, Player.WorldCoord),
-                    new PickupOrder("Pick Up", Player, direction, Player.WorldCoord)
+                    new RestOrder(Player, direction, Player.WorldCoord),
+                    new PickupOrder(Player, direction, Player.WorldCoord)
                 };
                 if (direction != Direction.None)
                 {
                     orderList.Insert(
-                        0, new WalkToOrder("Walk To", null, direction, worldCoord));
+                        0, new WalkToOrder(null, direction, worldCoord));
                     orderList.Add(
-                        new AttackDirectionOrder("Attack", null, direction, worldCoord));
+                        new AttackDirectionOrder(null, direction, worldCoord));
                 }
                 
                 SelectionMenu.StartUp(targetPos, orderList);

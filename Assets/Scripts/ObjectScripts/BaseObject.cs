@@ -9,7 +9,7 @@ namespace ObjectScripts
 {
     public abstract class BaseObject: MonoBehaviour
     {
-        public string Name;
+        public string TextName;
         public StringBuilder Info = new StringBuilder();
 
         public SpriteRenderer SpriteRenderer;

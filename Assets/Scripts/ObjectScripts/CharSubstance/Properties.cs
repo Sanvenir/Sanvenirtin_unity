@@ -24,6 +24,8 @@ namespace ObjectScripts.CharSubstance
 
         public int Lifetime;
         
+        // Body parts in properties is belong to the whole race, so do not refactor
+        // if only one certain character instance's body parts change.
         public List<BodyPart> BodyParts = new List<BodyPart>
         {
             new BodyPart

@@ -40,8 +40,8 @@
             <e p="BaseObject.cs" t="Include" />
             <e p="BasicItem" t="Include">
               <e p="BasicItem.cs" t="Include" />
+              <e p="Food.cs" t="Include" />
               <e p="IConsumeItem.cs" t="Include" />
-              <e p="RawMeat.cs" t="Include" />
             </e>
             <e p="BodyPartScripts" t="Include">
               <e p="BodyPart.cs" t="Include" />
@@ -111,8 +111,8 @@
             <e p="JsonData.cs" t="Include" />
             <e p="LimitValue.cs" t="Include" />
             <e p="Text" t="Include">
+              <e p="GameText.cs" t="Include" />
               <e p="RandomName.cs" t="Include" />
-              <e p="TextLogger.cs" t="Include" />
             </e>
             <e p="Utils.cs" t="Include" />
           </e>

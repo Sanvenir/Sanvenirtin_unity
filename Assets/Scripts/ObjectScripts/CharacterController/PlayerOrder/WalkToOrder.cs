@@ -1,14 +1,17 @@
 using ObjectScripts.CharSubstance;
 using UnityEngine;
 using UtilScripts;
+using UtilScripts.Text;
 
 namespace ObjectScripts.CharacterController.PlayerOrder
 {
     public class WalkToOrder: BaseOrder
     {
         private Vector2Int _vecInt;
-        public WalkToOrder(string name, Character targetCharacter, Direction targetDirection, Vector2Int targetCoord) : base(name, targetCharacter, targetDirection, targetCoord)
+        public WalkToOrder(Character targetCharacter, Direction targetDirection, Vector2Int targetCoord) : 
+            base(targetCharacter, targetDirection, targetCoord)
         {
+            Name = "WalkTo";
         }
 
         public override BaseOrder DoOrder()
@@ -32,6 +35,11 @@ namespace ObjectScripts.CharacterController.PlayerOrder
             Controller.WalkAction.TargetDirection = Utils.VectorToDirection(_vecInt);
             Controller.NextAction = Controller.WalkAction;
             return Controller.WalkAction.CheckAction() ? this : null;
+        }
+
+        public override string GetTextName()
+        {
+            return GameText.Instance.WalkToOrder;
         }
     }
 }

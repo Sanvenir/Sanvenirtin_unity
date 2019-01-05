@@ -51,7 +51,7 @@ namespace UIScripts
             foreach (var selection in selectionList)
             {
                 var instance = Instantiate(ButtonPrefab, transform);
-                instance.SetText(selection.GetName());
+                instance.SetText(selection.GetTextName());
                 instance.transform.position = CenterPos;
                 ButtonInstances.Add(instance);
             }

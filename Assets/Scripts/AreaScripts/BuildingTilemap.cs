@@ -17,8 +17,6 @@ namespace AreaScripts
         public int BuildingWidth;
         public int BuildingHeight;
         
-        
-
         private void Awake()
         {
         }

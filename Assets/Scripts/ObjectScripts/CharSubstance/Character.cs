@@ -2,9 +2,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using ObjectScripts.BodyPartScripts;
+using ObjectScripts.RaceScripts;
 using ObjectScripts.SpriteController;
 using UnityEngine;
 using UtilScripts;
+using UtilScripts.Text;
 
 namespace ObjectScripts.CharSubstance
 {
@@ -49,7 +51,7 @@ namespace ObjectScripts.CharSubstance
                 
                 if (bodyPart.Essential)
                 {
-                    Dead = true;
+                    Die();
                 }
             }
             Health += damage;
@@ -138,22 +140,30 @@ namespace ObjectScripts.CharSubstance
                 return;
             }
 
-            if (Health >= Properties.GetMaxHealth())
-            {
-                Dead = true;
-            }
+            if (!(Health >= Properties.GetMaxHealth()) || Dead) return;
+            Die();
+        }
 
-            if (Dead)
-            {
-                SetDisable();   
-            }
+        public void Die()
+        {
+            if (Dead) return;
+            Dead = true;
+            SceneManager.Instance.Print(
+                GameText.Instance.GetCharacterDeadLog(TextName));
+            SetDisable();
         }
 
         public override void Initialize(Vector2Int worldCoord, int areaIdentity)
         {
-            GameSetting.Instance.RaceList[RaceIndex].RefactorGameObject(this);
+            // GameSetting.Instance.RaceList[RaceIndex].RefactorGameObject(this);
             ActivateTime = SceneManager.Instance.CurrentTime;
-            base.Initialize(worldCoord, areaIdentity);
+            
+            BodyParts = new Dictionary<string, BodyPart>();
+            foreach (var bodyPart in Properties.BodyParts)
+            {
+                BodyParts.Add(bodyPart.Name, (BodyPart) bodyPart.Clone());
+            }
+
             foreach (var bodyPart in BodyParts.Values)
             {
                 if (bodyPart.Fetchable)
@@ -161,6 +171,7 @@ namespace ObjectScripts.CharSubstance
                     FetchDictionary.Add(bodyPart, null);
                 }
             }
+            base.Initialize(worldCoord, areaIdentity);
             RefreshProperties();
         }
 

@@ -126,12 +126,19 @@ namespace UtilScripts
 
             return ret;
         }
+        
         public static List<TValue> CloneDictionaryCloningValues<TValue>
             (IEnumerable<TValue> original) where TValue : ICloneable
         {
             return original.Select(entry => (TValue) entry.Clone()).ToList();
         }
 
+        public static T GetRandomElement<T>(List<T> list)
+        {
+            if (list == null || list.Count == 0)
+                return default(T);
+            return list[ProcessRandom.Next(list.Count)];
+        }
 //        public static void ProgressBar (float value, string label)
 //        {
 //            // Get a rect for the progress bar using the same margins as a textfield:

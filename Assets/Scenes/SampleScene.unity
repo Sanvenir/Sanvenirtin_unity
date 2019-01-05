@@ -1197,83 +1197,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 003cbf8bcbd343bab54da9d892b46a30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ComponentList: []
+  ComponentList:
+  - Name: Meat
+    Components:
+    - {fileID: 114898461014695738, guid: a16b7be3f6820634b8719308438575f0, type: 2}
   RaceList:
-  - AppearRatio: 0
-    Name: Human
-    StandardProperties:
-      Speed: 10
-      MoveSpeed: 10
-      ActSpeed: 10
-      Strength: 10
-      Dexterity: 10
-      Constitution: 10
-      Metabolism: 10
-      WillPower: 10
-      Intelligence: 10
-      Perception: 10
-      Lifetime: 0
-      BodyParts:
-      - Name: Head
-        HitPoint:
-          MaxValue: 1000
-        Size: 10
-        Weight: 10
-        Defence: 10
-        Available: 1
-        PartPos: 1
-        AttachBodyPart: 
-        Essential: 1
-        Fetchable: 0
-        ComponentIndex: 0
-      - Name: LeftArm
-        HitPoint:
-          MaxValue: 1000
-        Size: 10
-        Weight: 10
-        Defence: 10
-        Available: 1
-        PartPos: 2
-        AttachBodyPart: LeftHand
-        Essential: 0
-        Fetchable: 0
-        ComponentIndex: 0
-      - Name: RightArm
-        HitPoint:
-          MaxValue: 1000
-        Size: 10
-        Weight: 10
-        Defence: 10
-        Available: 1
-        PartPos: 2
-        AttachBodyPart: RightHand
-        Essential: 0
-        Fetchable: 0
-        ComponentIndex: 0
-      - Name: LeftHand
-        HitPoint:
-          MaxValue: 1000
-        Size: 10
-        Weight: 10
-        Defence: 10
-        Available: 1
-        PartPos: 2
-        AttachBodyPart: 
-        Essential: 0
-        Fetchable: 1
-        ComponentIndex: 0
-      - Name: RightHand
-        HitPoint:
-          MaxValue: 1000
-        Size: 10
-        Weight: 10
-        Defence: 10
-        Available: 1
-        PartPos: 2
-        AttachBodyPart: 
-        Essential: 0
-        Fetchable: 1
-        ComponentIndex: 0
+  - Name: Human
+    TextName: "\u4EBA\u7C7B"
+    NameFormat: general
     SpriteList:
     - Sprites:
       - {fileID: 21300006, guid: 535edfc49be88574d80171235f6aed27, type: 3}
@@ -2737,11 +2668,11 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 10
+    m_FontSize: 15
     m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 1
-    m_MaxSize: 40
+    m_BestFit: 1
+    m_MinSize: 10
+    m_MaxSize: 15
     m_Alignment: 6
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -3422,31 +3353,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b65287e860ad4a10b1579d129b9540e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: Hero
+  TextName: "\u6587\u5C3C\u4E9A"
   SpriteRenderer: {fileID: 1471056962}
   Collider2D: {fileID: 1471056966}
-  WorldPos: {x: 0, y: 0}
+  WorldPos: {x: 0.5, y: 0.5}
   WorldCoord: {x: 0, y: 0}
   SpriteController: {fileID: 1471056964}
   IsDestroy: 0
-  AreaIdentity: 0
+  AreaIdentity: 4019
   Controller: {fileID: 1471056965}
   Properties:
-    Speed: 10
-    MoveSpeed: 10
-    ActSpeed: 10
-    Strength: 10
-    Dexterity: 10
-    Constitution: 10
-    Metabolism: 10
-    WillPower: 10
-    Intelligence: 10
-    Perception: 10
-    Lifetime: 0
+    Speed: 200
+    MoveSpeed: 200
+    ActSpeed: 200
+    Strength: 200
+    Dexterity: 200
+    Constitution: 200
+    Metabolism: 200
+    WillPower: 200
+    Intelligence: 200
+    Perception: 200
+    Lifetime: 200
     BodyParts:
     - Name: Head
+      TextName: "\u5934\u90E8"
       HitPoint:
         MaxValue: 1000
+      Size: 10
+      Weight: 10
+      Defence: 50
+      Available: 1
+      PartPos: 1
+      AttachBodyPart: 
+      Essential: 1
+      Fetchable: 0
+      ComponentIndex: 0
+    - Name: Neck
+      TextName: "\u9888\u90E8"
+      HitPoint:
+        MaxValue: 500
       Size: 10
       Weight: 10
       Defence: 10
@@ -3456,31 +3401,21 @@ MonoBehaviour:
       Essential: 1
       Fetchable: 0
       ComponentIndex: 0
-    - Name: LeftArm
+    - Name: Chest
+      TextName: "\u80F8\u90E8"
       HitPoint:
-        MaxValue: 1000
+        MaxValue: 2000
       Size: 10
       Weight: 10
-      Defence: 10
+      Defence: 20
       Available: 1
       PartPos: 2
-      AttachBodyPart: LeftHand
-      Essential: 0
+      AttachBodyPart: 
+      Essential: 1
       Fetchable: 0
       ComponentIndex: 0
-    - Name: RightArm
-      HitPoint:
-        MaxValue: 1000
-      Size: 10
-      Weight: 10
-      Defence: 10
-      Available: 1
-      PartPos: 2
-      AttachBodyPart: RightHand
-      Essential: 0
-      Fetchable: 0
-      ComponentIndex: 0
-    - Name: LeftHand
+    - Name: Waist
+      TextName: "\u8170\u90E8"
       HitPoint:
         MaxValue: 1000
       Size: 10
@@ -3492,14 +3427,119 @@ MonoBehaviour:
       Essential: 0
       Fetchable: 0
       ComponentIndex: 0
-    - Name: RightHand
+    - Name: Crotch
+      TextName: "\u80EF\u90E8"
       HitPoint:
         MaxValue: 1000
       Size: 10
       Weight: 10
       Defence: 10
       Available: 1
+      PartPos: 3
+      AttachBodyPart: 
+      Essential: 0
+      Fetchable: 0
+      ComponentIndex: 0
+    - Name: LeftArm
+      TextName: "\u5DE6\u81C2"
+      HitPoint:
+        MaxValue: 100
+      Size: 10
+      Weight: 10
+      Defence: 10
+      Available: 1
       PartPos: 2
+      AttachBodyPart: LeftHand
+      Essential: 0
+      Fetchable: 0
+      ComponentIndex: 0
+    - Name: LeftHand
+      TextName: "\u5DE6\u624B"
+      HitPoint:
+        MaxValue: 200
+      Size: 10
+      Weight: 10
+      Defence: 10
+      Available: 1
+      PartPos: 2
+      AttachBodyPart: 
+      Essential: 0
+      Fetchable: 1
+      ComponentIndex: 0
+    - Name: RightArm
+      TextName: "\u53F3\u81C2"
+      HitPoint:
+        MaxValue: 100
+      Size: 10
+      Weight: 10
+      Defence: 10
+      Available: 1
+      PartPos: 2
+      AttachBodyPart: RightHand
+      Essential: 0
+      Fetchable: 0
+      ComponentIndex: 0
+    - Name: RightHand
+      TextName: "\u53F3\u624B"
+      HitPoint:
+        MaxValue: 200
+      Size: 10
+      Weight: 10
+      Defence: 10
+      Available: 1
+      PartPos: 2
+      AttachBodyPart: 
+      Essential: 0
+      Fetchable: 1
+      ComponentIndex: 0
+    - Name: LeftLeg
+      TextName: "\u5DE6\u817F"
+      HitPoint:
+        MaxValue: 500
+      Size: 10
+      Weight: 10
+      Defence: 10
+      Available: 1
+      PartPos: 3
+      AttachBodyPart: 
+      Essential: 0
+      Fetchable: 0
+      ComponentIndex: 0
+    - Name: LeftFoot
+      TextName: "\u5DE6\u811A"
+      HitPoint:
+        MaxValue: 200
+      Size: 10
+      Weight: 10
+      Defence: 10
+      Available: 1
+      PartPos: 3
+      AttachBodyPart: 
+      Essential: 0
+      Fetchable: 0
+      ComponentIndex: 0
+    - Name: RightLeg
+      TextName: "\u53F3\u817F"
+      HitPoint:
+        MaxValue: 500
+      Size: 10
+      Weight: 10
+      Defence: 10
+      Available: 1
+      PartPos: 3
+      AttachBodyPart: 
+      Essential: 0
+      Fetchable: 0
+      ComponentIndex: 0
+    - Name: RightFoot
+      TextName: "\u53F3\u811A"
+      HitPoint:
+        MaxValue: 1000
+      Size: 10
+      Weight: 10
+      Defence: 10
+      Available: 1
+      PartPos: 3
       AttachBodyPart: 
       Essential: 0
       Fetchable: 0
@@ -3513,7 +3553,7 @@ MonoBehaviour:
   Endure: 0
   Hunger: 0
   Marady: 0
-  Age: 0
+  Age: 20
   Gender: 1
   Dead: 0
 --- !u!212 &1471056962

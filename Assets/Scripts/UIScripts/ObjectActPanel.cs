@@ -7,6 +7,7 @@ using ObjectScripts.CharSubstance;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using UtilScripts.Text;
 
 namespace UIScripts
 {
@@ -36,7 +37,7 @@ namespace UIScripts
             if (baseObject is IConsumeItem)
             {
                 _buttonInstance = Instantiate(ActButtonPrefab, ActButtonLayout.transform);
-                _buttonInstance.GetComponentInChildren<Text>().text = "Consume";
+                _buttonInstance.GetComponentInChildren<Text>().text = GameText.Instance.ConsumeAct;
                 _buttonInstance.onClick.AddListener(delegate
                 {
                     _playerController.NextAction = 

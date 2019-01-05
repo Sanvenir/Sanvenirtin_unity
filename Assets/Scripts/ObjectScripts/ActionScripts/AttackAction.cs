@@ -4,6 +4,7 @@ using ObjectScripts.CharSubstance;
 using ObjectScripts.SpriteController;
 using UnityEngine;
 using UtilScripts;
+using UtilScripts.Text;
 using Object = UnityEngine.Object;
 
 namespace ObjectScripts.ActionScripts
@@ -19,6 +20,12 @@ namespace ObjectScripts.ActionScripts
             AttackPart = PartPos.Arbitrary;
         }
 
+        public void AttackEmpty()
+        {
+            SceneManager.Instance.Print(
+                GameText.Instance.GetAttackEmptyLog(Self.TextName));
+        }
+
         public override void DoAction(bool check = true)
         {
             CostTime = Self.Properties.GetActTime();
@@ -27,19 +34,26 @@ namespace ObjectScripts.ActionScripts
             check = !check || CheckAction();
             Self.AttackMovement(TargetDirection, CostTime);
 
-            var attackBodyParts = Target.GetBodyParts(AttackPart);
-            if (attackBodyParts.Count == 0) check = false;
-            
             if (!check)
             {
-                SceneManager.Instance.Print(Self.name + " attacked empty");
+                AttackEmpty();
+                return;
+            }
+            
+            var attackBodyParts = Target.GetBodyParts(AttackPart);
+            if (attackBodyParts.Count == 0)
+            {
+                AttackEmpty();
                 return;
             }
 
             var part = Utils.ProcessRandom.Next(attackBodyParts.Count);
             SceneManager.Instance.Print(
-                Self.Name + " attacked " + Target.Name + " on " + 
-                Target.GetBodyParts(AttackPart)[part].Name);
+                GameText.Instance.GetAttackLog(
+                    Self.TextName, 
+                    Target.TextName, 
+                    Target.GetBodyParts(AttackPart)[part].TextName
+                    ));
             Target.Attacked(Self.Properties.GetBaseAttack(), Target.GetBodyParts(AttackPart)[part]);
             
             // Affect target AIController

@@ -78,8 +78,8 @@
     <Compile Include="Assets\Scripts\ObjectScripts\ActionScripts\WalkAction.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\BaseObject.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\BasicItem\BasicItem.cs" />
+    <Compile Include="Assets\Scripts\ObjectScripts\BasicItem\Food.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\BasicItem\IConsumeItem.cs" />
-    <Compile Include="Assets\Scripts\ObjectScripts\BasicItem\RawMeat.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\BodyPartScripts\BodyPart.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\BodyPartScripts\BodyPartList.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\BodyPartScripts\PartPos.cs" />
@@ -127,8 +127,8 @@
     <Compile Include="Assets\Scripts\UtilScripts\INamed.cs" />
     <Compile Include="Assets\Scripts\UtilScripts\JsonData.cs" />
     <Compile Include="Assets\Scripts\UtilScripts\LimitValue.cs" />
+    <Compile Include="Assets\Scripts\UtilScripts\Text\GameText.cs" />
     <Compile Include="Assets\Scripts\UtilScripts\Text\RandomName.cs" />
-    <Compile Include="Assets\Scripts\UtilScripts\Text\TextLogger.cs" />
     <Compile Include="Assets\Scripts\UtilScripts\Utils.cs" />
     <Compile Include="Assets\SpriteGlow\SpriteGlowEffect.cs" />
     <Compile Include="Assets\SpriteGlow\SpriteGlowMaterial.cs" />

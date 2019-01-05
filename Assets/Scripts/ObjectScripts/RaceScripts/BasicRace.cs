@@ -14,15 +14,32 @@ namespace ObjectScripts.RaceScripts
     [Serializable]
     public class BasicRace
     {
-        public string Name;
-        public const string SaveDir = "Resources/GameData/RaceProperties/";
+        public string Name = "human";
+        public string TextName = "人类";
+        public const string SaveDir =  @"Resources\GameData\RaceProperties";
         public string NameFormat = "general";
-
+        public List<RandomSprite> SpriteList;
+        
         private RandomName _randomName;
-
         public RandomName RandomName
         {
-            get { return _randomName ?? (_randomName = RandomName.LoadFromFile(NameFormat)); }
+            get { return _randomName ?? (_randomName = RandomName.GetInstance(NameFormat)); }
+        }
+
+//        public Properties StandardProperties = new Properties();
+
+        public static BasicRace LoadFromFile(string name)
+        {
+            var result = JsonData.LoadDataFromFile<BasicRace>(SaveDir, name);
+            if (result != null) return result;
+            result = new BasicRace {Name = name};
+            JsonData.SaveDataToFile(SaveDir, name, result);
+            return result;
+        }
+
+        public void SaveToFile()
+        {
+            JsonData.SaveDataToFile(SaveDir, Name, this);
         }
 
         private Properties _standardProperties;
@@ -38,12 +55,10 @@ namespace ObjectScripts.RaceScripts
                     return _standardProperties;
 
                 _standardProperties = new Properties();
-                SaveProperties();
+                JsonData.SaveDataToFile(SaveDir, Name, _standardProperties);
                 return _standardProperties;
             }
         }
-
-        public List<RandomSprite> SpriteList;
 
         public void RandomRefactor(Character character)
         {
@@ -56,7 +71,7 @@ namespace ObjectScripts.RaceScripts
             
             character.Age = Utils.ProcessRandom.Next(randomSprite.MinAge, randomSprite.MaxAge);
             character.Gender = randomSprite.Gender;
-            character.Name = RandomName.GenerateName(character.Gender);
+            character.TextName = RandomName.GenerateName(character.Gender);
 
             RefactorGameObject(character);
 
@@ -133,7 +148,7 @@ namespace ObjectScripts.RaceScripts
         {
             character.BodyParts = new Dictionary<string, BodyPart>();
             character.Properties = CreateProperties(character.Age, character.Gender);
-            foreach (var bodyPart in _standardProperties.BodyParts)
+            foreach (var bodyPart in StandardProperties.BodyParts)
             {
                 character.BodyParts.Add(bodyPart.Name, (BodyPart) bodyPart.Clone());
             }
@@ -170,11 +185,6 @@ namespace ObjectScripts.RaceScripts
             public int MinAge;
 
             public Gender Gender;
-        }
-
-        public void SaveProperties()
-        {
-            JsonData.SaveDataToFile(SaveDir, Name, _standardProperties);
         }
     }
 }

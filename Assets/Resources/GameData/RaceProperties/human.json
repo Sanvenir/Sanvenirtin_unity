@@ -1,24 +1,25 @@
 {
-    "Speed": 10.0,
-    "MoveSpeed": 10.0,
-    "ActSpeed": 10.0,
-    "Strength": 10.0,
-    "Dexterity": 10.0,
-    "Constitution": 10.0,
-    "Metabolism": 10.0,
-    "WillPower": 10.0,
-    "Intelligence": 10.0,
-    "Perception": 10.0,
-    "Lifetime": 0,
+    "Speed": 100.0,
+    "MoveSpeed": 100.0,
+    "ActSpeed": 100.0,
+    "Strength": 100.0,
+    "Dexterity": 100.0,
+    "Constitution": 100.0,
+    "Metabolism": 100.0,
+    "WillPower": 100.0,
+    "Intelligence": 100.0,
+    "Perception": 100.0,
+    "Lifetime": 100,
     "BodyParts": [
         {
             "Name": "Head",
+            "TextName": "头部",
             "HitPoint": {
                 "MaxValue": 1000.0
             },
             "Size": 10.0,
             "Weight": 10.0,
-            "Defence": 10.0,
+            "Defence": 50.0,
             "Available": true,
             "PartPos": 1,
             "AttachBodyPart": "",
@@ -28,8 +29,9 @@
         },
         {
             "Name": "Neck",
+            "TextName": "颈部",
             "HitPoint": {
-                "MaxValue": 1000.0
+                "MaxValue": 500.0
             },
             "Size": 10.0,
             "Weight": 10.0,
@@ -43,12 +45,13 @@
         },
         {
             "Name": "Chest",
+            "TextName": "胸部",
             "HitPoint": {
-                "MaxValue": 1000.0
+                "MaxValue": 2000.0
             },
             "Size": 10.0,
             "Weight": 10.0,
-            "Defence": 10.0,
+            "Defence": 20.0,
             "Available": true,
             "PartPos": 2,
             "AttachBodyPart": "",
@@ -58,6 +61,7 @@
         },
         {
             "Name": "Waist",
+            "TextName": "腰部",
             "HitPoint": {
                 "MaxValue": 1000.0
             },
@@ -73,6 +77,7 @@
         },
         {
             "Name": "Crotch",
+            "TextName": "胯部",
             "HitPoint": {
                 "MaxValue": 1000.0
             },
@@ -88,8 +93,9 @@
         },
         {
             "Name": "LeftArm",
+            "TextName": "左臂",
             "HitPoint": {
-                "MaxValue": 1000.0
+                "MaxValue": 100.0
             },
             "Size": 10.0,
             "Weight": 10.0,
@@ -103,8 +109,9 @@
         },
         {
             "Name": "LeftHand",
+            "TextName": "左手",
             "HitPoint": {
-                "MaxValue": 1000.0
+                "MaxValue": 100.0
             },
             "Size": 10.0,
             "Weight": 10.0,
@@ -118,8 +125,9 @@
         },
         {
             "Name": "RightArm",
+            "TextName": "右臂",
             "HitPoint": {
-                "MaxValue": 1000.0
+                "MaxValue": 100.0
             },
             "Size": 10.0,
             "Weight": 10.0,
@@ -133,8 +141,9 @@
         },
         {
             "Name": "RightHand",
+            "TextName": "右手",
             "HitPoint": {
-                "MaxValue": 1000.0
+                "MaxValue": 100.0
             },
             "Size": 10.0,
             "Weight": 10.0,
@@ -148,8 +157,9 @@
         },
         {
             "Name": "LeftLeg",
+            "TextName": "左腿",
             "HitPoint": {
-                "MaxValue": 1000.0
+                "MaxValue": 100.0
             },
             "Size": 10.0,
             "Weight": 10.0,
@@ -163,8 +173,9 @@
         },
         {
             "Name": "LeftFoot",
+            "TextName": "左脚",
             "HitPoint": {
-                "MaxValue": 1000.0
+                "MaxValue": 100.0
             },
             "Size": 10.0,
             "Weight": 10.0,
@@ -178,8 +189,9 @@
         },
         {
             "Name": "RightLeg",
+            "TextName": "右腿",
             "HitPoint": {
-                "MaxValue": 1000.0
+                "MaxValue": 100.0
             },
             "Size": 10.0,
             "Weight": 10.0,
@@ -193,8 +205,9 @@
         },
         {
             "Name": "RightFoot",
+            "TextName": "右脚",
             "HitPoint": {
-                "MaxValue": 1000.0
+                "MaxValue": 100.0
             },
             "Size": 10.0,
             "Weight": 10.0,

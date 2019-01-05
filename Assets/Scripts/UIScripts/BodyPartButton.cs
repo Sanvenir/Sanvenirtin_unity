@@ -15,7 +15,7 @@ namespace UIScripts
 
         private void Start()
         {
-            Text.text = BodyPart.Name;
+            Text.text = BodyPart.GetTextName();
         }
 
         private void Update()

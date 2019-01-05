@@ -12,9 +12,31 @@ namespace UtilScripts.Text
     {
         public const string SaveDir = "Resources/GameData/RandomName";
 
-        public List<string> NeutralSyllable = new List<string>();
-        public List<string> PositiveSyllable = new List<string>();
-        public List<string> NegativeSyllable = new List<string>();
+        public List<string> NeutralSyllable = new List<string>
+        {
+            "Neutral Syllable"
+        };
+        public List<string> PositiveSyllable = new List<string>
+        {
+            "Positive Syllable"
+        };
+        public List<string> NegativeSyllable = new List<string>
+        {
+            "Negative Syllable"
+        };
+
+        private static readonly Dictionary<string, RandomName> Instances = new Dictionary<string, RandomName>();
+
+        public static RandomName GetInstance(string name)
+        {
+            if (Instances.ContainsKey(name))
+            {
+                return Instances[name];
+            }
+
+            Instances.Add(name, LoadFromFile(name));
+            return Instances[name];
+        }
 
 
         public List<string> GetSyllable(Gender gender)
@@ -43,14 +65,13 @@ namespace UtilScripts.Text
             return GetSyllable(gender)[index];
         }
 
-        public void SaveToFile(string name)
+        private static RandomName LoadFromFile(string name)
         {
-            JsonData.SaveDataToFile(SaveDir, name, this);
-        }
-
-        public static RandomName LoadFromFile(string name)
-        {
-            return JsonData.LoadDataFromFile<RandomName>(SaveDir, name);
+            var result = JsonData.LoadDataFromFile<RandomName>(SaveDir, name);
+            if (result != null) return result;
+            result = new RandomName();
+            JsonData.SaveDataToFile(SaveDir, name, result);
+            return result;
         }
     }
 }

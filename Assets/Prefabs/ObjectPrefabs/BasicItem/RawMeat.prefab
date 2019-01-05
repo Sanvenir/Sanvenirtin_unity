@@ -68,7 +68,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd654717ea4f45d298c3df314611380b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: Raw Meat
+  TextName: "\u751F\u8089"
   SpriteRenderer: {fileID: 212370470651645388}
   Collider2D: {fileID: 58834145358047370}
   Weight: 10

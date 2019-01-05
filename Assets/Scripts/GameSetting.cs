@@ -14,7 +14,6 @@ public class GameSetting: MonoBehaviour
                         new BasicRace()
                 }
         };
-        
         public static GameSetting Instance = null;
 
         private void Awake()
