@@ -1,3 +1,4 @@
+using System;
 using System.Net;
 using ObjectScripts;
 using ObjectScripts.CharSubstance;
@@ -10,11 +11,17 @@ namespace AreaScripts
 {
     public class RandomLocalArea : LocalArea
     {
+        [Serializable]
+        public struct RandomRace
+        {
+            public Character RaceCharacter;
+            public float RaceAppearRatio;
+        }
+        
         public TileBase[] GroundTiles;
         public Substance[] SubstancePrefabs;
         public BuildingTilemap[] BuildingTilemaps;
-        public Character[] RaceCharacters;
-        public float[] RaceAppearRatio;
+        public RandomRace[] RaceSetting;
         
         public float ObjectsGenerateRatio = 0.1f;
         public float BuildingProbability = 0.5f;
@@ -32,11 +39,11 @@ namespace AreaScripts
             {
 
                 var check = (float)Utils.ProcessRandom.NextDouble();
-                for (var i = 0; i < RaceCharacters.Length; ++i)
+                foreach (var race in RaceSetting)
                 {
-                    check -= RaceAppearRatio[i];
+                    check -= race.RaceAppearRatio;
                     if (!(check < 0)) continue;
-                    RandomGenerateRaceCharacters(RaceCharacters[i], coord);
+                    RandomGenerateRaceCharacters(race.RaceCharacter, coord);
                     break;
                 }
 

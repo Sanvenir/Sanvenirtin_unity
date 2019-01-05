@@ -11,9 +11,12 @@ namespace ObjectScripts.CharacterController
     public abstract class CharacterController: MonoBehaviour
     {
         // Actions
-        public WalkAction WalkAction;
-        public WaitAction WaitAction;
-        public AttackAction AttackAction;
+        protected BaseAction NextAction;
+
+        public virtual void SetAction(BaseAction action)
+        {
+            NextAction = action;
+        }
         
         public Character Character;
 
@@ -21,9 +24,6 @@ namespace ObjectScripts.CharacterController
 
         protected virtual void Awake()
         {
-            WalkAction = new WalkAction(Character);
-            WaitAction = new WaitAction(Character);
-            AttackAction = new AttackAction(Character);
         }
 
         public virtual void Initialize()
@@ -174,33 +174,35 @@ namespace ObjectScripts.CharacterController
                 return Vector2Int.zero;
             }
 
-            var dx = target.x - Character.WorldCoord.x;
-            var dy = target.y - Character.WorldCoord.y;
-            if (dx != 0)
+//            var dx = target.x - Character.WorldCoord.x;
+//            var dy = target.y - Character.WorldCoord.y;
+
+            var delta = target - Character.WorldCoord;
+            if (delta.x != 0)
             {
-                dx = dx.CompareTo(0);
+                delta.x = delta.x.CompareTo(0);
             }
 
-            if (dy != 0)
+            if (delta.y != 0)
             {
-                dy = dy.CompareTo(0);
+                delta.y = delta.y.CompareTo(0);
             }
 
-            if ((dx & dy) == 0)
-                return Character.CheckColliderAtWorldCoord(new Vector2Int(dx, dy) + Character.WorldCoord)
-                    ? new Vector2Int(dx, dy)
+            if ((delta.x & delta.y) == 0)
+                return Character.CheckColliderAtWorldCoord(delta + Character.WorldCoord)
+                    ? delta
                     : Vector2Int.zero;
-            var delta = new Vector2Int();
+            // var delta = new Vector2Int();
             var altDelta = new Vector2Int();
             if (Utils.ProcessRandom.Next(2) == 0)
             {
-                delta.x = dx;
-                altDelta.y = dy;
+                altDelta.y = delta.y;
+                delta.y = 0;
             }
             else
             {
-                delta.y = dy;
-                altDelta.x = dx;
+                altDelta.x = delta.x;
+                delta.x = 0;
             }
 
             if (Character.CheckColliderAtWorldCoord(delta + Character.WorldCoord))

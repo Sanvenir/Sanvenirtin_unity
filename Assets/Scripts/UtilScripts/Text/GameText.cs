@@ -15,6 +15,7 @@ namespace UtilScripts.Text
         public string RestOrder = "休息";
         public string WalkToOrder = "移至";
         public string ConsumeAct = "食用";
+        public string DropAct = "丢弃";
 
         private static GameText _instance = null;
 
@@ -30,6 +31,8 @@ namespace UtilScripts.Text
                 return _instance;
             }
         }
+
+        public string CannotFindPathLog = "你不知道如何到达这里。";
 
         public List<string> EatUpItemLog = new List<string>
         {

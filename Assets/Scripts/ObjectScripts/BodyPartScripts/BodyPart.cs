@@ -10,6 +10,7 @@ namespace ObjectScripts.BodyPartScripts
     [Serializable]
     public class BodyPart: INamed, ICloneable
     {
+        public const float DropIncrement = 0.1f;
         public string Name;
         public string TextName;
         public LimitValue HitPoint = new LimitValue(1000);
@@ -83,8 +84,8 @@ namespace ObjectScripts.BodyPartScripts
 
                 Object.Instantiate(component).transform.position =
                     Substance.WorldPos + new Vector2(
-                        (float) Utils.ProcessRandom.NextDouble() - 0.5f,
-                        (float) Utils.ProcessRandom.NextDouble() - 0.5f);
+                        (float) Utils.ProcessRandom.NextDouble() * DropIncrement * 2 - DropIncrement,
+                        (float) Utils.ProcessRandom.NextDouble() * DropIncrement * 2 - DropIncrement);
             }
         }
 

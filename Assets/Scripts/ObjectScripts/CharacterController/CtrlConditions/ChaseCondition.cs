@@ -5,10 +5,10 @@ using UtilScripts;
 
 namespace ObjectScripts.CharacterController.CtrlConditions
 {
-    public class ChaseCondition: BaseCondition
+    public class ChaseCondition : BaseCondition
     {
         public Character TargetCharacter;
-        
+
         public ChaseCondition(AiController controller, Character target) : base(controller)
         {
             TargetCharacter = target;
@@ -18,17 +18,17 @@ namespace ObjectScripts.CharacterController.CtrlConditions
         {
             if (TargetCharacter == null || TargetCharacter.Dead)
             {
-                Controller.Condition = new BaseCondition(Controller);
+                Controller.Condition = new WonderCondition(Controller);
                 return Controller.Condition.NextAction();
             }
+
             var incVec = Controller.AStarFinder(
-                TargetCharacter.WorldCoord, (int)Controller.Character.Properties.Intelligence);
+                TargetCharacter.WorldCoord,
+                (int) Controller.Character.Properties.Intelligence);
 
-            if (incVec == Vector2Int.zero) return base.NextAction();
-            
-            Controller.WalkAction.TargetDirection = Utils.VectorToDirection(incVec);
-            return Controller.WalkAction;
-
+            return incVec == Vector2Int.zero
+                ? base.NextAction()
+                : new WalkAction(Controller.Character, Utils.VectorToDirection(incVec));
         }
     }
 }

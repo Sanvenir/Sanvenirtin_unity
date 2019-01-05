@@ -29,11 +29,16 @@ namespace UIScripts
             FetchObjectImage.enabled = true;
         }
 
+        public void RemoveObject()
+        {
+            FetchObject = null;
+        }
+
 
         public void OnPointerClick(PointerEventData eventData)
         {
             if (FetchObject == null) return;
-            SceneManager.Instance.ObjectActPanel.StartUp(FetchObject);
+            SceneManager.Instance.ObjectActPanel.StartUp(FetchObject, BodyPart);
         }
     }
 }

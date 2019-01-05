@@ -8,7 +8,6 @@ namespace ObjectScripts.CharacterController
 {
     public class PlayerController: CharacterController
     {
-        public BaseAction NextAction;
         public BaseOrder CurrentOrder;
         
         [HideInInspector]
@@ -28,81 +27,91 @@ namespace ObjectScripts.CharacterController
         
         private void LateUpdate()
         {
-            
-            if (Input.GetKey(KeyCode.LeftShift))
-            {
-                if (Input.GetKey(KeyCode.A))
-                {
-                    AttackAction.TargetDirection = Direction.Left;
-                    NextAction = AttackAction;
-                    CurrentOrder = null;
-                }
-                else if (Input.GetKey(KeyCode.D))
-                {
-                    AttackAction.TargetDirection = Direction.Right;
-                    NextAction = AttackAction;
-                    CurrentOrder = null;
-                }
-                else if (Input.GetKey(KeyCode.S))
-                {
-                    AttackAction.TargetDirection = Direction.Down;
-                    NextAction = AttackAction;
-                    CurrentOrder = null;
-                }
-                else if (Input.GetKey(KeyCode.W))
-                {
-                    AttackAction.TargetDirection = Direction.Up;
-                    NextAction = AttackAction;
-                    CurrentOrder = null;
-                }
-                else
-                {
-                    NextAction = null;
-                }
-            }
-            else
-            {
-                if (Input.GetKey(KeyCode.A))
-                {
-                    WalkAction.TargetDirection = Direction.Left;
-                    NextAction = WalkAction;
-                    CurrentOrder = null;
-                }
-                else if (Input.GetKey(KeyCode.D))
-                {
-                    WalkAction.TargetDirection = Direction.Right;
-                    NextAction = WalkAction;
-                    CurrentOrder = null;
-                }
-                else if (Input.GetKey(KeyCode.S))
-                {
-                    WalkAction.TargetDirection = Direction.Down;
-                    NextAction = WalkAction;
-                    CurrentOrder = null;
-                }
-                else if (Input.GetKey(KeyCode.W))
-                {
-                    WalkAction.TargetDirection = Direction.Up;
-                    NextAction = WalkAction;
-                    CurrentOrder = null;
-                }
-                else if (Input.GetKey(KeyCode.Space))
-                {
-                    NextAction = WaitAction;
-                    CurrentOrder = null;
-                }
-                else
-                {
-                    NextAction = null;
-                }
-            }
+//            
+//            if (Input.GetKey(KeyCode.LeftShift))
+//            {
+//                if (Input.GetKey(KeyCode.A))
+//                {
+//                    AttackNeighbourAction.TargetDirection = Direction.Left;
+//                    NextAction = AttackNeighbourAction;
+//                    CurrentOrder = null;
+//                }
+//                else if (Input.GetKey(KeyCode.D))
+//                {
+//                    AttackNeighbourAction.TargetDirection = Direction.Right;
+//                    NextAction = AttackNeighbourAction;
+//                    CurrentOrder = null;
+//                }
+//                else if (Input.GetKey(KeyCode.S))
+//                {
+//                    AttackNeighbourAction.TargetDirection = Direction.Down;
+//                    NextAction = AttackNeighbourAction;
+//                    CurrentOrder = null;
+//                }
+//                else if (Input.GetKey(KeyCode.W))
+//                {
+//                    AttackNeighbourAction.TargetDirection = Direction.Up;
+//                    NextAction = AttackNeighbourAction;
+//                    CurrentOrder = null;
+//                }
+//                else
+//                {
+//                    NextAction = null;
+//                }
+//            }
+//            else
+//            {
+//                if (Input.GetKey(KeyCode.A))
+//                {
+//                    WalkAction.TargetDirection = Direction.Left;
+//                    NextAction = WalkAction;
+//                    CurrentOrder = null;
+//                }
+//                else if (Input.GetKey(KeyCode.D))
+//                {
+//                    WalkAction.TargetDirection = Direction.Right;
+//                    NextAction = WalkAction;
+//                    CurrentOrder = null;
+//                }
+//                else if (Input.GetKey(KeyCode.S))
+//                {
+//                    WalkAction.TargetDirection = Direction.Down;
+//                    NextAction = WalkAction;
+//                    CurrentOrder = null;
+//                }
+//                else if (Input.GetKey(KeyCode.W))
+//                {
+//                    WalkAction.TargetDirection = Direction.Up;
+//                    NextAction = WalkAction;
+//                    CurrentOrder = null;
+//                }
+//                else if (Input.GetKey(KeyCode.Space))
+//                {
+//                    NextAction = WaitAction;
+//                    CurrentOrder = null;
+//                }
+//                else
+//                {
+//                    NextAction = null;
+//                }
+//            }
 
-            if (CurrentOrder == null) return;
-            CurrentOrder = CurrentOrder.DoOrder();
+        }
+
+        public override void SetAction(BaseAction action)
+        {
+            base.SetAction(action);
+            CurrentOrder = null;
         }
 
         public override void UpdateFunction()
         {
+
+            if (CurrentOrder != null)
+            {
+                CurrentOrder = CurrentOrder.DoOrder();
+            }
+
             if (NextAction == null) return;
             NextAction.DoAction();
             NextAction = null;

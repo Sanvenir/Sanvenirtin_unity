@@ -1,3 +1,4 @@
+using ObjectScripts.ActionScripts;
 using ObjectScripts.CharSubstance;
 using UnityEngine;
 using UtilScripts;
@@ -7,16 +8,11 @@ namespace ObjectScripts.CharacterController.PlayerOrder
 {
     public class AttackDirectionOrder: BaseOrder
     {
-        public AttackDirectionOrder(Character targetCharacter, Direction targetDirection, Vector2Int targetCoord) : 
-            base(targetCharacter, targetDirection, targetCoord)
-        {
-            Name = "Attack";
-        }
 
         public override BaseOrder DoOrder()
         {
-            Controller.AttackAction.TargetDirection = TargetDirection;
-            Controller.NextAction = Controller.AttackAction;
+            base.DoOrder();
+            Controller.SetAction(new AttackNeighbourAction(Controller.Character, Controller.TargetDirection));
             return null;
         }
 

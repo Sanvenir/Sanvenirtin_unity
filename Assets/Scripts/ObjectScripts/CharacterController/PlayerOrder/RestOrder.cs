@@ -1,3 +1,4 @@
+using ObjectScripts.ActionScripts;
 using ObjectScripts.CharSubstance;
 using UnityEditor;
 using UnityEngine;
@@ -8,14 +9,10 @@ namespace ObjectScripts.CharacterController.PlayerOrder
 {
     public class RestOrder: BaseOrder
     {
-        public RestOrder(Character targetCharacter, Direction targetDirection, Vector2Int targetCoord) : base(targetCharacter, targetDirection, targetCoord)
-        {
-            Name = "Rest";
-        }
-
         public override BaseOrder DoOrder()
         {
-            Controller.NextAction = Controller.WaitAction;
+            base.DoOrder();
+            Controller.SetAction(new WaitAction(Controller.Character));
             return this;
         }
 

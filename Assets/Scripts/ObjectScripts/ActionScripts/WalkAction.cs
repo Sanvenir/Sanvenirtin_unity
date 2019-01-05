@@ -5,21 +5,20 @@ namespace ObjectScripts.ActionScripts
 {
     public class WalkAction: BaseAction
     {
-        public override void DoAction(bool check = true)
+        private readonly Direction _targetDirection;
+        
+        public override bool DoAction()
         {
+            base.DoAction();
+            if (!Self.MoveCheck(Utils.DirectionToVector(_targetDirection))) return false;
+            Self.Move(Utils.DirectionToVector(_targetDirection), CostTime);
+            return true;
+        }
+
+        public WalkAction(Character self, Direction targetDirection) : base(self)
+        {
+            _targetDirection = targetDirection;
             CostTime = Self.Properties.GetMoveTime();
-            Self.ActivateTime += CostTime;
-            Self.Move(Utils.DirectionToVector(TargetDirection), CostTime, check);
-        }
-
-        public override bool CheckAction()
-        {
-            // If can move, return true
-            return Self.MoveCheck(Utils.DirectionToVector(TargetDirection));
-        }
-
-        public WalkAction(Character self) : base(self)
-        {
         }
     }
 }

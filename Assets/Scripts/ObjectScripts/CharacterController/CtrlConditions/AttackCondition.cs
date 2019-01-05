@@ -1,6 +1,7 @@
 using ObjectScripts.ActionScripts;
 using ObjectScripts.BodyPartScripts;
 using ObjectScripts.CharSubstance;
+using UnityEngine;
 using UtilScripts;
 
 namespace ObjectScripts.CharacterController.CtrlConditions
@@ -16,18 +17,15 @@ namespace ObjectScripts.CharacterController.CtrlConditions
         {
             if (TargetCharacter == null || TargetCharacter.Dead)
             {
-                Controller.Condition = new BaseCondition(Controller);
+                Controller.Condition = new WonderCondition(Controller);
                 return Controller.Condition.NextAction();
             }
 
-            Controller.AttackAction.TargetDirection =
-                Utils.VectorToDirection(TargetCharacter.WorldCoord - Controller.Character.WorldCoord);
-            Controller.AttackAction.AttackPart = (PartPos) Utils.ProcessRandom.Next(3);
-            if (Controller.AttackAction.CheckAction() && 
-                Controller.AttackAction.Target == TargetCharacter)
-            {
-                return Controller.AttackAction;
-            }
+            var delta = TargetCharacter.WorldCoord - Controller.Character.WorldCoord;
+            if(delta.sqrMagnitude == 1)
+                return new AttackNeighbourAction(
+                    Controller.Character, 
+                    Utils.VectorToDirection(delta));
             return base.NextAction();
         }
     }

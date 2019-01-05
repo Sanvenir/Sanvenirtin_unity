@@ -1,0 +1,31 @@
+{
+    "AttackDirectionOrder": "攻击",
+    "PickupOrder": "拾起",
+    "RestOrder": "休息",
+    "WalkToOrder": "移至",
+    "ConsumeAct": "食用",
+    "EatUpItemLog": [
+        "<item>被<self>吃光了"
+    ],
+    "EatItemLog": [
+        "<self>食用了<item>。"
+    ],
+    "CharacterDeadLog": [
+        "<self>死掉了。"
+    ],
+    "SubstanceDestroyLog": [
+        "<self>完全损毁了。"
+    ],
+    "BodyPartDestroyLog": [
+        "<self>的<targetPart>完全毁掉了！",
+        "<self>失去了<targetPart>！"
+    ],
+    "AttackLog": [
+        "<self>击中了<target>的<targetPart>。",
+        "<target>被<self>击中了<targetPart>。"
+    ],
+    "AttackEmptyLog": [
+        "<self>没有击中任何东西。",
+        "<self>的攻击落空了"
+    ]
+}

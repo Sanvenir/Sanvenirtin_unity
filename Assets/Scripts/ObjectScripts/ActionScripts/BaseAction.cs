@@ -8,11 +8,8 @@ namespace ObjectScripts.ActionScripts
     public abstract class BaseAction
     {
         protected readonly Character Self;
-
+        
         protected int CostTime;
-        public Direction TargetDirection;
-        public Vector2Int TargetCoord;
-        public BaseObject TargetObject;
 
         public BaseAction(Character self)
         {
@@ -20,7 +17,10 @@ namespace ObjectScripts.ActionScripts
         }
         
         // Return Cost Time
-        public abstract void DoAction(bool check = true);
-        public abstract bool CheckAction();
+        public virtual bool DoAction()
+        {
+            Self.ActivateTime += CostTime;
+            return true;
+        }
     }
 }

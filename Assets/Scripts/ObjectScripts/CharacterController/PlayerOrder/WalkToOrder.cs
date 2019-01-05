@@ -1,3 +1,4 @@
+using ObjectScripts.ActionScripts;
 using ObjectScripts.CharSubstance;
 using UnityEngine;
 using UtilScripts;
@@ -5,36 +6,30 @@ using UtilScripts.Text;
 
 namespace ObjectScripts.CharacterController.PlayerOrder
 {
-    public class WalkToOrder: BaseOrder
+    public class WalkToOrder : BaseOrder
     {
         private Vector2Int _vecInt;
-        public WalkToOrder(Character targetCharacter, Direction targetDirection, Vector2Int targetCoord) : 
-            base(targetCharacter, targetDirection, targetCoord)
-        {
-            Name = "WalkTo";
-        }
 
         public override BaseOrder DoOrder()
         {
-            if (Controller.Character.WorldCoord == TargetCoord)
+            base.DoOrder();
+            if (Controller.Character.WorldCoord == Controller.TargetCoord)
             {
-                Controller.NextAction = null;
                 return null;
             }
 
-            _vecInt = Controller.AStarFinder(TargetCoord);
-            if (_vecInt == Vector2Int.zero)
+            _vecInt = Controller.AStarFinder(
+                Controller.TargetCoord,
+                (int) Controller.Character.Properties.Intelligence);
+            if (_vecInt == Vector2Int.zero || !Controller.Character.MoveCheck(_vecInt))
             {
-                Controller.NextAction = null;
                 SceneManager.Instance.Print(
-                    "You can't find path to your order," +
-                    " because of your current intelligence");
+                    GameText.Instance.CannotFindPathLog);
                 return null;
             }
 
-            Controller.WalkAction.TargetDirection = Utils.VectorToDirection(_vecInt);
-            Controller.NextAction = Controller.WalkAction;
-            return Controller.WalkAction.CheckAction() ? this : null;
+            Controller.SetAction(new WalkAction(Controller.Character, Utils.VectorToDirection(_vecInt)));
+            return this;
         }
 
         public override string GetTextName()

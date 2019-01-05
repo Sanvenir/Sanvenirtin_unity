@@ -69,10 +69,10 @@ MonoBehaviour:
   - {fileID: 114566145580136664, guid: 0dce885337da32d49978572551cb6377, type: 2}
   BuildingTilemaps:
   - {fileID: 114984274561182258, guid: f42eb1e5e43e89e41a533377a05d68d4, type: 2}
-  RaceCharacters:
-  - {fileID: 114717772600095978, guid: 6570fec23155b964688528789beadd1b, type: 2}
-  RaceAppearRatio:
-  - 0.01
+  RaceSetting:
+  - RaceCharacter: {fileID: 114717772600095978, guid: 6570fec23155b964688528789beadd1b,
+      type: 2}
+    RaceAppearRatio: 0.02
   ObjectsGenerateRatio: 0.02
   BuildingProbability: 0.5
 --- !u!19719996 &2113883504895507058

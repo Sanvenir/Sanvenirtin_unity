@@ -189,18 +189,22 @@ namespace UIScripts
                 var worldCoord = SceneManager.Instance.WorldPosToCoord(
                     SceneCursor.transform.position);
                 var direction = Utils.VectorToDirection(worldCoord - Player.WorldCoord);
+
+                PlayerController.TargetCharacter = _selected == null ? null : _selected.GetComponent<Character>();
+                PlayerController.TargetCoord = worldCoord;
+                PlayerController.TargetDirection = direction;
                 
                 var orderList = new List<BaseOrder>
                 {
-                    new RestOrder(Player, direction, Player.WorldCoord),
-                    new PickupOrder(Player, direction, Player.WorldCoord)
+                    new RestOrder(),
+                    new PickupOrder()
                 };
                 if (direction != Direction.None)
                 {
                     orderList.Insert(
-                        0, new WalkToOrder(null, direction, worldCoord));
+                        0, new WalkToOrder());
                     orderList.Add(
-                        new AttackDirectionOrder(null, direction, worldCoord));
+                        new AttackDirectionOrder());
                 }
                 
                 SelectionMenu.StartUp(targetPos, orderList);

@@ -30,9 +30,10 @@
           </e>
           <e p="ObjectScripts" t="Include">
             <e p="ActionScripts" t="Include">
-              <e p="AttackAction.cs" t="Include" />
+              <e p="AttackNeighbourAction.cs" t="Include" />
               <e p="BaseAction.cs" t="Include" />
               <e p="ConsumeAction.cs" t="Include" />
+              <e p="DropAction.cs" t="Include" />
               <e p="PickupAction.cs" t="Include" />
               <e p="WaitAction.cs" t="Include" />
               <e p="WalkAction.cs" t="Include" />

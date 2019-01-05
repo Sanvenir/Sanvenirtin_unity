@@ -3,9 +3,9 @@ using UtilScripts;
 
 namespace ObjectScripts.CharacterController.CtrlConditions
 {
-    public class BaseCondition
+    public abstract class BaseCondition
     {
-        public AiController Controller;
+        protected readonly AiController Controller;
         
         public BaseCondition(AiController controller)
         {
@@ -14,16 +14,9 @@ namespace ObjectScripts.CharacterController.CtrlConditions
 
         public virtual BaseAction NextAction()
         {
-            if (Utils.ProcessRandom.Next(5) != 0)
-            {
-                return Controller.WaitAction;
-            }
-
-            
-            Controller.WalkAction.TargetDirection = (Direction) Utils.ProcessRandom.Next(4);
-            return Controller.WalkAction;
+            return new WalkAction(Controller.Character, (Direction) Utils.ProcessRandom.Next(4));
         }
-        
-        
+
+
     }
 }

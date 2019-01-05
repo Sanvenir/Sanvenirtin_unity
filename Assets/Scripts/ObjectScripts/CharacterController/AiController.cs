@@ -11,7 +11,7 @@ namespace ObjectScripts.CharacterController
 
         private void Start()
         {
-            Condition = new BaseCondition(this);
+            Condition = new AttackCondition(this, SceneManager.Instance.PlayerObject);
         }
 
         public override void UpdateFunction()

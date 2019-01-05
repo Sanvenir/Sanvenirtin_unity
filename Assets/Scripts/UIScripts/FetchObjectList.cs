@@ -25,7 +25,6 @@ namespace UIScripts
             {
                 var instance = Instantiate(SlotPrefab, transform);
                 instance.BodyPart = part;
-                instance.FetchObject = _fetchDictionary[part];
                 FetchSlots.Add(part, instance);
             }
         }
@@ -34,7 +33,11 @@ namespace UIScripts
         {
             foreach (var part in _fetchDictionary.Keys)
             {
-                if(_fetchDictionary[part] == null) continue;
+                if (_fetchDictionary[part] == null)
+                {
+                    FetchSlots[part].RemoveObject();
+                    return;
+                }
                 FetchSlots[part].AddObject(_fetchDictionary[part]);
             }
         }

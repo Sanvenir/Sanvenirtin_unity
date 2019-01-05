@@ -67,10 +67,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ba415bfb72d8a5f4ea8b07a97658ccb3, type: 2}
   SubstancePrefabs: []
   BuildingTilemaps: []
-  RaceCharacters:
-  - {fileID: 114717772600095978, guid: 6570fec23155b964688528789beadd1b, type: 2}
-  RaceAppearRatio:
-  - 0.01
+  RaceSetting: []
   ObjectsGenerateRatio: 0.001
   BuildingProbability: 0.5
 --- !u!19719996 &2113883504573150554

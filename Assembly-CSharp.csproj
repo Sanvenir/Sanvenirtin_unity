@@ -70,9 +70,10 @@
     <Compile Include="Assets\Scripts\MapScripts\EarthMap.cs" />
     <Compile Include="Assets\Scripts\MapScripts\EarthMapManager.cs" />
     <Compile Include="Assets\Scripts\MapScripts\MainLand.cs" />
-    <Compile Include="Assets\Scripts\ObjectScripts\ActionScripts\AttackAction.cs" />
+    <Compile Include="Assets\Scripts\ObjectScripts\ActionScripts\AttackNeighbourAction.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\ActionScripts\BaseAction.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\ActionScripts\ConsumeAction.cs" />
+    <Compile Include="Assets\Scripts\ObjectScripts\ActionScripts\DropAction.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\ActionScripts\PickupAction.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\ActionScripts\WaitAction.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\ActionScripts\WalkAction.cs" />

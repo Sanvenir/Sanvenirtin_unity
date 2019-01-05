@@ -40,22 +40,24 @@ namespace UIScripts
         private int _step;
         private int _index;
 
-        public void StartUp(Vector2 pos, List<T> selectionList)
+        public void StartUp(Vector2 pos, IEnumerable<T> selectionList)
         {
-            if (selectionList.Count == 0) return;
-            enabled = true;
-            CenterPos = pos;
-            _mouseY = 0f;
-            CenterIndex = 0;
-            SelectionList = selectionList;
+            SelectionList = new List<T>();
             foreach (var selection in selectionList)
             {
                 var instance = Instantiate(ButtonPrefab, transform);
                 instance.SetText(selection.GetTextName());
                 instance.transform.position = CenterPos;
                 ButtonInstances.Add(instance);
+                SelectionList.Add(selection);
             }
 
+            if (SelectionList.Count == 0) return;
+
+            enabled = true;
+            CenterPos = pos;
+            _mouseY = 0f;
+            CenterIndex = 0;
             CurrentSelect = SelectionList[CenterIndex];
         }
         

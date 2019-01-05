@@ -12,6 +12,7 @@ namespace ObjectScripts.CharSubstance
 {
     public abstract class Character : Substance
     {
+        public const float DropIncrement = 0.1f;
         public CharacterController.CharacterController Controller;
         public Properties Properties;
         public int RaceIndex = 0;
@@ -75,15 +76,11 @@ namespace ObjectScripts.CharSubstance
             return result;
         }
         
-        public bool Move(Vector2Int delta, int moveTime, bool check = true)
+        public bool Move(Vector2Int delta, int moveTime)
         {
             if (delta == Vector2Int.zero) return true;
             var endPos = WorldPos + delta;
             SpriteController.SetDirection(Utils.VectorToDirection(delta));
-//            if (check && !MoveCheck(delta))
-//            {
-//                return false;
-//            }
 
             if (!MoveCheck(delta)) return false;
 
@@ -148,6 +145,9 @@ namespace ObjectScripts.CharSubstance
         {
             if (Dead) return;
             Dead = true;
+            transform.position += new Vector3(
+                (float) Utils.ProcessRandom.NextDouble() * DropIncrement * 2 - DropIncrement,
+                (float) Utils.ProcessRandom.NextDouble() * DropIncrement * 2 - DropIncrement);
             SceneManager.Instance.Print(
                 GameText.Instance.GetCharacterDeadLog(TextName));
             SetDisable();
@@ -176,6 +176,17 @@ namespace ObjectScripts.CharSubstance
         }
 
         public Dictionary<BodyPart, BaseObject> FetchDictionary = new Dictionary<BodyPart, BaseObject>();
+
+        public IEnumerable<BodyPart> GetFreeFetchParts()
+        {
+            foreach (var item in FetchDictionary)
+            {
+                if (item.Value == null)
+                {
+                    yield return item.Key;
+                }
+            }
+        }
 
         [HideInInspector]
         public int ActivateTime;
