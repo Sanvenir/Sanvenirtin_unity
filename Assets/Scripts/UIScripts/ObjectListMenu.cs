@@ -1,15 +1,17 @@
+using System;
 using ObjectScripts;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace UIScripts
 {
-    public class ObjectListMenu: MonoBehaviour
+    public class ObjectListMenu: GameMenuWindow
     {
         public GridLayoutGroup Content;
         public ObjectIcon IconPrefab;
 
-        public void StartUp(Collider2D[] colliderList)
+        public void StartUp(Collider2D[] colliderList, bool isInteractive)
         {
             EndUp();
             gameObject.SetActive(true);
@@ -24,10 +26,11 @@ namespace UIScripts
                 instance.ObjectImage.sprite = baseObject.SpriteRenderer.sprite;
                 instance.ObjectName.text = baseObject.TextName;
                 instance.BaseObject = baseObject;
+                instance.IsAvailable = isInteractive;
             }
         }
 
-        public void EndUp()
+        public override void EndUp()
         {
             foreach (var child in Content.GetComponentsInChildren<ObjectIcon>())
             {

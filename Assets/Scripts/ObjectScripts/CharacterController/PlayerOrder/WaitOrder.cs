@@ -1,29 +1,25 @@
 using ObjectScripts.ActionScripts;
-using ObjectScripts.CharSubstance;
-using UnityEngine;
 using UtilScripts;
 using UtilScripts.Text;
 
 namespace ObjectScripts.CharacterController.PlayerOrder
 {
-    public class AttackDirectionOrder: BaseOrder
+    public class WaitOrder : BaseOrder
     {
-
         public override BaseOrder DoOrder()
         {
-            base.DoOrder();
-            Controller.SetAction(new AttackNeighbourAction(Controller.Character, Controller.TargetDirection));
+            Controller.SetAction(new WaitAction(Controller.Character));
             return null;
         }
-
+        
         public override string GetTextName()
         {
-            return GameText.Instance.AttackDirectionOrder;
+            return GameText.Instance.WaitOrder;
         }
 
         public override bool IsAvailable()
         {
-            return Controller.TargetDirection != Direction.None;
+            return Controller.TargetDirection == Direction.None;
         }
     }
 }

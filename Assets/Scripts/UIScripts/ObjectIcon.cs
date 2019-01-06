@@ -13,6 +13,7 @@ namespace UIScripts
         public Image ObjectImage;
 
         [HideInInspector] public BaseObject BaseObject;
+        [HideInInspector] public bool IsAvailable;
 
         public BodyPartSelectMenu BodyPartSelectMenu;
 
@@ -26,12 +27,20 @@ namespace UIScripts
         public void OnPointerDown(PointerEventData eventData)
         {
             if (eventData.button != PointerEventData.InputButton.Right) return;
-            BodyPartSelectMenu.StartUp(transform.position, _playerController.Character.GetFreeFetchParts());
+            if (!IsAvailable)
+            {
+                SceneManager.Instance.ObjectActPanel.StartUp(BaseObject);
+            }
+            else
+            {            
+                BodyPartSelectMenu.StartUp(transform.position, _playerController.Character.GetFreeFetchParts());
+            }
         }
 
         private void LateUpdate()
         {
-            if (!Input.GetMouseButtonUp(1)) return;
+            if (!Input.GetMouseButtonUp(1) || !IsAvailable) return;
+            
             var result = BodyPartSelectMenu.EndUp();
             if (result == null) return;
 

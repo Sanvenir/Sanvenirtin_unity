@@ -12,7 +12,7 @@ using UtilScripts.Text;
 
 namespace UIScripts
 {
-    public class ObjectActPanel : MonoBehaviour
+    public class ObjectActPanel : GameMenuWindow
     {
         public Button ActButtonPrefab;
         public Image ItemImage;
@@ -59,7 +59,7 @@ namespace UIScripts
             }
         }
 
-        public void EndUp()
+        public override void EndUp()
         {
             foreach (var button in ActButtonLayout.GetComponentsInChildren<Button>())
             {
@@ -69,7 +69,7 @@ namespace UIScripts
             gameObject.SetActive(false);
         }
 
-        private void Update()
+        private void LateUpdate()
         {
             if (BaseObject == null) EndUp();
         }

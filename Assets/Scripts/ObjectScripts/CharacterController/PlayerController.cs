@@ -22,7 +22,6 @@ namespace ObjectScripts.CharacterController
         protected override void Awake()
         {
             base.Awake();
-            BaseOrder.Controller = this;
         }
         
         private void LateUpdate()

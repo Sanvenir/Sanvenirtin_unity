@@ -23,15 +23,16 @@ namespace UIScripts
 //            base.OnInspectorGUI();
 //        }
 //    }
-    public class SceneControlButton : Button
+    public class SceneControlButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
-        public SelectionMenu<BaseOrder> SelectionMenu;
+        public ActionMenu SelectionMenu;
         public SpriteRenderer SceneCursor;
 
         private Vector3 _cursorTargetPos;
         [HideInInspector] public Character Player;
         [HideInInspector] public PlayerController PlayerController;
 
+        [HideInInspector]
         public bool CameraFollowPlayer;
 
         private Collider2D _cursorCollider;
@@ -39,24 +40,20 @@ namespace UIScripts
         private Collider2D _selected;
         private int _selectedOriginLayer;
 
-        protected override void Awake()
+        protected void Awake()
         {
-            base.Awake();
-            SelectionMenu = GetComponent<SelectionMenu<BaseOrder>>();
             _cursorCollider = SceneCursor.GetComponent<Collider2D>();
         }
 
-        protected override void Start()
+        protected void Start()
         {
-            base.Start();
             Player = SceneManager.Instance.PlayerObject;
             PlayerController = SceneManager.Instance.Player.GetComponent<PlayerController>();
             CameraFollowPlayer = true;
         }
 
-        public override void OnPointerEnter(PointerEventData eventData)
+        public void OnPointerEnter(PointerEventData eventData)
         {
-            base.OnPointerEnter(eventData);
             if (SceneCursor.enabled) return;
             SceneCursor.enabled = true;
             _cursorTargetPos = SceneManager.Instance.MainCamera
@@ -65,9 +62,8 @@ namespace UIScripts
                 SceneManager.Instance.NormalizeWorldPos(_cursorTargetPos);
         }
 
-        public override void OnPointerExit(PointerEventData eventData)
+        public void OnPointerExit(PointerEventData eventData)
         {
-            base.OnPointerExit(eventData);
             if (Input.GetMouseButton(0) || Input.GetMouseButton(1))
             {
                 return;
@@ -114,6 +110,7 @@ namespace UIScripts
                 SceneManager.Instance.SceneCollider.transform.position = Player.transform.position;
             }
 
+
             // Soft move the camera according to Scene Cursor or Player
             if (CameraFollowPlayer && Player != null)
             {
@@ -127,6 +124,12 @@ namespace UIScripts
                     SceneManager.Instance.CameraPos.transform.position * 0.9f +
                     SceneCursor.transform.position * 0.1f;
             }
+
+//            if (CheckPanels())
+//            {
+//                GameManager.Instance.GameCursor.SetActive(true);
+//                return;
+//            }
                         
             // If SceneCursor is disabled, do not update it
             if (!SceneCursor.enabled)
@@ -137,6 +140,7 @@ namespace UIScripts
                 SelectionMenu.EndUp();
                 return;
             }
+            
 
             GameManager.Instance.GameCursor.SetActive(false);
             var targetPos = SceneManager.Instance.NormalizeWorldPos(_cursorTargetPos);
@@ -168,7 +172,6 @@ namespace UIScripts
                 // Else Camera following the player
                 if (Input.GetMouseButton(0))
                 {
-                    CancelPanels();
                     CameraFollowPlayer = false;
                     _cursorTargetPos.x += Input.GetAxis("Mouse X") * 2;
                     _cursorTargetPos.y += Input.GetAxis("Mouse Y") * 2;
@@ -185,7 +188,6 @@ namespace UIScripts
             // Right Mouse Button Down, Show the order list
             if (Input.GetMouseButtonDown(1))
             {
-                CancelPanels();
                 var worldCoord = SceneManager.Instance.WorldPosToCoord(
                     SceneCursor.transform.position);
                 var direction = Utils.VectorToDirection(worldCoord - Player.WorldCoord);
@@ -194,20 +196,20 @@ namespace UIScripts
                 PlayerController.TargetCoord = worldCoord;
                 PlayerController.TargetDirection = direction;
                 
-                var orderList = new List<BaseOrder>
-                {
-                    new RestOrder(),
-                    new PickupOrder()
-                };
-                if (direction != Direction.None)
-                {
-                    orderList.Insert(
-                        0, new WalkToOrder());
-                    orderList.Add(
-                        new AttackDirectionOrder());
-                }
+//                var orderList = new List<BaseOrder>
+//                {
+//                    new RestOrder(),
+//                    new PickupOrder()
+//                };
+//                if (direction != Direction.None)
+//                {
+//                    orderList.Insert(
+//                        0, new WalkToOrder());
+//                    orderList.Add(
+//                        new AttackDirectionOrder());
+//                }
                 
-                SelectionMenu.StartUp(targetPos, orderList);
+                SelectionMenu.StartUp(targetPos);
                 return;
             }
 
@@ -220,10 +222,16 @@ namespace UIScripts
 
         }
 
-        public void CancelPanels()
-        {
-            SceneManager.Instance.ObjectListMenu.EndUp();
-            SceneManager.Instance.ObjectActPanel.EndUp();
-        }
+//        public bool CheckPanels()
+//        {
+//            return SceneManager.Instance.ObjectListMenu.isActiveAndEnabled ||
+//                   SceneManager.Instance.ObjectActPanel.isActiveAndEnabled;
+//        }
+//        public void CancelPanels()
+//        {
+//            SceneManager.Instance.ObjectListMenu.EndUp();
+//            SceneManager.Instance.ObjectActPanel.EndUp();
+//            SceneCursor.enabled = true;
+//        }
     }
 }

@@ -62,8 +62,10 @@
               <e p="PlayerOrder" t="Include">
                 <e p="AttackDirectionOrder.cs" t="Include" />
                 <e p="BaseOrder.cs" t="Include" />
+                <e p="LookAtOrder.cs" t="Include" />
                 <e p="PickupOrder.cs" t="Include" />
                 <e p="RestOrder.cs" t="Include" />
+                <e p="WaitOrder.cs" t="Include" />
                 <e p="WalkToOrder.cs" t="Include" />
               </e>
             </e>
@@ -97,6 +99,7 @@
             <e p="BodyPartSelectMenu.cs" t="Include" />
             <e p="FetchObjectList.cs" t="Include" />
             <e p="FetchObjectSlot.cs" t="Include" />
+            <e p="GameMenuWindow.cs" t="Include" />
             <e p="ObjectActPanel.cs" t="Include" />
             <e p="ObjectIcon.cs" t="Include" />
             <e p="ObjectListMenu.cs" t="Include" />

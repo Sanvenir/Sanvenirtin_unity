@@ -14,6 +14,8 @@ namespace UtilScripts.Text
         public string PickupOrder = "拾起";
         public string RestOrder = "休息";
         public string WalkToOrder = "移至";
+        public string WaitOrder = "等待";
+        public string LookAtOrder = "查看";
         public string ConsumeAct = "食用";
         public string DropAct = "丢弃";
 

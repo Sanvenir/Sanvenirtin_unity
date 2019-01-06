@@ -40,7 +40,7 @@ namespace UIScripts
         private int _step;
         private int _index;
 
-        public void StartUp(Vector2 pos, IEnumerable<T> selectionList)
+        public virtual void StartUp(Vector2 pos, IEnumerable<T> selectionList)
         {
             SelectionList = new List<T>();
             foreach (var selection in selectionList)

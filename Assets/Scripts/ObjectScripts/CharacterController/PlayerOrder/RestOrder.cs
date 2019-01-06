@@ -20,5 +20,10 @@ namespace ObjectScripts.CharacterController.PlayerOrder
         {
             return GameText.Instance.RestOrder;
         }
+
+        public override bool IsAvailable()
+        {
+            return true;
+        }
     }
 }

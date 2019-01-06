@@ -6,10 +6,10 @@ namespace ObjectScripts.CharacterController.PlayerOrder
 {
     public abstract class BaseOrder: INamed
     {
-        public static PlayerController Controller;
-        
-        public BaseOrder[] ChildOrders;
-
+        public static PlayerController Controller
+        {
+            get { return SceneManager.Instance.PlayerController; }
+        }
         public virtual BaseOrder DoOrder()
         {
             // rtype: The next order for player controller, null means no order or invalid order
@@ -18,5 +18,6 @@ namespace ObjectScripts.CharacterController.PlayerOrder
         }
 
         public abstract string GetTextName();
+        public abstract bool IsAvailable();
     }
 }

@@ -14,13 +14,19 @@ namespace ObjectScripts.CharacterController.PlayerOrder
             base.DoOrder();
             var colliders = Physics2D.OverlapCircleAll(Controller.Character.WorldPos, 2.0f, SceneManager.Instance.ItemFilter.layerMask);
             if (colliders.Length == 0) return null;
-            SceneManager.Instance.ObjectListMenu.StartUp(colliders);
+            SceneManager.Instance.ObjectListMenu.StartUp(colliders, true);
             return null;
         }
 
         public override string GetTextName()
         {
             return GameText.Instance.PickupOrder;
+        }
+
+        public override bool IsAvailable()
+        {
+            var colliders = Physics2D.OverlapCircleAll(Controller.Character.WorldPos, 2.0f, SceneManager.Instance.ItemFilter.layerMask);
+            return colliders.Length != 0 && Controller.TargetDirection == Direction.None;
         }
     }
 }

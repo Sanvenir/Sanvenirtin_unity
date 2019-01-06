@@ -93,8 +93,10 @@
     <Compile Include="Assets\Scripts\ObjectScripts\CharacterController\PlayerController.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\CharacterController\PlayerOrder\AttackDirectionOrder.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\CharacterController\PlayerOrder\BaseOrder.cs" />
+    <Compile Include="Assets\Scripts\ObjectScripts\CharacterController\PlayerOrder\LookAtOrder.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\CharacterController\PlayerOrder\PickupOrder.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\CharacterController\PlayerOrder\RestOrder.cs" />
+    <Compile Include="Assets\Scripts\ObjectScripts\CharacterController\PlayerOrder\WaitOrder.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\CharacterController\PlayerOrder\WalkToOrder.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\CharSubstance\Character.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\CharSubstance\Gender.cs" />
@@ -116,6 +118,7 @@
     <Compile Include="Assets\Scripts\UIScripts\BodyPartSelectMenu.cs" />
     <Compile Include="Assets\Scripts\UIScripts\FetchObjectList.cs" />
     <Compile Include="Assets\Scripts\UIScripts\FetchObjectSlot.cs" />
+    <Compile Include="Assets\Scripts\UIScripts\GameMenuWindow.cs" />
     <Compile Include="Assets\Scripts\UIScripts\ObjectActPanel.cs" />
     <Compile Include="Assets\Scripts\UIScripts\ObjectIcon.cs" />
     <Compile Include="Assets\Scripts\UIScripts\ObjectListMenu.cs" />
