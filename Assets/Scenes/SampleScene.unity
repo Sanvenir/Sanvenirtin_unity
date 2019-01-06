@@ -1540,7 +1540,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 1471056961}
-  BodyPartButton: {fileID: 114453774244485378, guid: ccd1889680d57364a8dd08c15d778804,
+  BodyPartButton: {fileID: 114180816669096748, guid: ccd1889680d57364a8dd08c15d778804,
     type: 2}
   BodyPartButtonInstances: []
 --- !u!1 &781563422
@@ -3357,16 +3357,19 @@ MonoBehaviour:
     Metabolism: 200
     WillPower: 200
     Intelligence: 200
-    Perception: 200
+    Perception: 20
     Lifetime: 200
     BodyParts:
     - Name: Head
       TextName: "\u5934\u90E8"
+      CutPoint:
+        MaxValue: 1000
       HitPoint:
         MaxValue: 1000
       Size: 10
       Weight: 10
-      Defence: 50
+      CutDefence: 10
+      HitRatio: 0.9
       Available: 1
       PartPos: 1
       AttachBodyPart: 
@@ -3375,11 +3378,14 @@ MonoBehaviour:
       ComponentIndex: 0
     - Name: Neck
       TextName: "\u9888\u90E8"
+      CutPoint:
+        MaxValue: 1000
       HitPoint:
         MaxValue: 500
       Size: 10
       Weight: 10
-      Defence: 10
+      CutDefence: 10
+      HitRatio: 0.9
       Available: 1
       PartPos: 1
       AttachBodyPart: 
@@ -3388,11 +3394,14 @@ MonoBehaviour:
       ComponentIndex: 0
     - Name: Chest
       TextName: "\u80F8\u90E8"
+      CutPoint:
+        MaxValue: 1000
       HitPoint:
         MaxValue: 2000
       Size: 10
       Weight: 10
-      Defence: 20
+      CutDefence: 10
+      HitRatio: 0.9
       Available: 1
       PartPos: 2
       AttachBodyPart: 
@@ -3401,11 +3410,14 @@ MonoBehaviour:
       ComponentIndex: 0
     - Name: Waist
       TextName: "\u8170\u90E8"
+      CutPoint:
+        MaxValue: 1000
       HitPoint:
         MaxValue: 1000
       Size: 10
       Weight: 10
-      Defence: 10
+      CutDefence: 10
+      HitRatio: 0.9
       Available: 1
       PartPos: 2
       AttachBodyPart: 
@@ -3414,11 +3426,14 @@ MonoBehaviour:
       ComponentIndex: 0
     - Name: Crotch
       TextName: "\u80EF\u90E8"
+      CutPoint:
+        MaxValue: 1000
       HitPoint:
         MaxValue: 1000
       Size: 10
       Weight: 10
-      Defence: 10
+      CutDefence: 10
+      HitRatio: 0.9
       Available: 1
       PartPos: 3
       AttachBodyPart: 
@@ -3427,11 +3442,14 @@ MonoBehaviour:
       ComponentIndex: 0
     - Name: LeftArm
       TextName: "\u5DE6\u81C2"
+      CutPoint:
+        MaxValue: 1000
       HitPoint:
         MaxValue: 100
       Size: 10
       Weight: 10
-      Defence: 10
+      CutDefence: 10
+      HitRatio: 0.9
       Available: 1
       PartPos: 2
       AttachBodyPart: LeftHand
@@ -3440,11 +3458,14 @@ MonoBehaviour:
       ComponentIndex: 0
     - Name: LeftHand
       TextName: "\u5DE6\u624B"
+      CutPoint:
+        MaxValue: 1000
       HitPoint:
         MaxValue: 200
       Size: 10
       Weight: 10
-      Defence: 10
+      CutDefence: 10
+      HitRatio: 0.9
       Available: 1
       PartPos: 2
       AttachBodyPart: 
@@ -3453,11 +3474,14 @@ MonoBehaviour:
       ComponentIndex: 0
     - Name: RightArm
       TextName: "\u53F3\u81C2"
+      CutPoint:
+        MaxValue: 1000
       HitPoint:
         MaxValue: 100
       Size: 10
       Weight: 10
-      Defence: 10
+      CutDefence: 10
+      HitRatio: 0.9
       Available: 1
       PartPos: 2
       AttachBodyPart: RightHand
@@ -3466,11 +3490,14 @@ MonoBehaviour:
       ComponentIndex: 0
     - Name: RightHand
       TextName: "\u53F3\u624B"
+      CutPoint:
+        MaxValue: 1000
       HitPoint:
         MaxValue: 200
       Size: 10
       Weight: 10
-      Defence: 10
+      CutDefence: 10
+      HitRatio: 0.9
       Available: 1
       PartPos: 2
       AttachBodyPart: 
@@ -3479,11 +3506,14 @@ MonoBehaviour:
       ComponentIndex: 0
     - Name: LeftLeg
       TextName: "\u5DE6\u817F"
+      CutPoint:
+        MaxValue: 1000
       HitPoint:
         MaxValue: 500
       Size: 10
       Weight: 10
-      Defence: 10
+      CutDefence: 10
+      HitRatio: 0.9
       Available: 1
       PartPos: 3
       AttachBodyPart: 
@@ -3492,11 +3522,14 @@ MonoBehaviour:
       ComponentIndex: 0
     - Name: LeftFoot
       TextName: "\u5DE6\u811A"
+      CutPoint:
+        MaxValue: 1000
       HitPoint:
         MaxValue: 200
       Size: 10
       Weight: 10
-      Defence: 10
+      CutDefence: 10
+      HitRatio: 0.9
       Available: 1
       PartPos: 3
       AttachBodyPart: 
@@ -3505,11 +3538,14 @@ MonoBehaviour:
       ComponentIndex: 0
     - Name: RightLeg
       TextName: "\u53F3\u817F"
+      CutPoint:
+        MaxValue: 1000
       HitPoint:
         MaxValue: 500
       Size: 10
       Weight: 10
-      Defence: 10
+      CutDefence: 10
+      HitRatio: 0.9
       Available: 1
       PartPos: 3
       AttachBodyPart: 
@@ -3518,11 +3554,14 @@ MonoBehaviour:
       ComponentIndex: 0
     - Name: RightFoot
       TextName: "\u53F3\u811A"
+      CutPoint:
+        MaxValue: 1000
       HitPoint:
         MaxValue: 1000
       Size: 10
       Weight: 10
-      Defence: 10
+      CutDefence: 10
+      HitRatio: 0.9
       Available: 1
       PartPos: 3
       AttachBodyPart: 

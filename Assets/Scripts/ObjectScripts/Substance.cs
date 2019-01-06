@@ -42,11 +42,11 @@ namespace ObjectScripts
             gameObject.layer = LayerMask.NameToLayer("ItemLayer");
         }
 
-        public virtual float Attacked(float damage, BodyPart bodyPart, float defenceRatio = 1f)
+        public virtual float Attacked(DamageValue damage, BodyPart bodyPart)
         {
             if (bodyPart == null)
                 return 0;
-            damage = bodyPart.Damage(damage, defenceRatio);
+            var intensity = bodyPart.DoDamage(damage);
 
             if (bodyPart.Essential && !bodyPart.Available)
             {
@@ -55,11 +55,11 @@ namespace ObjectScripts
             
             if (BodyParts.Values.Any(part => part.Available))
             {
-                return damage;
+                return intensity;
             }
 
             IsDestroy = true;
-            return damage;
+            return intensity;
         }
 
         // Read Only
@@ -166,7 +166,7 @@ namespace ObjectScripts
             return result;
         }
 
-        private void Update()
+        protected virtual void Update()
         {
             if (IsDestroy)
             {

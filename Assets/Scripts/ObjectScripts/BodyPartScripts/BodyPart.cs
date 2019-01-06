@@ -13,11 +13,18 @@ namespace ObjectScripts.BodyPartScripts
         public const float DropIncrement = 0.1f;
         public string Name;
         public string TextName;
+        public LimitValue CutPoint = new LimitValue(1000);
         public LimitValue HitPoint = new LimitValue(1000);
         public float Size = 10;
         public float Weight = 10;
-        public float Defence = 10;
+
+        public float CutDefence = 10.0f;
+        public float HitRatio = 0.90f;
+        
+        // public float Defence = 10;
+        [NonSerialized]
         public bool Available = true;
+        
         public PartPos PartPos = PartPos.Middle;
         // If current components destroyed, attached component destroyed too
         public string AttachBodyPart;
@@ -36,9 +43,11 @@ namespace ObjectScripts.BodyPartScripts
                 Name = Name,
                 TextName = TextName,
                 HitPoint = HitPoint,
+                CutPoint = CutPoint,
                 Size = Size,
                 Weight = Weight,
-                Defence = Defence,
+                CutDefence = CutDefence,
+                HitRatio = HitRatio,
                 Available = Available,
                 PartPos = PartPos,
                 AttachBodyPart = AttachBodyPart,
@@ -52,15 +61,21 @@ namespace ObjectScripts.BodyPartScripts
         [NonSerialized]
         public Substance Substance;
 
-        // Return: Whether the object should be destroyed
-        public float Damage(float damage, float defenceRatio = 1f)
+        // Return: The intensity of these damage
+        public float DoDamage(DamageValue damage, float defenceRatio = 1f)
         {
-            if (!Available) return damage;
-            damage = Mathf.Max(0f, damage - (Defence * defenceRatio));
-            HitPoint.Value -= damage;
-            if (HitPoint.Value > 0) return damage;
+            if (!Available) return 0;
+            var intensity = damage.DoDamage(this);
+            if (HitPoint.Value > 0 && CutPoint.Value > 0) return intensity;
             Destroy();
-            return damage;
+            return intensity;
+        }
+
+        public void DoPenetrateHitDamage(float damage)
+        {
+            HitPoint.Value -= damage;
+            if (HitPoint.Value > 0) return;
+            Destroy();
         }
 
         public void Destroy()
@@ -70,7 +85,7 @@ namespace ObjectScripts.BodyPartScripts
                     Substance.TextName, TextName));
             Available = false;
 
-            if (AttachBodyPart != string.Empty &&
+            if (!string.IsNullOrEmpty(AttachBodyPart) &&
                 Substance.BodyParts.ContainsKey(AttachBodyPart)) 
                 Substance.BodyParts[AttachBodyPart].Destroy();
             

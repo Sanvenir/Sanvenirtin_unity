@@ -11,7 +11,7 @@ namespace ObjectScripts.CharacterController
 
         private void Start()
         {
-            Condition = new AttackCondition(this, SceneManager.Instance.PlayerObject);
+            Condition = new WonderCondition(this);
         }
 
         public override void UpdateFunction()

@@ -82,7 +82,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b65287e860ad4a10b1579d129b9540e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: 
+  TextName: 
+  Info: "\u968F\u5904\u53EF\u89C1\u7684\u666E\u901A\u4EBA\u7C7B\uFF0C\u53EF\u4EE5\u6740\u4E86\u5403\u8089"
   SpriteRenderer: {fileID: 212962551414652834}
   Collider2D: {fileID: 58667543570485070}
   WorldPos: {x: 0, y: 0}
@@ -105,60 +106,75 @@ MonoBehaviour:
     Lifetime: 0
     BodyParts:
     - Name: Head
+      TextName: 
+      CutPoint:
+        MaxValue: 1000
       HitPoint:
         MaxValue: 1000
       Size: 10
       Weight: 10
-      Defence: 10
-      Available: 1
+      CutDefence: 10
+      HitRatio: 0.9
       PartPos: 1
       AttachBodyPart: 
       Essential: 1
       Fetchable: 0
       ComponentIndex: 0
     - Name: LeftArm
+      TextName: 
+      CutPoint:
+        MaxValue: 1000
       HitPoint:
         MaxValue: 1000
       Size: 10
       Weight: 10
-      Defence: 10
-      Available: 1
+      CutDefence: 10
+      HitRatio: 0.9
       PartPos: 2
       AttachBodyPart: LeftHand
       Essential: 0
       Fetchable: 0
       ComponentIndex: 0
     - Name: RightArm
+      TextName: 
+      CutPoint:
+        MaxValue: 1000
       HitPoint:
         MaxValue: 1000
       Size: 10
       Weight: 10
-      Defence: 10
-      Available: 1
+      CutDefence: 10
+      HitRatio: 0.9
       PartPos: 2
       AttachBodyPart: RightHand
       Essential: 0
       Fetchable: 0
       ComponentIndex: 0
     - Name: LeftHand
+      TextName: 
+      CutPoint:
+        MaxValue: 1000
       HitPoint:
         MaxValue: 1000
       Size: 10
       Weight: 10
-      Defence: 10
-      Available: 1
+      CutDefence: 10
+      HitRatio: 0.9
       PartPos: 2
       AttachBodyPart: 
       Essential: 0
       Fetchable: 0
       ComponentIndex: 0
     - Name: RightHand
+      TextName: 
+      CutPoint:
+        MaxValue: 1000
       HitPoint:
         MaxValue: 1000
       Size: 10
       Weight: 10
-      Defence: 10
-      Available: 1
+      CutDefence: 10
+      HitRatio: 0.9
       PartPos: 2
       AttachBodyPart: 
       Essential: 0

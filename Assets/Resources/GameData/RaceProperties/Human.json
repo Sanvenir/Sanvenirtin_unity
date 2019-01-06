@@ -1,26 +1,29 @@
 {
-    "Speed": 20.0,
-    "MoveSpeed": 20.0,
-    "ActSpeed": 20.0,
-    "Strength": 20.0,
-    "Dexterity": 20.0,
-    "Constitution": 20.0,
-    "Metabolism": 20.0,
-    "WillPower": 20.0,
-    "Intelligence": 20.0,
-    "Perception": 20.0,
-    "Lifetime": 100,
+    "Speed": 10.0,
+    "MoveSpeed": 10.0,
+    "ActSpeed": 10.0,
+    "Strength": 10.0,
+    "Dexterity": 10.0,
+    "Constitution": 10.0,
+    "Metabolism": 10.0,
+    "WillPower": 10.0,
+    "Intelligence": 10.0,
+    "Perception": 10.0,
+    "Lifetime": 0,
     "BodyParts": [
         {
             "Name": "Head",
             "TextName": "头部",
+            "CutPoint": {
+                "MaxValue": 10.0
+            },
             "HitPoint": {
-                "MaxValue": 1000.0
+                "MaxValue": 10.0
             },
             "Size": 10.0,
             "Weight": 10.0,
-            "Defence": 50.0,
-            "Available": true,
+            "CutDefence": 10.0,
+            "HitRatio": 0.8999999761581421,
             "PartPos": 1,
             "AttachBodyPart": "",
             "Essential": true,
@@ -30,13 +33,16 @@
         {
             "Name": "Neck",
             "TextName": "颈部",
+            "CutPoint": {
+                "MaxValue": 10.0
+            },
             "HitPoint": {
-                "MaxValue": 500.0
+                "MaxValue": 10.0
             },
             "Size": 10.0,
             "Weight": 10.0,
-            "Defence": 10.0,
-            "Available": true,
+            "CutDefence": 10.0,
+            "HitRatio": 0.8999999761581421,
             "PartPos": 1,
             "AttachBodyPart": "",
             "Essential": true,
@@ -46,13 +52,16 @@
         {
             "Name": "Chest",
             "TextName": "胸部",
+            "CutPoint": {
+                "MaxValue": 10.0
+            },
             "HitPoint": {
-                "MaxValue": 2000.0
+                "MaxValue": 10.0
             },
             "Size": 10.0,
             "Weight": 10.0,
-            "Defence": 20.0,
-            "Available": true,
+            "CutDefence": 10.0,
+            "HitRatio": 0.8999999761581421,
             "PartPos": 2,
             "AttachBodyPart": "",
             "Essential": true,
@@ -62,13 +71,16 @@
         {
             "Name": "Waist",
             "TextName": "腰部",
+            "CutPoint": {
+                "MaxValue": 10.0
+            },
             "HitPoint": {
-                "MaxValue": 1000.0
+                "MaxValue": 10.0
             },
             "Size": 10.0,
             "Weight": 10.0,
-            "Defence": 10.0,
-            "Available": true,
+            "CutDefence": 10.0,
+            "HitRatio": 0.8999999761581421,
             "PartPos": 2,
             "AttachBodyPart": "",
             "Essential": false,
@@ -78,13 +90,16 @@
         {
             "Name": "Crotch",
             "TextName": "胯部",
+            "CutPoint": {
+                "MaxValue": 10.0
+            },
             "HitPoint": {
-                "MaxValue": 1000.0
+                "MaxValue": 10.0
             },
             "Size": 10.0,
             "Weight": 10.0,
-            "Defence": 10.0,
-            "Available": true,
+            "CutDefence": 10.0,
+            "HitRatio": 0.8999999761581421,
             "PartPos": 3,
             "AttachBodyPart": "",
             "Essential": false,
@@ -94,13 +109,16 @@
         {
             "Name": "LeftArm",
             "TextName": "左臂",
+            "CutPoint": {
+                "MaxValue": 10.0
+            },
             "HitPoint": {
-                "MaxValue": 100.0
+                "MaxValue": 10.0
             },
             "Size": 10.0,
             "Weight": 10.0,
-            "Defence": 10.0,
-            "Available": true,
+            "CutDefence": 10.0,
+            "HitRatio": 0.8999999761581421,
             "PartPos": 2,
             "AttachBodyPart": "LeftHand",
             "Essential": false,
@@ -110,13 +128,16 @@
         {
             "Name": "LeftHand",
             "TextName": "左手",
+            "CutPoint": {
+                "MaxValue": 10.0
+            },
             "HitPoint": {
-                "MaxValue": 100.0
+                "MaxValue": 10.0
             },
             "Size": 10.0,
             "Weight": 10.0,
-            "Defence": 10.0,
-            "Available": true,
+            "CutDefence": 10.0,
+            "HitRatio": 0.8999999761581421,
             "PartPos": 2,
             "AttachBodyPart": "",
             "Essential": false,
@@ -126,13 +147,16 @@
         {
             "Name": "RightArm",
             "TextName": "右臂",
+            "CutPoint": {
+                "MaxValue": 10.0
+            },
             "HitPoint": {
-                "MaxValue": 100.0
+                "MaxValue": 10.0
             },
             "Size": 10.0,
             "Weight": 10.0,
-            "Defence": 10.0,
-            "Available": true,
+            "CutDefence": 10.0,
+            "HitRatio": 0.8999999761581421,
             "PartPos": 2,
             "AttachBodyPart": "RightHand",
             "Essential": false,
@@ -142,13 +166,16 @@
         {
             "Name": "RightHand",
             "TextName": "右手",
+            "CutPoint": {
+                "MaxValue": 10.0
+            },
             "HitPoint": {
-                "MaxValue": 100.0
+                "MaxValue": 10.0
             },
             "Size": 10.0,
             "Weight": 10.0,
-            "Defence": 10.0,
-            "Available": true,
+            "CutDefence": 10.0,
+            "HitRatio": 0.8999999761581421,
             "PartPos": 2,
             "AttachBodyPart": "",
             "Essential": false,
@@ -158,13 +185,16 @@
         {
             "Name": "LeftLeg",
             "TextName": "左腿",
+            "CutPoint": {
+                "MaxValue": 10.0
+            },
             "HitPoint": {
-                "MaxValue": 100.0
+                "MaxValue": 10.0
             },
             "Size": 10.0,
             "Weight": 10.0,
-            "Defence": 10.0,
-            "Available": true,
+            "CutDefence": 10.0,
+            "HitRatio": 0.8999999761581421,
             "PartPos": 3,
             "AttachBodyPart": "",
             "Essential": false,
@@ -173,14 +203,17 @@
         },
         {
             "Name": "LeftFoot",
-            "TextName": "左脚",
+            "TextName": "左足",
+            "CutPoint": {
+                "MaxValue": 10.0
+            },
             "HitPoint": {
-                "MaxValue": 100.0
+                "MaxValue": 10.0
             },
             "Size": 10.0,
             "Weight": 10.0,
-            "Defence": 10.0,
-            "Available": true,
+            "CutDefence": 10.0,
+            "HitRatio": 0.8999999761581421,
             "PartPos": 3,
             "AttachBodyPart": "",
             "Essential": false,
@@ -190,13 +223,16 @@
         {
             "Name": "RightLeg",
             "TextName": "右腿",
+            "CutPoint": {
+                "MaxValue": 10.0
+            },
             "HitPoint": {
-                "MaxValue": 100.0
+                "MaxValue": 10.0
             },
             "Size": 10.0,
             "Weight": 10.0,
-            "Defence": 10.0,
-            "Available": true,
+            "CutDefence": 10.0,
+            "HitRatio": 0.8999999761581421,
             "PartPos": 3,
             "AttachBodyPart": "",
             "Essential": false,
@@ -205,14 +241,17 @@
         },
         {
             "Name": "RightFoot",
-            "TextName": "右脚",
+            "TextName": "右足",
+            "CutPoint": {
+                "MaxValue": 10.0
+            },
             "HitPoint": {
-                "MaxValue": 100.0
+                "MaxValue": 10.0
             },
             "Size": 10.0,
             "Weight": 10.0,
-            "Defence": 10.0,
-            "Available": true,
+            "CutDefence": 10.0,
+            "HitRatio": 0.8999999761581421,
             "PartPos": 3,
             "AttachBodyPart": "",
             "Essential": false,

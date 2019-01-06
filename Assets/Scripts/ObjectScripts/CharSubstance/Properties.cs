@@ -31,36 +31,42 @@ namespace ObjectScripts.CharSubstance
             new BodyPart
             {
                 Name = "Head",
+                TextName = "头部",
                 Essential = true,
                 PartPos = PartPos.High
             },
             new BodyPart
             {
                 Name = "Neck",
+                TextName = "颈部",
                 Essential = true,
                 PartPos = PartPos.High
             },
             new BodyPart
             {
                 Name = "Chest",
+                TextName = "胸部",
                 Essential = true,
                 PartPos = PartPos.Middle
             },
             new BodyPart
             {
             Name = "Waist",
+                TextName = "腰部",
             Essential = false,
             PartPos = PartPos.Middle
             },
             new BodyPart
             {
                 Name = "Crotch",
+                TextName = "胯部",
                 Essential = false,
                 PartPos = PartPos.Low
             },
             new BodyPart
             {
                 Name = "LeftArm",
+                TextName = "左臂",
                 Essential = false,
                 PartPos = PartPos.Middle, 
                 AttachBodyPart = "LeftHand"
@@ -68,6 +74,7 @@ namespace ObjectScripts.CharSubstance
             new BodyPart
             {
                 Name = "LeftHand",
+                TextName = "左手",
                 Essential = false,
                 PartPos = PartPos.Middle, 
                 Fetchable = true
@@ -75,6 +82,7 @@ namespace ObjectScripts.CharSubstance
             new BodyPart
             {
                 Name = "RightArm",
+                TextName = "右臂",
                 Essential = false,
                 PartPos = PartPos.Middle, 
                 AttachBodyPart = "RightHand"
@@ -82,6 +90,7 @@ namespace ObjectScripts.CharSubstance
             new BodyPart
             {
                 Name = "RightHand",
+                TextName = "右手",
                 Essential = false,
                 PartPos = PartPos.Middle,
                 Fetchable = true
@@ -89,24 +98,28 @@ namespace ObjectScripts.CharSubstance
             new BodyPart
             {
                 Name = "LeftLeg",
+                TextName = "左腿",
                 Essential = false,
                 PartPos = PartPos.Low
             },
             new BodyPart
             {
                 Name = "LeftFoot",
+                TextName = "左足",
                 Essential = false,
                 PartPos = PartPos.Low
             },
             new BodyPart
             {
                 Name = "RightLeg",
+                TextName = "右腿",
                 Essential = false,
                 PartPos = PartPos.Low
             },
             new BodyPart
             {
                 Name = "RightFoot",
+                TextName = "右足",
                 Essential = false,
                 PartPos = PartPos.Low
             }
@@ -164,9 +177,9 @@ namespace ObjectScripts.CharSubstance
             return 200;
         }
 
-        public float GetBaseAttack()
+        public DamageValue GetBaseAttack()
         {
-            return Strength;
+            return new DamageValue(hitDamage: Strength);
         }
 
         public float GetBaseRecover()

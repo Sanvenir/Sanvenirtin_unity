@@ -16,6 +16,9 @@ namespace ObjectScripts.CharSubstance
         public CharacterController.CharacterController Controller;
         public Properties Properties;
         public int RaceIndex = 0;
+
+        // Key is all known character
+        [HideInInspector] public HashSet<Character> VisibleCharacters;
         
         public bool IsTurn()
         {
@@ -35,13 +38,13 @@ namespace ObjectScripts.CharSubstance
             FetchDictionary[bodyPart] = null;
         }
 
-        public override float Attacked(float damage, BodyPart bodyPart, float defenceRatio = 1)
+        public override float Attacked(DamageValue damage, BodyPart bodyPart)
         {
             if (!bodyPart.Available)
             {
                 return 0;
             }
-            damage = base.Attacked(damage, bodyPart, defenceRatio);
+            var intensity = base.Attacked(damage, bodyPart);
             if (!bodyPart.Available)
             {
                 DropFetchObject(bodyPart);
@@ -55,8 +58,8 @@ namespace ObjectScripts.CharSubstance
                     Die();
                 }
             }
-            Health += damage;
-            return damage;
+            Sanity += intensity / Properties.WillPower;
+            return intensity;
         }
 
         public bool MoveCheck<T>(Vector2Int delta, out T collide)
@@ -121,16 +124,34 @@ namespace ObjectScripts.CharSubstance
             StartCoroutine(SmoothMovement(WorldPos, attTime));
         }
 
+        protected override void Update()
+        {
+            base.Update();
+            SpriteRenderer.enabled = 
+                Dead || SceneManager.Instance.PlayerObject.VisibleCharacters.Contains(this);
+        }
+
 
         public virtual void RefreshProperties()
         {
             Properties.RefreshProperties();
+            
+            VisibleCharacters = new HashSet<Character>();
+            var hits = Physics2D.OverlapCircleAll(WorldPos, Properties.Perception,
+                SceneManager.Instance.BlockFilter.layerMask);
+            foreach (var hit in hits)
+            {
+                var character = hit.GetComponent<Character>();
+                if (!character) continue;
+                VisibleCharacters.Add(character);
+            }
+            
             if (Dead && IsTurn())
             {
                 foreach (var part in BodyParts.Values)
                 {
                     if (!part.Available) continue;
-                    Attacked(1, part, 0);
+                    part.DoPenetrateHitDamage(1f);
                 }
 
                 ActivateTime += 1000;

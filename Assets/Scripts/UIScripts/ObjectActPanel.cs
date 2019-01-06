@@ -32,7 +32,9 @@ namespace UIScripts
             _playerController = SceneManager.Instance.PlayerController;
             BaseObject = baseObject;
             ItemImage.sprite = baseObject.SpriteRenderer.sprite;
-            ItemInfoTest.text = baseObject.Info.ToString();
+            ItemInfoTest.text = baseObject.Info;
+
+            if (bodyPart == null) return;
 
             if (baseObject is IConsumeItem)
             {
@@ -46,17 +48,14 @@ namespace UIScripts
                 });
             }
 
-            if (bodyPart != null)
+            _buttonInstance = Instantiate(ActButtonPrefab, ActButtonLayout.transform);
+            _buttonInstance.GetComponentInChildren<Text>().text = GameText.Instance.DropAct;
+            _buttonInstance.onClick.AddListener(delegate
             {
-                _buttonInstance = Instantiate(ActButtonPrefab, ActButtonLayout.transform);
-                _buttonInstance.GetComponentInChildren<Text>().text = GameText.Instance.DropAct;
-                _buttonInstance.onClick.AddListener(delegate
-                {
-                    _playerController.SetAction(new DropAction(_playerController.Character,
-                        baseObject, bodyPart));
-                    EndUp();
-                });
-            }
+                _playerController.SetAction(new DropAction(_playerController.Character,
+                    baseObject, bodyPart));
+                EndUp();
+            });
         }
 
         public override void EndUp()

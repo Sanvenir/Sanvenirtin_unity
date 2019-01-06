@@ -11,7 +11,7 @@ namespace UIScripts
     {
         public Text ObjectName;
         public Image ObjectImage;
-
+        
         [HideInInspector] public BaseObject BaseObject;
         [HideInInspector] public bool IsAvailable;
 

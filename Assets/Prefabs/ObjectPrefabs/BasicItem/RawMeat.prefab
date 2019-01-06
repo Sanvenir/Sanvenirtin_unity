@@ -69,6 +69,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TextName: "\u751F\u8089"
+  Info: "\u4E00\u5757\u751F\u8089\uFF0C\u6765\u81EA\u54EA\u91CC\u4F60\u4E5F\u8BB8\u5F88\u6E05\u695A\u3002\u53EF\u4EE5\u76F4\u63A5\u98DF\u7528\u3002"
   SpriteRenderer: {fileID: 212370470651645388}
   Collider2D: {fileID: 58834145358047370}
   Weight: 10

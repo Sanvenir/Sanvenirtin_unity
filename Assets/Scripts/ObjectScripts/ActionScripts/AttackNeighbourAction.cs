@@ -32,7 +32,7 @@ namespace ObjectScripts.ActionScripts
         public override bool DoAction()
         {
             base.DoAction();
-            Self.Endure += Self.Properties.GetBaseAttack();
+            Self.Endure += Self.Properties.Strength;
             Self.MoveCheck(Utils.DirectionToVector(_targetDirection), out _target);
             Self.AttackMovement(_targetDirection, CostTime);
 
@@ -56,7 +56,9 @@ namespace ObjectScripts.ActionScripts
                     _target.TextName, 
                     _target.GetBodyParts(_attackPart)[part].TextName
                     ));
-            _target.Attacked(Self.Properties.GetBaseAttack(), _target.GetBodyParts(_attackPart)[part]);
+            _target.Attacked(
+                Self.Properties.GetBaseAttack(), 
+                _target.GetBodyParts(_attackPart)[part]);
             
             // Affect target AIController
             _target.Controller.GetHostility(Self, 10);

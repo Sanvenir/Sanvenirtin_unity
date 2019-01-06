@@ -8,7 +8,8 @@ namespace UIScripts
 {
     public class BodyPartButton: MonoBehaviour
     {
-        public Slider DurabilityBar;
+        public Slider HitPointBar;
+        public Slider CutPointBar;
         public Text Text;
         [HideInInspector]
         public BodyPart BodyPart;
@@ -22,11 +23,13 @@ namespace UIScripts
         {
             if (!BodyPart.Available)
             {
-                DurabilityBar.value = 0;
+                CutPointBar.value = 0;
                 return;
             };
-            DurabilityBar.maxValue = BodyPart.HitPoint.MaxValue;
-            DurabilityBar.value = BodyPart.HitPoint.Value;
+            HitPointBar.maxValue = BodyPart.HitPoint.MaxValue;
+            HitPointBar.value = BodyPart.HitPoint.Value;
+            CutPointBar.maxValue = BodyPart.CutPoint.MaxValue;
+            CutPointBar.value = BodyPart.CutPoint.Value;
         }
     }
 }
