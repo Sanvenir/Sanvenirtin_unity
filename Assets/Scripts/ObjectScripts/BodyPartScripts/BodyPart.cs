@@ -7,10 +7,14 @@ using Object = UnityEngine.Object;
 
 namespace ObjectScripts.BodyPartScripts
 {
+    /// <inheritdoc cref="INamed" />
+    /// <summary>
+    /// BodyPart of object; An object that not basic is made up by several body parts
+    /// </summary>
     [Serializable]
     public class BodyPart: INamed, ICloneable
     {
-        public const float DropIncrement = 0.1f;
+        private const float DropIncrement = 0.1f;
         public string Name;
         public string TextName;
         public LimitValue CutPoint = new LimitValue(1000);
@@ -54,12 +58,12 @@ namespace ObjectScripts.BodyPartScripts
                 Essential = Essential,
                 Fetchable = Fetchable,
                 ComponentIndex = ComponentIndex,
-                Substance = Substance
+                ComplexObject = ComplexObject
             };
         }
         
         [NonSerialized]
-        public Substance Substance;
+        public ComplexObject ComplexObject;
 
         // Return: The intensity of these damage
         public float DoDamage(DamageValue damage, float defenceRatio = 1f)
@@ -82,12 +86,12 @@ namespace ObjectScripts.BodyPartScripts
         {
             SceneManager.Instance.Print(
                 GameText.Instance.GetBodyPartDestroyLog(
-                    Substance.TextName, TextName));
+                    ComplexObject.TextName, TextName));
             Available = false;
 
             if (!string.IsNullOrEmpty(AttachBodyPart) &&
-                Substance.BodyParts.ContainsKey(AttachBodyPart)) 
-                Substance.BodyParts[AttachBodyPart].Destroy();
+                ComplexObject.BodyParts.ContainsKey(AttachBodyPart)) 
+                ComplexObject.BodyParts[AttachBodyPart].Destroy();
             
             if(ComponentIndex >= GameSetting.Instance.ComponentList.Count) return;
             foreach (var component in GameSetting.Instance.ComponentList[ComponentIndex].Components)
@@ -98,7 +102,7 @@ namespace ObjectScripts.BodyPartScripts
                 }
 
                 Object.Instantiate(component).transform.position =
-                    Substance.WorldPos + new Vector2(
+                    ComplexObject.WorldPos + new Vector2(
                         (float) Utils.ProcessRandom.NextDouble() * DropIncrement * 2 - DropIncrement,
                         (float) Utils.ProcessRandom.NextDouble() * DropIncrement * 2 - DropIncrement);
             }

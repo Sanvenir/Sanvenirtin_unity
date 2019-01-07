@@ -1,9 +1,14 @@
 using ObjectScripts.CharSubstance;
 using UtilScripts.Text;
 
-namespace ObjectScripts.BasicItem
+namespace ObjectScripts.ItemScripts
 {
-    public class Food: BasicItem, IConsumeItem
+    /// <inheritdoc cref="SingularObject" />
+    /// <inheritdoc cref="IConsumableItem"/>>
+    /// <summary>
+    /// A basic food
+    /// </summary>
+    public class RawFood: SingularObject, IConsumableItem
     {
         public void DoConsume(Character character)
         {

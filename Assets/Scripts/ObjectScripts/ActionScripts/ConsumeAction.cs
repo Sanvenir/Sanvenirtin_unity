@@ -1,13 +1,17 @@
-using ObjectScripts.BasicItem;
+using ObjectScripts.ItemScripts;
 using ObjectScripts.CharSubstance;
 
 namespace ObjectScripts.ActionScripts
 {
-    public class ConsumeAction: BaseAction
+    /// <inheritdoc />
+    /// <summary>
+    ///     An action make character consume an item
+    /// </summary>
+    public class ConsumeAction : BaseAction
     {
-        private readonly IConsumeItem _item;
-        
-        public ConsumeAction(Character self, IConsumeItem item) : base(self)
+        private readonly IConsumableItem _item;
+
+        public ConsumeAction(Character self, IConsumableItem item) : base(self)
         {
             _item = item;
             CostTime = Self.Properties.GetActTime();

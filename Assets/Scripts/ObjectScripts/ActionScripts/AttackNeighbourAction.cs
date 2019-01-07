@@ -1,25 +1,28 @@
-using System;
 using ObjectScripts.BodyPartScripts;
 using ObjectScripts.CharSubstance;
-using ObjectScripts.SpriteController;
 using UnityEngine;
 using UtilScripts;
 using UtilScripts.Text;
-using Object = UnityEngine.Object;
 
 namespace ObjectScripts.ActionScripts
 {
-    public class AttackNeighbourAction: BaseAction
+    /// <inheritdoc />
+    /// <summary>
+    ///     An action make character attack a certain direction
+    /// </summary>
+    public class AttackNeighbourAction : BaseAction
     {
-        private readonly PartPos _attackPart;
+        private readonly PartPos _attackPartPos;
         private readonly Direction _targetDirection;
-        
+
         private Character _target;
-        
-        public AttackNeighbourAction(Character self, Direction targetDirection, PartPos attackPart = PartPos.Arbitrary) : base(self)
+
+        public AttackNeighbourAction(Character self, Direction targetDirection,
+            PartPos attackPartPos = PartPos.Arbitrary)
+            : base(self)
         {
             _targetDirection = targetDirection;
-            _attackPart = attackPart;
+            _attackPartPos = attackPartPos;
             CostTime = Self.Properties.GetActTime();
         }
 
@@ -29,6 +32,12 @@ namespace ObjectScripts.ActionScripts
                 GameText.Instance.GetAttackEmptyLog(Self.TextName));
         }
 
+        /// <inheritdoc />
+        /// <summary>
+        ///     Character attacks the AttackPartPos of character on TargetDirection, if there is no character or character has no
+        ///     part on the AttackPartPos then return false; Attack also affect the attitude of target character.
+        /// </summary>
+        /// <returns></returns>
         public override bool DoAction()
         {
             base.DoAction();
@@ -41,8 +50,11 @@ namespace ObjectScripts.ActionScripts
                 AttackEmpty();
                 return false;
             }
-            
-            var attackBodyParts = _target.GetBodyParts(_attackPart);
+
+            // Affect target AIController
+            _target.Controller.GetHostility(Self, 10);
+
+            var attackBodyParts = _target.GetBodyParts(_attackPartPos);
             if (attackBodyParts.Count == 0)
             {
                 AttackEmpty();
@@ -52,20 +64,18 @@ namespace ObjectScripts.ActionScripts
             var part = Utils.ProcessRandom.Next(attackBodyParts.Count);
             SceneManager.Instance.Print(
                 GameText.Instance.GetAttackLog(
-                    Self.TextName, 
-                    _target.TextName, 
-                    _target.GetBodyParts(_attackPart)[part].TextName
-                    ));
+                    Self.TextName,
+                    _target.TextName,
+                    _target.GetBodyParts(_attackPartPos)[part].TextName
+                ));
             _target.Attacked(
-                Self.Properties.GetBaseAttack(), 
-                _target.GetBodyParts(_attackPart)[part]);
-            
-            // Affect target AIController
-            _target.Controller.GetHostility(Self, 10);
+                Self.Properties.GetBaseAttack(),
+                _target.GetBodyParts(_attackPartPos)[part]);
 
+            // Play the attack action effect animation
             if (Self.AttackActionEffect == null) return true;
             var instance = Object.Instantiate(
-                Self.AttackActionEffect, 
+                Self.AttackActionEffect,
                 _target.gameObject.transform);
             instance.Initialize();
             return true;

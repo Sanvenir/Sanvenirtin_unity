@@ -6,13 +6,23 @@ using ObjectScripts.CharSubstance;
 using UnityEngine;
 using UtilScripts;
 
+
 namespace ObjectScripts.CharacterController
 {
+    /// <inheritdoc />
+    /// <summary>
+    /// 
+    /// </summary>
     public abstract class CharacterController: MonoBehaviour
     {
+        
         // Actions
         protected BaseAction NextAction;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="action"></param>
         public virtual void SetAction(BaseAction action)
         {
             NextAction = action;

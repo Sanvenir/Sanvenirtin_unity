@@ -15,7 +15,7 @@ using BodyPart = ObjectScripts.BodyPartScripts.BodyPart;
 
 namespace ObjectScripts
 {
-    public class Substance : BaseObject
+    public class ComplexObject : BaseObject
     {
         [HideInInspector] public Vector2 WorldPos;
         [HideInInspector] public Vector2Int WorldCoord;
@@ -94,7 +94,7 @@ namespace ObjectScripts
             foreach (var part in BodyParts.Values)
             {
                 part.HitPoint.Value = part.HitPoint.MaxValue;
-                part.Substance = this;
+                part.ComplexObject = this;
                 switch (part.PartPos)
                 {
                     case PartPos.Unreachable:
@@ -150,10 +150,10 @@ namespace ObjectScripts
         }
 
         public bool CheckColliderAtWorldCoord(
-            Vector2Int coord, out Substance substance)
+            Vector2Int coord, out ComplexObject complexObject)
         {
             Collider2D.offset = coord - WorldCoord;
-            var result = CheckCollider(out substance);
+            var result = CheckCollider(out complexObject);
             Collider2D.offset = Vector2.zero;
             return result;
         }
@@ -179,7 +179,7 @@ namespace ObjectScripts
         }
 
         public bool CheckCollider<T>(out T collide)
-            where T : Substance
+            where T : ComplexObject
         {
             var colliders = new Collider2D[1];
             Collider2D.OverlapCollider(SceneManager.Instance.BlockFilter, colliders);

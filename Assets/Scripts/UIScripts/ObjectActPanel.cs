@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using ObjectScripts;
 using ObjectScripts.ActionScripts;
-using ObjectScripts.BasicItem;
+using ObjectScripts.ItemScripts;
 using ObjectScripts.BodyPartScripts;
 using ObjectScripts.CharacterController;
 using ObjectScripts.CharSubstance;
@@ -36,7 +36,7 @@ namespace UIScripts
 
             if (bodyPart == null) return;
 
-            if (baseObject is IConsumeItem)
+            if (baseObject is IConsumableItem)
             {
                 _buttonInstance = Instantiate(ActButtonPrefab, ActButtonLayout.transform);
                 _buttonInstance.GetComponentInChildren<Text>().text = GameText.Instance.ConsumeAct;
@@ -44,7 +44,7 @@ namespace UIScripts
                 {
                     _playerController.SetAction(new ConsumeAction(
                         _playerController.Character,
-                        (IConsumeItem) baseObject));
+                        (IConsumableItem) baseObject));
                 });
             }
 
@@ -52,7 +52,7 @@ namespace UIScripts
             _buttonInstance.GetComponentInChildren<Text>().text = GameText.Instance.DropAct;
             _buttonInstance.onClick.AddListener(delegate
             {
-                _playerController.SetAction(new DropAction(_playerController.Character,
+                _playerController.SetAction(new DropFetchAction(_playerController.Character,
                     baseObject, bodyPart));
                 EndUp();
             });

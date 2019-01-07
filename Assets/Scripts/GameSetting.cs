@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using ObjectScripts.BasicItem;
 using ObjectScripts.BodyPartScripts;
 using ObjectScripts.RaceScripts;
 using UnityEngine;

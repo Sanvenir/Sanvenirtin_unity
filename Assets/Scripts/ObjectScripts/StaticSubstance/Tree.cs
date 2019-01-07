@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace ObjectScripts.StaticSubstance
 {
-    public class Tree: Substance
+    public class Tree: ComplexObject
     {
         public BodyPart TreeBody;
         public BodyPart TreeStump;

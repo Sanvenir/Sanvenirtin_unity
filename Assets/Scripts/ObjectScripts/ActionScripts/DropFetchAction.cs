@@ -3,18 +3,26 @@ using ObjectScripts.CharSubstance;
 
 namespace ObjectScripts.ActionScripts
 {
-    public class DropAction: BaseAction 
+    /// <inheritdoc />
+    /// <summary>
+    ///     An action makes character drop an item on its fetch part
+    /// </summary>
+    public class DropFetchAction : BaseAction
     {
         private readonly BodyPart _fetchPart;
         private readonly BaseObject _targetObject;
 
-        public DropAction(Character self, BaseObject targetObject, BodyPart fetchPart) : base(self)
+        public DropFetchAction(Character self, BaseObject targetObject, BodyPart fetchPart) : base(self)
         {
             _targetObject = targetObject;
             _fetchPart = fetchPart;
             CostTime = Self.Properties.GetActTime();
         }
 
+        /// <inheritdoc />
+        /// <summary>
+        /// </summary>
+        /// <returns>If given FetchPart is not in the fetch dictionary of the character, return false</returns>
         public override bool DoAction()
         {
             base.DoAction();

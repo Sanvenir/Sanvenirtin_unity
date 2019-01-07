@@ -2,8 +2,10 @@ using System;
 
 namespace ExceptionScripts
 {
-    public class GameCondition: Exception
+    /// <summary>
+    ///     For exceptions which are not errors
+    /// </summary>
+    public class GameCondition : Exception
     {
-        // For exceptions which are not errors
     }
 }

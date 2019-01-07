@@ -7,6 +7,6 @@ namespace ObjectScripts.BodyPartScripts
     public class BodyPartList
     {
         public string Name;
-        public List<BasicItem.BasicItem> Components;
+        public List<SingularObject> Components;
     }
 }

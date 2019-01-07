@@ -10,7 +10,7 @@ using UtilScripts.Text;
 
 namespace ObjectScripts.CharSubstance
 {
-    public abstract class Character : Substance
+    public abstract class Character : ComplexObject
     {
         public const float DropIncrement = 0.1f;
         public CharacterController.CharacterController Controller;
@@ -63,7 +63,7 @@ namespace ObjectScripts.CharSubstance
         }
 
         public bool MoveCheck<T>(Vector2Int delta, out T collide)
-            where T : Substance
+            where T : ComplexObject
         {
             Collider2D.offset = delta;
             var result = CheckCollider<T>(out collide);

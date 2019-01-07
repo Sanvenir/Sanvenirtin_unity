@@ -2,7 +2,11 @@ using UnityEngine;
 
 namespace ExceptionScripts
 {
-    public class CoordOccupiedException: GameException
+    /// <inheritdoc />
+    /// <summary>
+    ///     If a world coord is occupied by a collider, throw this Exception
+    /// </summary>
+    public class CoordOccupiedException : GameException
     {
         public Collider2D Collider;
 

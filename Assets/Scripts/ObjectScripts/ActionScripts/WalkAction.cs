@@ -3,10 +3,20 @@ using UtilScripts;
 
 namespace ObjectScripts.ActionScripts
 {
-    public class WalkAction: BaseAction
+    /// <inheritdoc />
+    /// <summary>
+    ///     An action makes character walk to given TargetDirection
+    /// </summary>
+    public class WalkAction : BaseAction
     {
         private readonly Direction _targetDirection;
-        
+
+        /// <inheritdoc />
+        /// <summary>
+        ///     if the Move Check of character on the given TargetDirection is false, return false; else do the action and return
+        ///     true
+        /// </summary>
+        /// <returns></returns>
         public override bool DoAction()
         {
             base.DoAction();
