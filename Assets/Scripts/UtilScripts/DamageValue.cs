@@ -9,7 +9,9 @@ namespace UtilScripts
     {
         public const float HitDamageRatio = 0.1f;
         
+        // Cut Damage can make the body part drop, and affected by absolute defend value <CutDefence>
         public float CutDamage;
+        // Hit Damage can destroy the body part, and affected by multiply by a decreasing ratio <HitRatio>
         public float HitDamage;
         
         public DamageValue(

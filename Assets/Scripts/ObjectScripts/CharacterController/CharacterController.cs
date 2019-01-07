@@ -45,16 +45,14 @@ namespace ObjectScripts.CharacterController
 
         private void Update()
         {
-            Character.RefreshProperties();
             if (Character.Dead) return;
             if (_recoveredTime < SceneManager.Instance.CurrentTime)
             {
                 _recoveredTime += Character.Properties.GetReactTime();
                 Character.Recovering();
             }
-            
-            
             if (!Character.IsTurn()) return;
+            Character.RefreshProperties();
             UpdateFunction();
         }
 

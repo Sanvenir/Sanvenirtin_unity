@@ -6,6 +6,10 @@ using UtilScripts;
 
 namespace ObjectScripts.CharacterController.CtrlConditions
 {
+    /// <inheritdoc />
+    /// <summary>
+    /// AI chase and attack the target character
+    /// </summary>
     public class AttackCondition: ChaseCondition
     {
 

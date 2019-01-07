@@ -23,7 +23,7 @@ namespace ObjectScripts.CharSubstance
         public float Perception = 10;
 
         public int Lifetime;
-        
+
         // Body parts in properties is belong to the whole race, so do not refactor
         // if only one certain character instance's body parts change.
         public List<BodyPart> BodyParts = new List<BodyPart>
@@ -33,59 +33,67 @@ namespace ObjectScripts.CharSubstance
                 Name = "Head",
                 TextName = "头部",
                 Essential = true,
-                PartPos = PartPos.High
+                PartPos = PartPos.High,
+                ComponentIndex = 1
             },
             new BodyPart
             {
                 Name = "Neck",
                 TextName = "颈部",
                 Essential = true,
-                PartPos = PartPos.High
+                PartPos = PartPos.High,
+                ComponentIndex = 1
             },
             new BodyPart
             {
                 Name = "Chest",
                 TextName = "胸部",
                 Essential = true,
-                PartPos = PartPos.Middle
+                PartPos = PartPos.Middle,
+                ComponentIndex = 1
             },
             new BodyPart
             {
-            Name = "Waist",
+                Name = "Waist",
                 TextName = "腰部",
-            Essential = false,
-            PartPos = PartPos.Middle
+                Essential = false,
+                PartPos = PartPos.Middle,
+                ComponentIndex = 1
             },
             new BodyPart
             {
                 Name = "Crotch",
                 TextName = "胯部",
                 Essential = false,
-                PartPos = PartPos.Low
+                PartPos = PartPos.Low,
+                ComponentIndex = 1
             },
             new BodyPart
             {
                 Name = "LeftArm",
                 TextName = "左臂",
                 Essential = false,
-                PartPos = PartPos.Middle, 
-                AttachBodyPart = "LeftHand"
+                PartPos = PartPos.Middle,
+                AttachBodyPart = "LeftHand",
+                ComponentIndex = 1
             },
             new BodyPart
             {
                 Name = "LeftHand",
                 TextName = "左手",
                 Essential = false,
-                PartPos = PartPos.Middle, 
-                Fetchable = true
+                PartPos = PartPos.Middle,
+                Fetchable = true,
+                ComponentIndex = 1
             },
             new BodyPart
             {
                 Name = "RightArm",
                 TextName = "右臂",
                 Essential = false,
-                PartPos = PartPos.Middle, 
-                AttachBodyPart = "RightHand"
+                PartPos = PartPos.Middle,
+                AttachBodyPart = "RightHand",
+                ComponentIndex = 1
             },
             new BodyPart
             {
@@ -93,35 +101,40 @@ namespace ObjectScripts.CharSubstance
                 TextName = "右手",
                 Essential = false,
                 PartPos = PartPos.Middle,
-                Fetchable = true
+                Fetchable = true,
+                ComponentIndex = 1
             },
             new BodyPart
             {
                 Name = "LeftLeg",
                 TextName = "左腿",
                 Essential = false,
-                PartPos = PartPos.Low
+                PartPos = PartPos.Low,
+                ComponentIndex = 1
             },
             new BodyPart
             {
                 Name = "LeftFoot",
                 TextName = "左足",
                 Essential = false,
-                PartPos = PartPos.Low
+                PartPos = PartPos.Low,
+                ComponentIndex = 1
             },
             new BodyPart
             {
                 Name = "RightLeg",
                 TextName = "右腿",
                 Essential = false,
-                PartPos = PartPos.Low
+                PartPos = PartPos.Low,
+                ComponentIndex = 1
             },
             new BodyPart
             {
                 Name = "RightFoot",
                 TextName = "右足",
                 Essential = false,
-                PartPos = PartPos.Low
+                PartPos = PartPos.Low,
+                ComponentIndex = 1
             }
         };
 

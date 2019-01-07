@@ -14,14 +14,14 @@ TagManager:
   - UI
   - 
   - 
-  - BlockLayer
+  - BlockTileLayer
   - EffectLayer
   - GroundLayer
   - ItemLayer
-  - 
-  - 
-  - 
-  - 
+  - SubstanceLayer
+  - DisabledLayer
+  - PlayerLayer
+  - HighSubstanceLayer
   - 
   - 
   - 

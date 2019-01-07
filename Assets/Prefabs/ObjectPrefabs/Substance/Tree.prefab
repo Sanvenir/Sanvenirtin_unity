@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114855586142794418}
   - component: {fileID: 114566145580136664}
   - component: {fileID: 58677741058970028}
-  m_Layer: 8
+  m_Layer: 15
   m_Name: Tree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69,40 +69,47 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e2601355adf43cc8f9296ae52fa4bcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: Tree
+  TextName: "\u6811"
+  Info: "\u4E00\u68F5\u6811\u3002"
   SpriteRenderer: {fileID: 212209956950803370}
+  SpriteController: {fileID: 114855586142794418}
   Collider2D: {fileID: 58677741058970028}
+  IsDestroy: 0
   WorldPos: {x: 0, y: 0}
   WorldCoord: {x: 0, y: 0}
-  SpriteController: {fileID: 114855586142794418}
-  AirParts: []
-  HighParts: []
-  MiddleParts: []
-  LowParts: []
-  IsDestroy: 0
   AreaIdentity: 0
   TreeBody:
     Name: Tree Body
+    TextName: 
+    CutPoint:
+      MaxValue: 1000
     HitPoint:
       MaxValue: 1000
     Size: 10
     Weight: 10
-    Defence: 10
-    Available: 1
-    Substance: {fileID: 0}
+    CutDefence: 10
+    HitRatio: 0.9
+    PartPos: 2
+    AttachBodyPart: 
     Essential: 1
-    Components: []
+    Fetchable: 0
+    ComponentIndex: 0
   TreeStump:
     Name: Tree Stump
+    TextName: 
+    CutPoint:
+      MaxValue: 1000
     HitPoint:
       MaxValue: 1000
     Size: 10
     Weight: 10
-    Defence: 10
-    Available: 1
-    Substance: {fileID: 0}
+    CutDefence: 10
+    HitRatio: 0.9
+    PartPos: 2
+    AttachBodyPart: 
     Essential: 1
-    Components: []
+    Fetchable: 0
+    ComponentIndex: 0
 --- !u!114 &114855586142794418
 MonoBehaviour:
   m_ObjectHideFlags: 1

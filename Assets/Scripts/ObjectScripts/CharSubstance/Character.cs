@@ -10,7 +10,7 @@ using UtilScripts.Text;
 
 namespace ObjectScripts.CharSubstance
 {
-    public abstract class Character : ComplexObject
+    public abstract class Character : Substance
     {
         public const float DropIncrement = 0.1f;
         public CharacterController.CharacterController Controller;
@@ -18,7 +18,7 @@ namespace ObjectScripts.CharSubstance
         public int RaceIndex = 0;
 
         // Key is all known character
-        [HideInInspector] public HashSet<Character> VisibleCharacters;
+        [HideInInspector] public HashSet<Character> VisibleCharacter;
         
         public bool IsTurn()
         {
@@ -48,7 +48,7 @@ namespace ObjectScripts.CharSubstance
             if (!bodyPart.Available)
             {
                 DropFetchObject(bodyPart);
-                if (bodyPart.AttachBodyPart != string.Empty)
+                if (!string.IsNullOrEmpty(bodyPart.AttachBodyPart))
                 {
                     DropFetchObject(BodyParts[bodyPart.AttachBodyPart]);
                 }
@@ -94,22 +94,6 @@ namespace ObjectScripts.CharSubstance
             return true;
         }
 
-        protected IEnumerator SmoothMovement(Vector3 end, int moveTime)
-        {
-            var moveSteps = moveTime / SceneManager.Instance.GetUpdateTime();
-            var moveVector = (end - transform.position) / moveSteps;
-            for (; moveSteps != 0; moveSteps--)
-            {
-                SpriteController.StartMoving();
-                transform.position += moveVector;
-                SpriteRenderer.sortingOrder = -Utils.FloatToInt(transform.position.y);
-                Collider2D.offset = end - transform.position;
-                yield return null;
-            }
-
-            SpriteController.StopMoving();
-        }
-
         public void TurnTo(Direction direction)
         {
             SpriteController.SetDirection(direction);
@@ -127,25 +111,47 @@ namespace ObjectScripts.CharSubstance
         protected override void Update()
         {
             base.Update();
-            SpriteRenderer.enabled = 
-                Dead || SceneManager.Instance.PlayerObject.VisibleCharacters.Contains(this);
         }
 
+        public bool IsVisible(Collider2D hit)
+        {
+            var distance = (hit.transform.position - transform.position).sqrMagnitude;
+            if (distance < Properties.Perception) return true;
+            Collider2D.enabled = false;
+            hit.enabled = false;
+            var result = Physics2D.Linecast(WorldPos, hit.transform.position, SceneManager.Instance.BlockInspectLayer).collider == null;
+            Collider2D.enabled = true;
+            hit.enabled = true;
+            return result && distance < Properties.Perception * Properties.Perception;
+        }
+
+        public bool IsVisible(BaseObject baseObject)
+        {
+            var distance = (baseObject.transform.position - transform.position).sqrMagnitude;
+            if (distance < Properties.Perception) return true;
+            Collider2D.enabled = false;
+            baseObject.Collider2D.enabled = false;           
+            var result = Physics2D.Linecast(WorldPos, baseObject.transform.position, SceneManager.Instance.BlockInspectLayer).collider == null;
+            Collider2D.enabled = true;
+            baseObject.Collider2D.enabled = true;
+            return result && distance < Properties.Perception * Properties.Perception;;
+        }
 
         public virtual void RefreshProperties()
         {
             Properties.RefreshProperties();
             
-            VisibleCharacters = new HashSet<Character>();
+            VisibleCharacter = new HashSet<Character>();
             var hits = Physics2D.OverlapCircleAll(WorldPos, Properties.Perception,
-                SceneManager.Instance.BlockFilter.layerMask);
+                SceneManager.Instance.ObjectLayer);
             foreach (var hit in hits)
             {
+                if (!IsVisible(hit)) continue;
                 var character = hit.GetComponent<Character>();
                 if (!character) continue;
-                VisibleCharacters.Add(character);
+                VisibleCharacter.Add(character);
             }
-            
+
             if (Dead && IsTurn())
             {
                 foreach (var part in BodyParts.Values)
@@ -176,13 +182,12 @@ namespace ObjectScripts.CharSubstance
 
         public override void Initialize(Vector2Int worldCoord, int areaIdentity)
         {
-            // GameSetting.Instance.RaceList[RaceIndex].RefactorGameObject(this);
             ActivateTime = SceneManager.Instance.CurrentTime;
             
             BodyParts = new Dictionary<string, BodyPart>();
             foreach (var bodyPart in Properties.BodyParts)
             {
-                BodyParts.Add(bodyPart.Name, (BodyPart) bodyPart.Clone());
+                BodyParts.Add(bodyPart.Name, (BodyPart) bodyPart.Create(this));
             }
 
             foreach (var bodyPart in BodyParts.Values)

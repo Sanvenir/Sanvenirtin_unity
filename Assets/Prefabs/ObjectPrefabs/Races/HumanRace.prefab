@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114717772600095978}
   - component: {fileID: 58667543570485070}
   - component: {fileID: 114048760322502142}
-  m_Layer: 8
+  m_Layer: 12
   m_Name: HumanRace
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85,11 +85,11 @@ MonoBehaviour:
   TextName: 
   Info: "\u968F\u5904\u53EF\u89C1\u7684\u666E\u901A\u4EBA\u7C7B\uFF0C\u53EF\u4EE5\u6740\u4E86\u5403\u8089"
   SpriteRenderer: {fileID: 212962551414652834}
+  SpriteController: {fileID: 114927581382262564}
   Collider2D: {fileID: 58667543570485070}
+  IsDestroy: 0
   WorldPos: {x: 0, y: 0}
   WorldCoord: {x: 0, y: 0}
-  SpriteController: {fileID: 114927581382262564}
-  IsDestroy: 0
   AreaIdentity: 0
   Controller: {fileID: 114048760322502142}
   Properties:

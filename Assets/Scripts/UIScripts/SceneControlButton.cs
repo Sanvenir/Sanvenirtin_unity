@@ -27,6 +27,7 @@ namespace UIScripts
     {
         public ActionMenu SelectionMenu;
         public SpriteRenderer SceneCursor;
+        public ContactFilter2D SceneCursorFilter;
 
         private Vector3 _cursorTargetPos;
         [HideInInspector] public Character Player;
@@ -69,6 +70,7 @@ namespace UIScripts
                 return;
             }
 
+            if (SceneCursor == null) return;
             SceneCursor.enabled = false;
         }
 
@@ -152,7 +154,7 @@ namespace UIScripts
 
             // If a collider is chosen, highlight it; 
             if ( _cursorCollider.OverlapCollider(
-                     SceneManager.Instance.BlockFilter, _hits) != 0)
+                     SceneCursorFilter, _hits) != 0)
             {
                 ChangeSelected();
             }

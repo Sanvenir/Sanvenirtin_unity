@@ -28,7 +28,7 @@
             "AttachBodyPart": "",
             "Essential": true,
             "Fetchable": false,
-            "ComponentIndex": 0
+            "ComponentIndex": 1
         },
         {
             "Name": "Neck",
@@ -47,7 +47,7 @@
             "AttachBodyPart": "",
             "Essential": true,
             "Fetchable": false,
-            "ComponentIndex": 0
+            "ComponentIndex": 1
         },
         {
             "Name": "Chest",
@@ -66,7 +66,7 @@
             "AttachBodyPart": "",
             "Essential": true,
             "Fetchable": false,
-            "ComponentIndex": 0
+            "ComponentIndex": 1
         },
         {
             "Name": "Waist",
@@ -85,7 +85,7 @@
             "AttachBodyPart": "",
             "Essential": false,
             "Fetchable": false,
-            "ComponentIndex": 0
+            "ComponentIndex": 1
         },
         {
             "Name": "Crotch",
@@ -104,7 +104,7 @@
             "AttachBodyPart": "",
             "Essential": false,
             "Fetchable": false,
-            "ComponentIndex": 0
+            "ComponentIndex": 1
         },
         {
             "Name": "LeftArm",
@@ -123,7 +123,7 @@
             "AttachBodyPart": "LeftHand",
             "Essential": false,
             "Fetchable": false,
-            "ComponentIndex": 0
+            "ComponentIndex": 1
         },
         {
             "Name": "LeftHand",
@@ -142,7 +142,7 @@
             "AttachBodyPart": "",
             "Essential": false,
             "Fetchable": true,
-            "ComponentIndex": 0
+            "ComponentIndex": 1
         },
         {
             "Name": "RightArm",
@@ -161,7 +161,7 @@
             "AttachBodyPart": "RightHand",
             "Essential": false,
             "Fetchable": false,
-            "ComponentIndex": 0
+            "ComponentIndex": 1
         },
         {
             "Name": "RightHand",
@@ -180,7 +180,7 @@
             "AttachBodyPart": "",
             "Essential": false,
             "Fetchable": true,
-            "ComponentIndex": 0
+            "ComponentIndex": 1
         },
         {
             "Name": "LeftLeg",
@@ -199,7 +199,7 @@
             "AttachBodyPart": "",
             "Essential": false,
             "Fetchable": false,
-            "ComponentIndex": 0
+            "ComponentIndex": 1
         },
         {
             "Name": "LeftFoot",
@@ -218,7 +218,7 @@
             "AttachBodyPart": "",
             "Essential": false,
             "Fetchable": false,
-            "ComponentIndex": 0
+            "ComponentIndex": 1
         },
         {
             "Name": "RightLeg",
@@ -237,7 +237,7 @@
             "AttachBodyPart": "",
             "Essential": false,
             "Fetchable": false,
-            "ComponentIndex": 0
+            "ComponentIndex": 1
         },
         {
             "Name": "RightFoot",
@@ -256,7 +256,7 @@
             "AttachBodyPart": "",
             "Essential": false,
             "Fetchable": false,
-            "ComponentIndex": 0
+            "ComponentIndex": 1
         }
     ]
 }

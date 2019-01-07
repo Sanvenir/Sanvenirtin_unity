@@ -1170,89 +1170,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &705778989
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 705778991}
-  - component: {fileID: 705778990}
-  m_Layer: 0
-  m_Name: GameSetting
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &705778990
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 705778989}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 003cbf8bcbd343bab54da9d892b46a30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ComponentList:
-  - Name: Meat
-    Components:
-    - {fileID: 114898461014695738, guid: a16b7be3f6820634b8719308438575f0, type: 2}
-  RaceList:
-  - Name: Human
-    TextName: "\u4EBA\u7C7B"
-    NameFormat: general
-    SpriteList:
-    - Sprites:
-      - {fileID: 21300006, guid: 535edfc49be88574d80171235f6aed27, type: 3}
-      - {fileID: 21300008, guid: 535edfc49be88574d80171235f6aed27, type: 3}
-      - {fileID: 21300010, guid: 535edfc49be88574d80171235f6aed27, type: 3}
-      - {fileID: 21300030, guid: 535edfc49be88574d80171235f6aed27, type: 3}
-      - {fileID: 21300032, guid: 535edfc49be88574d80171235f6aed27, type: 3}
-      - {fileID: 21300034, guid: 535edfc49be88574d80171235f6aed27, type: 3}
-      - {fileID: 21300054, guid: 535edfc49be88574d80171235f6aed27, type: 3}
-      - {fileID: 21300056, guid: 535edfc49be88574d80171235f6aed27, type: 3}
-      - {fileID: 21300058, guid: 535edfc49be88574d80171235f6aed27, type: 3}
-      - {fileID: 21300078, guid: 535edfc49be88574d80171235f6aed27, type: 3}
-      - {fileID: 21300080, guid: 535edfc49be88574d80171235f6aed27, type: 3}
-      - {fileID: 21300082, guid: 535edfc49be88574d80171235f6aed27, type: 3}
-      DisabledSprite: {fileID: 21300012, guid: 903229811b7965a4591b184cab38aa3e, type: 3}
-      MaxAge: 30
-      MinAge: 10
-      Gender: 2
-    - Sprites:
-      - {fileID: 21300000, guid: fb0d03fd8615a5b40b204924343facf8, type: 3}
-      - {fileID: 21300002, guid: fb0d03fd8615a5b40b204924343facf8, type: 3}
-      - {fileID: 21300004, guid: fb0d03fd8615a5b40b204924343facf8, type: 3}
-      - {fileID: 21300024, guid: fb0d03fd8615a5b40b204924343facf8, type: 3}
-      - {fileID: 21300026, guid: fb0d03fd8615a5b40b204924343facf8, type: 3}
-      - {fileID: 21300028, guid: fb0d03fd8615a5b40b204924343facf8, type: 3}
-      - {fileID: 21300048, guid: fb0d03fd8615a5b40b204924343facf8, type: 3}
-      - {fileID: 21300050, guid: fb0d03fd8615a5b40b204924343facf8, type: 3}
-      - {fileID: 21300052, guid: fb0d03fd8615a5b40b204924343facf8, type: 3}
-      - {fileID: 21300072, guid: fb0d03fd8615a5b40b204924343facf8, type: 3}
-      - {fileID: 21300074, guid: fb0d03fd8615a5b40b204924343facf8, type: 3}
-      - {fileID: 21300076, guid: fb0d03fd8615a5b40b204924343facf8, type: 3}
-      DisabledSprite: {fileID: 21300012, guid: 903229811b7965a4591b184cab38aa3e, type: 3}
-      MaxAge: 30
-      MinAge: 10
-      Gender: 1
---- !u!4 &705778991
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 705778989}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -34.683243, y: -24.596558, z: -0.0077574034}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 13
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &709854532
 GameObject:
   m_ObjectHideFlags: 0
@@ -1906,35 +1823,67 @@ MonoBehaviour:
   GroundLayer:
     serializedVersion: 2
     m_Bits: 1024
+  ItemLayer:
+    serializedVersion: 2
+    m_Bits: 2048
+  BlockLayer:
+    serializedVersion: 2
+    m_Bits: 53504
+  PlayerLookAtLayer:
+    serializedVersion: 2
+    m_Bits: 47104
+  ObjectLayer:
+    serializedVersion: 2
+    m_Bits: 53248
+  BlockInspectLayer:
+    serializedVersion: 2
+    m_Bits: 33024
+  ComponentList:
+  - Name: Empty
+    Components: []
+  - Name: Meat
+    Components:
+    - {fileID: 114898461014695738, guid: a16b7be3f6820634b8719308438575f0, type: 2}
+  RaceList:
+  - Name: human
+    TextName: "\u4EBA\u7C7B"
+    NameFormat: general
+    SpriteList:
+    - Sprites:
+      - {fileID: 21300018, guid: d48dd7f34c69826439fcb1715f371716, type: 3}
+      - {fileID: 21300020, guid: d48dd7f34c69826439fcb1715f371716, type: 3}
+      - {fileID: 21300022, guid: d48dd7f34c69826439fcb1715f371716, type: 3}
+      - {fileID: 21300042, guid: d48dd7f34c69826439fcb1715f371716, type: 3}
+      - {fileID: 21300044, guid: d48dd7f34c69826439fcb1715f371716, type: 3}
+      - {fileID: 21300046, guid: d48dd7f34c69826439fcb1715f371716, type: 3}
+      - {fileID: 21300066, guid: d48dd7f34c69826439fcb1715f371716, type: 3}
+      - {fileID: 21300068, guid: d48dd7f34c69826439fcb1715f371716, type: 3}
+      - {fileID: 21300070, guid: d48dd7f34c69826439fcb1715f371716, type: 3}
+      - {fileID: 21300090, guid: d48dd7f34c69826439fcb1715f371716, type: 3}
+      - {fileID: 21300092, guid: d48dd7f34c69826439fcb1715f371716, type: 3}
+      - {fileID: 21300094, guid: d48dd7f34c69826439fcb1715f371716, type: 3}
+      DisabledSprite: {fileID: 21300012, guid: 903229811b7965a4591b184cab38aa3e, type: 3}
+      MaxAge: 20
+      MinAge: 15
+      Gender: 2
+    - Sprites:
+      - {fileID: 21300000, guid: c8f629e87c60fa54e988db9a030627bb, type: 3}
+      - {fileID: 21300002, guid: c8f629e87c60fa54e988db9a030627bb, type: 3}
+      - {fileID: 21300004, guid: c8f629e87c60fa54e988db9a030627bb, type: 3}
+      - {fileID: 21300024, guid: c8f629e87c60fa54e988db9a030627bb, type: 3}
+      - {fileID: 21300026, guid: c8f629e87c60fa54e988db9a030627bb, type: 3}
+      - {fileID: 21300028, guid: c8f629e87c60fa54e988db9a030627bb, type: 3}
+      - {fileID: 21300048, guid: c8f629e87c60fa54e988db9a030627bb, type: 3}
+      - {fileID: 21300050, guid: c8f629e87c60fa54e988db9a030627bb, type: 3}
+      - {fileID: 21300052, guid: c8f629e87c60fa54e988db9a030627bb, type: 3}
+      - {fileID: 21300072, guid: c8f629e87c60fa54e988db9a030627bb, type: 3}
+      - {fileID: 21300074, guid: c8f629e87c60fa54e988db9a030627bb, type: 3}
+      - {fileID: 21300076, guid: c8f629e87c60fa54e988db9a030627bb, type: 3}
+      DisabledSprite: {fileID: 21300012, guid: 903229811b7965a4591b184cab38aa3e, type: 3}
+      MaxAge: 50
+      MinAge: 30
+      Gender: 1
   LoadingRange: 2
-  BlockFilter:
-    useTriggers: 0
-    useLayerMask: 1
-    useDepth: 0
-    useOutsideDepth: 0
-    useNormalAngle: 0
-    useOutsideNormalAngle: 0
-    layerMask:
-      serializedVersion: 2
-      m_Bits: 256
-    minDepth: 0
-    maxDepth: 0
-    minNormalAngle: 0
-    maxNormalAngle: 0
-  ItemFilter:
-    useTriggers: 0
-    useLayerMask: 1
-    useDepth: 0
-    useOutsideDepth: 0
-    useNormalAngle: 0
-    useOutsideNormalAngle: 0
-    layerMask:
-      serializedVersion: 2
-      m_Bits: 2048
-    minDepth: 0
-    maxDepth: 0
-    minNormalAngle: 0
-    maxNormalAngle: 0
   EarthMapManager: {fileID: 1202584583}
   Player: {fileID: 1471056960}
   Grid: {fileID: 96773922}
@@ -2012,6 +1961,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SelectionMenu: {fileID: 1050116504}
   SceneCursor: {fileID: 1723872566}
+  SceneCursorFilter:
+    useTriggers: 0
+    useLayerMask: 1
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 0
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 53248
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 0
+    maxNormalAngle: 0
   Player: {fileID: 0}
   PlayerController: {fileID: 1471056965}
   CameraFollowPlayer: 1
@@ -3320,7 +3283,7 @@ GameObject:
   - component: {fileID: 1471056965}
   - component: {fileID: 1471056961}
   - component: {fileID: 1471056966}
-  m_Layer: 8
+  m_Layer: 14
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -3339,12 +3302,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TextName: "\u6587\u5C3C\u4E9A"
+  Info: 
   SpriteRenderer: {fileID: 1471056962}
+  SpriteController: {fileID: 1471056964}
   Collider2D: {fileID: 1471056966}
+  IsDestroy: 0
   WorldPos: {x: 0.5, y: 0.5}
   WorldCoord: {x: 0, y: 0}
-  SpriteController: {fileID: 1471056964}
-  IsDestroy: 0
   AreaIdentity: 4019
   Controller: {fileID: 1471056965}
   Properties:
@@ -3370,7 +3334,6 @@ MonoBehaviour:
       Weight: 10
       CutDefence: 10
       HitRatio: 0.9
-      Available: 1
       PartPos: 1
       AttachBodyPart: 
       Essential: 1
@@ -3386,7 +3349,6 @@ MonoBehaviour:
       Weight: 10
       CutDefence: 10
       HitRatio: 0.9
-      Available: 1
       PartPos: 1
       AttachBodyPart: 
       Essential: 1
@@ -3402,7 +3364,6 @@ MonoBehaviour:
       Weight: 10
       CutDefence: 10
       HitRatio: 0.9
-      Available: 1
       PartPos: 2
       AttachBodyPart: 
       Essential: 1
@@ -3418,7 +3379,6 @@ MonoBehaviour:
       Weight: 10
       CutDefence: 10
       HitRatio: 0.9
-      Available: 1
       PartPos: 2
       AttachBodyPart: 
       Essential: 0
@@ -3434,7 +3394,6 @@ MonoBehaviour:
       Weight: 10
       CutDefence: 10
       HitRatio: 0.9
-      Available: 1
       PartPos: 3
       AttachBodyPart: 
       Essential: 0
@@ -3450,7 +3409,6 @@ MonoBehaviour:
       Weight: 10
       CutDefence: 10
       HitRatio: 0.9
-      Available: 1
       PartPos: 2
       AttachBodyPart: LeftHand
       Essential: 0
@@ -3466,7 +3424,6 @@ MonoBehaviour:
       Weight: 10
       CutDefence: 10
       HitRatio: 0.9
-      Available: 1
       PartPos: 2
       AttachBodyPart: 
       Essential: 0
@@ -3482,7 +3439,6 @@ MonoBehaviour:
       Weight: 10
       CutDefence: 10
       HitRatio: 0.9
-      Available: 1
       PartPos: 2
       AttachBodyPart: RightHand
       Essential: 0
@@ -3498,7 +3454,6 @@ MonoBehaviour:
       Weight: 10
       CutDefence: 10
       HitRatio: 0.9
-      Available: 1
       PartPos: 2
       AttachBodyPart: 
       Essential: 0
@@ -3514,7 +3469,6 @@ MonoBehaviour:
       Weight: 10
       CutDefence: 10
       HitRatio: 0.9
-      Available: 1
       PartPos: 3
       AttachBodyPart: 
       Essential: 0
@@ -3530,7 +3484,6 @@ MonoBehaviour:
       Weight: 10
       CutDefence: 10
       HitRatio: 0.9
-      Available: 1
       PartPos: 3
       AttachBodyPart: 
       Essential: 0
@@ -3546,7 +3499,6 @@ MonoBehaviour:
       Weight: 10
       CutDefence: 10
       HitRatio: 0.9
-      Available: 1
       PartPos: 3
       AttachBodyPart: 
       Essential: 0
@@ -3562,7 +3514,6 @@ MonoBehaviour:
       Weight: 10
       CutDefence: 10
       HitRatio: 0.9
-      Available: 1
       PartPos: 3
       AttachBodyPart: 
       Essential: 0

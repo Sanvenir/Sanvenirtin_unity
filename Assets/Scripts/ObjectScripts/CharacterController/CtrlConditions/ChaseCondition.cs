@@ -5,9 +5,13 @@ using UtilScripts;
 
 namespace ObjectScripts.CharacterController.CtrlConditions
 {
+    /// <inheritdoc />
+    /// <summary>
+    /// AI Chase the Target Character
+    /// </summary>
     public class ChaseCondition : BaseCondition
     {
-        public Character TargetCharacter;
+        protected readonly Character TargetCharacter;
 
         public ChaseCondition(AiController controller, Character target) : base(controller)
         {

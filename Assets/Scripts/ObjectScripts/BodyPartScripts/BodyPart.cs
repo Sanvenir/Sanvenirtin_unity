@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using UnityEngine;
 using UtilScripts;
 using UtilScripts.Text;
@@ -9,40 +8,68 @@ namespace ObjectScripts.BodyPartScripts
 {
     /// <inheritdoc cref="INamed" />
     /// <summary>
-    /// BodyPart of object; An object that not basic is made up by several body parts
+    ///     BodyPart of object; An object that not basic is made up by several body parts
     /// </summary>
     [Serializable]
-    public class BodyPart: INamed, ICloneable
+    public class BodyPart : INamed
     {
+        /// <summary>
+        ///     The random offset of positions of dropped items
+        /// </summary>
         private const float DropIncrement = 0.1f;
+
         public string Name;
         public string TextName;
-        public LimitValue CutPoint = new LimitValue(1000);
-        public LimitValue HitPoint = new LimitValue(1000);
+
+        /// <summary>
+        ///     If Cut Point reaches 0, the body part becomes unavailable and drop it components
+        /// </summary>
+        public LimitValue CutPoint = new LimitValue(10);
+
+        /// <summary>
+        ///     If Hit Point reaches 0, the body part becomes unavailable and drop it components(But in fact nothing should drop
+        ///     because of the body part is destroyed completely)
+        /// </summary>
+        public LimitValue HitPoint = new LimitValue(10);
+
         public float Size = 10;
         public float Weight = 10;
 
+        /// <summary>
+        ///     Defence of Cut Damage, real damage = CutDamage - CutDefence
+        /// </summary>
         public float CutDefence = 10.0f;
+
+        /// <summary>
+        ///     Defence ratio of Hit Damage, real damage = HitDamage * HitRatio
+        /// </summary>
         public float HitRatio = 0.90f;
-        
-        // public float Defence = 10;
-        [NonSerialized]
-        public bool Available = true;
-        
+
+        [NonSerialized] public bool Available = true;
+
         public PartPos PartPos = PartPos.Middle;
-        // If current components destroyed, attached component destroyed too
+
+        /// <summary>
+        ///     The name of attached body part. If current components destroyed, attached component destroyed too
+        /// </summary>
         public string AttachBodyPart;
 
-        // If essential is true, substance destroyed after the component destroyed
+        /// <summary>
+        ///     If essential is true, character and substance destroyed after the component destroyed
+        /// </summary>
         public bool Essential;
+
         public bool Fetchable;
 
+        /// <summary>
+        ///     Index of make-up components, which set in GameSetting
+        /// </summary>
         public int ComponentIndex;
-        
 
-        public object Clone()
+
+        public object Create(ComplexObject self)
         {
-            return new BodyPart()
+            return new BodyPart
             {
                 Name = Name,
                 TextName = TextName,
@@ -58,15 +85,18 @@ namespace ObjectScripts.BodyPartScripts
                 Essential = Essential,
                 Fetchable = Fetchable,
                 ComponentIndex = ComponentIndex,
-                ComplexObject = ComplexObject
+                Self = self
             };
         }
-        
-        [NonSerialized]
-        public ComplexObject ComplexObject;
 
-        // Return: The intensity of these damage
-        public float DoDamage(DamageValue damage, float defenceRatio = 1f)
+        [NonSerialized] public ComplexObject Self;
+
+        /// <summary>
+        ///     Called when the body part received damage
+        /// </summary>
+        /// <param name="damage"></param>
+        /// <returns>The intensity of these damage</returns>
+        public float DoDamage(DamageValue damage)
         {
             if (!Available) return 0;
             var intensity = damage.DoDamage(this);
@@ -75,6 +105,10 @@ namespace ObjectScripts.BodyPartScripts
             return intensity;
         }
 
+        /// <summary>
+        ///     Called when the body part received fixed hit damage
+        /// </summary>
+        /// <param name="damage"></param>
         public void DoPenetrateHitDamage(float damage)
         {
             HitPoint.Value -= damage;
@@ -82,33 +116,34 @@ namespace ObjectScripts.BodyPartScripts
             Destroy();
         }
 
+        /// <summary>
+        ///     Called when the body part is been destroyed(usually because of attach to a body part
+        /// </summary>
         public void Destroy()
         {
             SceneManager.Instance.Print(
                 GameText.Instance.GetBodyPartDestroyLog(
-                    ComplexObject.TextName, TextName));
+                    Self.TextName, TextName));
             Available = false;
 
             if (!string.IsNullOrEmpty(AttachBodyPart) &&
-                ComplexObject.BodyParts.ContainsKey(AttachBodyPart)) 
-                ComplexObject.BodyParts[AttachBodyPart].Destroy();
-            
-            if(ComponentIndex >= GameSetting.Instance.ComponentList.Count) return;
-            foreach (var component in GameSetting.Instance.ComponentList[ComponentIndex].Components)
+                Self.BodyParts.ContainsKey(AttachBodyPart))
+                Self.BodyParts[AttachBodyPart].Destroy();
+
+            if (ComponentIndex >= SceneManager.Instance.ComponentList.Count) return;
+            foreach (var component in SceneManager.Instance.ComponentList[ComponentIndex].Components)
             {
-                if (Utils.ProcessRandom.NextDouble() > HitPoint.GetRemainRatio())
-                {
-                    continue;
-                }
+                if (Utils.ProcessRandom.NextDouble() > HitPoint.GetRemainRatio()) continue;
 
                 Object.Instantiate(component).transform.position =
-                    ComplexObject.WorldPos + new Vector2(
+                    Self.transform.position + new Vector3(
                         (float) Utils.ProcessRandom.NextDouble() * DropIncrement * 2 - DropIncrement,
-                        (float) Utils.ProcessRandom.NextDouble() * DropIncrement * 2 - DropIncrement);
+                        (float) Utils.ProcessRandom.NextDouble() * DropIncrement * 2 - DropIncrement, 
+                        0f);
             }
         }
 
-        
+
         public string GetTextName()
         {
             return TextName;

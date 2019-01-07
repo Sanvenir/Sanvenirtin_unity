@@ -9,6 +9,7 @@ using Cinemachine;
 using ExceptionScripts;
 using MapScripts;
 using ObjectScripts;
+using ObjectScripts.BodyPartScripts;
 using ObjectScripts.CharacterController;
 using ObjectScripts.CharSubstance;
 using ObjectScripts.RaceScripts;
@@ -25,9 +26,21 @@ public class SceneManager : MonoBehaviour
 	public string RandomSeed = "Random";
 	public int InitMapX, InitMapY;
 	public LayerMask GroundLayer;
+	public LayerMask ItemLayer;
+	public LayerMask BlockLayer;
+	public LayerMask PlayerLookAtLayer;
+	public LayerMask ObjectLayer;
+	public LayerMask BlockInspectLayer;
+	
+	public List<BodyPartList> ComponentList;
+	public List<BasicRace> RaceList = new List<BasicRace>
+	{
+		{
+			new BasicRace()
+		}
+	};
+	
 	public int LoadingRange = 2;
-	public ContactFilter2D BlockFilter;
-	public ContactFilter2D ItemFilter;
 
 	// Game Objects
 	public EarthMapManager EarthMapManager;

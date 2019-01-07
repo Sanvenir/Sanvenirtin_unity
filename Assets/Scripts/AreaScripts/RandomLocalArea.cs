@@ -21,7 +21,7 @@ namespace AreaScripts
         }
 
         public TileBase[] GroundTiles;
-        public ComplexObject[] ComplexObjectPrefabs;
+        public Substance[] SubstancePrefabs;
         public BuildingTilemap[] BuildingTilemaps;
         public RandomRace[] RaceSetting;
 
@@ -53,10 +53,10 @@ namespace AreaScripts
 
                 if (check < 0) continue;
 
-                if (ComplexObjectPrefabs.Length == 0 ||
+                if (SubstancePrefabs.Length == 0 ||
                     !(Utils.ProcessRandom.NextDouble() < ObjectsGenerateRatio)) continue;
-                var index = Utils.ProcessRandom.Next(ComplexObjectPrefabs.Length);
-                GenerateSubstance(ComplexObjectPrefabs[index], coord);
+                var index = Utils.ProcessRandom.Next(SubstancePrefabs.Length);
+                GenerateSubstance(SubstancePrefabs[index], coord);
             }
 
             if (BuildingTilemaps.Length == 0 ||

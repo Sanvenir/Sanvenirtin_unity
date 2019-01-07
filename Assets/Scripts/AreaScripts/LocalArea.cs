@@ -84,13 +84,13 @@ namespace AreaScripts
         /// <summary>
         ///     Instantiate a substance prefab on the given coord
         /// </summary>
-        /// <param name="complexObjectPrefab">Generated substance</param>
+        /// <param name="substancePrefab"></param>
         /// <param name="worldCoord">The world coord</param>
         /// <returns>Instance of generated substance, or null if the coord is occupied</returns>
-        public ComplexObject GenerateSubstance(ComplexObject complexObjectPrefab, Vector2Int worldCoord)
+        public Substance GenerateSubstance(Substance substancePrefab, Vector2Int worldCoord)
         {
             var pos = SceneManager.Instance.WorldCoordToPos(worldCoord);
-            var instance = Instantiate(complexObjectPrefab);
+            var instance = Instantiate(substancePrefab);
             instance.Initialize(worldCoord, Identity);
             if (instance.CheckCollider()) return instance;
             Destroy(instance.gameObject);
@@ -107,7 +107,7 @@ namespace AreaScripts
         {
             var pos = SceneManager.Instance.WorldCoordToPos(worldCoord);
             var instance = Instantiate(raceCharacter);
-            GameSetting.Instance.RaceList[instance.RaceIndex].RandomRefactor(instance);
+            SceneManager.Instance.RaceList[instance.RaceIndex].RandomRefactor(instance);
             var character = instance.GetComponent<Character>();
             character.Initialize(worldCoord, Identity);
             if (character.CheckCollider()) return instance;

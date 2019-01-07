@@ -1,9 +1,11 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using ObjectScripts.ActionScripts;
 using ObjectScripts.SpriteController;
 using UnityEngine;
+using UtilScripts;
 
 namespace ObjectScripts
 {
@@ -17,6 +19,7 @@ namespace ObjectScripts
         public string Info;
 
         public SpriteRenderer SpriteRenderer;
+        public SpriteController.SpriteController SpriteController;
         
         /// <summary>
         /// The checkable collider of object, if it is a substance, the layer should be BlockLayer
@@ -42,6 +45,22 @@ namespace ObjectScripts
         {
         }
 
+        protected IEnumerator SmoothMovement(Vector3 end, int moveTime)
+        {
+            var moveSteps = moveTime / SceneManager.Instance.GetUpdateTime();
+            var moveVector = (end - transform.position) / moveSteps;
+            for (; moveSteps != 0; moveSteps--)
+            {
+                SpriteController.StartMoving();
+                transform.position += moveVector;
+                SpriteRenderer.sortingOrder = -Utils.FloatToInt(transform.position.y);
+                Collider2D.offset = end - transform.position;
+                yield return null;
+            }
+
+            SpriteController.StopMoving();
+        }
+        
         private void LateUpdate()
         {
             if ((SceneManager.Instance.Player.transform.position -
@@ -49,6 +68,11 @@ namespace ObjectScripts
             {
                 Destroy(gameObject);
             }
+        }
+
+        protected virtual void Update()
+        {
+            SpriteRenderer.enabled = SceneManager.Instance.PlayerObject.IsVisible(this);
         }
     }
 }

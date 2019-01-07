@@ -3,7 +3,11 @@
     "PickupOrder": "拾起",
     "RestOrder": "休息",
     "WalkToOrder": "移至",
+    "WaitOrder": "等待",
+    "LookAtOrder": "查看",
     "ConsumeAct": "食用",
+    "DropAct": "丢弃",
+    "CannotFindPathLog": "你不知道如何到达这里。",
     "EatUpItemLog": [
         "<item>被<self>吃光了"
     ],

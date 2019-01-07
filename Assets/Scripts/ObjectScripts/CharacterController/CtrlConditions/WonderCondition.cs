@@ -3,6 +3,10 @@ using UtilScripts;
 
 namespace ObjectScripts.CharacterController.CtrlConditions
 {
+    /// <inheritdoc />
+    /// <summary>
+    /// AI walks around randomly
+    /// </summary>
     public class WonderCondition: BaseCondition
     {
         public WonderCondition(AiController controller) : base(controller)

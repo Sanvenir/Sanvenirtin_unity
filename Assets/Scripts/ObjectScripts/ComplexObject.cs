@@ -15,14 +15,18 @@ using BodyPart = ObjectScripts.BodyPartScripts.BodyPart;
 
 namespace ObjectScripts
 {
+    /// <inheritdoc />
+    /// <summary>
+    /// Object which consists of several body parts
+    /// </summary>
     public class ComplexObject : BaseObject
     {
-        [HideInInspector] public Vector2 WorldPos;
-        [HideInInspector] public Vector2Int WorldCoord;
         
-        public SpriteController.SpriteController SpriteController;
+        [NonSerialized]
+        public Dictionary<string, BodyPart> BodyParts = new Dictionary<string, BodyPart>();
 
-        // public SortedList<string, BodyPart> BodyParts = new SortedList<string, BodyPart>();
+        [HideInInspector] public bool IsDestroy = false;
+        
         private readonly List<BodyPart> _unreachableParts = new List<BodyPart>();
 
         private readonly List<BodyPart> _highParts = new List<BodyPart>();
@@ -31,15 +35,10 @@ namespace ObjectScripts
 
         private readonly List<BodyPart> _lowParts = new List<BodyPart>();
         
-        [NonSerialized]
-        public Dictionary<string, BodyPart> BodyParts = new Dictionary<string, BodyPart>();
-
-        [HideInInspector] public bool IsDestroy = false;
-
         public void SetDisable()
         {
             SpriteController.SetDisable(true);
-            gameObject.layer = LayerMask.NameToLayer("ItemLayer");
+            gameObject.layer = LayerMask.NameToLayer("DisabledLayer");
         }
 
         public virtual float Attacked(DamageValue damage, BodyPart bodyPart)
@@ -61,10 +60,6 @@ namespace ObjectScripts
             IsDestroy = true;
             return intensity;
         }
-
-        // Read Only
-        [HideInInspector]
-        public int AreaIdentity;
 
         public List<BodyPart> GetBodyParts(PartPos partPos)
         {
@@ -88,13 +83,9 @@ namespace ObjectScripts
         public virtual void Initialize(Vector2Int worldCoord, int areaIdentity)
         {
             base.Initialize();
-            gameObject.layer = LayerMask.NameToLayer("BlockLayer");
-            AreaIdentity = areaIdentity;
-            MoveTo(worldCoord);
             foreach (var part in BodyParts.Values)
             {
                 part.HitPoint.Value = part.HitPoint.MaxValue;
-                part.ComplexObject = this;
                 switch (part.PartPos)
                 {
                     case PartPos.Unreachable:
@@ -121,81 +112,18 @@ namespace ObjectScripts
             }
         }
 
-        public void MoveTo(Vector2Int worldCoord)
+        protected override void Update()
         {
-            WorldCoord = worldCoord;
-            WorldPos = SceneManager.Instance.WorldCoordToPos(worldCoord);
-            SpriteRenderer.sortingOrder = -worldCoord.y;
-            transform.position = WorldPos;
-        }
-
-        private void LateUpdate()
-        {
-            if (!SceneManager.Instance.ActivateAreas.ContainsKey(AreaIdentity))
+            base.Update();
+            if (!IsDestroy) return;
+            SceneManager.Instance.Print(
+                GameText.Instance.GetSubstanceDestroyLog(TextName));
+            foreach (var bodyPart in BodyParts.Values)
             {
-                Destroy(gameObject);
-                return;
+                bodyPart.Destroy();
             }
-
-            var area = SceneManager.Instance.ActivateAreas[AreaIdentity];
-            if (area.IsWorldCoordInsideArea(WorldCoord)) return;
-            area = SceneManager.Instance.WorldPosToArea(WorldPos);
-            if (area == null)
-            {
-                Destroy(gameObject);
-                return;
-            }
-
-            AreaIdentity = area.Identity;
+            Destroy(gameObject);
         }
-
-        public bool CheckColliderAtWorldCoord(
-            Vector2Int coord, out ComplexObject complexObject)
-        {
-            Collider2D.offset = coord - WorldCoord;
-            var result = CheckCollider(out complexObject);
-            Collider2D.offset = Vector2.zero;
-            return result;
-        }
-
-        public bool CheckColliderAtWorldCoord(Vector2Int coord)
-        {
-            Collider2D.offset = coord - WorldCoord;
-            var result = CheckCollider();
-            Collider2D.offset = Vector2.zero;
-            return result;
-        }
-
-        protected virtual void Update()
-        {
-            if (IsDestroy)
-            {
-                SceneManager.Instance.Print(
-                    GameText.Instance.GetSubstanceDestroyLog(TextName));
-                Destroy(gameObject);
-
-                //TODO: Add dropping objects here
-            }
-        }
-
-        public bool CheckCollider<T>(out T collide)
-            where T : ComplexObject
-        {
-            var colliders = new Collider2D[1];
-            Collider2D.OverlapCollider(SceneManager.Instance.BlockFilter, colliders);
-            collide = colliders[0] == null
-                ? null
-                : colliders[0].GetComponent<T>();
-            return colliders[0] == null;
-        }
-        
-        public bool CheckCollider()
-        {
-            var colliders = new Collider2D[1];
-            Collider2D.OverlapCollider(SceneManager.Instance.BlockFilter, colliders);
-            return colliders[0] == null;
-        }
-        
 
         public override float GetSize()
         {

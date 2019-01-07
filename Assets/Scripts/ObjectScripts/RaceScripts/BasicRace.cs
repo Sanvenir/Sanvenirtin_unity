@@ -150,7 +150,7 @@ namespace ObjectScripts.RaceScripts
             character.Properties = CreateProperties(character.Age, character.Gender);
             foreach (var bodyPart in StandardProperties.BodyParts)
             {
-                character.BodyParts.Add(bodyPart.Name, (BodyPart) bodyPart.Clone());
+                character.BodyParts.Add(bodyPart.Name, (BodyPart) bodyPart.Create(character));
             }
         }
 

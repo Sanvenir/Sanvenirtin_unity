@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212370470651645388}
   - component: {fileID: 114898461014695738}
   - component: {fileID: 58834145358047370}
+  - component: {fileID: 114813672922366196}
   m_Layer: 11
   m_Name: RawMeat
   m_TagString: Untagged
@@ -57,6 +58,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.25
+--- !u!114 &114813672922366196
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1942657663325402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a713e2779e27428e9fa0c09c0b5145f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Sprites:
+  - {fileID: 21300000, guid: 7d69a98b3a65d8342a167dfcd602cd1c, type: 3}
+  DisabledSprite: {fileID: 21300000, guid: 7d69a98b3a65d8342a167dfcd602cd1c, type: 3}
+  Speed: 3
+  SpriteRenderer: {fileID: 212370470651645388}
 --- !u!114 &114898461014695738
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -71,6 +88,7 @@ MonoBehaviour:
   TextName: "\u751F\u8089"
   Info: "\u4E00\u5757\u751F\u8089\uFF0C\u6765\u81EA\u54EA\u91CC\u4F60\u4E5F\u8BB8\u5F88\u6E05\u695A\u3002\u53EF\u4EE5\u76F4\u63A5\u98DF\u7528\u3002"
   SpriteRenderer: {fileID: 212370470651645388}
+  SpriteController: {fileID: 0}
   Collider2D: {fileID: 58834145358047370}
   Weight: 10
   Size: 10
