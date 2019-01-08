@@ -20,10 +20,12 @@ namespace ObjectScripts.CharacterController.CtrlConditions
 
         public override BaseAction NextAction()
         {
-            if (TargetCharacter == null || TargetCharacter.Dead|| !Controller.Character.IsVisible(TargetCharacter))
+            if (TargetCharacter == null || TargetCharacter.Dead)
             {
                 return Controller.SetCondition();
             }
+
+            if (!Controller.Character.IsVisible(TargetCharacter)) return base.NextAction();
 
             var incVec = Controller.AStarFinder(
                 TargetCharacter.WorldCoord,
