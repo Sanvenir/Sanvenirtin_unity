@@ -216,5 +216,15 @@ namespace ObjectScripts.CharSubstance
             _actRatio = Mathf.Max(1, (int) (10 * Mathf.Log(Speed, 10 + ActSpeed)));
             _moveRatio = Mathf.Max(1, (int) (10 * Mathf.Log(Speed, 10 + MoveSpeed)));
         }
+
+        public float GetSensibleRange()
+        {
+            return Perception;
+        }
+
+        public float GetVisibleRange()
+        {
+            return Perception * Perception;
+        }
     }
 }

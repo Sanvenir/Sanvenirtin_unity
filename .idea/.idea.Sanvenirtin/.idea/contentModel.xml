@@ -47,6 +47,7 @@
               <e p="AiController.cs" t="Include" />
               <e p="CharacterController.cs" t="Include" />
               <e p="CtrlConditions" t="Include">
+                <e p="AlertOtherCondition.cs" t="Include" />
                 <e p="AttackCondition.cs" t="Include" />
                 <e p="BaseCondition.cs" t="Include" />
                 <e p="ChaseCondition.cs" t="Include" />

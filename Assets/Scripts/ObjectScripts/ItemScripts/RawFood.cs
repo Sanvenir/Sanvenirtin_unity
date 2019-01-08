@@ -13,13 +13,13 @@ namespace ObjectScripts.ItemScripts
         public void DoConsume(Character character)
         {
             SceneManager.Instance.Print(
-                GameText.Instance.GetEatItemLog(TextName, character.TextName));
+                GameText.Instance.GetEatItemLog(TextName, character.TextName), character.WorldCoord);
             Weight -= 1;
             character.Hunger -= 10;
             
             if (Weight > 0) return;
             SceneManager.Instance.Print(
-                GameText.Instance.GetEatUpItemLog(TextName, character.TextName));
+                GameText.Instance.GetEatUpItemLog(TextName, character.TextName), character.WorldCoord);
             Destroy(gameObject);
         }
     }

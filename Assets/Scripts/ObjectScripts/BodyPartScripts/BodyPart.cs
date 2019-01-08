@@ -13,10 +13,6 @@ namespace ObjectScripts.BodyPartScripts
     [Serializable]
     public class BodyPart : INamed
     {
-        /// <summary>
-        ///     The random offset of positions of dropped items
-        /// </summary>
-        private const float DropIncrement = 0.1f;
 
         public string Name;
         public string TextName;
@@ -123,7 +119,7 @@ namespace ObjectScripts.BodyPartScripts
         {
             SceneManager.Instance.Print(
                 GameText.Instance.GetBodyPartDestroyLog(
-                    Self.TextName, TextName));
+                    Self.TextName, TextName), Self.WorldCoord);
             Available = false;
 
             if (!string.IsNullOrEmpty(AttachBodyPart) &&
@@ -135,11 +131,9 @@ namespace ObjectScripts.BodyPartScripts
             {
                 if (Utils.ProcessRandom.NextDouble() > HitPoint.GetRemainRatio()) continue;
 
-                Object.Instantiate(component).transform.position =
-                    Self.transform.position + new Vector3(
-                        (float) Utils.ProcessRandom.NextDouble() * DropIncrement * 2 - DropIncrement,
-                        (float) Utils.ProcessRandom.NextDouble() * DropIncrement * 2 - DropIncrement, 
-                        0f);
+                var instance = Object.Instantiate(component);
+                instance.SetPosition(Utils.GetRandomShiftPosition(Self.WorldPos));
+                instance.Initialize();
             }
         }
 

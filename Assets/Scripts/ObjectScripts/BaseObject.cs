@@ -17,6 +17,8 @@ namespace ObjectScripts
     {
         public string TextName;
         public string Info;
+        [HideInInspector] public Vector2 WorldPos;
+        [HideInInspector] public Vector2Int WorldCoord;
 
         public SpriteRenderer SpriteRenderer;
         public SpriteController.SpriteController SpriteController;
@@ -41,12 +43,21 @@ namespace ObjectScripts
         /// <summary>
         /// After instantiate or enable an object, initialize function needs to be called
         /// </summary>
-        protected void Initialize()
+        public void Initialize()
         {
+        }
+
+        public void SetPosition(Vector2 worldPos)
+        {
+            transform.position = worldPos;
+            WorldPos = SceneManager.Instance.NormalizeWorldPos(worldPos);
+            WorldCoord = SceneManager.Instance.WorldPosToCoord(worldPos);
         }
 
         protected IEnumerator SmoothMovement(Vector3 end, int moveTime)
         {
+            WorldPos = end;
+            WorldCoord = SceneManager.Instance.WorldPosToCoord(WorldPos);
             var moveSteps = moveTime / SceneManager.Instance.GetUpdateTime();
             var moveVector = (end - transform.position) / moveSteps;
             for (; moveSteps != 0; moveSteps--)

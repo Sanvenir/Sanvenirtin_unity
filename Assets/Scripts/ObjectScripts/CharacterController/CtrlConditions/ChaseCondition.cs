@@ -9,7 +9,7 @@ namespace ObjectScripts.CharacterController.CtrlConditions
     /// <summary>
     /// AI Chase the Target Character
     /// </summary>
-    public class ChaseCondition : BaseCondition
+    public class ChaseCondition : WonderCondition
     {
         protected readonly Character TargetCharacter;
 
@@ -20,10 +20,9 @@ namespace ObjectScripts.CharacterController.CtrlConditions
 
         public override BaseAction NextAction()
         {
-            if (TargetCharacter == null || TargetCharacter.Dead)
+            if (TargetCharacter == null || TargetCharacter.Dead|| !Controller.Character.IsVisible(TargetCharacter))
             {
-                Controller.Condition = new WonderCondition(Controller);
-                return Controller.Condition.NextAction();
+                return Controller.SetCondition();
             }
 
             var incVec = Controller.AStarFinder(

@@ -6,8 +6,6 @@ namespace ObjectScripts
 {
     public class Substance: ComplexObject
     {   
-        [HideInInspector] public Vector2 WorldPos;
-        [HideInInspector] public Vector2Int WorldCoord;
         // Read Only
         [HideInInspector]
         public int AreaIdentity;

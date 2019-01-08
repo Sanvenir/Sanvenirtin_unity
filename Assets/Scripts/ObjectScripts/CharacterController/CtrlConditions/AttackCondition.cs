@@ -12,17 +12,15 @@ namespace ObjectScripts.CharacterController.CtrlConditions
     /// </summary>
     public class AttackCondition: ChaseCondition
     {
-
         public AttackCondition(AiController controller, Character target) : base(controller, target)
         {
         }
 
         public override BaseAction NextAction()
         {
-            if (TargetCharacter == null || TargetCharacter.Dead)
+            if (TargetCharacter == null || TargetCharacter.Dead || !Controller.Character.IsVisible(TargetCharacter))
             {
-                Controller.Condition = new WonderCondition(Controller);
-                return Controller.Condition.NextAction();
+                return Controller.SetCondition();
             }
 
             var delta = TargetCharacter.WorldCoord - Controller.Character.WorldCoord;

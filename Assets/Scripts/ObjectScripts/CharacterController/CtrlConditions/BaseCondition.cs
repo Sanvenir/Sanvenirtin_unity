@@ -19,9 +19,6 @@ namespace ObjectScripts.CharacterController.CtrlConditions
         ///     Get next action on the update time of AI
         /// </summary>
         /// <returns>Next action for this AI</returns>
-        public virtual BaseAction NextAction()
-        {
-            return new WalkAction(Controller.Character, (Direction) Utils.ProcessRandom.Next(4));
-        }
+        public abstract BaseAction NextAction();
     }
 }

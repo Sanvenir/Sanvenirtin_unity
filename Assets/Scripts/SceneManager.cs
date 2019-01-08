@@ -67,6 +67,8 @@ public class SceneManager : MonoBehaviour
 
 	// Script Objects
 	public static SceneManager Instance = null;
+
+	public int MaxLoggerTextLength = 500;
 	[SerializeField] private StringBuilder _loggerText;
 
 
@@ -158,9 +160,14 @@ public class SceneManager : MonoBehaviour
 		return CenterArea.Tilemap.GetCellCenterWorld(coord);
 	}
 
-	public void Print(string message)
+	public void Print(string message, Vector2Int coord)
 	{
+		if (!PlayerObject.IsAudible(coord)) return;
 		_loggerText.AppendLine(message);
+		if (_loggerText.Length > MaxLoggerTextLength)
+		{
+			_loggerText = _loggerText.Remove(0, _loggerText.Length - MaxLoggerTextLength);
+		}
 		GameLogger.text = _loggerText.ToString();
 	}
 

@@ -29,7 +29,7 @@ namespace ObjectScripts.ActionScripts
         private void AttackEmpty()
         {
             SceneManager.Instance.Print(
-                GameText.Instance.GetAttackEmptyLog(Self.TextName));
+                GameText.Instance.GetAttackEmptyLog(Self.TextName), Self.WorldCoord);
         }
 
         /// <inheritdoc />
@@ -67,7 +67,7 @@ namespace ObjectScripts.ActionScripts
                     Self.TextName,
                     _target.TextName,
                     _target.GetBodyParts(_attackPartPos)[part].TextName
-                ));
+                ), Self.WorldCoord);
             _target.Attacked(
                 Self.Properties.GetBaseAttack(),
                 _target.GetBodyParts(_attackPartPos)[part]);

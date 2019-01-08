@@ -1,15 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using ExceptionScripts;
-using UnityEditor;
 using UnityEngine;
+using Random = System.Random;
 
 namespace UtilScripts
 {
     public static class Utils
     {
-        public static System.Random ProcessRandom;
+        public static Random ProcessRandom;
 
         public static int FloatToInt(float num)
         {
@@ -18,12 +17,12 @@ namespace UtilScripts
 
         public static int Div(int num, int divisor)
         {
-            return num >= 0 ? (num / divisor) : ((num + 1) / divisor - 1);
+            return num >= 0 ? num / divisor : (num + 1) / divisor - 1;
         }
 
         public static int Mod(int num, int divisor)
         {
-            return num >= 0 ? (num % divisor) : (num % divisor + divisor);
+            return num >= 0 ? num % divisor : num % divisor + divisor;
         }
 
         public static void DirectionToIncrement(
@@ -47,6 +46,10 @@ namespace UtilScripts
                     dx = 1;
                     dy = 0;
                     break;
+                case Direction.None:
+                    dx = 0;
+                    dy = 0;
+                    break;
                 default:
                     dx = 0;
                     dy = 0;
@@ -68,25 +71,13 @@ namespace UtilScripts
 
         public static Direction IncrementToDirection(float dx, float dy)
         {
-            if (dx > dy && dx >= -dy)
-            {
-                return Direction.Right;
-            }
+            if (dx > dy && dx >= -dy) return Direction.Right;
 
-            if (dy > -dx && dy >= dx)
-            {
-                return Direction.Up;
-            }
+            if (dy > -dx && dy >= dx) return Direction.Up;
 
-            if (-dx > -dy && -dx >= dy)
-            {
-                return Direction.Left;
-            }
+            if (-dx > -dy && -dx >= dy) return Direction.Left;
 
-            if (-dy > dx && -dy >= -dx)
-            {
-                return Direction.Down;
-            }
+            if (-dy > dx && -dy >= -dx) return Direction.Down;
 
             return Direction.None;
         }
@@ -114,19 +105,29 @@ namespace UtilScripts
             return vector3;
         }
 
+        /// <summary>
+        ///     Randomly shift a position
+        /// </summary>
+        /// <param name="position">Original position</param>
+        /// <param name="offset">Max offset</param>
+        /// <returns>Shifted position</returns>
+        public static Vector2 GetRandomShiftPosition(Vector2 position, float offset = 0.2f)
+        {
+            return position + new Vector2(
+                       (float) ProcessRandom.NextDouble() * offset * 2 - offset,
+                       (float) ProcessRandom.NextDouble() * offset * 2 - offset);
+        }
+
         public static Dictionary<TKey, TValue> CloneDictionaryCloningValues<TKey, TValue>
             (Dictionary<TKey, TValue> original) where TValue : ICloneable
         {
             var ret = new Dictionary<TKey, TValue>(original.Count,
                 original.Comparer);
-            foreach (var entry in original)
-            {
-                ret.Add(entry.Key, (TValue) entry.Value.Clone());
-            }
+            foreach (var entry in original) ret.Add(entry.Key, (TValue) entry.Value.Clone());
 
             return ret;
         }
-        
+
         public static List<TValue> CloneDictionaryCloningValues<TValue>
             (IEnumerable<TValue> original) where TValue : ICloneable
         {
@@ -139,6 +140,7 @@ namespace UtilScripts
                 return default(T);
             return list[ProcessRandom.Next(list.Count)];
         }
+
 //        public static void ProgressBar (float value, string label)
 //        {
 //            // Get a rect for the progress bar using the same margins as a textfield:

@@ -24,7 +24,7 @@ namespace ObjectScripts.CharacterController.PlayerOrder
             if (_vecInt == Vector2Int.zero || !Controller.Character.MoveCheck(_vecInt))
             {
                 SceneManager.Instance.Print(
-                    GameText.Instance.CannotFindPathLog);
+                    GameText.Instance.CannotFindPathLog, Controller.Character.WorldCoord);
                 return null;
             }
 

@@ -1834,7 +1834,7 @@ MonoBehaviour:
     m_Bits: 47104
   ObjectLayer:
     serializedVersion: 2
-    m_Bits: 53248
+    m_Bits: 63488
   BlockInspectLayer:
     serializedVersion: 2
     m_Bits: 33024
@@ -1898,6 +1898,7 @@ MonoBehaviour:
   SceneCollider: {fileID: 709854533}
   GameLogger: {fileID: 1210254261}
   BodyPartPanel: {fileID: 769714819}
+  MaxLoggerTextLength: 1000
 --- !u!4 &1018325583
 Transform:
   m_ObjectHideFlags: 0
@@ -3303,12 +3304,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TextName: "\u6587\u5C3C\u4E9A"
   Info: 
+  WorldPos: {x: 0.5, y: 0.5}
+  WorldCoord: {x: 0, y: 0}
   SpriteRenderer: {fileID: 1471056962}
   SpriteController: {fileID: 1471056964}
   Collider2D: {fileID: 1471056966}
   IsDestroy: 0
-  WorldPos: {x: 0.5, y: 0.5}
-  WorldCoord: {x: 0, y: 0}
   AreaIdentity: 4019
   Controller: {fileID: 1471056965}
   Properties:

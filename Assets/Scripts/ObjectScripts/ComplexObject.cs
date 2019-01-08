@@ -83,6 +83,8 @@ namespace ObjectScripts
         public virtual void Initialize(Vector2Int worldCoord, int areaIdentity)
         {
             base.Initialize();
+            WorldCoord = worldCoord;
+            WorldPos = SceneManager.Instance.WorldCoordToPos(worldCoord);
             foreach (var part in BodyParts.Values)
             {
                 part.HitPoint.Value = part.HitPoint.MaxValue;
@@ -117,7 +119,7 @@ namespace ObjectScripts
             base.Update();
             if (!IsDestroy) return;
             SceneManager.Instance.Print(
-                GameText.Instance.GetSubstanceDestroyLog(TextName));
+                GameText.Instance.GetSubstanceDestroyLog(TextName), WorldCoord);
             foreach (var bodyPart in BodyParts.Values)
             {
                 bodyPart.Destroy();
