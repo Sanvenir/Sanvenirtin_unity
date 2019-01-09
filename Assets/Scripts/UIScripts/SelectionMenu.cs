@@ -42,6 +42,7 @@ namespace UIScripts
 
         public virtual void StartUp(Vector2 pos, IEnumerable<T> selectionList)
         {
+            CenterPos = pos;
             SelectionList = new List<T>();
             foreach (var selection in selectionList)
             {
@@ -55,7 +56,6 @@ namespace UIScripts
             if (SelectionList.Count == 0) return;
 
             enabled = true;
-            CenterPos = pos;
             _mouseY = 0f;
             CenterIndex = 0;
             CurrentSelect = SelectionList[CenterIndex];

@@ -132,8 +132,7 @@ namespace ObjectScripts.BodyPartScripts
                 if (Utils.ProcessRandom.NextDouble() > HitPoint.GetRemainRatio()) continue;
 
                 var instance = Object.Instantiate(component);
-                instance.SetPosition(Utils.GetRandomShiftPosition(Self.WorldPos));
-                instance.Initialize();
+                instance.Initialize(Utils.GetRandomShiftPosition(Self.WorldPos));
             }
         }
 

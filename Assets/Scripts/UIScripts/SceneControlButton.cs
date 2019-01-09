@@ -77,10 +77,10 @@ namespace UIScripts
         private void CancelSelected()
         {
             if (_selected == null) return;
-            var effect = _selected.GetComponent<SpriteRenderer>();
-            if (effect == null) return;
-            effect.sortingLayerID = _selectedOriginLayer;
-            effect.color = Color.white;
+            var substance = _selected.GetComponent<Substance>();
+            if (substance == null) return;
+            substance.SpriteRenderer.sortingLayerID = _selectedOriginLayer;
+            substance.SpriteRenderer.color = Color.white;
             _selected = null;
         }
 
@@ -98,18 +98,18 @@ namespace UIScripts
             
             _selected = _hits[0];
             if (_selected == null) return;
-            var effect = _selected.GetComponent<SpriteRenderer>();
-            if (effect == null) return;
-            _selectedOriginLayer = effect.sortingLayerID;
-            effect.sortingLayerName = "OnTop";
-            effect.color = Color.gray;
+            var substance = _selected.GetComponent<Substance>();
+            if (substance == null) return;
+            _selectedOriginLayer = substance.SpriteRenderer.sortingLayerID;
+            substance.SpriteRenderer.sortingLayerName = "OnTop";
+            substance.SpriteRenderer.color = Color.gray;
         }
 
         private void Update()
         {
             if (Player != null)
             {
-                SceneManager.Instance.SceneCollider.transform.position = Player.transform.position;
+                SceneManager.Instance.SceneCollider.transform.position = Player.GetVisualPos();
             }
 
 
@@ -127,12 +127,6 @@ namespace UIScripts
                     SceneCursor.transform.position * 0.1f;
             }
 
-//            if (CheckPanels())
-//            {
-//                GameManager.Instance.GameCursor.SetActive(true);
-//                return;
-//            }
-                        
             // If SceneCursor is disabled, do not update it
             if (!SceneCursor.enabled)
             {
@@ -149,12 +143,13 @@ namespace UIScripts
 
 
             SceneCursor.transform.position =
-                Utils.Vector2To3(SceneCursor.transform.position * 0.5f) +
+                Utils.Vector3To2(SceneCursor.transform.position * 0.5f) +
                 targetPos * 0.5f;
 
             // If a collider is chosen, highlight it; 
-            if ( _cursorCollider.OverlapCollider(
-                     SceneCursorFilter, _hits) != 0)
+            if (Physics2D.OverlapPoint(SceneCursor.transform.position, SceneCursorFilter, _hits) != 0)
+//            if ( _cursorCollider.OverlapCollider(
+//                     SceneCursorFilter, _hits) != 0)
             {
                 ChangeSelected();
             }
@@ -198,19 +193,6 @@ namespace UIScripts
                 PlayerController.TargetCoord = worldCoord;
                 PlayerController.TargetDirection = direction;
                 
-//                var orderList = new List<BaseOrder>
-//                {
-//                    new RestOrder(),
-//                    new PickupOrder()
-//                };
-//                if (direction != Direction.None)
-//                {
-//                    orderList.Insert(
-//                        0, new WalkToOrder());
-//                    orderList.Add(
-//                        new AttackDirectionOrder());
-//                }
-                
                 SelectionMenu.StartUp(targetPos);
                 return;
             }
@@ -223,17 +205,5 @@ namespace UIScripts
  
 
         }
-
-//        public bool CheckPanels()
-//        {
-//            return SceneManager.Instance.ObjectListMenu.isActiveAndEnabled ||
-//                   SceneManager.Instance.ObjectActPanel.isActiveAndEnabled;
-//        }
-//        public void CancelPanels()
-//        {
-//            SceneManager.Instance.ObjectListMenu.EndUp();
-//            SceneManager.Instance.ObjectActPanel.EndUp();
-//            SceneCursor.enabled = true;
-//        }
     }
 }

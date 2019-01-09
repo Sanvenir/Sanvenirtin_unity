@@ -75,7 +75,7 @@ namespace ObjectScripts.RaceScripts
 
             RefactorGameObject(character);
 
-            var staticSpriteController = character.GetComponent<StaticSpriteController>();
+            var staticSpriteController = character.GetComponentInChildren<StaticSpriteController>();
             if (staticSpriteController != null)
             {
                 if (randomSprite.DisabledSprite != null)
@@ -84,7 +84,7 @@ namespace ObjectScripts.RaceScripts
                 return;
             }
 
-            var dynamicSpriteController = character.GetComponent<DynamicSpriteController>();
+            var dynamicSpriteController = character.GetComponentInChildren<DynamicSpriteController>();
             if (dynamicSpriteController == null) return;
             if (randomSprite.DisabledSprite != null)
                 dynamicSpriteController.DisabledSprite = randomSprite.DisabledSprite;

@@ -32,14 +32,6 @@ public class SceneManager : MonoBehaviour
 	public LayerMask ObjectLayer;
 	public LayerMask BlockInspectLayer;
 	
-	public List<BodyPartList> ComponentList;
-	public List<BasicRace> RaceList = new List<BasicRace>
-	{
-		{
-			new BasicRace()
-		}
-	};
-	
 	public int LoadingRange = 2;
 
 	// Game Objects
@@ -49,6 +41,14 @@ public class SceneManager : MonoBehaviour
 	public SceneControlButton SceneControlButton;
 	public ObjectListMenu ObjectListMenu;
 	public ObjectActPanel ObjectActPanel;
+	
+	public List<BodyPartList> ComponentList;
+	public List<BasicRace> RaceList = new List<BasicRace>
+	{
+		{
+			new BasicRace()
+		}
+	};
 
 	[HideInInspector] public Dictionary<int, LocalArea> ActivateAreas;
 	[HideInInspector] public HashSet<int> EdgeIdentities;

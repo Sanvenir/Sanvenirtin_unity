@@ -82,9 +82,7 @@ namespace ObjectScripts
 
         public virtual void Initialize(Vector2Int worldCoord, int areaIdentity)
         {
-            base.Initialize();
-            WorldCoord = worldCoord;
-            WorldPos = SceneManager.Instance.WorldCoordToPos(worldCoord);
+            base.Initialize(SceneManager.Instance.WorldCoordToPos(worldCoord));
             foreach (var part in BodyParts.Values)
             {
                 part.HitPoint.Value = part.HitPoint.MaxValue;

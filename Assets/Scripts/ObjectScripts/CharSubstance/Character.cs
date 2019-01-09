@@ -69,13 +69,8 @@ namespace ObjectScripts.CharSubstance
             if (delta == Vector2Int.zero) return true;
             var endPos = WorldPos + delta;
             SpriteController.SetDirection(Utils.VectorToDirection(delta));
-
             if (!MoveCheck(delta)) return false;
-
-            Collider2D.offset = delta;
-            WorldCoord += delta;
-            WorldPos = endPos;
-            StartCoroutine(SmoothMovement(endPos, moveTime));
+            SmoothMoveTo(endPos, moveTime);
             return true;
         }
 
@@ -88,9 +83,7 @@ namespace ObjectScripts.CharSubstance
         {
             var delta = (Vector2) Utils.DirectionToVector(direction) * intense;
             SpriteController.SetDirection(direction);
-            transform.position = delta + WorldPos;
-            Collider2D.offset = -delta;
-            StartCoroutine(SmoothMovement(WorldPos, attTime));
+            HitTo(direction, attTime);
         }
 
         protected override void Update()
@@ -110,7 +103,7 @@ namespace ObjectScripts.CharSubstance
             if (distance < Properties.GetSensibleRange()) return true;
             Collider2D.enabled = false;
             hit.enabled = false;
-            var result = Physics2D.Linecast(WorldPos, hit.transform.position, SceneManager.Instance.BlockInspectLayer)
+            var result = Physics2D.Linecast(transform.position, hit.transform.position, SceneManager.Instance.BlockInspectLayer)
                              .collider == null;
             Collider2D.enabled = true;
             hit.enabled = true;

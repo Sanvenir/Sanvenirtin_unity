@@ -23,7 +23,7 @@ namespace ObjectScripts.CharacterController.CtrlConditions
                 return Controller.SetCondition();
             }
 
-            if (Controller.Character.IsVisible(TargetCharacter))
+            if (!Controller.Character.IsVisible(TargetCharacter))
                 return base.NextAction();
             var delta = TargetCharacter.WorldCoord - Controller.Character.WorldCoord;
             if(delta.sqrMagnitude == 1)

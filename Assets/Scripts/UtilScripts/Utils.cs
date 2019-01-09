@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 using UnityEngine;
 using Random = System.Random;
 
@@ -100,9 +101,14 @@ namespace UtilScripts
             return new Vector3Int(vector.x, vector.y, 0);
         }
 
-        public static Vector2 Vector2To3(Vector3 vector3)
+        public static Vector2 Vector3To2(Vector3 vector3)
         {
             return vector3;
+        }
+
+        public static Vector3 Vector2To3(Vector2 vector2)
+        {
+            return vector2;
         }
 
         /// <summary>

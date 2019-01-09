@@ -6,12 +6,7 @@ namespace ObjectScripts.SpriteController
     public class StaticSpriteController : SpriteController
     {
         public Sprite[] Sprites;
-        public Sprite DisabledSprite;
-
-        public float Speed = 3;
         private bool _disabled = false;
-
-        public SpriteRenderer SpriteRenderer;
 
         private void Start()
         {

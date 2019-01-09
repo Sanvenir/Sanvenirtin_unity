@@ -12,7 +12,6 @@ namespace ObjectScripts
         
         public void MoveTo(Vector2Int worldCoord)
         {
-            WorldCoord = worldCoord;
             WorldPos = SceneManager.Instance.WorldCoordToPos(worldCoord);
             SpriteRenderer.sortingOrder = -worldCoord.y;
             transform.position = WorldPos;

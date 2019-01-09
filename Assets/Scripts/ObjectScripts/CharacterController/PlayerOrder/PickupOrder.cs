@@ -26,7 +26,7 @@ namespace ObjectScripts.CharacterController.PlayerOrder
         public override bool IsAvailable()
         {
             var colliders = Physics2D.OverlapCircleAll(Controller.Character.WorldPos, 2.0f, SceneManager.Instance.ItemLayer);
-            return colliders.Length != 0 && Controller.TargetDirection == Direction.None;
+            return colliders.Length != 0;
         }
     }
 }
