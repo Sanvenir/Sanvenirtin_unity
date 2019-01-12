@@ -96,33 +96,43 @@ namespace ObjectScripts.CharSubstance
         {
             return (coord - WorldCoord).sqrMagnitude < Properties.GetVisibleRange();
         }
-        
+
+        public bool IsVisible(Vector2Int coord)
+        {
+            var distance = (coord - WorldCoord).sqrMagnitude;
+            if (distance < Properties.GetSensibleRange()) return true;
+            var pos = SceneManager.Instance.WorldCoordToPos(coord);
+            var hit = Physics2D.OverlapPoint(pos, SceneManager.Instance.BlockInspectLayer);
+            if (hit != null)
+            {
+                hit.enabled = false;
+            }
+            Collider2D.enabled = false;
+            var result = Physics2D.Linecast(transform.position, SceneManager.Instance.WorldCoordToPos(coord),
+                                 SceneManager.Instance.BlockInspectLayer)
+                             .collider == null;
+            Collider2D.enabled = true;
+            if (hit != null)
+            {
+                hit.enabled = true;
+            }
+            return result && distance < Properties.GetVisibleRange();
+        }
+
         public bool IsVisible(Collider2D hit)
         {
             var distance = (hit.transform.position - transform.position).sqrMagnitude;
             if (distance < Properties.GetSensibleRange()) return true;
             Collider2D.enabled = false;
             hit.enabled = false;
-            var result = Physics2D.Linecast(transform.position, hit.transform.position, SceneManager.Instance.BlockInspectLayer)
+            var result = Physics2D.Linecast(transform.position, hit.transform.position,
+                                 SceneManager.Instance.BlockInspectLayer)
                              .collider == null;
             Collider2D.enabled = true;
             hit.enabled = true;
             return result && distance < Properties.GetVisibleRange();
         }
 
-        public IEnumerable<T> GetVisibleObjects<T>()
-            where T : BaseObject
-        {
-            var hits = Physics2D.OverlapCircleAll(WorldPos, Properties.Perception,
-                SceneManager.Instance.ObjectLayer);
-            foreach (var hit in hits)
-            {
-                if (!IsVisible(hit)) continue;
-                var baseObject = hit.GetComponent<T>();
-                if (baseObject == null || baseObject == this) continue;
-                yield return baseObject;
-            }
-        }
 
         public bool IsVisible(BaseObject baseObject)
         {
@@ -137,6 +147,20 @@ namespace ObjectScripts.CharSubstance
             baseObject.Collider2D.enabled = true;
             return result && distance < Properties.GetVisibleRange();
             ;
+        }
+
+        public IEnumerable<T> GetVisibleObjects<T>()
+            where T : BaseObject
+        {
+            var hits = Physics2D.OverlapCircleAll(WorldPos, Properties.Perception,
+                SceneManager.Instance.ObjectLayer);
+            foreach (var hit in hits)
+            {
+                if (!IsVisible(hit)) continue;
+                var baseObject = hit.GetComponent<T>();
+                if (baseObject == null || baseObject == this) continue;
+                yield return baseObject;
+            }
         }
 
         public virtual void RefreshProperties()

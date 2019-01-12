@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UtilScripts;
 
 namespace AreaScripts
 {
@@ -31,6 +32,16 @@ namespace AreaScripts
             OutsideTilemapRenderer.sortingOrder = -(int) startPos.y;
             Area = area;
             if (CheckCollider()) Destroy(gameObject);
+            foreach (var coord in InsideTilemap.cellBounds.allPositionsWithin)
+            {
+                InsideTilemap.SetTileFlags(coord, TileFlags.None);
+                InsideTilemap.SetColor(coord, Color.black);
+            }
+        }
+
+        public bool HasTile(Vector2Int coord)
+        {
+            return InsideTilemap.HasTile(InsideTilemap.WorldToCell(SceneManager.Instance.WorldCoordToPos(coord)));
         }
 
         private bool CheckCollider()
@@ -44,8 +55,10 @@ namespace AreaScripts
         {
             if (SceneManager.Instance.PlayerObject == null) return;
 
-            OutsideTilemapRenderer.enabled = !InsideTilemap.HasTile(
-                InsideTilemap.WorldToCell(SceneManager.Instance.PlayerObject.WorldPos));
+            OutsideTilemapRenderer.enabled = !(
+                InsideTilemap.HasTile(InsideTilemap.WorldToCell(SceneManager.Instance.PlayerObject.WorldPos)) ||
+                InsideTilemap.HasTile(InsideTilemap.WorldToCell(SceneManager.Instance.SceneControlButton.SceneCursor
+                    .transform.position)));
         }
 
         private void LateUpdate()

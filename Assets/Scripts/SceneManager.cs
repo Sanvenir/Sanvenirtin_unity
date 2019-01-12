@@ -15,6 +15,7 @@ using ObjectScripts.CharSubstance;
 using ObjectScripts.RaceScripts;
 using UIScripts;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 using UnityEngine.UI;
 using UtilScripts;
 
@@ -70,7 +71,6 @@ public class SceneManager : MonoBehaviour
 
 	public int MaxLoggerTextLength = 500;
 	[SerializeField] private StringBuilder _loggerText;
-
 
 	private void Awake()
 	{
@@ -130,24 +130,33 @@ public class SceneManager : MonoBehaviour
 		return hit == null ? null : hit.GetComponent<LocalArea>();
 	}
 
+	public LocalArea WorldCoordToArea(Vector2Int coord)
+	{
+		return WorldPosToArea(WorldCoordToPos(coord));
+	}
+
+	public IEnumerable<Tilemap> WorldPosToTilemap(Vector2 pos)
+	{
+		Collider2D[] hits = new Collider2D[5];
+		Physics2D.OverlapPointNonAlloc(pos, hits, GroundLayer);
+		foreach (var hit in hits)
+		{
+			if (hit == null) yield break;
+			var tilemap = hit.GetComponent<Tilemap>();
+			if (tilemap != null) yield return tilemap;
+		}
+	}
+
+	public IEnumerable<Tilemap> WorldCoordToTilemap(Vector2Int coord)
+	{
+		return WorldPosToTilemap(WorldCoordToPos(coord));
+	}
+
 	public Vector2Int WorldPosToCoord(Vector2 pos)
 	{
 		return Utils.Vector3IntTo2(CenterArea.Tilemap.WorldToCell(pos));
 	}
 
-
-//	public LocalArea WorldCoordToArea(Vector2Int coord)
-//	{
-//		foreach (var area in ActivateAreas.Values)
-//		{
-//			if (area.IsWorldCoordInsideArea(coord))
-//			{
-//				return area;
-//			}
-//		}
-//
-//		throw new AreaNotFoundCondition();
-//	}
 
 	public Vector2 NormalizeWorldPos(Vector2 pos)
 	{
@@ -177,12 +186,12 @@ public class SceneManager : MonoBehaviour
 		GameLogger.text = _loggerText.ToString();
 	}
 
+	/// <summary>
+	/// The center area must been initialized;
+	/// This function loads all uninitialized areas surround the center area
+	/// </summary>
 	public void LoadSurroundMap()
 	{
-		// The center area must been initialized;
-		// This function loads all uninitialized areas surround the center area
-		// Parameters:
-		//		x, y: the coordinate of center area on the tile map
 		var activateIdentities = new HashSet<int>();
 		EdgeIdentities = new HashSet<int>();
 
@@ -245,6 +254,7 @@ public class SceneManager : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
+		PlayerController.UpdateVisual();
 	}
 
 	public int GetUpdateTime()

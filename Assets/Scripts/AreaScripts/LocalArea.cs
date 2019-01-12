@@ -39,6 +39,13 @@ namespace AreaScripts
             WorldStartCoord = startCoord;
         }
 
+        public void SetTile(Vector3Int coord, TileBase tile)
+        {
+            Tilemap.SetTile(coord, tile);
+            Tilemap.SetTileFlags(coord, TileFlags.None);
+            Tilemap.SetColor(coord, Color.black);
+        }
+
         /// <summary>
         ///     Whether a coord is in the area
         /// </summary>

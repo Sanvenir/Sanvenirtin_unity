@@ -37,8 +37,21 @@ namespace AreaScripts
         {
             base.Initialize(identity, startCoord);
             foreach (var coord in IterateWorldCoordV3())
-                Tilemap.SetTile(
-                    coord, GroundTiles[Utils.ProcessRandom.Next(GroundTiles.Length)]);
+                SetTile(coord, GroundTiles[Utils.ProcessRandom.Next(GroundTiles.Length)]);
+
+            BuildingTilemap building = null;
+            
+            if (BuildingTilemaps.Length != 0 && Utils.ProcessRandom.NextDouble() < BuildingProbability)
+            {
+                building = BuildingTilemaps[
+                    Utils.ProcessRandom.Next(BuildingTilemaps.Length)];
+                var buildingCoord = new Vector2Int(
+                    Utils.ProcessRandom.Next(LocalWidth - building.BuildingWidth),
+                    Utils.ProcessRandom.Next(LocalHeight - building.BuildingHeight)
+                );
+
+                building = GenerateBuilding(building, startCoord + buildingCoord);
+            }
 
             foreach (var coord in IterateWorldCoord())
             {
@@ -50,7 +63,7 @@ namespace AreaScripts
                     RandomGenerateRaceCharacters(race.RaceCharacter, coord);
                     break;
                 }
-
+                if (building != null && building.HasTile(coord)) continue;
                 if (check < 0) continue;
 
                 if (SubstancePrefabs.Length == 0 ||
@@ -58,17 +71,6 @@ namespace AreaScripts
                 var index = Utils.ProcessRandom.Next(SubstancePrefabs.Length);
                 GenerateSubstance(SubstancePrefabs[index], coord);
             }
-
-            if (BuildingTilemaps.Length == 0 ||
-                !(Utils.ProcessRandom.NextDouble() < BuildingProbability)) return;
-            var building = BuildingTilemaps[
-                Utils.ProcessRandom.Next(BuildingTilemaps.Length)];
-            var buildingCoord = new Vector2Int(
-                Utils.ProcessRandom.Next(LocalWidth - building.BuildingWidth),
-                Utils.ProcessRandom.Next(LocalHeight - building.BuildingHeight)
-            );
-
-            GenerateBuilding(building, startCoord + buildingCoord);
         }
     }
 }

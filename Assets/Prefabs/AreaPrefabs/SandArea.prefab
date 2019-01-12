@@ -59,6 +59,7 @@ MonoBehaviour:
   LocalWidth: 0
   LocalHeight: 0
   Tilemap: {fileID: 0}
+  MaskTilemap: {fileID: 0}
   GroundTiles:
   - {fileID: 11400000, guid: da60fa3edfbcb6a478840b954643b3dd, type: 2}
   - {fileID: 11400000, guid: ec0bfc9bff2150246a3ac19235f2dff3, type: 2}
