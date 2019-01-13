@@ -11,7 +11,7 @@ using UnityEngine;
 namespace UnityEngine.Tilemaps
 {
 	[Serializable]
-	[CreateAssetMenu(fileName = "New Random Tile", menuName = "Tiles/Random Tile")]
+	[CreateAssetMenu(fileName = "New Random TileBase", menuName = "Tiles/Random TileBase")]
 	public class RandomTile : Tile
 	{
 		[SerializeField]

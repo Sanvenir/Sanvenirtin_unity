@@ -60,6 +60,8 @@
     <Compile Include="Assets\Scripts\AreaScripts\BuildingTilemap.cs" />
     <Compile Include="Assets\Scripts\AreaScripts\LocalArea.cs" />
     <Compile Include="Assets\Scripts\AreaScripts\RandomLocalArea.cs" />
+    <Compile Include="Assets\Scripts\AreaScripts\TilemapTerrain.cs" />
+    <Compile Include="Assets\Scripts\AreaScripts\TileType.cs" />
     <Compile Include="Assets\Scripts\ExceptionScripts\AreaNotFoundCondition.cs" />
     <Compile Include="Assets\Scripts\ExceptionScripts\CoordOccupiedException.cs" />
     <Compile Include="Assets\Scripts\ExceptionScripts\CoordOutOfWorldException.cs" />

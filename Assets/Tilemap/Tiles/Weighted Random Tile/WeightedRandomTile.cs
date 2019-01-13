@@ -12,7 +12,7 @@ namespace UnityEngine.Tilemaps {
     }
 
     [Serializable]
-    [CreateAssetMenu(fileName = "New Weighted Random Tile", menuName = "Tiles/Weighted Random Tile")]
+    [CreateAssetMenu(fileName = "New Weighted Random TileBase", menuName = "Tiles/Weighted Random TileBase")]
     public class WeightedRandomTile : Tile {
         [SerializeField] public WeightedSprite[] Sprites;
 

@@ -1,3 +1,4 @@
+using AreaScripts;
 using ObjectScripts.BodyPartScripts;
 using UnityEngine;
 using UtilScripts;
@@ -51,7 +52,7 @@ namespace ObjectScripts
             Collider2D.offset = coord - WorldCoord;
             var result = CheckCollider(out complexObject);
             Collider2D.offset = Vector2.zero;
-            return result;
+            return result && SceneManager.Instance.GetTileType(coord) != TileType.Block;
         }
 
         public bool CheckColliderAtWorldCoord(Vector2Int coord)
@@ -59,7 +60,7 @@ namespace ObjectScripts
             Collider2D.offset = coord - WorldCoord;
             var result = CheckCollider();
             Collider2D.offset = Vector2.zero;
-            return result;
+            return result && SceneManager.Instance.GetTileType(coord) != TileType.Block;
         }
 
         private static ContactFilter2D _blockFilter;

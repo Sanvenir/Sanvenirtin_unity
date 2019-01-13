@@ -46,11 +46,11 @@ namespace UnityEditor
 				{
 					if (tile is Tile)
 					{
-						Debug.LogWarning("Tint brush cancelled, because Tile (" + tile.name + ") has TileFlags.LockColor set. Unlock it from the Tile asset debug inspector.");
+						Debug.LogWarning("Tint brush cancelled, because TileBase (" + tile.name + ") has TileFlags.LockColor set. Unlock it from the TileBase asset debug inspector.");
 					}
 					else
 					{
-						Debug.LogWarning("Tint brush cancelled. because Tile (" + tile.name + ") has TileFlags.LockColor set. Unset it in GetTileData().");
+						Debug.LogWarning("Tint brush cancelled. because TileBase (" + tile.name + ") has TileFlags.LockColor set. Unset it in GetTileData().");
 					}
 				}
 

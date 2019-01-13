@@ -1,279 +1,270 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Runtime.InteropServices.ComTypes;
+using System.Linq;
 using System.Text;
 using AreaScripts;
-using Cinemachine;
 using ExceptionScripts;
 using MapScripts;
-using ObjectScripts;
 using ObjectScripts.BodyPartScripts;
 using ObjectScripts.CharacterController;
 using ObjectScripts.CharSubstance;
 using ObjectScripts.RaceScripts;
 using UIScripts;
 using UnityEngine;
-using UnityEngine.Tilemaps;
 using UnityEngine.UI;
 using UtilScripts;
+using Random = System.Random;
 
 public class SceneManager : MonoBehaviour
 {
-	// Settings
-	[Range(1, 100)] public int ReactFrames = 1;
-	public int CurrentTime;
-	public string RandomSeed = "Random";
-	public int InitMapX, InitMapY;
-	public LayerMask GroundLayer;
-	public LayerMask ItemLayer;
-	public LayerMask BlockLayer;
-	public LayerMask PlayerLookAtLayer;
-	public LayerMask ObjectLayer;
-	public LayerMask BlockInspectLayer;
-	
-	public int LoadingRange = 2;
+    // Settings
+    [Range(1, 100)] public int ReactFrames = 1;
+    public int CurrentTime;
+    public string RandomSeed = "Random";
+    public int InitMapX, InitMapY;
+    public LayerMask GroundLayer;
+    public LayerMask ItemLayer;
+    public LayerMask BlockLayer;
+    public LayerMask PlayerLookAtLayer;
+    public LayerMask ObjectLayer;
+    public LayerMask BlockInspectLayer;
 
-	// Game Objects
-	public EarthMapManager EarthMapManager;
-	public GameObject Player;
-	public Grid Grid;
-	public SceneControlButton SceneControlButton;
-	public ObjectListMenu ObjectListMenu;
-	public ObjectActPanel ObjectActPanel;
-	
-	public List<BodyPartList> ComponentList;
-	public List<BasicRace> RaceList = new List<BasicRace>
-	{
-		{
-			new BasicRace()
-		}
-	};
+    public int LoadingRange = 2;
 
-	[HideInInspector] public Dictionary<int, LocalArea> ActivateAreas;
-	[HideInInspector] public HashSet<int> EdgeIdentities;
-	[HideInInspector] public LocalArea CenterArea;
+    // Game Objects
+    public EarthMapManager EarthMapManager;
+    public GameObject Player;
+    public Grid Grid;
+    public SceneControlButton SceneControlButton;
+    public ObjectListMenu ObjectListMenu;
+    public ObjectActPanel ObjectActPanel;
 
-	[HideInInspector] public Character PlayerObject;
+    public List<BodyPartList> ComponentList;
 
-	[HideInInspector] public PlayerController PlayerController;
+    public List<BasicRace> RaceList = new List<BasicRace>
+    {
+        new BasicRace()
+    };
 
-	// UI Objects
-	public Camera MainCamera;
-	public GameObject CameraPos;
-	public Collider2D SceneCollider;
-	public Text GameLogger;
-	public BodyPartPanel BodyPartPanel;
+    [HideInInspector] public Dictionary<int, LocalArea> ActivateAreas;
+    [HideInInspector] public HashSet<int> EdgeIdentities;
+    [HideInInspector] public LocalArea CenterArea;
 
-	// Script Objects
-	public static SceneManager Instance = null;
+    [HideInInspector] public Character PlayerObject;
 
-	public int MaxLoggerTextLength = 500;
-	[SerializeField] private StringBuilder _loggerText;
+    [HideInInspector] public PlayerController PlayerController;
 
-	private void Awake()
-	{
-		if (Instance == null)
-		{
-			Instance = this;
-		}
+    // UI Objects
+    public Camera MainCamera;
+    public GameObject CameraPos;
+    public Collider2D SceneCollider;
+    public Text GameLogger;
+    public BodyPartPanel BodyPartPanel;
 
-		else if (Instance == this)
-		{
-			Destroy(gameObject);
-		}
+    // Script Objects
+    public static SceneManager Instance;
 
-		if (RandomSeed.Equals("random"))
-		{
-			RandomSeed = DateTime.Now.ToString(CultureInfo.CurrentCulture);
-		}
+    public int MaxLoggerTextLength = 500;
+    [SerializeField] private StringBuilder _loggerText;
 
-		ClearLog();
+    private void Awake()
+    {
+        if (Instance == null)
+            Instance = this;
 
-		Utils.ProcessRandom = new System.Random(RandomSeed.GetHashCode());
+        else if (Instance == this) Destroy(gameObject);
 
-		EarthMapManager.GenerateMap();
-		ActivateAreas = new Dictionary<int, LocalArea>();
+        if (RandomSeed.Equals("random")) RandomSeed = DateTime.Now.ToString(CultureInfo.CurrentCulture);
 
-		var initCoord = new EarthMapCoord(InitMapX, InitMapY);
-		CenterArea = GenerateArea(initCoord.GetIdentity(), Vector2Int.zero);
+        ClearLog();
 
-		LoadSurroundMap();
+        Utils.ProcessRandom = new Random(RandomSeed.GetHashCode());
 
-		SceneControlButton.enabled = true;
+        EarthMapManager.GenerateMap();
+        ActivateAreas = new Dictionary<int, LocalArea>();
 
-		CurrentTime = 0;
-		PlayerObject = Player.GetComponent<Character>();
-		PlayerController = Player.GetComponent<PlayerController>();
-		Player.SetActive(true);
-		try
-		{
-			PlayerObject.Initialize(Vector2Int.zero, CenterArea.Identity);
-		}
-		catch (CoordOccupiedException e)
-		{
-			Destroy(e.Collider.gameObject);
-		}
+        var initCoord = new EarthMapCoord(InitMapX, InitMapY);
+        CenterArea = GenerateArea(initCoord.GetIdentity(), Vector2Int.zero);
 
-		BodyPartPanel.enabled = true;
-	}
+        LoadSurroundMap();
 
-	public Vector2 WorldCoordToPos(Vector2Int coord)
-	{
-		return Grid.GetCellCenterLocal(new Vector3Int(coord.x, coord.y, 0));
-	}
+        SceneControlButton.enabled = true;
 
-	public LocalArea WorldPosToArea(Vector2 pos)
-	{
-		var hit = Physics2D.OverlapPoint(pos, GroundLayer);
-		return hit == null ? null : hit.GetComponent<LocalArea>();
-	}
+        CurrentTime = 0;
+        PlayerObject = Player.GetComponent<Character>();
+        PlayerController = Player.GetComponent<PlayerController>();
+        Player.SetActive(true);
+        try
+        {
+            PlayerObject.Initialize(Vector2Int.zero, CenterArea.Identity);
+        }
+        catch (CoordOccupiedException e)
+        {
+            Destroy(e.Collider.gameObject);
+        }
 
-	public LocalArea WorldCoordToArea(Vector2Int coord)
-	{
-		return WorldPosToArea(WorldCoordToPos(coord));
-	}
+        BodyPartPanel.enabled = true;
+    }
 
-	public IEnumerable<Tilemap> WorldPosToTilemap(Vector2 pos)
-	{
-		Collider2D[] hits = new Collider2D[5];
-		Physics2D.OverlapPointNonAlloc(pos, hits, GroundLayer);
-		foreach (var hit in hits)
-		{
-			if (hit == null) yield break;
-			var tilemap = hit.GetComponent<Tilemap>();
-			if (tilemap != null) yield return tilemap;
-		}
-	}
+    public Vector2Int GetCursorCoord()
+    {
+        return WorldPosToCoord(SceneControlButton.SceneCursor.transform.position);
+    }
 
-	public IEnumerable<Tilemap> WorldCoordToTilemap(Vector2Int coord)
-	{
-		return WorldPosToTilemap(WorldCoordToPos(coord));
-	}
+    public Vector2 WorldCoordToPos(Vector2Int coord)
+    {
+        return Grid.GetCellCenterLocal(new Vector3Int(coord.x, coord.y, 0));
+    }
 
-	public Vector2Int WorldPosToCoord(Vector2 pos)
-	{
-		return Utils.Vector3IntTo2(CenterArea.Tilemap.WorldToCell(pos));
-	}
+    public LocalArea WorldPosToArea(Vector2 pos)
+    {
+        var hits = new Collider2D[5];
+        Physics2D.OverlapPointNonAlloc(pos, hits);
+        return (from hit in hits where hit != null select hit.GetComponent<LocalArea>()).FirstOrDefault(area =>
+            area != null);
+    }
+
+    public LocalArea WorldCoordToArea(Vector2Int coord)
+    {
+        return WorldPosToArea(WorldCoordToPos(coord));
+    }
+
+    public TileType GetTileType(Vector2Int coord)
+    {
+        var tilemap = WorldCoordToTilemap(coord);
+        return tilemap == null ? TileType.None : tilemap.GetTileType(coord);
+    }
+
+    public TilemapTerrain WorldPosToTilemap(Vector2 pos)
+    {
+        var hits = new Collider2D[5];
+        Physics2D.OverlapPointNonAlloc(pos, hits, GroundLayer);
+        TilemapTerrain upperTilemap = null;
+        foreach (var hit in hits)
+        {
+            if (hit == null) return upperTilemap;
+            var tilemap = hit.GetComponent<TilemapTerrain>();
+            if (tilemap != null && (upperTilemap == null ||
+                                    upperTilemap.TilemapRenderer.sortingOrder < tilemap.TilemapRenderer.sortingOrder))
+                upperTilemap = tilemap;
+        }
+
+        return upperTilemap;
+    }
+
+    public TilemapTerrain WorldCoordToTilemap(Vector2Int coord)
+    {
+        return WorldPosToTilemap(WorldCoordToPos(coord));
+    }
+
+    public Vector2Int WorldPosToCoord(Vector2 pos)
+    {
+        return Utils.Vector3IntTo2(CenterArea.Tilemap.WorldToCell(pos));
+    }
 
 
-	public Vector2 NormalizeWorldPos(Vector2 pos)
-	{
-		if (CenterArea == null)
-		{
-			return Vector2.zero;
-		}
+    public Vector2 NormalizeWorldPos(Vector2 pos)
+    {
+        if (CenterArea == null) return Vector2.zero;
 
-		var coord = CenterArea.Tilemap.WorldToCell(pos);
-		return CenterArea.Tilemap.GetCellCenterWorld(coord);
-	}
+        var coord = CenterArea.Tilemap.WorldToCell(pos);
+        return CenterArea.Tilemap.GetCellCenterWorld(coord);
+    }
 
-	public void Print(string message, Vector2Int coord)
-	{
-		if (!PlayerObject.IsAudible(coord)) return;
-		_loggerText.AppendLine(message);
-		if (_loggerText.Length > MaxLoggerTextLength)
-		{
-			_loggerText = _loggerText.Remove(0, _loggerText.Length - MaxLoggerTextLength);
-		}
-		GameLogger.text = _loggerText.ToString();
-	}
+    public void Print(string message, Vector2Int coord)
+    {
+        if (!PlayerObject.IsAudible(coord)) return;
+        _loggerText.AppendLine(message);
+        if (_loggerText.Length > MaxLoggerTextLength)
+            _loggerText = _loggerText.Remove(0, _loggerText.Length - MaxLoggerTextLength);
+        GameLogger.text = _loggerText.ToString();
+    }
 
-	public void ClearLog()
-	{
-		_loggerText = new StringBuilder();
-		GameLogger.text = _loggerText.ToString();
-	}
+    public void ClearLog()
+    {
+        _loggerText = new StringBuilder();
+        GameLogger.text = _loggerText.ToString();
+    }
 
-	/// <summary>
-	/// The center area must been initialized;
-	/// This function loads all uninitialized areas surround the center area
-	/// </summary>
-	public void LoadSurroundMap()
-	{
-		var activateIdentities = new HashSet<int>();
-		EdgeIdentities = new HashSet<int>();
+    /// <summary>
+    ///     The center area must been initialized;
+    ///     This function loads all uninitialized areas surround the center area
+    /// </summary>
+    public void LoadSurroundMap()
+    {
+        var activateIdentities = new HashSet<int>();
+        EdgeIdentities = new HashSet<int>();
 
-		var centerCoord = EarthMapCoord.CreateFromIdentity(CenterArea.Identity);
+        var centerCoord = EarthMapCoord.CreateFromIdentity(CenterArea.Identity);
 
-		for (var dx = -LoadingRange; dx <= LoadingRange; dx++)
-		for (var dy = -LoadingRange; dy <= LoadingRange; dy++)
-		{
-			try
-			{
-				var identity = centerCoord.GetDeltaCoord(dx, dy).GetIdentity();
-				activateIdentities.Add(identity);
-				if (dx == LoadingRange || dx == -LoadingRange ||
-				    dy == LoadingRange || dy == -LoadingRange)
-				{
-					EdgeIdentities.Add(identity);
-				}
+        for (var dx = -LoadingRange; dx <= LoadingRange; dx++)
+        for (var dy = -LoadingRange; dy <= LoadingRange; dy++)
+            try
+            {
+                var identity = centerCoord.GetDeltaCoord(dx, dy).GetIdentity();
+                activateIdentities.Add(identity);
+                if (dx == LoadingRange || dx == -LoadingRange ||
+                    dy == LoadingRange || dy == -LoadingRange)
+                    EdgeIdentities.Add(identity);
 
-				if (ActivateAreas.ContainsKey(identity))
-				{
-					continue;
-				}
+                if (ActivateAreas.ContainsKey(identity)) continue;
 
-				var area = GenerateArea(
-					identity,
-					CenterArea.WorldStartCoord +
-					new Vector2Int(
-						dx * EarthMapManager.LocalWidth, dy * EarthMapManager.LocalHeight));
-			}
-			catch (CoordOutOfWorldException)
-			{
-				Debug.Log("Reach the edge of the global map");
-			}
-		}
+                var area = GenerateArea(
+                    identity,
+                    CenterArea.WorldStartCoord +
+                    new Vector2Int(
+                        dx * EarthMapManager.LocalWidth, dy * EarthMapManager.LocalHeight));
+            }
+            catch (CoordOutOfWorldException)
+            {
+                Debug.Log("Reach the edge of the global map");
+            }
 
-		var buffer = new List<int>(ActivateAreas.Keys);
-		foreach (var areaIdentity in buffer)
-		{
-			if (activateIdentities.Contains(areaIdentity))
-			{
-				continue;
-			}
+        var buffer = new List<int>(ActivateAreas.Keys);
+        foreach (var areaIdentity in buffer)
+        {
+            if (activateIdentities.Contains(areaIdentity)) continue;
 
-			// Destroy inactivate areas
-			Destroy(ActivateAreas[areaIdentity].gameObject);
-			ActivateAreas.Remove(areaIdentity);
-		}
-	}
+            // Destroy inactivate areas
+            Destroy(ActivateAreas[areaIdentity].gameObject);
+            ActivateAreas.Remove(areaIdentity);
+        }
+    }
 
-	private LocalArea GenerateArea(int identity, Vector2Int worldCoord)
-	{
-		var mapType = EarthMapManager.EarthMap.GetMap(EarthMapCoord.CreateFromIdentity(identity));
-		var instance = Instantiate(EarthMapManager.BaseAreaPrefabs[mapType], Grid.transform);
-		var area = instance.GetComponent<LocalArea>();
-		ActivateAreas.Add(identity, area);
-		area.Initialize(identity, worldCoord);
-		return area;
-	}
+    private LocalArea GenerateArea(int identity, Vector2Int worldCoord)
+    {
+        var mapType = EarthMapManager.EarthMap.GetMap(EarthMapCoord.CreateFromIdentity(identity));
+        var instance = Instantiate(EarthMapManager.BaseAreaPrefabs[mapType], Grid.transform);
+        var area = instance.GetComponent<LocalArea>();
+        ActivateAreas.Add(identity, area);
+        area.Initialize(identity, worldCoord);
+        return area;
+    }
 
-	// Use this for initialization
-	void Start()
-	{
-		PlayerController.UpdateVisual();
-	}
+    // Use this for initialization
+    private void Start()
+    {
+        PlayerController.UpdateVisual();
+    }
 
-	public int GetUpdateTime()
-	{
-		return Math.Max(1, PlayerObject.Properties.GetReactTime() / ReactFrames);
-	}
+    public int GetUpdateTime()
+    {
+        return Math.Max(1, PlayerObject.Properties.GetReactTime() / ReactFrames);
+    }
 
-	// Update is called once per frame
-	void Update()
-	{
-		if (PlayerObject != null && PlayerObject.IsTurn()) return;
-		CurrentTime += GetUpdateTime();
-	}
+    // Update is called once per frame
+    private void Update()
+    {
+        if (PlayerObject != null && PlayerObject.IsTurn()) return;
+        CurrentTime += GetUpdateTime();
+    }
 
-	private void LateUpdate()
-	{
-		var centerIdentity = PlayerObject.AreaIdentity;
-		if (!EdgeIdentities.Contains(centerIdentity)) return;
-		CenterArea = ActivateAreas[centerIdentity];
-		LoadSurroundMap();
-	}
+    private void LateUpdate()
+    {
+        var centerIdentity = PlayerObject.AreaIdentity;
+        if (!EdgeIdentities.Contains(centerIdentity)) return;
+        CenterArea = ActivateAreas[centerIdentity];
+        LoadSurroundMap();
+    }
 }

@@ -14,16 +14,25 @@ namespace AreaScripts
     public class RandomLocalArea : LocalArea
     {
         [Serializable]
+        public struct RandomTile
+        {
+            public TileBase TileBase;
+            public TileType TileType;
+        }
+        
+        [Serializable]
         public struct RandomRace
         {
             public Character RaceCharacter;
             public float RaceAppearRatio;
         }
 
-        public TileBase[] GroundTiles;
+        public RandomTile[] GroundTiles;
+//        public TileBase[] GroundTiles;
         public Substance[] SubstancePrefabs;
         public BuildingTilemap[] BuildingTilemaps;
         public RandomRace[] RaceSetting;
+        public TileType BasicTileType;
 
         public float ObjectsGenerateRatio = 0.1f;
         public float BuildingProbability = 0.5f;
@@ -36,8 +45,11 @@ namespace AreaScripts
         public override void Initialize(int identity, Vector2Int startCoord)
         {
             base.Initialize(identity, startCoord);
-            foreach (var coord in IterateWorldCoordV3())
-                SetTile(coord, GroundTiles[Utils.ProcessRandom.Next(GroundTiles.Length)]);
+            foreach (var coord in IterateWorldCoord())
+            {
+                var tile = GroundTiles[Utils.ProcessRandom.Next(GroundTiles.Length)];
+                SetTile(coord, tile.TileBase, tile.TileType);
+            }
 
             BuildingTilemap building = null;
             
@@ -72,5 +84,7 @@ namespace AreaScripts
                 GenerateSubstance(SubstancePrefabs[index], coord);
             }
         }
+        
+
     }
 }

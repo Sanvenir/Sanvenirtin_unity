@@ -11,7 +11,7 @@ using UnityEngine;
 namespace UnityEngine.Tilemaps
 {
     [Serializable]
-    [CreateAssetMenu(fileName = "New Animated Tile", menuName = "Tiles/Animated Tile")]
+    [CreateAssetMenu(fileName = "New Animated TileBase", menuName = "Tiles/Animated TileBase")]
     public class AnimatedTile : TileBase
     {
         public Sprite[] m_AnimatedSprites;

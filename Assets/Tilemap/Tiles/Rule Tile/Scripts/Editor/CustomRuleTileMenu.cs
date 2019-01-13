@@ -2,10 +2,10 @@
 {
 	static class CustomRuleTileMenu
 	{
-		[MenuItem("Assets/Create/Custom Rule Tile Script", false, 89)]
+		[MenuItem("Assets/Create/Custom Rule TileBase Script", false, 89)]
 		static void CreateCustomRuleTile()
 		{
-			CreateScriptAsset("Assets/OutsideTilemap/Tiles/Rule Tile/ScriptTemplates/NewCustomRuleTile.cs.txt", "NewCustomRuleTile.cs");
+			CreateScriptAsset("Assets/OutsideTilemap/Tiles/Rule TileBase/ScriptTemplates/NewCustomRuleTile.cs.txt", "NewCustomRuleTile.cs");
 		}
 		static void CreateScriptAsset(string templatePath, string destName)
 		{

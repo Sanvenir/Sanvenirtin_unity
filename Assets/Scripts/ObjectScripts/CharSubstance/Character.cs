@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using AreaScripts;
 using ObjectScripts.BodyPartScripts;
 using ObjectScripts.SpriteController;
 using UnityEngine;
@@ -53,7 +54,7 @@ namespace ObjectScripts.CharSubstance
             Collider2D.offset = delta;
             var result = CheckCollider(out collide);
             Collider2D.offset = Vector2.zero;
-            return result;
+            return result && SceneManager.Instance.GetTileType(WorldCoord + delta) != TileType.Block;
         }
 
         public bool MoveCheck(Vector2Int delta)
@@ -61,7 +62,7 @@ namespace ObjectScripts.CharSubstance
             Collider2D.offset = delta;
             var result = CheckCollider();
             Collider2D.offset = Vector2.zero;
-            return result;
+            return result && SceneManager.Instance.GetTileType(WorldCoord + delta) != TileType.Block;
         }
 
         public bool Move(Vector2Int delta, int moveTime)
@@ -71,6 +72,9 @@ namespace ObjectScripts.CharSubstance
             SpriteController.SetDirection(Utils.VectorToDirection(delta));
             if (!MoveCheck(delta)) return false;
             SmoothMoveTo(endPos, moveTime);
+            SpriteRenderer.color = SceneManager.Instance.GetTileType(WorldCoord) == TileType.Water
+                ? Color.cyan
+                : Color.white;
             return true;
         }
 
@@ -103,19 +107,13 @@ namespace ObjectScripts.CharSubstance
             if (distance < Properties.GetSensibleRange()) return true;
             var pos = SceneManager.Instance.WorldCoordToPos(coord);
             var hit = Physics2D.OverlapPoint(pos, SceneManager.Instance.BlockInspectLayer);
-            if (hit != null)
-            {
-                hit.enabled = false;
-            }
+            if (hit != null) hit.enabled = false;
             Collider2D.enabled = false;
             var result = Physics2D.Linecast(transform.position, SceneManager.Instance.WorldCoordToPos(coord),
                                  SceneManager.Instance.BlockInspectLayer)
                              .collider == null;
             Collider2D.enabled = true;
-            if (hit != null)
-            {
-                hit.enabled = true;
-            }
+            if (hit != null) hit.enabled = true;
             return result && distance < Properties.GetVisibleRange();
         }
 

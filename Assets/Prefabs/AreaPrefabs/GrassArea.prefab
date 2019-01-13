@@ -54,17 +54,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d0acf710ebf42d8bcfd44ddb10af28b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Tilemap: {fileID: 0}
+  TilemapRenderer: {fileID: 0}
   Identity: 0
   WorldStartCoord: {x: 0, y: 0}
   LocalWidth: 0
   LocalHeight: 0
-  Tilemap: {fileID: 0}
-  MaskTilemap: {fileID: 0}
   GroundTiles:
-  - {fileID: 11400000, guid: 4ce532d38570f8142b76b12b39d67bda, type: 2}
-  - {fileID: 11400000, guid: ba01263fe606c2740a7ef1310a7c3700, type: 2}
-  - {fileID: 11400000, guid: bf0881d949210104ab54e0d1ffd4975c, type: 2}
-  - {fileID: 11400000, guid: 382de6660ebc6694e9455df3674fce2b, type: 2}
+  - TileBase: {fileID: 11400000, guid: 52c89747c493afc4997777de7e1424e9, type: 2}
+    TileType: 0
+  - TileBase: {fileID: 11400000, guid: 3a43f1823ab4cca4d8aece93936c7ce4, type: 2}
+    TileType: 0
+  - TileBase: {fileID: 11400000, guid: 35ae26623128def4daa9c9d05558a240, type: 2}
+    TileType: 0
+  - TileBase: {fileID: 11400000, guid: da9f900c9e1bc6340a45e0c5653907c1, type: 2}
+    TileType: 2
   SubstancePrefabs:
   - {fileID: 114566145580136664, guid: 0dce885337da32d49978572551cb6377, type: 2}
   BuildingTilemaps:
@@ -73,6 +77,7 @@ MonoBehaviour:
   - RaceCharacter: {fileID: 114717772600095978, guid: 6570fec23155b964688528789beadd1b,
       type: 2}
     RaceAppearRatio: 0.02
+  BasicTileType: 0
   ObjectsGenerateRatio: 0.02
   BuildingProbability: 0.5
 --- !u!19719996 &2113883507045932898

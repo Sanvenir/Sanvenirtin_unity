@@ -11,7 +11,7 @@ using UnityEngine;
 namespace UnityEngine.Tilemaps
 {
 	[Serializable]
-	[CreateAssetMenu(fileName = "New Pipeline Tile", menuName = "Tiles/Pipeline Tile")]
+	[CreateAssetMenu(fileName = "New Pipeline TileBase", menuName = "Tiles/Pipeline TileBase")]
 	public class PipelineTile : TileBase
 	{
 		[SerializeField]

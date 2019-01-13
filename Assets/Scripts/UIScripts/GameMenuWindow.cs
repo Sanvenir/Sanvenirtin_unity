@@ -5,7 +5,7 @@ namespace UIScripts
 {
     public abstract class GameMenuWindow: MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
-        private bool _isPointerIn;
+        private bool _isPointerIn = true;
         
         public void OnPointerEnter(PointerEventData eventData)
         {
@@ -20,7 +20,7 @@ namespace UIScripts
         private void Update()
         {
             if (_isPointerIn) return;
-            if (Input.GetMouseButton(0) || Input.GetMouseButton(1))
+            if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
             {
                 EndUp();
             }

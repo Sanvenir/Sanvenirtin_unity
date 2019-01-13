@@ -13,7 +13,7 @@ namespace AreaScripts
     ///     The basic local area of the game. During game, if the player is on the Earth Map, a group of map will be loaded for
     ///     seamless world
     /// </summary>
-    public abstract class LocalArea : MonoBehaviour
+    public abstract class LocalArea : TilemapTerrain
     {
         [HideInInspector] public int Identity;
 
@@ -21,8 +21,7 @@ namespace AreaScripts
         [HideInInspector] public EarthMapCoord EarthMapCoord;
         [HideInInspector] public Vector2Int WorldStartCoord;
         [HideInInspector] public int LocalWidth, LocalHeight;
-        public Tilemap Tilemap;
-
+        
         /// <summary>
         ///     Initialize function need to be called after instantiate;
         /// </summary>
@@ -30,6 +29,7 @@ namespace AreaScripts
         /// <param name="startCoord">The start coord of this area(coord of left-bottom tile)</param>
         public virtual void Initialize(int identity, Vector2Int startCoord)
         {
+            base.Initialize();
             Identity = identity;
             Tilemap = GetComponent<Tilemap>();
             if (identity < 0) return; // If identity less than 0, means it is not on the Earth Map
@@ -39,12 +39,6 @@ namespace AreaScripts
             WorldStartCoord = startCoord;
         }
 
-        public void SetTile(Vector3Int coord, TileBase tile)
-        {
-            Tilemap.SetTile(coord, tile);
-            Tilemap.SetTileFlags(coord, TileFlags.None);
-            Tilemap.SetColor(coord, Color.black);
-        }
 
         /// <summary>
         ///     Whether a coord is in the area

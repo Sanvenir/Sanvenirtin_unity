@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Net;
+using AreaScripts;
 using ObjectScripts.ActionScripts;
 using ObjectScripts.CharacterController.PlayerOrder;
 using ObjectScripts.CharSubstance;
@@ -128,11 +129,11 @@ namespace ObjectScripts.CharacterController
             Unknown
         }
 
-        public IEnumerator SetColor(Tilemap tilemap, Vector2Int coord, bool isMemorized)
+        public IEnumerator SetColor(TilemapTerrain tilemap, Vector2Int coord, bool isMemorized)
         {
-            var cell = tilemap.WorldToCell(SceneManager.Instance.WorldCoordToPos(coord));
+            var cell = tilemap.Tilemap.WorldToCell(SceneManager.Instance.WorldCoordToPos(coord));
             if(tilemap == null) yield break;
-            var color = tilemap.GetColor(cell);
+            var color = tilemap.Tilemap.GetColor(cell);
             var targetColor = isMemorized ? Color.gray : Color.white;
             if(color == targetColor) yield break;
             var time = SceneManager.Instance.GetUpdateTime();
@@ -141,12 +142,12 @@ namespace ObjectScripts.CharacterController
             {
                 color += incColor;
                 if(tilemap == null) yield break;
-                tilemap.SetColor(cell, color);
+                tilemap.Tilemap.SetColor(cell, color);
                 yield return null;
             }
 
             if(tilemap == null) yield break;
-            tilemap.SetColor(cell, targetColor);
+            tilemap.Tilemap.SetColor(cell, targetColor);
 
         }
 
@@ -157,38 +158,22 @@ namespace ObjectScripts.CharacterController
             var buff = new HashSet<Vector2Int>();
             foreach (var coord in MemorizedCoord)
             {
-                var check = false;
-                foreach (var tilemap in SceneManager.Instance.WorldCoordToTilemap(coord))
-                {
-                    StartCoroutine(SetColor(tilemap, coord, true));
-//                    tilemap.SetColor(tilemap.WorldToCell(SceneManager.Instance.WorldCoordToPos(coord)), Color.gray);   
-                    _preCoord = Character.WorldCoord;
-                    check = true;
-                }
-
-                if (check)
-                {
-                    buff.Add(coord);
-                }
+                var tilemap = SceneManager.Instance.WorldCoordToTilemap(coord);
+                if (tilemap == null) continue;
+                _preCoord = Character.WorldCoord;
+                StartCoroutine(SetColor(tilemap, coord, true));
+                buff.Add(coord);
             }
 
             MemorizedCoord = buff;
 
             foreach (var coord in GetVisibleCoord())
             {
-                var check = false;
-                foreach (var tilemap in SceneManager.Instance.WorldCoordToTilemap(coord))
-                {
-                    StartCoroutine(SetColor(tilemap, coord, false));
-//                    tilemap.SetColor(tilemap.WorldToCell(SceneManager.Instance.WorldCoordToPos(coord)), Color.white);   
-                    _preCoord = Character.WorldCoord;
-                    check = true;
-                }
-
-                if (check)
-                {
-                    MemorizedCoord.Add(coord);
-                }
+                var tilemap = SceneManager.Instance.WorldCoordToTilemap(coord);
+                if (tilemap == null) continue;
+                _preCoord = Character.WorldCoord;
+                StartCoroutine(SetColor(tilemap, coord, false));
+                MemorizedCoord.Add(coord);
             }
         }
 

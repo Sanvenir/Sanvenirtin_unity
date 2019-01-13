@@ -12,7 +12,7 @@ using UnityEngine;
 namespace UnityEngine.Tilemaps
 {
 	[Serializable]
-	[CreateAssetMenu(fileName = "New Terrain Tile", menuName = "Tiles/Terrain Tile")]
+	[CreateAssetMenu(fileName = "New Terrain TileBase", menuName = "Tiles/Terrain TileBase")]
 	public class TerrainTile : TileBase
 	{
 		[SerializeField]

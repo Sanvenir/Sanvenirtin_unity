@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
-using UtilScripts;
 
 namespace AreaScripts
 {
@@ -9,11 +8,9 @@ namespace AreaScripts
     ///     Make up a building, contains ground tiles, block tiles and outside tiles; when player enters the ground
     ///     tiles, the outside tiles will hide for player to inspect;
     /// </summary>
-    public class BuildingTilemap : MonoBehaviour
+    public class BuildingTilemap : TilemapTerrain
     {
         public TilemapRenderer OutsideTilemapRenderer;
-        public Tilemap OutsideTilemap;
-        public Tilemap InsideTilemap;
         public Collider2D BlockCollider;
         public ContactFilter2D ContactFilter;
 
@@ -28,20 +25,16 @@ namespace AreaScripts
         /// <param name="area">Which area the building belongs to</param>
         public void Initialize(Vector2 startPos, LocalArea area)
         {
-            OutsideTilemap.transform.position = startPos;
+            base.Initialize();
+            transform.position = startPos;
             OutsideTilemapRenderer.sortingOrder = -(int) startPos.y;
             Area = area;
             if (CheckCollider()) Destroy(gameObject);
-            foreach (var coord in InsideTilemap.cellBounds.allPositionsWithin)
+            foreach (var coord in Tilemap.cellBounds.allPositionsWithin)
             {
-                InsideTilemap.SetTileFlags(coord, TileFlags.None);
-                InsideTilemap.SetColor(coord, Color.black);
+                Tilemap.SetTileFlags(coord, TileFlags.None);
+                Tilemap.SetColor(coord, Color.black);
             }
-        }
-
-        public bool HasTile(Vector2Int coord)
-        {
-            return InsideTilemap.HasTile(InsideTilemap.WorldToCell(SceneManager.Instance.WorldCoordToPos(coord)));
         }
 
         private bool CheckCollider()
@@ -56,9 +49,8 @@ namespace AreaScripts
             if (SceneManager.Instance.PlayerObject == null) return;
 
             OutsideTilemapRenderer.enabled = !(
-                InsideTilemap.HasTile(InsideTilemap.WorldToCell(SceneManager.Instance.PlayerObject.WorldPos)) ||
-                InsideTilemap.HasTile(InsideTilemap.WorldToCell(SceneManager.Instance.SceneControlButton.SceneCursor
-                    .transform.position)));
+                HasTile(SceneManager.Instance.PlayerObject.WorldCoord) ||
+                HasTile(SceneManager.Instance.SceneControlButton.SceneCursor.transform.position));
         }
 
         private void LateUpdate()

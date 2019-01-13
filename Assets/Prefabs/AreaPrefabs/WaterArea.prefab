@@ -54,20 +54,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d0acf710ebf42d8bcfd44ddb10af28b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Tilemap: {fileID: 0}
+  TilemapRenderer: {fileID: 0}
   Identity: 0
   WorldStartCoord: {x: 0, y: 0}
   LocalWidth: 0
   LocalHeight: 0
-  Tilemap: {fileID: 0}
-  MaskTilemap: {fileID: 0}
   GroundTiles:
-  - {fileID: 11400000, guid: 896d4f9be34c498409e1fc2807af9d7a, type: 2}
-  - {fileID: 11400000, guid: 4c3fda781e122af46bcdd8c0467b9de1, type: 2}
-  - {fileID: 11400000, guid: 7fc8b2fcfb7632642819a5fe057a0ece, type: 2}
-  - {fileID: 11400000, guid: ba415bfb72d8a5f4ea8b07a97658ccb3, type: 2}
+  - TileBase: {fileID: 11400000, guid: 23a06948440516e41b16ca63206dd6ec, type: 2}
+    TileType: 1
+  - TileBase: {fileID: 11400000, guid: e3444e5ca6fe2f24d802708c0dc4a792, type: 2}
+    TileType: 1
+  - TileBase: {fileID: 11400000, guid: 896d4f9be34c498409e1fc2807af9d7a, type: 2}
+    TileType: 1
+  - TileBase: {fileID: 11400000, guid: 4c3fda781e122af46bcdd8c0467b9de1, type: 2}
+    TileType: 1
   SubstancePrefabs: []
   BuildingTilemaps: []
   RaceSetting: []
+  BasicTileType: 1
   ObjectsGenerateRatio: 0.001
   BuildingProbability: 0.5
 --- !u!19719996 &2113883504573150554

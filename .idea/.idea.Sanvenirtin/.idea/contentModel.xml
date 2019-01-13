@@ -13,6 +13,8 @@
             <e p="BuildingTilemap.cs" t="Include" />
             <e p="LocalArea.cs" t="Include" />
             <e p="RandomLocalArea.cs" t="Include" />
+            <e p="TilemapTerrain.cs" t="Include" />
+            <e p="TileType.cs" t="Include" />
           </e>
           <e p="ExceptionScripts" t="Include">
             <e p="AreaNotFoundCondition.cs" t="Include" />

@@ -221,7 +221,6 @@ MonoBehaviour:
     Weight: 10
     CutDefence: 10
     HitRatio: 0.9
-    Available: 1
     PartPos: 2
     AttachBodyPart: 
     Essential: 0
@@ -505,7 +504,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 1111068927
+  m_SortingLayerID: -14335529
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!223 &223855878538049168
@@ -525,7 +524,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 1111068927
+  m_SortingLayerID: -14335529
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!223 &223902918540052628
@@ -545,7 +544,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 1111068927
+  m_SortingLayerID: -14335529
   m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &224058520543534608

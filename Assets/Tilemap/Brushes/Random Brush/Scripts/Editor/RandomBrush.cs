@@ -110,7 +110,7 @@ namespace UnityEditor
 
 			for (int i = 0; i < count; i++)
 			{
-				randomBrush.randomTiles[i] = (TileBase) EditorGUILayout.ObjectField("Tile " + (i+1), randomBrush.randomTiles[i], typeof(TileBase), false, null);
+				randomBrush.randomTiles[i] = (TileBase) EditorGUILayout.ObjectField("TileBase " + (i+1), randomBrush.randomTiles[i], typeof(TileBase), false, null);
 			}		
 			if (EditorGUI.EndChangeCheck())
 				EditorUtility.SetDirty(randomBrush);
