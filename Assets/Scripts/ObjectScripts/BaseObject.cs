@@ -1,5 +1,6 @@
 using System.Collections;
 using ExceptionScripts;
+using ObjectScripts.SpriteController;
 using UnityEngine;
 using UtilScripts;
 
@@ -13,6 +14,7 @@ namespace ObjectScripts
     {
         public string TextName;
         public string Info;
+        public bool Visible;
 
         [HideInInspector] private Vector2Int _worldCoord;
 
@@ -164,16 +166,26 @@ namespace ObjectScripts
             SpriteController.StopMoving();
         }
 
-        private void LateUpdate()
+        protected virtual void LateUpdate()
         {
             if ((SceneManager.Instance.PlayerObject.WorldPos -
                  WorldPos).sqrMagnitude > 5000)
                 Destroy(gameObject);
+            Visible = SceneManager.Instance.PlayerObject.IsVisible(this);
         }
 
         protected virtual void Update()
         {
-            SpriteRenderer.enabled = SceneManager.Instance.PlayerObject.IsVisible(this);
+            SpriteRenderer.enabled = Visible;
+        }
+
+        public void PlayEffect(EffectController effect)
+        {
+            
+            // Play the attack action effect animation
+            if (effect == null || !Visible) return;
+            var instance = Object.Instantiate(effect, transform);
+            instance.Initialize();
         }
     }
 }

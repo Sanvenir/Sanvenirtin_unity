@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Net;
 using ObjectScripts.ActionScripts;
@@ -5,6 +7,7 @@ using ObjectScripts.CharacterController.PlayerOrder;
 using ObjectScripts.CharSubstance;
 using UnityEngine;
 using UnityEngine.Experimental.PlayerLoop;
+using UnityEngine.Tilemaps;
 using UtilScripts;
 
 namespace ObjectScripts.CharacterController
@@ -19,7 +22,7 @@ namespace ObjectScripts.CharacterController
 
         private Vector2Int _vecInt;
 
-        public HashSet<Vector2Int> VisibleCoord = new HashSet<Vector2Int>();
+        public HashSet<Vector2Int> MemorizedCoord = new HashSet<Vector2Int>();
         private Vector2Int? _preCoord = null;
 
         protected override void Awake()
@@ -114,29 +117,77 @@ namespace ObjectScripts.CharacterController
             {
                 var coord = new Vector2Int(x, y) + Character.WorldCoord;
                 if (!Character.IsVisible(coord)) continue;
-                VisibleCoord.Add(coord);
                 yield return coord;
             }
+        }
+        
+        public enum VisualCondition
+        {
+            Visible,
+            Memorized,
+            Unknown
+        }
+
+        public IEnumerator SetColor(Tilemap tilemap, Vector2Int coord, bool isMemorized)
+        {
+            var cell = tilemap.WorldToCell(SceneManager.Instance.WorldCoordToPos(coord));
+            if(tilemap == null) yield break;
+            var color = tilemap.GetColor(cell);
+            var targetColor = isMemorized ? Color.gray : Color.white;
+            if(color == targetColor) yield break;
+            var time = SceneManager.Instance.GetUpdateTime();
+            var incColor = targetColor / time;
+            for (var i = 0; i < time; i++)
+            {
+                color += incColor;
+                if(tilemap == null) yield break;
+                tilemap.SetColor(cell, color);
+                yield return null;
+            }
+
+            if(tilemap == null) yield break;
+            tilemap.SetColor(cell, targetColor);
+
         }
 
         public void UpdateVisual()
         {
+            
             if (Character.WorldCoord == _preCoord) return;
-            foreach (var coord in VisibleCoord)
+            var buff = new HashSet<Vector2Int>();
+            foreach (var coord in MemorizedCoord)
             {
+                var check = false;
                 foreach (var tilemap in SceneManager.Instance.WorldCoordToTilemap(coord))
                 {
-                    tilemap.SetColor(tilemap.WorldToCell(SceneManager.Instance.WorldCoordToPos(coord)), Color.gray);   
+                    StartCoroutine(SetColor(tilemap, coord, true));
+//                    tilemap.SetColor(tilemap.WorldToCell(SceneManager.Instance.WorldCoordToPos(coord)), Color.gray);   
                     _preCoord = Character.WorldCoord;
+                    check = true;
+                }
+
+                if (check)
+                {
+                    buff.Add(coord);
                 }
             }
 
+            MemorizedCoord = buff;
+
             foreach (var coord in GetVisibleCoord())
             {
+                var check = false;
                 foreach (var tilemap in SceneManager.Instance.WorldCoordToTilemap(coord))
                 {
-                    tilemap.SetColor(tilemap.WorldToCell(SceneManager.Instance.WorldCoordToPos(coord)), Color.white);   
+                    StartCoroutine(SetColor(tilemap, coord, false));
+//                    tilemap.SetColor(tilemap.WorldToCell(SceneManager.Instance.WorldCoordToPos(coord)), Color.white);   
                     _preCoord = Character.WorldCoord;
+                    check = true;
+                }
+
+                if (check)
+                {
+                    MemorizedCoord.Add(coord);
                 }
             }
         }

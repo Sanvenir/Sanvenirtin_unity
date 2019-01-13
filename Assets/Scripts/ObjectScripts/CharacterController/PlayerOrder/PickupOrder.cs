@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using ObjectScripts.CharSubstance;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,12 +10,11 @@ namespace ObjectScripts.CharacterController.PlayerOrder
     public class PickupOrder: BaseOrder
     {
 
+        private List<BaseObject> _visibleObjects;
         public override BaseOrder DoOrder()
         {
             base.DoOrder();
-            var colliders = Physics2D.OverlapCircleAll(Controller.Character.WorldPos, 2.0f, SceneManager.Instance.ItemLayer);
-            if (colliders.Length == 0) return null;
-            SceneManager.Instance.ObjectListMenu.StartUp(colliders, true);
+            SceneManager.Instance.ObjectListMenu.StartUp(_visibleObjects, true);
             return null;
         }
 
@@ -23,10 +23,19 @@ namespace ObjectScripts.CharacterController.PlayerOrder
             return GameText.Instance.PickupOrder;
         }
 
-        public override bool IsAvailable()
+        public override bool CheckAndSet()
         {
+            _visibleObjects = new List<BaseObject>();
             var colliders = Physics2D.OverlapCircleAll(Controller.Character.WorldPos, 2.0f, SceneManager.Instance.ItemLayer);
-            return colliders.Length != 0;
+            foreach (var collider in colliders)
+            {
+                var baseObject = collider.GetComponent<BaseObject>();
+                if (baseObject != null && baseObject.Visible)
+                {
+                    _visibleObjects.Add(baseObject);
+                }
+            }
+            return _visibleObjects.Count != 0;
         }
     }
 }

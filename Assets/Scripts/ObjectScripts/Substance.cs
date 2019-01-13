@@ -25,8 +25,9 @@ namespace ObjectScripts
         }
 
 
-        protected virtual void LateUpdate()
+        protected override void LateUpdate()
         {
+            base.LateUpdate();
             if (!SceneManager.Instance.ActivateAreas.ContainsKey(AreaIdentity))
             {
                 Destroy(gameObject);
@@ -41,7 +42,6 @@ namespace ObjectScripts
                 Destroy(gameObject);
                 return;
             }
-
             AreaIdentity = area.Identity;
         }
 

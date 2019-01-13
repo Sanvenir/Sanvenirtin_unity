@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using ObjectScripts;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -11,17 +12,13 @@ namespace UIScripts
         public GridLayoutGroup Content;
         public ObjectIcon IconPrefab;
 
-        public void StartUp(Collider2D[] colliderList, bool isInteractive)
+        public void StartUp(List<BaseObject> objectList, bool isInteractive)
         {
             EndUp();
             gameObject.SetActive(true);
-            foreach (var objectCollider in colliderList)
+            foreach (var baseObject in objectList)
             {
-                if (objectCollider == null) return;
-
-                var baseObject = objectCollider.GetComponent<BaseObject>();
                 if (baseObject == null) continue;
-                
                 var instance = Instantiate(IconPrefab, Content.transform);
                 instance.ObjectImage.sprite = baseObject.SpriteRenderer.sprite;
                 instance.ObjectName.text = baseObject.TextName;

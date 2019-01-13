@@ -29,6 +29,6 @@ namespace ObjectScripts.CharacterController.PlayerOrder
         ///     Used in order selection list
         /// </summary>
         /// <returns>If not to show it in the list, return false</returns>
-        public abstract bool IsAvailable();
+        public abstract bool CheckAndSet();
     }
 }

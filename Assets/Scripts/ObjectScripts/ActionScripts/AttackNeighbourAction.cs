@@ -73,11 +73,7 @@ namespace ObjectScripts.ActionScripts
                 _target.GetBodyParts(_attackPartPos)[part]);
 
             // Play the attack action effect animation
-            if (Self.AttackActionEffect == null) return true;
-            var instance = Object.Instantiate(
-                Self.AttackActionEffect,
-                _target.gameObject.transform);
-            instance.Initialize();
+            _target.PlayEffect(Self.AttackActionEffect);
             return true;
         }
     }

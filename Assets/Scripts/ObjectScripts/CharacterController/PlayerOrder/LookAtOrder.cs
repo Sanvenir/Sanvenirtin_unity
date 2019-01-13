@@ -1,22 +1,20 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UtilScripts.Text;
 
 namespace ObjectScripts.CharacterController.PlayerOrder
-{
+{   
     /// <inheritdoc />
     /// <summary>
     ///     Show a round range of items around the given coord
     /// </summary>
     public class LookAtOrder : BaseOrder
     {
+        private List<BaseObject> _visibleObjects;
         public override BaseOrder DoOrder()
         {
             base.DoOrder();
-            var colliders = Physics2D.OverlapCircleAll(
-                SceneManager.Instance.WorldCoordToPos(Controller.TargetCoord),
-                2.0f, SceneManager.Instance.PlayerLookAtLayer);
-            if (colliders.Length == 0) return null;
-            SceneManager.Instance.ObjectListMenu.StartUp(colliders, false);
+            SceneManager.Instance.ObjectListMenu.StartUp(_visibleObjects, false);
             return null;
         }
 
@@ -25,12 +23,21 @@ namespace ObjectScripts.CharacterController.PlayerOrder
             return GameText.Instance.LookAtOrder;
         }
 
-        public override bool IsAvailable()
+        public override bool CheckAndSet()
         {
+            _visibleObjects = new List<BaseObject>();
             var colliders = Physics2D.OverlapCircleAll(
                 SceneManager.Instance.WorldCoordToPos(Controller.TargetCoord),
                 2.0f, SceneManager.Instance.PlayerLookAtLayer);
-            return colliders.Length != 0;
+            foreach (var collider in colliders)
+            {
+                var baseObject = collider.GetComponent<BaseObject>();
+                if (baseObject != null && baseObject.Visible)
+                {
+                    _visibleObjects.Add(baseObject);
+                }
+            }
+            return _visibleObjects.Count != 0;
         }
     }
 }

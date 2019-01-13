@@ -226,5 +226,10 @@ namespace ObjectScripts.CharSubstance
         {
             return Perception * Perception;
         }
+
+        public float GetMemory()
+        {
+            return Intelligence * Intelligence * 10;
+        }
     }
 }

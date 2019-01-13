@@ -21,7 +21,7 @@ namespace ObjectScripts.CharacterController.PlayerOrder
             return GameText.Instance.RestOrder;
         }
 
-        public override bool IsAvailable()
+        public override bool CheckAndSet()
         {
             return true;
         }

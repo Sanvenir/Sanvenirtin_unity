@@ -17,7 +17,7 @@ namespace ObjectScripts.CharacterController.PlayerOrder
             return GameText.Instance.WaitOrder;
         }
 
-        public override bool IsAvailable()
+        public override bool CheckAndSet()
         {
             return Controller.TargetDirection == Direction.None;
         }

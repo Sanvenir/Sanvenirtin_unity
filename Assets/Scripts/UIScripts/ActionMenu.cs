@@ -21,7 +21,7 @@ namespace UIScripts
         {
             foreach (var order in OrderList)
             {
-                if (order.IsAvailable()) yield return order;
+                if (order.CheckAndSet()) yield return order;
             }
         }
 

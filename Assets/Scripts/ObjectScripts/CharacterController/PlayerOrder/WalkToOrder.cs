@@ -37,7 +37,7 @@ namespace ObjectScripts.CharacterController.PlayerOrder
             return GameText.Instance.WalkToOrder;
         }
 
-        public override bool IsAvailable()
+        public override bool CheckAndSet()
         {
             return Controller.TargetDirection != Direction.None;
         }
