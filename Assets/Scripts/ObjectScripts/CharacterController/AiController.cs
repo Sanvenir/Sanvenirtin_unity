@@ -13,7 +13,7 @@ namespace ObjectScripts.CharacterController
 
         private void Start()
         {
-            DefaultCondition = new AlertOtherCondition(this);
+            DefaultCondition = new AlertOtherRaceCondition(this);
             Condition = DefaultCondition;
         }
 

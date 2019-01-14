@@ -14,7 +14,8 @@ namespace ObjectScripts
     {
         public string TextName;
         public string Info;
-        public bool Visible;
+
+        [HideInInspector] public bool Visible;
 
         [HideInInspector] private Vector2Int _worldCoord;
 
@@ -44,13 +45,13 @@ namespace ObjectScripts
         [HideInInspector] public Rigidbody2D Rigidbody2D;
 
         /// <summary>
-        ///     Get the size of this object
+        ///     Use the size of this object
         /// </summary>
         /// <returns></returns>
         public abstract float GetSize();
 
         /// <summary>
-        ///     Get the weight of this object
+        ///     Use the weight of this object
         /// </summary>
         /// <returns></returns>
         public abstract float GetWeight();
@@ -80,7 +81,7 @@ namespace ObjectScripts
         }
 
         /// <summary>
-        ///     Get the position of SpriteRenderer
+        ///     Use the position of SpriteRenderer
         /// </summary>
         /// <returns></returns>
         public Vector2 GetVisualPos()
@@ -181,10 +182,10 @@ namespace ObjectScripts
 
         public void PlayEffect(EffectController effect)
         {
-            
             // Play the attack action effect animation
             if (effect == null || !Visible) return;
-            var instance = Object.Instantiate(effect, transform);
+            var instance = Instantiate(effect, transform);
+            instance.Parent = this;
             instance.Initialize();
         }
     }

@@ -136,7 +136,7 @@ namespace ObjectScripts.CharacterController
             var color = tilemap.Tilemap.GetColor(cell);
             var targetColor = isMemorized ? Color.gray : Color.white;
             if(color == targetColor) yield break;
-            var time = SceneManager.Instance.GetUpdateTime();
+            var time = SceneManager.Instance.GetUpdateTime() / 2;
             var incColor = targetColor / time;
             for (var i = 0; i < time; i++)
             {

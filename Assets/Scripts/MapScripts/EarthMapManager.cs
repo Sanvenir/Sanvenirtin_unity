@@ -107,7 +107,7 @@ namespace MapScripts
                     continue;
                 }
 
-                // Get the regions of the lands.
+                // Use the regions of the lands.
                 _mainLands.Add(new MainLand(newRegion));
             }
 
@@ -118,7 +118,7 @@ namespace MapScripts
 
         private List<EarthMapCoord> GetRegionCoords(EarthMapCoord startCoord)
         {
-            // Get the regions of the tile around the given coord with same type of tiles.
+            // Use the regions of the tile around the given coord with same type of tiles.
             var tiles = new List<EarthMapCoord>();
             var flagMap = new FlagMap(MapWidth, MapHeight);
             var tileType = EarthMap.GetMap(startCoord);

@@ -14,7 +14,7 @@ namespace ObjectScripts.ActionScripts
         public ConsumeAction(Character self, IConsumableItem item) : base(self)
         {
             _item = item;
-            CostTime = Self.Properties.GetActTime();
+            CostTime = Self.Properties.GetActTime(0);
         }
 
         public override bool DoAction()

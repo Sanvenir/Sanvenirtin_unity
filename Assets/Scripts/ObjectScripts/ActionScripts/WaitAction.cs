@@ -11,7 +11,7 @@ namespace ObjectScripts.ActionScripts
         
         public WaitAction(Character self) : base(self)
         {
-            CostTime = Self.Properties.GetReactTime();
+            CostTime = Self.Properties.GetReactTime(0);
         }
     }
 }

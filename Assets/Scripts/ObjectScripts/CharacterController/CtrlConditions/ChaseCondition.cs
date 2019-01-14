@@ -7,7 +7,7 @@ namespace ObjectScripts.CharacterController.CtrlConditions
 {
     /// <inheritdoc />
     /// <summary>
-    /// AI Chase the Target Character
+    /// AI Chase the Target Parent
     /// </summary>
     public class ChaseCondition : WonderCondition
     {
@@ -29,7 +29,7 @@ namespace ObjectScripts.CharacterController.CtrlConditions
 
             var incVec = Controller.AStarFinder(
                 TargetCharacter.WorldCoord,
-                (int) Controller.Character.Properties.Intelligence);
+                (int) Controller.Character.Properties.Intelligence.Use(0.1f));
 
             return incVec == Vector2Int.zero
                 ? base.NextAction()

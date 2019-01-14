@@ -71,10 +71,12 @@ MonoBehaviour:
     TileType: 2
   SubstancePrefabs:
   - {fileID: 114566145580136664, guid: 0dce885337da32d49978572551cb6377, type: 2}
-  BuildingTilemaps:
-  - {fileID: 114984274561182258, guid: f42eb1e5e43e89e41a533377a05d68d4, type: 2}
+  BuildingTilemaps: []
   RaceSetting:
   - RaceCharacter: {fileID: 114717772600095978, guid: 6570fec23155b964688528789beadd1b,
+      type: 2}
+    RaceAppearRatio: 0.02
+  - RaceCharacter: {fileID: 114952333496392972, guid: 16e63eedb6f66d147a4425bf3bfba93a,
       type: 2}
     RaceAppearRatio: 0.02
   BasicTileType: 0

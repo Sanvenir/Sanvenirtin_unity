@@ -51,9 +51,9 @@ namespace ObjectScripts.BodyPartScripts
         public string AttachBodyPart;
 
         /// <summary>
-        ///     If essential is true, character and substance destroyed after the component destroyed
+        /// the damage to the character if this part is destroyed
         /// </summary>
-        public bool Essential;
+        public float Health = 20;
 
         public bool Fetchable;
 
@@ -78,7 +78,7 @@ namespace ObjectScripts.BodyPartScripts
                 Available = Available,
                 PartPos = PartPos,
                 AttachBodyPart = AttachBodyPart,
-                Essential = Essential,
+                Health = Health,
                 Fetchable = Fetchable,
                 ComponentIndex = ComponentIndex,
                 Self = self
@@ -98,7 +98,7 @@ namespace ObjectScripts.BodyPartScripts
             var intensity = damage.DoDamage(this);
             if (HitPoint.Value > 0 && CutPoint.Value > 0) return intensity;
             Destroy();
-            return intensity;
+            return intensity * 10;
         }
 
         /// <summary>

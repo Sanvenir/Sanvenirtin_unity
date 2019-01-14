@@ -84,7 +84,7 @@
     <Compile Include="Assets\Scripts\ObjectScripts\BodyPartScripts\PartPos.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\CharacterController\AiController.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\CharacterController\CharacterController.cs" />
-    <Compile Include="Assets\Scripts\ObjectScripts\CharacterController\CtrlConditions\AlertOtherCondition.cs" />
+    <Compile Include="Assets\Scripts\ObjectScripts\CharacterController\CtrlConditions\AlertOtherRaceCondition.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\CharacterController\CtrlConditions\AttackCondition.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\CharacterController\CtrlConditions\BaseCondition.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\CharacterController\CtrlConditions\ChaseCondition.cs" />

@@ -23,10 +23,10 @@ namespace UIScripts
 
         private void Update()
         {
-            HealthBar.maxValue = Player.Properties.GetMaxHealth();
-            SanityBar.maxValue = Player.Properties.GetMaxSanity();
-            EndureBar.maxValue = Player.Properties.GetMaxEndure();
-            HungerBar.maxValue = Player.Properties.GetMaxHunger();
+            HealthBar.maxValue = Player.Properties.GetMaxHealth(0);
+            SanityBar.maxValue = Player.Properties.GetMaxSanity(0);
+            EndureBar.maxValue = Player.Properties.GetMaxEndure(0);
+            HungerBar.maxValue = Player.Properties.GetMaxHunger(0);
 
             HealthBar.value = Player.Health;
             SanityBar.value = Player.Sanity;

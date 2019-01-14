@@ -34,23 +34,12 @@ namespace ObjectScripts
         private readonly List<BodyPart> _middleParts = new List<BodyPart>();
 
         private readonly List<BodyPart> _lowParts = new List<BodyPart>();
-        
-        public void SetDisable()
-        {
-            SpriteController.SetDisable(true);
-            gameObject.layer = LayerMask.NameToLayer("DisabledLayer");
-        }
 
         public virtual float Attacked(DamageValue damage, BodyPart bodyPart)
         {
             if (bodyPart == null)
                 return 0;
             var intensity = bodyPart.DoDamage(damage);
-
-            if (bodyPart.Essential && !bodyPart.Available)
-            {
-                SetDisable();
-            }
             
             if (BodyParts.Values.Any(part => part.Available))
             {

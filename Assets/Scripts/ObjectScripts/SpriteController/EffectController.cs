@@ -2,12 +2,17 @@ using UnityEngine;
 
 namespace ObjectScripts.SpriteController
 {
-    public class EffectController: MonoBehaviour
+    public class EffectController : MonoBehaviour
     {
         public Sprite[] Sprites;
-        private SpriteRenderer _spriteRenderer; 
+        [HideInInspector] public BaseObject Parent;
+        private SpriteRenderer _spriteRenderer;
 
+        /// <summary>
+        ///     If Disappear Time is 0, the effect last unlimited
+        /// </summary>
         public int DisappearTime;
+
         public bool IsLoop;
 
         private int _index;
@@ -45,11 +50,13 @@ namespace ObjectScripts.SpriteController
 
         private void Update()
         {
-            if (IsLoop && SceneManager.Instance.CurrentTime > DisappearTime)
+            if (Parent != null) _spriteRenderer.enabled = Parent.Visible;
+            if (IsLoop && DisappearTime != 0 && SceneManager.Instance.CurrentTime > DisappearTime)
             {
                 Destroy(gameObject);
                 return;
             }
+
             if (++_index == Sprites.Length)
             {
                 if (!IsLoop)
@@ -57,7 +64,7 @@ namespace ObjectScripts.SpriteController
                     Destroy(gameObject);
                     return;
                 }
-                
+
                 _index = 0;
             }
 

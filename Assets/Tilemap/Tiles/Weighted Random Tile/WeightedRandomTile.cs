@@ -29,7 +29,7 @@ namespace UnityEngine.Tilemaps {
             hash = hash + 0xbe9730af ^ (hash << 11);
             Random.InitState((int) hash);
 
-            // Get the cumulative weight of the sprites
+            // Use the cumulative weight of the sprites
             var cumulativeWeight = 0;
             foreach (var spriteInfo in Sprites) cumulativeWeight += spriteInfo.Weight;
 

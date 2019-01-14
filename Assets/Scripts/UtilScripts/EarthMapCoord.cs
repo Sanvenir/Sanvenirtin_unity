@@ -72,7 +72,7 @@ namespace UtilScripts
 
         public IEnumerable<EarthMapCoord> GetSurroundCoords(int delta = 1)
         {
-            // Get the 8 coords around the given coord.
+            // Use the 8 coords around the given coord.
             var tmpThis = this;
             return IterateCoords(
                 tmpThis.GetX() - delta, tmpThis.GetX() + delta + 1,
@@ -81,7 +81,7 @@ namespace UtilScripts
 
         public IEnumerable<EarthMapCoord> GetNeighbourCoords()
         {
-            // Get the 4 coords next to the given coord.
+            // Use the 4 coords next to the given coord.
             yield return new EarthMapCoord(GetX() - 1, GetY());
             yield return new EarthMapCoord(GetX() + 1, GetY());
             if (GetY() != EarthMapManager.MapHeight - 1)

@@ -16,7 +16,7 @@ namespace ObjectScripts.CharacterController.CtrlConditions
         }
 
         /// <summary>
-        ///     Get next action on the update time of AI
+        ///     Use next action on the update time of AI
         /// </summary>
         /// <returns>Next action for this AI</returns>
         public abstract BaseAction NextAction();

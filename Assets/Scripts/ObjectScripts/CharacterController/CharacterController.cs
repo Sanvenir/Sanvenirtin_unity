@@ -45,14 +45,14 @@ namespace ObjectScripts.CharacterController
 
         private void Update()
         {
-            if (Character.Dead) return;
-            if (_recoveredTime < SceneManager.Instance.CurrentTime)
+            if (!Character.Dead && _recoveredTime < SceneManager.Instance.CurrentTime)
             {
-                _recoveredTime += Character.Properties.GetReactTime();
+                _recoveredTime += Character.Properties.GetReactTime(0);
                 Character.Recovering();
             }
             if (!Character.IsTurn()) return;
             Character.RefreshProperties();
+            if (Character.Dead || Character.Stun.Value) return;
             UpdateFunction();
         }
 
@@ -182,8 +182,8 @@ namespace ObjectScripts.CharacterController
                 return Vector2Int.zero;
             }
 
-//            var dx = target.x - Character.WorldCoord.x;
-//            var dy = target.y - Character.WorldCoord.y;
+//            var dx = target.x - Parent.WorldCoord.x;
+//            var dy = target.y - Parent.WorldCoord.y;
 
             var delta = target - Character.WorldCoord;
             if (delta.x != 0)

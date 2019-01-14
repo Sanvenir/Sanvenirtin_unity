@@ -1983,6 +1983,44 @@ MonoBehaviour:
       MaxAge: 50
       MinAge: 30
       Gender: 1
+  - Name: Goblin
+    TextName: "\u54E5\u5E03\u6797"
+    NameFormat: goblin
+    SpriteList:
+    - Sprites:
+      - {fileID: 21300000, guid: 8056e32521a187d4a8ad9eb956e16c0c, type: 3}
+      - {fileID: 21300002, guid: 8056e32521a187d4a8ad9eb956e16c0c, type: 3}
+      - {fileID: 21300004, guid: 8056e32521a187d4a8ad9eb956e16c0c, type: 3}
+      - {fileID: 21300006, guid: 8056e32521a187d4a8ad9eb956e16c0c, type: 3}
+      - {fileID: 21300008, guid: 8056e32521a187d4a8ad9eb956e16c0c, type: 3}
+      - {fileID: 21300010, guid: 8056e32521a187d4a8ad9eb956e16c0c, type: 3}
+      - {fileID: 21300012, guid: 8056e32521a187d4a8ad9eb956e16c0c, type: 3}
+      - {fileID: 21300014, guid: 8056e32521a187d4a8ad9eb956e16c0c, type: 3}
+      - {fileID: 21300016, guid: 8056e32521a187d4a8ad9eb956e16c0c, type: 3}
+      - {fileID: 21300018, guid: 8056e32521a187d4a8ad9eb956e16c0c, type: 3}
+      - {fileID: 21300020, guid: 8056e32521a187d4a8ad9eb956e16c0c, type: 3}
+      - {fileID: 21300022, guid: 8056e32521a187d4a8ad9eb956e16c0c, type: 3}
+      DisabledSprite: {fileID: 21300012, guid: 903229811b7965a4591b184cab38aa3e, type: 3}
+      MaxAge: 20
+      MinAge: 15
+      Gender: 1
+    - Sprites:
+      - {fileID: 21300000, guid: ac52d052cf8feec498483f212884caec, type: 3}
+      - {fileID: 21300002, guid: ac52d052cf8feec498483f212884caec, type: 3}
+      - {fileID: 21300004, guid: ac52d052cf8feec498483f212884caec, type: 3}
+      - {fileID: 21300006, guid: ac52d052cf8feec498483f212884caec, type: 3}
+      - {fileID: 21300008, guid: ac52d052cf8feec498483f212884caec, type: 3}
+      - {fileID: 21300010, guid: ac52d052cf8feec498483f212884caec, type: 3}
+      - {fileID: 21300012, guid: ac52d052cf8feec498483f212884caec, type: 3}
+      - {fileID: 21300014, guid: ac52d052cf8feec498483f212884caec, type: 3}
+      - {fileID: 21300016, guid: ac52d052cf8feec498483f212884caec, type: 3}
+      - {fileID: 21300018, guid: ac52d052cf8feec498483f212884caec, type: 3}
+      - {fileID: 21300020, guid: ac52d052cf8feec498483f212884caec, type: 3}
+      - {fileID: 21300022, guid: ac52d052cf8feec498483f212884caec, type: 3}
+      DisabledSprite: {fileID: 21300012, guid: 903229811b7965a4591b184cab38aa3e, type: 3}
+      MaxAge: 20
+      MinAge: 15
+      Gender: 1
   CenterArea: {fileID: 0}
   PlayerObject: {fileID: 0}
   PlayerController: {fileID: 0}
@@ -2797,7 +2835,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -0.000015258789}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1210254261
@@ -3520,235 +3558,267 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TextName: "\u6587\u5C3C\u4E9A"
-  Info: 
+  Info: "\u73A9\u5BB6\u89D2\u8272"
   Visible: 0
   SpriteRenderer: {fileID: 0}
   SpriteController: {fileID: 0}
-  Collider2D: {fileID: 1471056966}
-  Rigidbody2D: {fileID: 1471056967}
+  Collider2D: {fileID: 0}
+  Rigidbody2D: {fileID: 0}
   IsDestroy: 0
-  AreaIdentity: 4019
+  AreaIdentity: 0
   Controller: {fileID: 1471056965}
   Properties:
-    Speed: 200
-    MoveSpeed: 200
-    ActSpeed: 200
-    Strength: 200
-    Dexterity: 200
-    Constitution: 200
-    Metabolism: 200
-    WillPower: 200
-    Intelligence: 200
-    Perception: 20
-    Lifetime: 200
+    Speed:
+      Value: 10
+      MaxValue: 20
+      PotentialRate: 0.0001
+    MoveSpeed:
+      Value: 10
+      MaxValue: 20
+      PotentialRate: 0.0001
+    ActSpeed:
+      Value: 10
+      MaxValue: 20
+      PotentialRate: 0.0001
+    Strength:
+      Value: 10
+      MaxValue: 20
+      PotentialRate: 0.0001
+    Dexterity:
+      Value: 10
+      MaxValue: 20
+      PotentialRate: 0.0001
+    Constitution:
+      Value: 10
+      MaxValue: 20
+      PotentialRate: 0.0001
+    Metabolism:
+      Value: 10
+      MaxValue: 20
+      PotentialRate: 0.0001
+    WillPower:
+      Value: 10
+      MaxValue: 20
+      PotentialRate: 0.0001
+    Intelligence:
+      Value: 10
+      MaxValue: 20
+      PotentialRate: 0.0001
+    Perception:
+      Value: 10
+      MaxValue: 20
+      PotentialRate: 0.0001
+    MaxHunger:
+      Value: 200
+      MaxValue: 1000
+      PotentialRate: 0.00001
+    Lifetime: 0
     BodyParts:
     - Name: Head
       TextName: "\u5934\u90E8"
       CutPoint:
-        MaxValue: 1000
+        MaxValue: 10
       HitPoint:
-        MaxValue: 1000
+        MaxValue: 10
       Size: 10
       Weight: 10
       CutDefence: 10
       HitRatio: 0.9
       PartPos: 1
       AttachBodyPart: 
-      Essential: 1
+      Health: 20
       Fetchable: 0
-      ComponentIndex: 0
+      ComponentIndex: 1
     - Name: Neck
       TextName: "\u9888\u90E8"
       CutPoint:
-        MaxValue: 1000
+        MaxValue: 10
       HitPoint:
-        MaxValue: 500
+        MaxValue: 10
       Size: 10
       Weight: 10
       CutDefence: 10
       HitRatio: 0.9
       PartPos: 1
       AttachBodyPart: 
-      Essential: 1
+      Health: 20
       Fetchable: 0
-      ComponentIndex: 0
+      ComponentIndex: 1
     - Name: Chest
       TextName: "\u80F8\u90E8"
       CutPoint:
-        MaxValue: 1000
+        MaxValue: 10
       HitPoint:
-        MaxValue: 2000
+        MaxValue: 10
       Size: 10
       Weight: 10
       CutDefence: 10
       HitRatio: 0.9
       PartPos: 2
       AttachBodyPart: 
-      Essential: 1
+      Health: 20
       Fetchable: 0
-      ComponentIndex: 0
+      ComponentIndex: 1
     - Name: Waist
       TextName: "\u8170\u90E8"
       CutPoint:
-        MaxValue: 1000
+        MaxValue: 10
       HitPoint:
-        MaxValue: 1000
+        MaxValue: 10
       Size: 10
       Weight: 10
       CutDefence: 10
       HitRatio: 0.9
       PartPos: 2
       AttachBodyPart: 
-      Essential: 0
+      Health: 20
       Fetchable: 0
-      ComponentIndex: 0
+      ComponentIndex: 1
     - Name: Crotch
       TextName: "\u80EF\u90E8"
       CutPoint:
-        MaxValue: 1000
+        MaxValue: 10
       HitPoint:
-        MaxValue: 1000
+        MaxValue: 10
       Size: 10
       Weight: 10
       CutDefence: 10
       HitRatio: 0.9
       PartPos: 3
       AttachBodyPart: 
-      Essential: 0
+      Health: 20
       Fetchable: 0
-      ComponentIndex: 0
+      ComponentIndex: 1
     - Name: LeftArm
       TextName: "\u5DE6\u81C2"
       CutPoint:
-        MaxValue: 1000
+        MaxValue: 10
       HitPoint:
-        MaxValue: 100
+        MaxValue: 10
       Size: 10
       Weight: 10
       CutDefence: 10
       HitRatio: 0.9
       PartPos: 2
       AttachBodyPart: LeftHand
-      Essential: 0
+      Health: 20
       Fetchable: 0
-      ComponentIndex: 0
+      ComponentIndex: 1
     - Name: LeftHand
       TextName: "\u5DE6\u624B"
       CutPoint:
-        MaxValue: 1000
+        MaxValue: 10
       HitPoint:
-        MaxValue: 200
+        MaxValue: 10
       Size: 10
       Weight: 10
       CutDefence: 10
       HitRatio: 0.9
       PartPos: 2
       AttachBodyPart: 
-      Essential: 0
+      Health: 20
       Fetchable: 1
-      ComponentIndex: 0
+      ComponentIndex: 1
     - Name: RightArm
       TextName: "\u53F3\u81C2"
       CutPoint:
-        MaxValue: 1000
+        MaxValue: 10
       HitPoint:
-        MaxValue: 100
+        MaxValue: 10
       Size: 10
       Weight: 10
       CutDefence: 10
       HitRatio: 0.9
       PartPos: 2
       AttachBodyPart: RightHand
-      Essential: 0
+      Health: 20
       Fetchable: 0
-      ComponentIndex: 0
+      ComponentIndex: 1
     - Name: RightHand
       TextName: "\u53F3\u624B"
       CutPoint:
-        MaxValue: 1000
+        MaxValue: 10
       HitPoint:
-        MaxValue: 200
+        MaxValue: 10
       Size: 10
       Weight: 10
       CutDefence: 10
       HitRatio: 0.9
       PartPos: 2
       AttachBodyPart: 
-      Essential: 0
+      Health: 20
       Fetchable: 1
-      ComponentIndex: 0
+      ComponentIndex: 1
     - Name: LeftLeg
       TextName: "\u5DE6\u817F"
       CutPoint:
-        MaxValue: 1000
+        MaxValue: 10
       HitPoint:
-        MaxValue: 500
+        MaxValue: 10
       Size: 10
       Weight: 10
       CutDefence: 10
       HitRatio: 0.9
       PartPos: 3
       AttachBodyPart: 
-      Essential: 0
+      Health: 20
       Fetchable: 0
-      ComponentIndex: 0
+      ComponentIndex: 1
     - Name: LeftFoot
-      TextName: "\u5DE6\u811A"
+      TextName: "\u5DE6\u8DB3"
       CutPoint:
-        MaxValue: 1000
+        MaxValue: 10
       HitPoint:
-        MaxValue: 200
+        MaxValue: 10
       Size: 10
       Weight: 10
       CutDefence: 10
       HitRatio: 0.9
       PartPos: 3
       AttachBodyPart: 
-      Essential: 0
+      Health: 20
       Fetchable: 0
-      ComponentIndex: 0
+      ComponentIndex: 1
     - Name: RightLeg
       TextName: "\u53F3\u817F"
       CutPoint:
-        MaxValue: 1000
+        MaxValue: 10
       HitPoint:
-        MaxValue: 500
+        MaxValue: 10
       Size: 10
       Weight: 10
       CutDefence: 10
       HitRatio: 0.9
       PartPos: 3
       AttachBodyPart: 
-      Essential: 0
+      Health: 20
       Fetchable: 0
-      ComponentIndex: 0
+      ComponentIndex: 1
     - Name: RightFoot
-      TextName: "\u53F3\u811A"
+      TextName: "\u53F3\u8DB3"
       CutPoint:
-        MaxValue: 1000
+        MaxValue: 10
       HitPoint:
-        MaxValue: 1000
+        MaxValue: 10
       Size: 10
       Weight: 10
       CutDefence: 10
       HitRatio: 0.9
       PartPos: 3
       AttachBodyPart: 
-      Essential: 0
+      Health: 20
       Fetchable: 0
-      ComponentIndex: 0
+      ComponentIndex: 1
   RaceIndex: 0
   ActivateTime: 0
   AttackActionEffect: {fileID: 114661694037867342, guid: 115b145bf054290459e4b5ddf30fcc8f,
     type: 2}
-  Health: 0
-  Sanity: 0
-  Endure: 0
-  Hunger: 0
-  Marady: 0
   Age: 20
   Gender: 1
   Dead: 0
+  Stun:
+    Value: 0
+    Prefab: {fileID: 114472910073605032, guid: eca3957725d15db4395e7ea464eecc76, type: 2}
 --- !u!4 &1471056963
 Transform:
   m_ObjectHideFlags: 0

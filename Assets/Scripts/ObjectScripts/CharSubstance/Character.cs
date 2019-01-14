@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using AreaScripts;
 using ObjectScripts.BodyPartScripts;
@@ -40,11 +41,10 @@ namespace ObjectScripts.CharSubstance
             {
                 DropFetchObject(bodyPart);
                 if (!string.IsNullOrEmpty(bodyPart.AttachBodyPart)) DropFetchObject(BodyParts[bodyPart.AttachBodyPart]);
-
-                if (bodyPart.Essential) Die();
+                Health += bodyPart.Health;
             }
 
-            Sanity += intensity / Properties.WillPower;
+            if (!Stun.Value) Sanity += intensity;
             return intensity;
         }
 
@@ -98,13 +98,13 @@ namespace ObjectScripts.CharSubstance
 
         public bool IsAudible(Vector2Int coord)
         {
-            return (coord - WorldCoord).sqrMagnitude < Properties.GetVisibleRange();
+            return (coord - WorldCoord).sqrMagnitude < Properties.GetVisibleRangeSqr(0);
         }
 
         public bool IsVisible(Vector2Int coord)
         {
             var distance = (coord - WorldCoord).sqrMagnitude;
-            if (distance < Properties.GetSensibleRange()) return true;
+            if (distance < Properties.GetSensibleRangeSqr(0)) return true;
             var pos = SceneManager.Instance.WorldCoordToPos(coord);
             var hit = Physics2D.OverlapPoint(pos, SceneManager.Instance.BlockInspectLayer);
             if (hit != null) hit.enabled = false;
@@ -114,13 +114,13 @@ namespace ObjectScripts.CharSubstance
                              .collider == null;
             Collider2D.enabled = true;
             if (hit != null) hit.enabled = true;
-            return result && distance < Properties.GetVisibleRange();
+            return result && distance < Properties.GetVisibleRangeSqr(0);
         }
 
         public bool IsVisible(Collider2D hit)
         {
             var distance = (hit.transform.position - transform.position).sqrMagnitude;
-            if (distance < Properties.GetSensibleRange()) return true;
+            if (distance < Properties.GetSensibleRangeSqr(0)) return true;
             Collider2D.enabled = false;
             hit.enabled = false;
             var result = Physics2D.Linecast(transform.position, hit.transform.position,
@@ -128,14 +128,14 @@ namespace ObjectScripts.CharSubstance
                              .collider == null;
             Collider2D.enabled = true;
             hit.enabled = true;
-            return result && distance < Properties.GetVisibleRange();
+            return result && distance < Properties.GetVisibleRangeSqr(0);
         }
 
 
         public bool IsVisible(BaseObject baseObject)
         {
             var distance = (baseObject.transform.position - transform.position).sqrMagnitude;
-            if (distance < Properties.GetSensibleRange()) return true;
+            if (distance < Properties.GetSensibleRangeSqr(0)) return true;
             Collider2D.enabled = false;
             baseObject.Collider2D.enabled = false;
             var result =
@@ -143,14 +143,14 @@ namespace ObjectScripts.CharSubstance
                     .collider == null;
             Collider2D.enabled = true;
             baseObject.Collider2D.enabled = true;
-            return result && distance < Properties.GetVisibleRange();
+            return result && distance < Properties.GetVisibleRangeSqr(0);
             ;
         }
 
         public IEnumerable<T> GetVisibleObjects<T>()
             where T : BaseObject
         {
-            var hits = Physics2D.OverlapCircleAll(WorldPos, Properties.Perception,
+            var hits = Physics2D.OverlapCircleAll(WorldPos, Properties.GetVisibleRange(0),
                 SceneManager.Instance.ObjectLayer);
             foreach (var hit in hits)
             {
@@ -165,7 +165,7 @@ namespace ObjectScripts.CharSubstance
         {
             Properties.RefreshProperties();
 
-            if (Dead && IsTurn())
+            if (Dead)
             {
                 foreach (var part in BodyParts.Values)
                 {
@@ -177,8 +177,25 @@ namespace ObjectScripts.CharSubstance
                 return;
             }
 
-            if (!(Health >= Properties.GetMaxHealth()) || Dead) return;
-            Die();
+            #region CheckProperty
+
+            if (Hunger > Properties.GetMaxHunger(0))
+                Health += (Hunger - Properties.GetMaxHunger(0)) / Properties.GetMaxHunger(0);
+
+            if (!Stun.Value && Sanity > Properties.GetMaxSanity(0))
+                if (Utils.ProcessRandom.Next((int) Properties.GetMaxSanity(0)) < Sanity - Properties.GetMaxSanity(0))
+                {
+                    Stun.Enable(this);
+                    SceneManager.Instance.Print(
+                        GameText.Instance.GetFallIntoStunLog(TextName), WorldCoord);
+                }
+
+            // For conditions that character cannot move
+            if (Stun.Value) ActivateTime += Properties.GetActTime(0);
+
+            if (Health >= Properties.GetMaxHealth(0)) Die();
+
+            #endregion
         }
 
         public void Die()
@@ -188,7 +205,9 @@ namespace ObjectScripts.CharSubstance
             SetPosition(Utils.GetRandomShiftPosition(WorldPos));
             SceneManager.Instance.Print(
                 GameText.Instance.GetCharacterDeadLog(TextName), WorldCoord);
-            SetDisable();
+            SpriteController.SetDisable(true);
+            gameObject.layer = LayerMask.NameToLayer("DisabledLayer");
+            Stun.Disable(this);
         }
 
         public override void Initialize(Vector2Int worldCoord, int areaIdentity)
@@ -219,27 +238,119 @@ namespace ObjectScripts.CharSubstance
         public EffectController AttackActionEffect;
 
         // Properties
-        [HideInInspector] public float Health;
-        [HideInInspector] public float Sanity;
-        [HideInInspector] public float Endure;
-        [HideInInspector] public float Hunger;
-        [HideInInspector] public float Marady; // Similar to Mana
+        private float _health;
+
+        public float Health
+        {
+            get { return _health; }
+            set { _health = Math.Max(0, value); }
+        }
+
+        private float _sanity;
+
+        public float Sanity
+        {
+            get { return _sanity; }
+            set { _sanity = Math.Max(0, value); }
+        }
+
+        private float _endure;
+
+        public float Endure
+        {
+            get { return _endure; }
+            set
+            {
+                // Use endure greater than max endure cause sanity damage but also improve will power
+                if (value > Properties.GetMaxEndure(0) && value > _endure)
+                {
+                    var sanityCost = Endure / Properties.GetMaxEndure(0) - 1;
+                    Sanity += sanityCost;
+                    Properties.WillPower.Use(Mathf.Min(1f, sanityCost));
+                }
+                _endure = Math.Max(0, value);
+            }
+        }
+
+        private float _hunger;
+
+        public float Hunger
+        {
+            get { return _hunger; }
+            set { _hunger = Mathf.Min(Properties.GetMaxHunger(0) * 2, value); }
+        }
+
+        public float Marady { get; set; }
+
         public int Age;
         public Gender Gender;
 
         [HideInInspector] public bool Dead;
 
+        /// <summary>
+        ///     Parent may falls into stun after sanity reach the max value
+        ///     Probability: (Sanity - MaxSanity) / MaxSanity
+        ///     After sanity return to
+        /// </summary>
+        public Effect Stun;
+
+        [Serializable]
+        public struct Effect
+        {
+            public bool Value;
+
+            public void Enable(Character self)
+            {
+                Value = true;
+                _instance = Instantiate(Prefab, self.transform);
+                _instance.Parent = self;
+            }
+
+            public void Disable(Character self)
+            {
+                Value = false;
+                Destroy(_instance.gameObject);
+            }
+
+            public EffectController Prefab;
+            private EffectController _instance;
+        }
+
+        public bool CheckEndure()
+        {
+            if (Endure < Properties.GetMaxEndure(0)) return true;
+            return Utils.ProcessRandom.Next((int) Endure) < Properties.GetMaxEndure(0);
+        }
+
         public virtual void Recovering()
         {
-            var endureRec = Mathf.Min(Properties.GetEndureRecover(), Endure);
-            Hunger += endureRec / 100f + Properties.GetBaseRecover() * 10f;
-            Endure -= endureRec;
-            Health -= Properties.GetHealthRecover();
-            if (Health < 0) Health = 0;
+            if (Endure > float.Epsilon)
+            {
+                var endureRec = Mathf.Min(Properties.GetEndureRecover(0.1f), Endure);
+                Hunger += endureRec / 100f;
+                Endure -= endureRec;
+            }
+
+            Hunger += Properties.GetBaseRecover(0.1f) * 10f;
+
+            if (Health > float.Epsilon) Health -= Properties.GetHealthRecover(0.1f);
+
+            if (Sanity > float.Epsilon)
+            {
+                Sanity -= Properties.GetWillRecover(0.1f);
+                if (Stun.Value)
+                    if (Utils.ProcessRandom.Next((int) Properties.GetMaxSanity(0)) > Sanity)
+                    {
+                        Stun.Disable(this);
+                        SceneManager.Instance.Print(
+                            GameText.Instance.GetRecoverFromStunLog(TextName), WorldCoord);
+                    }
+            }
+
             foreach (var part in BodyParts.Values)
             {
                 if (!part.Available) continue;
-                part.HitPoint.Value += Properties.GetHealthRecover();
+                part.HitPoint.Value += Properties.GetHealthRecover(0);
             }
         }
     }

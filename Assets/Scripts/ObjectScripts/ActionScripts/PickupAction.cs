@@ -16,7 +16,7 @@ namespace ObjectScripts.ActionScripts
         {
             _targetObject = targetObject;
             _fetchPart = fetchPart;
-            CostTime = Self.Properties.GetActTime();
+            CostTime = Self.Properties.GetActTime(0.1f);
         }
 
         /// <inheritdoc />

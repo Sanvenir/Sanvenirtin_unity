@@ -28,7 +28,7 @@ namespace ObjectScripts.ActionScripts
         public WalkAction(Character self, Direction targetDirection) : base(self)
         {
             _targetDirection = targetDirection;
-            CostTime = Self.Properties.GetMoveTime();
+            CostTime = Self.Properties.GetMoveTime(0);
         }
     }
 }

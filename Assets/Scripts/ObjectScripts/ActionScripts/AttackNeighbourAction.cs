@@ -23,7 +23,7 @@ namespace ObjectScripts.ActionScripts
         {
             _targetDirection = targetDirection;
             _attackPartPos = attackPartPos;
-            CostTime = Self.Properties.GetActTime();
+            CostTime = Self.Properties.GetActTime(0.1f);
         }
 
         private void AttackEmpty()
@@ -34,14 +34,22 @@ namespace ObjectScripts.ActionScripts
 
         /// <inheritdoc />
         /// <summary>
-        ///     Character attacks the AttackPartPos of character on TargetDirection, if there is no character or character has no
+        ///     Parent attacks the AttackPartPos of character on TargetDirection, if there is no character or character has no
         ///     part on the AttackPartPos then return false; Attack also affect the attitude of target character.
         /// </summary>
         /// <returns></returns>
         public override bool DoAction()
         {
             base.DoAction();
-            Self.Endure += Self.Properties.Strength;
+            Self.Endure += Self.Properties.Strength.Use(1.0f);
+
+            if (!Self.CheckEndure())
+            {
+                SceneManager.Instance.Print(
+                    GameText.Instance.GetAttackExceedEndureLog(Self.TextName), Self.WorldCoord);
+                return false;
+            }
+            
             Self.MoveCheck(Utils.DirectionToVector(_targetDirection), out _target);
             Self.AttackMovement(_targetDirection, CostTime);
 
@@ -69,7 +77,7 @@ namespace ObjectScripts.ActionScripts
                     _target.GetBodyParts(_attackPartPos)[part].TextName
                 ), Self.WorldCoord);
             _target.Attacked(
-                Self.Properties.GetBaseAttack(),
+                Self.Properties.GetBaseAttack(0),
                 _target.GetBodyParts(_attackPartPos)[part]);
 
             // Play the attack action effect animation

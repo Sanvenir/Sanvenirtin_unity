@@ -34,11 +34,43 @@ namespace UtilScripts.Text
             }
         }
 
+        public List<string> AttackExceedEndureLog = new List<string>
+        {
+            "<self>因为极度疲劳，无力进行攻击。",
+        };
+
+        public string GetAttackExceedEndureLog(string self)
+        {
+            return Utils.GetRandomElement(AttackExceedEndureLog)
+                .Replace("<self>", self);
+        }
+        public List<string> FallIntoStunLog = new List<string>
+        {
+            "<self>昏了过去。",
+        };
+
+        public string GetFallIntoStunLog(string self)
+        {
+            return Utils.GetRandomElement(FallIntoStunLog)
+                .Replace("<self>", self);
+        }
+
+        public List<string> RecoverFromStunLog = new List<string>
+        {
+            "<self>从昏迷中醒了过来。",
+        };
+
+        public string GetRecoverFromStunLog(string self)
+        {
+            return Utils.GetRandomElement(RecoverFromStunLog)
+                .Replace("<self>", self);
+        }
+
         public string CannotFindPathLog = "你不知道如何到达这里。";
 
         public List<string> EatUpItemLog = new List<string>
         {
-            "<item>被<self>吃光了",
+            "<item>被<self>吃光了。",
         };
 
         public string GetEatUpItemLog(string item, string self)
@@ -112,7 +144,7 @@ namespace UtilScripts.Text
         public List<string> AttackEmptyLog = new List<string>
         {
             "<self>没有击中任何东西。",
-            "<self>的攻击落空了"
+            "<self>的攻击落空了。"
         };
 
         public string GetAttackEmptyLog(string self)

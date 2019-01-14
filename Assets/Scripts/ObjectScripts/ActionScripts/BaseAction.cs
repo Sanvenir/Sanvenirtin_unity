@@ -18,7 +18,7 @@ namespace ObjectScripts.ActionScripts
         }
 
         /// <summary>
-        ///     Character's activate time need to be increased if the action has been done(or not)
+        ///     Parent's activate time need to be increased if the action has been done(or not)
         /// </summary>
         /// <returns>Whether the action is successful</returns>
         public virtual bool DoAction()

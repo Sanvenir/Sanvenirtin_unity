@@ -20,7 +20,7 @@ namespace ObjectScripts.CharacterController.PlayerOrder
 
             _vecInt = Controller.AStarFinder(
                 Controller.TargetCoord,
-                (int) Controller.Character.Properties.Intelligence);
+                (int) Controller.Character.Properties.Intelligence.Use(0.1f));
             if (_vecInt == Vector2Int.zero || !Controller.Character.MoveCheck(_vecInt))
             {
                 SceneManager.Instance.Print(
