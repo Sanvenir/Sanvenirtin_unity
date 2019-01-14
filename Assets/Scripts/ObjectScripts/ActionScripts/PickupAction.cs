@@ -29,7 +29,7 @@ namespace ObjectScripts.ActionScripts
         public override bool DoAction()
         {
             base.DoAction();
-            if (!Self.FetchDictionary.ContainsKey(_fetchPart) || Self.FetchDictionary[_fetchPart] != null) return false;
+            if (!_fetchPart.Available || !Self.FetchDictionary.ContainsKey(_fetchPart) || Self.FetchDictionary[_fetchPart] != null) return false;
             Self.FetchDictionary[_fetchPart] = _targetObject;
             _targetObject.gameObject.SetActive(false);
             return true;

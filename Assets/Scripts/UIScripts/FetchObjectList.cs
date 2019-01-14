@@ -23,6 +23,7 @@ namespace UIScripts
             FetchSlots = new Dictionary<BodyPart, FetchObjectSlot>();
             foreach (var part in _fetchDictionary.Keys)
             {
+                if (!part.Available) continue;
                 var instance = Instantiate(SlotPrefab, transform);
                 instance.BodyPart = part;
                 FetchSlots.Add(part, instance);

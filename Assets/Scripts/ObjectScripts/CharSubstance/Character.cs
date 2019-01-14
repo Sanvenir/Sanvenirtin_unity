@@ -230,7 +230,7 @@ namespace ObjectScripts.CharSubstance
         public IEnumerable<BodyPart> GetFreeFetchParts()
         {
             foreach (var item in FetchDictionary)
-                if (item.Value == null)
+                if (item.Value == null && item.Key.Available)
                     yield return item.Key;
         }
 
