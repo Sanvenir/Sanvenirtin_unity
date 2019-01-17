@@ -55,6 +55,7 @@ namespace ObjectScripts.CharSubstance
 
         public PotentialProperty MaxHunger = new PotentialProperty(200, 1000, 0.00001f);
 
+        public float InteractRange = 1.5f;
         public int Lifetime;
 
         // Body parts in properties is belong to the whole race, so do not refactor
@@ -221,12 +222,12 @@ namespace ObjectScripts.CharSubstance
 
         public float GetBaseRecover(float intense)
         {
-            return Metabolism.Use(intense) / 10000f;
+            return Metabolism.Use(intense) / 1000f;
         }
 
         public float GetHealthRecover(float intense)
         {
-            return GetBaseRecover(intense) * 10f;
+            return GetBaseRecover(intense);
         }
 
         public float GetEndureRecover(float intense)
@@ -259,6 +260,16 @@ namespace ObjectScripts.CharSubstance
         public float GetWillRecover(float intense)
         {
             return WillPower.Use(intense) * 0.01f;
+        }
+
+        public DamageValue GetCutAttack(float intense)
+        {
+            return new DamageValue(cutDamage: Strength.Use(intense) * Dexterity.Use(intense) * 0.1f);
+        }
+
+        public float InteractRangeSqr()
+        {
+            return InteractRange * InteractRange + float.Epsilon;
         }
     }
 }

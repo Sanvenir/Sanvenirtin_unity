@@ -1,12 +1,10 @@
-using System.Collections.Generic;
 using ObjectScripts;
 using ObjectScripts.ActionScripts;
-using ObjectScripts.ItemScripts;
 using ObjectScripts.BodyPartScripts;
 using ObjectScripts.CharacterController;
 using ObjectScripts.CharSubstance;
+using ObjectScripts.ItemScripts;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.UI;
 using UtilScripts.Text;
 
@@ -25,52 +23,76 @@ namespace UIScripts
 
         private PlayerController _playerController;
 
+        private Character Player
+        {
+            get { return _playerController.Character; }
+        }
+
         public void StartUp(BaseObject baseObject, BodyPart bodyPart = null)
         {
             EndUp();
             gameObject.SetActive(true);
             _playerController = SceneManager.Instance.PlayerController;
             BaseObject = baseObject;
-            ItemImage.sprite = baseObject.SpriteRenderer.sprite;
-            ItemInfoTest.text = baseObject.Info;
 
-            if (bodyPart == null) return;
+            var character = BaseObject as Character;
+            if (character != null && !character.Dead) return;
 
-            if (baseObject is IConsumableItem)
+            if (bodyPart != null || Player.CheckInteractRange(baseObject.WorldPos))
             {
-                _buttonInstance = Instantiate(ActButtonPrefab, ActButtonLayout.transform);
-                _buttonInstance.GetComponentInChildren<Text>().text = GameText.Instance.ConsumeAct;
-                _buttonInstance.onClick.AddListener(delegate
+                if (baseObject is IConsumableItem)
                 {
-                    _playerController.SetAction(new ConsumeAction(
-                        _playerController.Character,
-                        (IConsumableItem) baseObject));
-                });
+                    _buttonInstance = Instantiate(ActButtonPrefab, ActButtonLayout.transform);
+                    _buttonInstance.GetComponentInChildren<Text>().text = GameText.Instance.ConsumeAct;
+                    _buttonInstance.onClick.AddListener(delegate
+                    {
+                        _playerController.SetAction(new ConsumeAction(
+                            _playerController.Character,
+                            (IConsumableItem) baseObject));
+                    });
+                }
+
+                if (baseObject is ComplexObject)
+                {
+                    _buttonInstance = Instantiate(ActButtonPrefab, ActButtonLayout.transform);
+                    _buttonInstance.GetComponentInChildren<Text>().text = GameText.Instance.SplitAct;
+                    _buttonInstance.onClick.AddListener(delegate
+                    {
+                        _playerController.SetAction(new SplitAction(
+                            _playerController.Character,
+                            (ComplexObject) baseObject));
+                    });
+                }
             }
 
-            _buttonInstance = Instantiate(ActButtonPrefab, ActButtonLayout.transform);
-            _buttonInstance.GetComponentInChildren<Text>().text = GameText.Instance.DropAct;
-            _buttonInstance.onClick.AddListener(delegate
+            if (bodyPart != null)
             {
-                _playerController.SetAction(new DropFetchAction(_playerController.Character,
-                    baseObject, bodyPart));
-                EndUp();
-            });
+                _buttonInstance = Instantiate(ActButtonPrefab, ActButtonLayout.transform);
+                _buttonInstance.GetComponentInChildren<Text>().text = GameText.Instance.DropAct;
+                _buttonInstance.onClick.AddListener(delegate
+                {
+                    _playerController.SetAction(new DropFetchAction(_playerController.Character,
+                        baseObject, bodyPart));
+                    EndUp();
+                });
+            }
         }
 
         public override void EndUp()
         {
-            foreach (var button in ActButtonLayout.GetComponentsInChildren<Button>())
-            {
-                Destroy(button.gameObject);
-            }
-
+            foreach (var button in ActButtonLayout.GetComponentsInChildren<Button>()) Destroy(button.gameObject);
             gameObject.SetActive(false);
         }
 
         private void LateUpdate()
         {
-            if (BaseObject == null) EndUp();
+            if (BaseObject == null)
+            {
+                EndUp();
+                return;
+            }
+            ItemImage.sprite = BaseObject.SpriteRenderer.sprite;
+            ItemInfoTest.text = BaseObject.Info + "\n" + BaseObject.GetConditionDescribe();
         }
     }
 }

@@ -17,10 +17,10 @@ namespace ObjectScripts.CharacterController.CtrlConditions
         {
             if (Utils.ProcessRandom.Next(5) != 0)
             {
-                return new WaitAction(Controller.Character);
+                return new WaitAction(Self);
             }
 
-            return new WalkAction(Controller.Character, (Direction) Utils.ProcessRandom.Next(4));
+            return new WalkAction(Self, (Direction) Utils.ProcessRandom.Next(4));
         }
     }
 }

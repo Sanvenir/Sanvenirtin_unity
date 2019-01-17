@@ -12,7 +12,7 @@ namespace ObjectScripts.CharacterController.PlayerOrder
         public override BaseOrder DoOrder()
         {
             base.DoOrder();
-            Controller.SetAction(new AttackNeighbourAction(Controller.Character, Controller.TargetDirection));
+            Controller.SetAction(new AttackNeighbourAction(Player, Controller.TargetDirection));
             return null;
         }
 

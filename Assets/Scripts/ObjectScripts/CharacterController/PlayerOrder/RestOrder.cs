@@ -12,7 +12,7 @@ namespace ObjectScripts.CharacterController.PlayerOrder
         public override BaseOrder DoOrder()
         {
             base.DoOrder();
-            Controller.SetAction(new WaitAction(Controller.Character));
+            Controller.SetAction(new WaitAction(Player));
             return this;
         }
 

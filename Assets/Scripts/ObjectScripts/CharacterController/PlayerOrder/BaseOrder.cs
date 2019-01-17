@@ -1,3 +1,4 @@
+using ObjectScripts.CharSubstance;
 using UtilScripts;
 
 namespace ObjectScripts.CharacterController.PlayerOrder
@@ -11,6 +12,11 @@ namespace ObjectScripts.CharacterController.PlayerOrder
         public static PlayerController Controller
         {
             get { return SceneManager.Instance.PlayerController; }
+        }
+
+        public static Character Player
+        {
+            get { return SceneManager.Instance.PlayerObject; }
         }
 
         /// <summary>

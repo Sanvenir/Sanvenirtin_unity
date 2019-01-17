@@ -1,4 +1,5 @@
 using ObjectScripts.ActionScripts;
+using ObjectScripts.CharSubstance;
 using UtilScripts;
 
 namespace ObjectScripts.CharacterController.CtrlConditions
@@ -9,6 +10,11 @@ namespace ObjectScripts.CharacterController.CtrlConditions
     public abstract class BaseCondition
     {
         protected readonly AiController Controller;
+
+        protected Character Self
+        {
+            get { return Controller.Character; }
+        }
 
         public BaseCondition(AiController controller)
         {

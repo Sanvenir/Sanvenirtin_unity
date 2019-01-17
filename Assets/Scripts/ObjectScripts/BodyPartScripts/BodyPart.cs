@@ -98,7 +98,7 @@ namespace ObjectScripts.BodyPartScripts
             var intensity = damage.DoDamage(this);
             if (HitPoint.Value > 0 && CutPoint.Value > 0) return intensity;
             Destroy();
-            return intensity * 10;
+            return intensity;
         }
 
         /// <summary>
@@ -117,11 +117,10 @@ namespace ObjectScripts.BodyPartScripts
         /// </summary>
         public void Destroy()
         {
-            SceneManager.Instance.Print(
-                GameText.Instance.GetBodyPartDestroyLog(
-                    Self.TextName, TextName), Self.WorldCoord);
+            if (!Available) return;
             Available = false;
 
+            if (Self == null) return;
             if (!string.IsNullOrEmpty(AttachBodyPart) &&
                 Self.BodyParts.ContainsKey(AttachBodyPart))
                 Self.BodyParts[AttachBodyPart].Destroy();
@@ -132,6 +131,7 @@ namespace ObjectScripts.BodyPartScripts
                 if (Utils.ProcessRandom.NextDouble() > HitPoint.GetRemainRatio()) continue;
 
                 var instance = Object.Instantiate(component);
+                instance.Info = GameText.Instance.GetPartInfoLog(Self.TextName, TextName);
                 instance.Initialize(Utils.GetRandomShiftPosition(Self.WorldPos));
             }
         }

@@ -13,5 +13,12 @@ namespace ObjectScripts.ActionScripts
         {
             CostTime = Self.Properties.GetReactTime(0);
         }
+
+        public override bool DoAction()
+        {
+            base.DoAction();
+            Self.Recovering();
+            return true;
+        }
     }
 }

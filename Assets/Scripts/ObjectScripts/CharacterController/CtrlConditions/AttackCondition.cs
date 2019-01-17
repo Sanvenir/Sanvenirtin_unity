@@ -22,13 +22,18 @@ namespace ObjectScripts.CharacterController.CtrlConditions
             {
                 return Controller.SetCondition();
             }
+            
+            // Control Endure
+            var check = Utils.ProcessRandom.Next((int) Self.Properties.GetMaxEndure(0));
+            if (Self.Endure > check)
+                return new WaitAction(Self);
 
             if (!Controller.Character.IsVisible(TargetCharacter))
                 return base.NextAction();
             var delta = TargetCharacter.WorldCoord - Controller.Character.WorldCoord;
             if(delta.sqrMagnitude == 1)
                 return new AttackNeighbourAction(
-                    Controller.Character, 
+                    Self, 
                     Utils.VectorToDirection(delta));
             return base.NextAction();
         }

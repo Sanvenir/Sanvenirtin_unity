@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Text;
 using ExceptionScripts;
 using ObjectScripts.SpriteController;
 using UnityEngine;
@@ -32,6 +33,14 @@ namespace ObjectScripts
                 transform.position = value;
                 _worldCoord = SceneManager.Instance.WorldPosToCoord(WorldPos);
             }
+        }
+
+        public virtual StringBuilder GetConditionDescribe()
+        {
+            var describe = new StringBuilder();
+            describe.AppendLine(string.Format("Size: {0}", GetSize()));
+            describe.AppendLine(string.Format("Weight: {0}", GetWeight()));
+            return describe;
         }
 
         [HideInInspector] public SpriteRenderer SpriteRenderer;

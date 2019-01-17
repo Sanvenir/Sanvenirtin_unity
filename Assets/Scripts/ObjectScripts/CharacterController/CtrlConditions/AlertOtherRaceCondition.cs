@@ -16,9 +16,9 @@ namespace ObjectScripts.CharacterController.CtrlConditions
 
         public override BaseAction NextAction()
         {
-            foreach (var character in Controller.Character.GetVisibleObjects<Character>())
+            foreach (var character in Self.GetVisibleObjects<Character>())
             {
-                if (character.RaceIndex == Controller.Character.RaceIndex || character.Dead) continue;
+                if (character.RaceIndex == Self.RaceIndex || character.Dead) continue;
                 return Controller.SetCondition(new AttackCondition(Controller, character));
             }
 

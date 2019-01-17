@@ -76,6 +76,7 @@
     <Compile Include="Assets\Scripts\ObjectScripts\ActionScripts\ConsumeAction.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\ActionScripts\DropFetchAction.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\ActionScripts\PickupAction.cs" />
+    <Compile Include="Assets\Scripts\ObjectScripts\ActionScripts\SplitAction.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\ActionScripts\WaitAction.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\ActionScripts\WalkAction.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\BaseObject.cs" />

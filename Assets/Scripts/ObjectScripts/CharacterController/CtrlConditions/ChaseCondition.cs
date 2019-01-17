@@ -29,11 +29,11 @@ namespace ObjectScripts.CharacterController.CtrlConditions
 
             var incVec = Controller.AStarFinder(
                 TargetCharacter.WorldCoord,
-                (int) Controller.Character.Properties.Intelligence.Use(0.1f));
+                (int) Self.Properties.Intelligence.Use(0.1f));
 
             return incVec == Vector2Int.zero
                 ? base.NextAction()
-                : new WalkAction(Controller.Character, Utils.VectorToDirection(incVec));
+                : new WalkAction(Self, Utils.VectorToDirection(incVec));
         }
     }
 }

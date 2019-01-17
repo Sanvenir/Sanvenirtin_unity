@@ -54,16 +54,17 @@
         "MaxValue": 1000.0,
         "PotentialRate": 0.000009999999747378752
     },
+    "InteractRange": 1.5,
     "Lifetime": 0,
     "BodyParts": [
         {
             "Name": "Head",
             "TextName": "头部",
             "CutPoint": {
-                "MaxValue": 10.0
+                "MaxValue": 100.0
             },
             "HitPoint": {
-                "MaxValue": 10.0
+                "MaxValue": 100.0
             },
             "Size": 10.0,
             "Weight": 10.0,
@@ -79,10 +80,10 @@
             "Name": "Neck",
             "TextName": "颈部",
             "CutPoint": {
-                "MaxValue": 10.0
+                "MaxValue": 100.0
             },
             "HitPoint": {
-                "MaxValue": 10.0
+                "MaxValue": 100.0
             },
             "Size": 10.0,
             "Weight": 10.0,
@@ -98,10 +99,10 @@
             "Name": "Chest",
             "TextName": "胸部",
             "CutPoint": {
-                "MaxValue": 10.0
+                "MaxValue": 100.0
             },
             "HitPoint": {
-                "MaxValue": 10.0
+                "MaxValue": 100.0
             },
             "Size": 10.0,
             "Weight": 10.0,
@@ -117,10 +118,10 @@
             "Name": "Waist",
             "TextName": "腰部",
             "CutPoint": {
-                "MaxValue": 10.0
+                "MaxValue": 100.0
             },
             "HitPoint": {
-                "MaxValue": 10.0
+                "MaxValue": 100.0
             },
             "Size": 10.0,
             "Weight": 10.0,
@@ -136,10 +137,10 @@
             "Name": "Crotch",
             "TextName": "胯部",
             "CutPoint": {
-                "MaxValue": 10.0
+                "MaxValue": 100.0
             },
             "HitPoint": {
-                "MaxValue": 10.0
+                "MaxValue": 100.0
             },
             "Size": 10.0,
             "Weight": 10.0,
@@ -155,10 +156,10 @@
             "Name": "LeftArm",
             "TextName": "左臂",
             "CutPoint": {
-                "MaxValue": 10.0
+                "MaxValue": 100.0
             },
             "HitPoint": {
-                "MaxValue": 10.0
+                "MaxValue": 100.0
             },
             "Size": 10.0,
             "Weight": 10.0,
@@ -174,10 +175,10 @@
             "Name": "LeftHand",
             "TextName": "左手",
             "CutPoint": {
-                "MaxValue": 10.0
+                "MaxValue": 100.0
             },
             "HitPoint": {
-                "MaxValue": 10.0
+                "MaxValue": 100.0
             },
             "Size": 10.0,
             "Weight": 10.0,
@@ -193,10 +194,10 @@
             "Name": "RightArm",
             "TextName": "右臂",
             "CutPoint": {
-                "MaxValue": 10.0
+                "MaxValue": 100.0
             },
             "HitPoint": {
-                "MaxValue": 10.0
+                "MaxValue": 100.0
             },
             "Size": 10.0,
             "Weight": 10.0,
@@ -212,10 +213,10 @@
             "Name": "RightHand",
             "TextName": "右手",
             "CutPoint": {
-                "MaxValue": 10.0
+                "MaxValue": 100.0
             },
             "HitPoint": {
-                "MaxValue": 10.0
+                "MaxValue": 100.0
             },
             "Size": 10.0,
             "Weight": 10.0,
@@ -231,10 +232,10 @@
             "Name": "LeftLeg",
             "TextName": "左腿",
             "CutPoint": {
-                "MaxValue": 10.0
+                "MaxValue": 100.0
             },
             "HitPoint": {
-                "MaxValue": 10.0
+                "MaxValue": 100.0
             },
             "Size": 10.0,
             "Weight": 10.0,
@@ -250,10 +251,10 @@
             "Name": "LeftFoot",
             "TextName": "左足",
             "CutPoint": {
-                "MaxValue": 10.0
+                "MaxValue": 100.0
             },
             "HitPoint": {
-                "MaxValue": 10.0
+                "MaxValue": 100.0
             },
             "Size": 10.0,
             "Weight": 10.0,
@@ -269,10 +270,10 @@
             "Name": "RightLeg",
             "TextName": "右腿",
             "CutPoint": {
-                "MaxValue": 10.0
+                "MaxValue": 100.0
             },
             "HitPoint": {
-                "MaxValue": 10.0
+                "MaxValue": 100.0
             },
             "Size": 10.0,
             "Weight": 10.0,
@@ -288,10 +289,10 @@
             "Name": "RightFoot",
             "TextName": "右足",
             "CutPoint": {
-                "MaxValue": 10.0
+                "MaxValue": 100.0
             },
             "HitPoint": {
-                "MaxValue": 10.0
+                "MaxValue": 100.0
             },
             "Size": 10.0,
             "Weight": 10.0,

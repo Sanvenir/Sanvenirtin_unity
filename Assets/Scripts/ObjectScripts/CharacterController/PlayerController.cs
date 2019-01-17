@@ -121,13 +121,6 @@ namespace ObjectScripts.CharacterController
                 yield return coord;
             }
         }
-        
-        public enum VisualCondition
-        {
-            Visible,
-            Memorized,
-            Unknown
-        }
 
         public IEnumerator SetColor(TilemapTerrain tilemap, Vector2Int coord, bool isMemorized)
         {

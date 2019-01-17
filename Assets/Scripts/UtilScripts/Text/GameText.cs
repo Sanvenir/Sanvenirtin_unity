@@ -17,6 +17,7 @@ namespace UtilScripts.Text
         public string WaitOrder = "等待";
         public string LookAtOrder = "查看";
         public string ConsumeAct = "食用";
+        public string SplitAct = "拆解";
         public string DropAct = "丢弃";
 
         private static GameText _instance = null;
@@ -32,6 +33,58 @@ namespace UtilScripts.Text
                 JsonData.SaveDataToFile(SaveDir, SaveName, _instance);
                 return _instance;
             }
+        }
+
+        public List<string> PartInfoLog = new List<string>
+        {
+            "来自<self>的<part>。",
+        };
+
+        public string GetPartInfoLog(string self, string part)
+        {
+            return Utils.GetRandomElement(PartInfoLog)
+                .Replace("<self>", self)
+                .Replace("<part>", part);
+        }
+
+        public List<string> SplitBodyPartSuccessLog = new List<string>
+        {
+            "<self>切下了<target>的<targetPart>。",
+        };
+
+        public string GetSplitBodyPartSuccessLog(string self, string target, string targetPart)
+        {
+            return Utils.GetRandomElement(SplitBodyPartSuccessLog)
+                .Replace("<self>", self)
+                .Replace("<target>", target)
+                .Replace("<targetPart>", targetPart);
+        }
+
+        public List<string> SplitBodyPartFailedLog = new List<string>
+        {
+            "<target>的<targetPart>对于<self>来说并不容易切下。",
+        };
+
+        public string GetSplitBodyPartFailedLog(string self, string target, string targetPart)
+        {
+            return Utils.GetRandomElement(SplitBodyPartFailedLog)
+                .Replace("<self>", self)
+                .Replace("<target>", target)
+                .Replace("<targetPart>", targetPart);
+        }
+
+        public List<string> SplitBodyPartLog = new List<string>
+        {
+            "<self>正在尝试切下<target>的<targetPart>。",
+            "<self>在分割<target>的<targetPart>。",
+        };
+
+        public string GetSplitBodyPartLog(string self, string target, string targetPart)
+        {
+            return Utils.GetRandomElement(SplitBodyPartLog)
+                .Replace("<self>", self)
+                .Replace("<target>", target)
+                .Replace("<targetPart>", targetPart);
         }
 
         public List<string> AttackExceedEndureLog = new List<string>

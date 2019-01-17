@@ -39,11 +39,16 @@ namespace ObjectScripts.CharSubstance
             var intensity = base.Attacked(damage, bodyPart);
             if (!bodyPart.Available)
             {
+                SceneManager.Instance.Print(
+                    GameText.Instance.GetBodyPartDestroyLog(
+                        TextName, bodyPart.TextName), WorldCoord);
                 DropFetchObject(bodyPart);
                 if (!string.IsNullOrEmpty(bodyPart.AttachBodyPart)) DropFetchObject(BodyParts[bodyPart.AttachBodyPart]);
                 Health += bodyPart.Health;
+                Sanity += bodyPart.Health;
             }
 
+            Health += intensity / 10;
             if (!Stun.Value) Sanity += intensity;
             return intensity;
         }
@@ -88,6 +93,11 @@ namespace ObjectScripts.CharSubstance
             var delta = (Vector2) Utils.DirectionToVector(direction) * intense;
             SpriteController.SetDirection(direction);
             HitTo(direction, attTime);
+        }
+
+        public bool CheckInteractRange(Vector2 pos)
+        {
+            return (pos - WorldPos).sqrMagnitude < Properties.InteractRangeSqr();
         }
 
         protected override void Update()
@@ -251,7 +261,11 @@ namespace ObjectScripts.CharSubstance
         public float Sanity
         {
             get { return _sanity; }
-            set { _sanity = Math.Max(0, value); }
+            set
+            {
+                if (Stun.Value && value > _sanity) return;
+                _sanity = Math.Max(0, value);
+            }
         }
 
         private float _endure;
@@ -264,9 +278,9 @@ namespace ObjectScripts.CharSubstance
                 // Use endure greater than max endure cause sanity damage but also improve will power
                 if (value > Properties.GetMaxEndure(0) && value > _endure)
                 {
-                    var sanityCost = Endure / Properties.GetMaxEndure(0) - 1;
+                    var sanityCost = Endure - Properties.GetMaxEndure(0);
                     Sanity += sanityCost;
-                    Properties.WillPower.Use(Mathf.Min(1f, sanityCost));
+                    Properties.WillPower.Use(Mathf.Min(1f, sanityCost / Properties.GetMaxEndure(0)));
                 }
                 _endure = Math.Max(0, value);
             }
@@ -309,6 +323,7 @@ namespace ObjectScripts.CharSubstance
             public void Disable(Character self)
             {
                 Value = false;
+                if (_instance == null) return;
                 Destroy(_instance.gameObject);
             }
 

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using AreaScripts;
 using ExceptionScripts;
 using ObjectScripts.BodyPartScripts;
@@ -24,8 +25,6 @@ namespace ObjectScripts
         
         [NonSerialized]
         public Dictionary<string, BodyPart> BodyParts = new Dictionary<string, BodyPart>();
-
-        [HideInInspector] public bool IsDestroy = false;
         
         private readonly List<BodyPart> _unreachableParts = new List<BodyPart>();
 
@@ -35,18 +34,23 @@ namespace ObjectScripts
 
         private readonly List<BodyPart> _lowParts = new List<BodyPart>();
 
+        public override StringBuilder GetConditionDescribe()
+        {
+            var describe = base.GetConditionDescribe();
+            foreach (var bodyPart in BodyParts.Values)
+            {
+                describe.AppendFormat("{0}: CutPoint: {1}, HitPoint: {2}\n", bodyPart.TextName, bodyPart.CutPoint.Value,
+                    bodyPart.HitPoint.Value);
+            }
+
+            return describe;
+        }
+
         public virtual float Attacked(DamageValue damage, BodyPart bodyPart)
         {
             if (bodyPart == null)
                 return 0;
             var intensity = bodyPart.DoDamage(damage);
-            
-            if (BodyParts.Values.Any(part => part.Available))
-            {
-                return intensity;
-            }
-
-            IsDestroy = true;
             return intensity;
         }
 
@@ -104,7 +108,11 @@ namespace ObjectScripts
         protected override void Update()
         {
             base.Update();
-            if (!IsDestroy) return;
+            
+            if (BodyParts.Values.Any(part => part.Available))
+            {
+                return;
+            }
             SceneManager.Instance.Print(
                 GameText.Instance.GetSubstanceDestroyLog(TextName), WorldCoord);
             foreach (var bodyPart in BodyParts.Values)

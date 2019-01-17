@@ -1,5 +1,4 @@
 using ObjectScripts.ActionScripts;
-using ObjectScripts.CharSubstance;
 using UnityEngine;
 using UtilScripts;
 using UtilScripts.Text;
@@ -13,22 +12,19 @@ namespace ObjectScripts.CharacterController.PlayerOrder
         public override BaseOrder DoOrder()
         {
             base.DoOrder();
-            if (Controller.Character.WorldCoord == Controller.TargetCoord)
-            {
-                return null;
-            }
+            if (Player.WorldCoord == Controller.TargetCoord) return null;
 
             _vecInt = Controller.AStarFinder(
                 Controller.TargetCoord,
-                (int) Controller.Character.Properties.Intelligence.Use(0.1f));
-            if (_vecInt == Vector2Int.zero || !Controller.Character.MoveCheck(_vecInt))
+                (int) Player.Properties.Intelligence.Use(0.1f));
+            if (_vecInt == Vector2Int.zero || !Player.MoveCheck(_vecInt))
             {
                 SceneManager.Instance.Print(
-                    GameText.Instance.CannotFindPathLog, Controller.Character.WorldCoord);
+                    GameText.Instance.CannotFindPathLog, Player.WorldCoord);
                 return null;
             }
 
-            Controller.SetAction(new WalkAction(Controller.Character, Utils.VectorToDirection(_vecInt)));
+            Controller.SetAction(new WalkAction(Player, Utils.VectorToDirection(_vecInt)));
             return this;
         }
 
