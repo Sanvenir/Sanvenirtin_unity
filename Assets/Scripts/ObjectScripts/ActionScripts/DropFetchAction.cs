@@ -10,11 +10,9 @@ namespace ObjectScripts.ActionScripts
     public class DropFetchAction : BaseAction
     {
         private readonly BodyPart _fetchPart;
-        private readonly BaseObject _targetObject;
 
-        public DropFetchAction(Character self, BaseObject targetObject, BodyPart fetchPart) : base(self)
+        public DropFetchAction(Character self, BodyPart fetchPart) : base(self)
         {
-            _targetObject = targetObject;
             _fetchPart = fetchPart;
             CostTime = Self.Properties.GetActTime(0.1f);
         }
@@ -27,9 +25,7 @@ namespace ObjectScripts.ActionScripts
         {
             base.DoAction();
             if (!Self.FetchDictionary.ContainsKey(_fetchPart)) return false;
-            Self.FetchDictionary[_fetchPart] = null;
-            _targetObject.transform.position = Self.WorldPos;
-            _targetObject.gameObject.SetActive(true);
+            Self.DropFetchObject(_fetchPart);
             return true;
         }
     }

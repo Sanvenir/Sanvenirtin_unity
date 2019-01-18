@@ -36,14 +36,14 @@ namespace UIScripts
         [HideInInspector]
         public bool CameraFollowPlayer;
 
-        private Collider2D _cursorCollider;
+        public Collider2D CursorCollider;
         private readonly Collider2D[] _hits = new Collider2D[1];
         private Collider2D _selected;
         private int _selectedOriginLayer;
 
         protected void Awake()
         {
-            _cursorCollider = SceneCursor.GetComponent<Collider2D>();
+            CursorCollider = SceneCursor.GetComponent<Collider2D>();
         }
 
         protected void Start()

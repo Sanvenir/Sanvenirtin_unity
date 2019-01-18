@@ -30,6 +30,8 @@ public class SceneManager : MonoBehaviour
     public LayerMask ObjectLayer;
     public LayerMask BlockInspectLayer;
 
+    public ContactFilter2D PlayerLookAtFilter;
+
     public int LoadingRange = 2;
 
     // Game Objects

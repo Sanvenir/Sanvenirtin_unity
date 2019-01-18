@@ -11,6 +11,11 @@ namespace ObjectScripts.CharacterController.PlayerOrder
     public class LookAtOrder : BaseOrder
     {
         private List<BaseObject> _visibleObjects;
+
+        private static Collider2D CursorCollider
+        {
+            get { return SceneManager.Instance.SceneControlButton.CursorCollider; }
+        }
         public override BaseOrder DoOrder()
         {
             base.DoOrder();
@@ -25,12 +30,13 @@ namespace ObjectScripts.CharacterController.PlayerOrder
 
         public override bool CheckAndSet()
         {
+            if (CursorCollider == null) return false;
             _visibleObjects = new List<BaseObject>();
-            var colliders = Physics2D.OverlapCircleAll(
-                SceneManager.Instance.WorldCoordToPos(Controller.TargetCoord),
-                2.0f, SceneManager.Instance.PlayerLookAtLayer);
+            var colliders = new Collider2D[20];
+            CursorCollider.OverlapCollider(SceneManager.Instance.PlayerLookAtFilter, colliders);
             foreach (var collider in colliders)
             {
+                if (collider == null) break;
                 var baseObject = collider.GetComponent<BaseObject>();
                 if (baseObject != null && baseObject.Visible)
                 {

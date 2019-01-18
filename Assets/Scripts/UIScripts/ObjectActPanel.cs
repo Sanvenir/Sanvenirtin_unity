@@ -71,8 +71,7 @@ namespace UIScripts
                 _buttonInstance.GetComponentInChildren<Text>().text = GameText.Instance.DropAct;
                 _buttonInstance.onClick.AddListener(delegate
                 {
-                    _playerController.SetAction(new DropFetchAction(_playerController.Character,
-                        baseObject, bodyPart));
+                    _playerController.SetAction(new DropFetchAction(_playerController.Character, bodyPart));
                     EndUp();
                 });
             }
@@ -91,6 +90,7 @@ namespace UIScripts
                 EndUp();
                 return;
             }
+
             ItemImage.sprite = BaseObject.SpriteRenderer.sprite;
             ItemInfoTest.text = BaseObject.Info + "\n" + BaseObject.GetConditionDescribe();
         }
