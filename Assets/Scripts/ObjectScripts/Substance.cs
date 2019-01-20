@@ -29,6 +29,7 @@ namespace ObjectScripts
         protected override void LateUpdate()
         {
             base.LateUpdate();
+            WorldPos = SceneManager.Instance.NormalizeWorldPos(WorldPos);
             if (!SceneManager.Instance.ActivateAreas.ContainsKey(AreaIdentity))
             {
                 Destroy(gameObject);

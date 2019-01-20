@@ -74,6 +74,7 @@
     <Compile Include="Assets\Scripts\MapScripts\MainLand.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\ActionScripts\AttackNeighbourAction.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\ActionScripts\BaseAction.cs" />
+    <Compile Include="Assets\Scripts\ObjectScripts\ActionScripts\BaseItemAction.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\ActionScripts\ConsumeAction.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\ActionScripts\DropFetchAction.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\ActionScripts\PickupAction.cs" />
@@ -121,10 +122,10 @@
     <Compile Include="Assets\Scripts\UIScripts\ActionMenu.cs" />
     <Compile Include="Assets\Scripts\UIScripts\BodyPartButton.cs" />
     <Compile Include="Assets\Scripts\UIScripts\BodyPartPanel.cs" />
-    <Compile Include="Assets\Scripts\UIScripts\BodyPartSelectMenu.cs" />
     <Compile Include="Assets\Scripts\UIScripts\FetchObjectList.cs" />
     <Compile Include="Assets\Scripts\UIScripts\FetchObjectSlot.cs" />
     <Compile Include="Assets\Scripts\UIScripts\GameMenuWindow.cs" />
+    <Compile Include="Assets\Scripts\UIScripts\ObjectActButton.cs" />
     <Compile Include="Assets\Scripts\UIScripts\ObjectActPanel.cs" />
     <Compile Include="Assets\Scripts\UIScripts\ObjectIcon.cs" />
     <Compile Include="Assets\Scripts\UIScripts\ObjectListMenu.cs" />

@@ -1,5 +1,7 @@
+using System.Collections.Generic;
 using ObjectScripts;
 using ObjectScripts.ActionScripts;
+using ObjectScripts.BodyPartScripts;
 using ObjectScripts.CharacterController;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -11,11 +13,11 @@ namespace UIScripts
     {
         public Text ObjectName;
         public Image ObjectImage;
-        
+
         [HideInInspector] public BaseObject BaseObject;
         [HideInInspector] public bool IsAvailable;
 
-        public BodyPartSelectMenu BodyPartSelectMenu;
+        public SelectionMenu BodyPartSelectMenu;
 
         private PlayerController _playerController;
 
@@ -28,28 +30,23 @@ namespace UIScripts
         {
             if (eventData.button != PointerEventData.InputButton.Right) return;
             if (!IsAvailable)
-            {
                 SceneManager.Instance.ObjectActPanel.StartUp(BaseObject);
-            }
             else
-            {            
-                BodyPartSelectMenu.StartUp(transform.position, _playerController.Character.GetFreeFetchParts());
-            }
+                BodyPartSelectMenu.StartUp(transform.position,
+                    _playerController.Character.GetFreeFetchParts());
         }
 
         private void LateUpdate()
         {
             if (!Input.GetMouseButtonUp(1) || !IsAvailable) return;
-            
+
             var result = BodyPartSelectMenu.EndUp();
             if (result == null) return;
 
-            _playerController.SetAction(new PickupAction(_playerController.Character, BaseObject, result));
+            _playerController.SetAction(new PickupAction(_playerController.Character, BaseObject, result as BodyPart));
 
             if (SceneManager.Instance.ObjectListMenu.GetComponentsInChildren<ObjectIcon>().Length == 1)
-            {
                 SceneManager.Instance.ObjectListMenu.EndUp();
-            }
 
             Destroy(gameObject);
         }

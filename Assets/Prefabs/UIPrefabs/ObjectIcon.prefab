@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 222665965176079428}
   - component: {fileID: 114004274321548614}
   - component: {fileID: 114851741537846584}
-  - component: {fileID: 114097564530121014}
+  - component: {fileID: 114907779103403162}
   m_Layer: 5
   m_Name: ObjectIcon
   m_TagString: Untagged
@@ -91,35 +91,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114097564530121014
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1827655487313254}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 349fb6c0ca914c188323c7265b66bb7d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ChangeAccuracy: 0.5
-  ButtonPrefab: {fileID: 114063653609250276, guid: cc95e2c9062f130439ec1f3337330b15,
-    type: 2}
-  SelectionList: []
-  ButtonInstances: []
-  CenterIndex: 0
-  CurrentSelect:
-    Name: 
-    HitPoint:
-      MaxValue: 1000
-    Size: 10
-    Weight: 10
-    Defence: 10
-    Available: 1
-    Substance: {fileID: 0}
-    Essential: 0
-    Components: []
-  CenterPos: {x: 0, y: 0}
 --- !u!114 &114339971761714494
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -161,7 +132,25 @@ MonoBehaviour:
   ObjectName: {fileID: 114913273815252194}
   ObjectImage: {fileID: 114339971761714494}
   BaseObject: {fileID: 0}
-  BodyPartSelectMenu: {fileID: 114097564530121014}
+  IsAvailable: 0
+  BodyPartSelectMenu: {fileID: 114907779103403162}
+--- !u!114 &114907779103403162
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1827655487313254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c13d6798a12448ba89b19a96cb5063f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChangeAccuracy: 1.5
+  ButtonPrefab: {fileID: 114063653609250276, guid: cc95e2c9062f130439ec1f3337330b15,
+    type: 2}
+  ButtonInstances: []
+  CenterIndex: 0
+  CenterPos: {x: 0, y: 0}
 --- !u!114 &114913273815252194
 MonoBehaviour:
   m_ObjectHideFlags: 1

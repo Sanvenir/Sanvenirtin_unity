@@ -1,4 +1,3 @@
-using System;
 using ObjectScripts;
 using ObjectScripts.ActionScripts;
 using ObjectScripts.BodyPartScripts;
@@ -6,7 +5,6 @@ using ObjectScripts.CharacterController;
 using ObjectScripts.CharSubstance;
 using ObjectScripts.ItemScripts;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.UI;
 using UtilScripts.Text;
 
@@ -14,27 +12,31 @@ namespace UIScripts
 {
     public class ObjectActPanel : GameMenuWindow
     {
-        public Button ActButtonPrefab;
+        public ObjectActButton ActButtonPrefab;
         public Image ItemImage;
         public Text ItemInfoTest;
         public VerticalLayoutGroup ActButtonLayout;
 
         [HideInInspector] public BaseObject BaseObject;
 
-        private Button _buttonInstance;
+        [HideInInspector] public SelectionMenu BodyPartSelectMenu;
 
-        private PlayerController _playerController;
+        private ObjectActButton _buttonInstance;
 
-        private Character Player
+        private static PlayerController PlayerController
         {
-            get { return _playerController.Character; }
+            get { return SceneManager.Instance.PlayerController; }
+        }
+
+        private static Character Player
+        {
+            get { return PlayerController.Character; }
         }
 
         public void StartUp(BaseObject baseObject, BodyPart bodyPart = null)
         {
             EndUp();
             gameObject.SetActive(true);
-            _playerController = SceneManager.Instance.PlayerController;
             BaseObject = baseObject;
 
             var character = BaseObject as Character;
@@ -45,56 +47,64 @@ namespace UIScripts
                 // Cases that object can be interact;
                 if (baseObject is IConsumableItem)
                 {
-                    AddButton(GameText.Instance.ConsumeAct, delegate
-                    {
-                        _playerController.SetAction(new ConsumeAction(
-                            _playerController.Character,
-                            (IConsumableItem) baseObject));
-                    });
+                    var instance = Instantiate(ActButtonPrefab, ActButtonLayout.transform);
+                    instance.Initialize(
+                        GameText.Instance.ConsumeAct,
+                        delegate
+                        {
+                            PlayerController.SetAction(new ConsumeAction(
+                                PlayerController.Character,
+                                (IConsumableItem) baseObject));
+                        });
                 }
 
-                if (baseObject is ComplexObject)
+                var complexObject = baseObject as ComplexObject;
+                if (complexObject != null)
                 {
-                    AddButton(GameText.Instance.SplitAct, delegate
-                    {
-                        _playerController.SetAction(new SplitAction(
-                            _playerController.Character,
-                            (ComplexObject) baseObject));
-                    });
+                    var instance = Instantiate(ActButtonPrefab, ActButtonLayout.transform);
+                    instance.Initialize(
+                        GameText.Instance.SplitAct,
+                        delegate(object selection)
+                        {
+                            PlayerController.SetAction(new SplitAction(
+                                PlayerController.Character,
+                                complexObject, selection as BodyPart));
+                        }, complexObject.GetAvailableBodyParts());
                 }
             }
 
             if (bodyPart != null)
             {
                 // Cases that object is at body part;
-                AddButton(GameText.Instance.DropAct, delegate
-                {
-                    _playerController.SetAction(new DropFetchAction(_playerController.Character, bodyPart));
-                    EndUp();
-                });
+                var instance = Instantiate(ActButtonPrefab, ActButtonLayout.transform);
+                instance.Initialize(
+                    GameText.Instance.DropAct,
+                    delegate
+                    {
+                        PlayerController.SetAction(new DropFetchAction(PlayerController.Character, bodyPart));
+                        EndUp();
+                    });
             }
-            else
+            else if (Player.CheckInteractRange(baseObject.WorldPos))
             {
-                // Cases that object is not at body part
-                AddButton(GameText.Instance.PickupOrder, delegate
-                {
-                    // TODO: Add fetch action here
-                });
-                _buttonInstance = Instantiate(ActButtonPrefab, ActButtonLayout.transform);
-                
+                // Cases that object is not at body part but in the interact range
+                var instance = Instantiate(ActButtonPrefab, ActButtonLayout.transform);
+                instance.Initialize(
+                    GameText.Instance.PickupOrder,
+                    delegate(object selection)
+                    {
+                        if (selection == null) return;
+                        PlayerController.SetAction(new PickupAction(PlayerController.Character, BaseObject,
+                            selection as BodyPart));
+                        EndUp();
+                    }, Player.GetFreeFetchParts());
             }
-        }
-
-        private void AddButton(string text, UnityAction listener)
-        {
-            _buttonInstance = Instantiate(ActButtonPrefab, ActButtonLayout.transform);
-            _buttonInstance.GetComponentInChildren<Text>().text = text;
-            _buttonInstance.onClick.AddListener(listener);
         }
 
         public override void EndUp()
         {
-            foreach (var button in ActButtonLayout.GetComponentsInChildren<Button>()) Destroy(button.gameObject);
+            foreach (var button in ActButtonLayout.GetComponentsInChildren<ObjectActButton>()) 
+                Destroy(button.gameObject);
             gameObject.SetActive(false);
         }
 

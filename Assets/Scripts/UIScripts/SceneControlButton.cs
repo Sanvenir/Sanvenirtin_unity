@@ -201,7 +201,7 @@ namespace UIScripts
             if (Input.GetMouseButton(1)) return;
             if (!SelectionMenu.enabled) return;
             var order = SelectionMenu.EndUp();
-            PlayerController.CurrentOrder = order;
+            PlayerController.CurrentOrder = order as BaseOrder;
  
 
         }

@@ -34,6 +34,7 @@
             <e p="ActionScripts" t="Include">
               <e p="AttackNeighbourAction.cs" t="Include" />
               <e p="BaseAction.cs" t="Include" />
+              <e p="BaseItemAction.cs" t="Include" />
               <e p="ConsumeAction.cs" t="Include" />
               <e p="DropFetchAction.cs" t="Include" />
               <e p="PickupAction.cs" t="Include" />
@@ -102,10 +103,10 @@
             <e p="ActionMenu.cs" t="Include" />
             <e p="BodyPartButton.cs" t="Include" />
             <e p="BodyPartPanel.cs" t="Include" />
-            <e p="BodyPartSelectMenu.cs" t="Include" />
             <e p="FetchObjectList.cs" t="Include" />
             <e p="FetchObjectSlot.cs" t="Include" />
             <e p="GameMenuWindow.cs" t="Include" />
+            <e p="ObjectActButton.cs" t="Include" />
             <e p="ObjectActPanel.cs" t="Include" />
             <e p="ObjectIcon.cs" t="Include" />
             <e p="ObjectListMenu.cs" t="Include" />

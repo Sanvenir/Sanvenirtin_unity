@@ -9,8 +9,7 @@ using UtilScripts;
 
 namespace UIScripts
 {
-    public class SelectionMenu<T>: MonoBehaviour
-    where T: INamed
+    public class SelectionMenu: MonoBehaviour
     {
         
         // Setting
@@ -20,7 +19,7 @@ namespace UIScripts
         public SelectionButton ButtonPrefab;
         
         [HideInInspector]
-        public List<T> SelectionList;
+        public List<object> SelectionList;
         
         [HideInInspector]
         public List<SelectionButton> ButtonInstances = new List<SelectionButton>();
@@ -29,7 +28,7 @@ namespace UIScripts
         public int CenterIndex;
         
         [HideInInspector]
-        public T CurrentSelect;
+        public object CurrentSelect;
         
         
         private float _mouseY;
@@ -40,14 +39,18 @@ namespace UIScripts
         private int _step;
         private int _index;
 
-        public void StartUp(Vector2 pos, IEnumerable<T> selectionList)
+        public void StartUp(Vector2 pos, IEnumerable<object> selectionList)
         {
             CenterPos = pos;
-            SelectionList = new List<T>();
+            SelectionList = new List<object>();
             foreach (var selection in selectionList)
             {
                 var instance = Instantiate(ButtonPrefab, transform);
-                instance.SetText(selection.GetTextName());
+                var named = selection as INamed;
+                if (named != null)
+                {
+                    instance.SetText(named.GetTextName());
+                } 
                 instance.transform.position = CenterPos;
                 ButtonInstances.Add(instance);
                 SelectionList.Add(selection);
@@ -61,9 +64,9 @@ namespace UIScripts
             CurrentSelect = SelectionList[CenterIndex];
         }
         
-        public T EndUp()
+        public object EndUp()
         {
-            if (!enabled) return default(T);
+            if (!enabled) return default(object);
             enabled = false;
             foreach (var button in ButtonInstances)
             {
@@ -95,7 +98,7 @@ namespace UIScripts
                 _mouseY = Mathf.Max(_mouseY, -1 / ChangeAccuracy - 1);
             }
 
-            CurrentSelect = CenterIndex >= 0 ? SelectionList[CenterIndex] : default(T);
+            CurrentSelect = CenterIndex >= 0 ? SelectionList[CenterIndex] : default(object);
         }
     }
 }

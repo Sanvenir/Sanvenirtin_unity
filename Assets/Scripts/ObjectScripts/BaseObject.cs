@@ -155,8 +155,6 @@ namespace ObjectScripts
                 for (; time != 0; time--)
                 {
                     SpriteRenderer.transform.localPosition += moveVector;
-                    SpriteRenderer.sortingOrder = -Utils.FloatToInt(
-                        SpriteRenderer.transform.position.y);
                     yield return null;
                 }
             }
@@ -166,8 +164,6 @@ namespace ObjectScripts
             for (; time != 0; time--)
             {
                 SpriteRenderer.transform.localPosition += moveVector;
-                SpriteRenderer.sortingOrder = -Utils.FloatToInt(
-                    SpriteRenderer.transform.position.y);
                 yield return null;
             }
         }
@@ -183,6 +179,8 @@ namespace ObjectScripts
         protected virtual void Update()
         {
             SpriteRenderer.enabled = Visible;
+            SpriteRenderer.sortingOrder = -Utils.FloatToInt(
+                SpriteRenderer.transform.position.y);
         }
 
         public void PlayEffect(EffectController effect)

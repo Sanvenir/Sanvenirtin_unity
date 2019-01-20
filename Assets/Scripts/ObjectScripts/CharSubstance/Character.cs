@@ -26,10 +26,7 @@ namespace ObjectScripts.CharSubstance
             if (FetchDictionary[bodyPart] == null) return;
 
             FetchDictionary[bodyPart].gameObject.SetActive(true);
-            FetchDictionary[bodyPart].transform.position =
-                WorldPos + new Vector2(
-                    (float) Utils.ProcessRandom.NextDouble() - 0.5f,
-                    (float) Utils.ProcessRandom.NextDouble() - 0.5f);
+            FetchDictionary[bodyPart].transform.position = Utils.GetRandomShiftPosition(WorldPos, 0.1f);
             FetchDictionary[bodyPart] = null;
             SpriteController.RemoveChildSprite(bodyPart.Name);
         }
@@ -236,7 +233,7 @@ namespace ObjectScripts.CharSubstance
 
         public Dictionary<BodyPart, BaseObject> FetchDictionary = new Dictionary<BodyPart, BaseObject>();
 
-        public IEnumerable<BodyPart> GetFreeFetchParts()
+        public IEnumerable<object> GetFreeFetchParts()
         {
             foreach (var item in FetchDictionary)
                 if (item.Value == null && item.Key.Available)

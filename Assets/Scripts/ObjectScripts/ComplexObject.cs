@@ -73,6 +73,15 @@ namespace ObjectScripts
             }
         }
 
+        public IEnumerable<object> GetAvailableBodyParts(PartPos partPos = PartPos.Arbitrary)
+        {
+            var bodyParts = GetBodyParts(partPos);
+            foreach (var bodyPart in bodyParts)
+            {
+                if (bodyPart.Available) yield return bodyPart;
+            }
+        }
+
         public virtual void Initialize(Vector2Int worldCoord, int areaIdentity)
         {
             base.Initialize(SceneManager.Instance.WorldCoordToPos(worldCoord));

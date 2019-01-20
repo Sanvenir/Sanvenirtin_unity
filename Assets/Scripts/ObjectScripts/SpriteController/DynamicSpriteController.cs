@@ -26,21 +26,23 @@ namespace ObjectScripts.SpriteController
 
         [HideInInspector] public bool Moving;
 
-        [HideInInspector] public bool IsDisabled;
+        public bool _isDisabled;
 
         public Dictionary<Direction, List<Sprite>> MoveSprites;
         public Dictionary<Direction, List<Sprite>> StopSprites;
 
         private Dictionary<string, int> _childrenIndex;
-        private readonly Dictionary<string, ChildSpriteItem> _childrenSprites = new Dictionary<string, ChildSpriteItem>();
+
+        private readonly Dictionary<string, ChildSpriteItem> _childrenSprites =
+            new Dictionary<string, ChildSpriteItem>();
 
         private List<Sprite> _currentSprites;
         private Direction _currentDirection;
 
-        public struct ChildSpriteItem
+        private struct ChildSpriteItem
         {
-            public SpriteRenderer SpriteRenderer;
-            public BaseObject BaseObject;
+            public readonly SpriteRenderer SpriteRenderer;
+            public readonly BaseObject BaseObject;
 
             public ChildSpriteItem(BaseObject baseObject, Transform transform)
             {
@@ -125,7 +127,7 @@ namespace ObjectScripts.SpriteController
         {
             if (!_childrenIndex.ContainsKey(index)) throw new ArgumentOutOfRangeException();
             return ChildrenPos[_childrenIndex[index]];
-        } 
+        }
 
         private void UpdateChild(string index)
         {
@@ -134,14 +136,14 @@ namespace ObjectScripts.SpriteController
             var pos = GetChildPos(index);
             if (sprite.BaseObject == null) RemoveChildSprite(index);
             sprite.SpriteRenderer.transform.localPosition = pos.GetPos(_currentDirection);
-            sprite.SpriteRenderer.sortingLayerID = SpriteRenderer.sortingLayerID;
+            sprite.SpriteRenderer.sortingLayerName = SpriteRenderer.sortingLayerName;
             sprite.SpriteRenderer.sortingOrder = SpriteRenderer.sortingOrder + pos.GetDepth(_currentDirection);
             sprite.SpriteRenderer.flipX = pos.GetReverse(_currentDirection);
         }
 
         public override void AddNewChildSprite(string index, BaseObject baseObject)
         {
-            if (_childrenSprites.ContainsKey(index) && 
+            if (_childrenSprites.ContainsKey(index) &&
                 _childrenSprites[index].BaseObject != null) throw new ObjectNotNullException();
             if (!_childrenIndex.ContainsKey(index)) return;
             _childrenSprites[index] = new ChildSpriteItem(baseObject, transform);
@@ -178,24 +180,24 @@ namespace ObjectScripts.SpriteController
             };
 
             _childrenIndex = new Dictionary<string, int>();
-            for (var index = 0; index < ChildrenPos.Count(); ++index)
+            for (var index = 0; index < ChildrenPos.Count(); ++index) _childrenIndex[ChildrenPos[index].Name] = index;
+
+            if (_isDisabled)
             {
-                _childrenIndex[ChildrenPos[index].Name] = index;
-            }
-            
+                SpriteRenderer.sprite = DisabledSprite;
+                return;
+            };
             SpriteRenderer.sprite = StopSprites[_currentDirection][0];
         }
 
         // Update is called once per frame
         private void Update()
         {
-            if (IsDisabled)
+            if (_isDisabled)
             {
                 SpriteRenderer.sprite = DisabledSprite;
-                SpriteRenderer.sortingLayerName = "Abstract";
-                foreach (var spriteIndex in _childrenSprites.Keys) RemoveChildSprite(spriteIndex);
                 return;
-            }
+            };
 
             if (TargetDirection != _currentDirection)
             {
@@ -246,7 +248,9 @@ namespace ObjectScripts.SpriteController
 
         public override void SetDisable(bool disabled)
         {
-            IsDisabled = disabled;
+            SpriteRenderer.sortingLayerName = "Abstract";
+            foreach (var spriteIndex in _childrenSprites.Keys) RemoveChildSprite(spriteIndex);
+            _isDisabled = disabled;
         }
 
 
@@ -254,6 +258,5 @@ namespace ObjectScripts.SpriteController
         {
             TargetDirection = direction;
         }
-
     }
 }

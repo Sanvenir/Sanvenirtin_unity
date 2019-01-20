@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace UIScripts
 {
-    public class ActionMenu: SelectionMenu<BaseOrder>
+    public class ActionMenu: SelectionMenu
     {
         
         public List<BaseOrder> OrderList = new List<BaseOrder>
@@ -17,7 +17,7 @@ namespace UIScripts
             new AttackDirectionOrder(),
         };
 
-        private IEnumerable<BaseOrder> GetAvailableOrders()
+        private IEnumerable<object> GetAvailableOrders()
         {
             foreach (var order in OrderList)
             {
