@@ -22,6 +22,7 @@
             <e p="CoordOutOfWorldException.cs" t="Include" />
             <e p="GameCondition.cs" t="Include" />
             <e p="GameException.cs" t="Include" />
+            <e p="ObjectNotNullException.cs" t="Include" />
           </e>
           <e p="GameManager.cs" t="Include" />
           <e p="MapScripts" t="Include">
@@ -78,6 +79,7 @@
             <e p="ItemScripts" t="Include">
               <e p="IConsumableItem.cs" t="Include" />
               <e p="RawFood.cs" t="Include" />
+              <e p="Weapon.cs" t="Include" />
             </e>
             <e p="RaceScripts" t="Include">
               <e p="BasicRace.cs" t="Include" />

@@ -31,6 +31,7 @@ namespace ObjectScripts.CharSubstance
                     (float) Utils.ProcessRandom.NextDouble() - 0.5f,
                     (float) Utils.ProcessRandom.NextDouble() - 0.5f);
             FetchDictionary[bodyPart] = null;
+            SpriteController.RemoveChildSprite(bodyPart.Name);
         }
 
         public override float Attacked(DamageValue damage, BodyPart bodyPart)
@@ -223,11 +224,9 @@ namespace ObjectScripts.CharSubstance
         public override void Initialize(Vector2Int worldCoord, int areaIdentity)
         {
             ActivateTime = SceneManager.Instance.CurrentTime;
-
             BodyParts = new Dictionary<string, BodyPart>();
             foreach (var bodyPart in Properties.BodyParts)
                 BodyParts.Add(bodyPart.Name, (BodyPart) bodyPart.Create(this));
-
             foreach (var bodyPart in BodyParts.Values)
                 if (bodyPart.Fetchable)
                     FetchDictionary.Add(bodyPart, null);

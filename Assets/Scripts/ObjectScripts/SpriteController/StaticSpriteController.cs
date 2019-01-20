@@ -21,11 +21,6 @@ namespace ObjectScripts.SpriteController
         {
         }
 
-        public override bool IsMoving()
-        {
-            return false;
-        }
-
         public override void StartMoving()
         {
         }
@@ -37,6 +32,16 @@ namespace ObjectScripts.SpriteController
         public override void SetDisable(bool disabled)
         {
             _disabled = disabled;
+        }
+
+        public override void AddNewChildSprite(string index, BaseObject baseObject)
+        {
+            return;
+        }
+
+        public override void RemoveChildSprite(string index)
+        {
+            return;
         }
 
         private void Update()

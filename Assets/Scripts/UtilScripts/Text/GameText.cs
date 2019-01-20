@@ -37,7 +37,7 @@ namespace UtilScripts.Text
 
         public List<string> PartInfoLog = new List<string>
         {
-            "来自<self>的<part>。",
+            "\n来自<self>的<part>。",
         };
 
         public string GetPartInfoLog(string self, string part)

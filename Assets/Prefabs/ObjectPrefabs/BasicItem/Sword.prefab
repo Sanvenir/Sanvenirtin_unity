@@ -9,77 +9,77 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1967590808923606}
+  m_RootGameObject: {fileID: 1817912228844604}
   m_IsPrefabAsset: 1
---- !u!1 &1608828824176326
+--- !u!1 &1817912228844604
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4315041763010214}
-  - component: {fileID: 212210820240033490}
-  - component: {fileID: 114350939243098826}
-  m_Layer: 15
-  m_Name: Sprite
+  - component: {fileID: 4959634546390034}
+  - component: {fileID: 114035773735073094}
+  - component: {fileID: 58625729668856604}
+  - component: {fileID: 50777198457101448}
+  m_Layer: 11
+  m_Name: Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1967590808923606
+--- !u!1 &1897623287540016
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4187536683446768}
-  - component: {fileID: 114566145580136664}
-  - component: {fileID: 58677741058970028}
-  - component: {fileID: 50189561322171092}
-  m_Layer: 15
-  m_Name: Tree
+  - component: {fileID: 4887202175458346}
+  - component: {fileID: 212093236938912406}
+  - component: {fileID: 114868049822359310}
+  m_Layer: 11
+  m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4187536683446768
+--- !u!4 &4887202175458346
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1967590808923606}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4315041763010214}
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4315041763010214
-Transform:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1608828824176326}
+  m_GameObject: {fileID: 1897623287540016}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4187536683446768}
+  m_Father: {fileID: 4959634546390034}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &50189561322171092
+--- !u!4 &4959634546390034
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1817912228844604}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4887202175458346}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &50777198457101448
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1967590808923606}
+  m_GameObject: {fileID: 1817912228844604}
   m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -93,12 +93,12 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &58677741058970028
+--- !u!58 &58625729668856604
 CircleCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1967590808923606}
+  m_GameObject: {fileID: 1817912228844604}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -107,80 +107,50 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.4
---- !u!114 &114350939243098826
+  m_Radius: 0.25
+--- !u!114 &114035773735073094
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1608828824176326}
+  m_GameObject: {fileID: 1817912228844604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d77141dafbc4cba9edc89f108cc2f8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TextName: "\u957F\u5251"
+  Info: "\u4ECE\u6811\u4E2D\u80FD\u6389\u51FA\u8FD9\u4E2A\uFF1F\u867D\u7136\u5E76\u6CA1\u6709\u4EC0\u4E48\u5375\u7528"
+  Visible: 0
+  SpriteRenderer: {fileID: 0}
+  SpriteController: {fileID: 0}
+  Collider2D: {fileID: 0}
+  Rigidbody2D: {fileID: 0}
+  Weight: 100
+  Size: 20
+--- !u!114 &114868049822359310
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1897623287540016}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a713e2779e27428e9fa0c09c0b5145f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   SpriteRenderer: {fileID: 0}
-  DisabledSprite: {fileID: 21300336, guid: 1aa49e237b0e5454884a2979141852e5, type: 3}
+  DisabledSprite: {fileID: 21300000, guid: 3116af4c2b0e64c4aa8d1712e2ba5b2a, type: 3}
   Speed: 3
   Sprites:
-  - {fileID: 21300034, guid: 1aa49e237b0e5454884a2979141852e5, type: 3}
---- !u!114 &114566145580136664
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1967590808923606}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e2601355adf43cc8f9296ae52fa4bcb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TextName: "\u6811"
-  Info: "\u4E00\u68F5\u6811\u3002"
-  Visible: 0
-  SpriteRenderer: {fileID: 0}
-  SpriteController: {fileID: 0}
-  Collider2D: {fileID: 58677741058970028}
-  Rigidbody2D: {fileID: 0}
-  AreaIdentity: 0
-  TreeBody:
-    Name: TreeBody
-    TextName: "\u6811\u5E72"
-    CutPoint:
-      MaxValue: 1000
-    HitPoint:
-      MaxValue: 1000
-    Size: 10
-    Weight: 10
-    CutDefence: 10
-    HitRatio: 0.9
-    PartPos: 2
-    AttachBodyPart: 
-    Health: 20
-    Fetchable: 0
-    ComponentIndex: 2
-  TreeStump:
-    Name: TreeStump
-    TextName: "\u6811\u6869"
-    CutPoint:
-      MaxValue: 1000
-    HitPoint:
-      MaxValue: 1000
-    Size: 10
-    Weight: 10
-    CutDefence: 10
-    HitRatio: 0.9
-    PartPos: 2
-    AttachBodyPart: TreeBody
-    Health: 20
-    Fetchable: 0
-    ComponentIndex: 2
---- !u!212 &212210820240033490
+  - {fileID: 21300000, guid: 3116af4c2b0e64c4aa8d1712e2ba5b2a, type: 3}
+  - {fileID: 21300000, guid: e1cad4f3de406ed43b90e523d5e17ce5, type: 3}
+--- !u!212 &212093236938912406
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1608828824176326}
+  m_GameObject: {fileID: 1897623287540016}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -207,15 +177,15 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1347936931
-  m_SortingLayer: 5
+  m_SortingLayerID: 803096645
+  m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300034, guid: 1aa49e237b0e5454884a2979141852e5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3116af4c2b0e64c4aa8d1712e2ba5b2a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.9666667, y: 3.2}
+  m_Size: {x: 0.5, y: 0.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

@@ -16,9 +16,21 @@ namespace ObjectScripts.SpriteController
         }
 
         public abstract void SetDirection(Direction direction);
-        public abstract bool IsMoving();
         public abstract void StartMoving();
         public abstract void StopMoving();
         public abstract void SetDisable(bool disabled);
+
+        /// <summary>
+        ///     Add new sprite to current sprite controller
+        /// </summary>
+        /// <param name="index"></param>
+        /// <param name="baseObject"></param>
+        public abstract void AddNewChildSprite(string index, BaseObject baseObject);
+
+        /// <summary>
+        ///     Remove sprite at index
+        /// </summary>
+        /// <param name="index"></param>
+        public abstract void RemoveChildSprite(string index);
     }
 }

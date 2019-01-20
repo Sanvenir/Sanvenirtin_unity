@@ -1,3 +1,4 @@
+using System;
 using ObjectScripts;
 using ObjectScripts.ActionScripts;
 using ObjectScripts.BodyPartScripts;
@@ -5,6 +6,7 @@ using ObjectScripts.CharacterController;
 using ObjectScripts.CharSubstance;
 using ObjectScripts.ItemScripts;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 using UtilScripts.Text;
 
@@ -40,11 +42,10 @@ namespace UIScripts
 
             if (bodyPart != null || Player.CheckInteractRange(baseObject.WorldPos))
             {
+                // Cases that object can be interact;
                 if (baseObject is IConsumableItem)
                 {
-                    _buttonInstance = Instantiate(ActButtonPrefab, ActButtonLayout.transform);
-                    _buttonInstance.GetComponentInChildren<Text>().text = GameText.Instance.ConsumeAct;
-                    _buttonInstance.onClick.AddListener(delegate
+                    AddButton(GameText.Instance.ConsumeAct, delegate
                     {
                         _playerController.SetAction(new ConsumeAction(
                             _playerController.Character,
@@ -54,9 +55,7 @@ namespace UIScripts
 
                 if (baseObject is ComplexObject)
                 {
-                    _buttonInstance = Instantiate(ActButtonPrefab, ActButtonLayout.transform);
-                    _buttonInstance.GetComponentInChildren<Text>().text = GameText.Instance.SplitAct;
-                    _buttonInstance.onClick.AddListener(delegate
+                    AddButton(GameText.Instance.SplitAct, delegate
                     {
                         _playerController.SetAction(new SplitAction(
                             _playerController.Character,
@@ -67,14 +66,30 @@ namespace UIScripts
 
             if (bodyPart != null)
             {
-                _buttonInstance = Instantiate(ActButtonPrefab, ActButtonLayout.transform);
-                _buttonInstance.GetComponentInChildren<Text>().text = GameText.Instance.DropAct;
-                _buttonInstance.onClick.AddListener(delegate
+                // Cases that object is at body part;
+                AddButton(GameText.Instance.DropAct, delegate
                 {
                     _playerController.SetAction(new DropFetchAction(_playerController.Character, bodyPart));
                     EndUp();
                 });
             }
+            else
+            {
+                // Cases that object is not at body part
+                AddButton(GameText.Instance.PickupOrder, delegate
+                {
+                    // TODO: Add fetch action here
+                });
+                _buttonInstance = Instantiate(ActButtonPrefab, ActButtonLayout.transform);
+                
+            }
+        }
+
+        private void AddButton(string text, UnityAction listener)
+        {
+            _buttonInstance = Instantiate(ActButtonPrefab, ActButtonLayout.transform);
+            _buttonInstance.GetComponentInChildren<Text>().text = text;
+            _buttonInstance.onClick.AddListener(listener);
         }
 
         public override void EndUp()

@@ -131,7 +131,7 @@ namespace ObjectScripts.BodyPartScripts
                 if (Utils.ProcessRandom.NextDouble() > HitPoint.GetRemainRatio()) continue;
 
                 var instance = Object.Instantiate(component);
-                instance.Info = GameText.Instance.GetPartInfoLog(Self.TextName, TextName);
+                instance.Info += GameText.Instance.GetPartInfoLog(Self.TextName, TextName);
                 instance.Initialize(Utils.GetRandomShiftPosition(Self.WorldPos));
             }
         }

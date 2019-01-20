@@ -10,13 +10,8 @@ namespace ObjectScripts.StaticSubstance
         
         public override void Initialize(Vector2Int worldCoord, int areaIdentity)
         {
-            BodyParts.Add("TreeStump", TreeStump);
-            BodyParts.Add("TreeBody", TreeBody);
-
-            TreeStump.AttachBodyPart = TreeBody.Name;
-            
-            BodyParts.Add(TreeBody.Name, TreeBody);
-            BodyParts.Add(TreeStump.Name, TreeStump);
+            BodyParts.Add(TreeBody.Name, (BodyPart) TreeBody.Create(this));
+            BodyParts.Add(TreeStump.Name, (BodyPart) TreeStump.Create(this));
             
             base.Initialize(worldCoord, areaIdentity);
         }

@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\ExceptionScripts\CoordOutOfWorldException.cs" />
     <Compile Include="Assets\Scripts\ExceptionScripts\GameCondition.cs" />
     <Compile Include="Assets\Scripts\ExceptionScripts\GameException.cs" />
+    <Compile Include="Assets\Scripts\ExceptionScripts\ObjectNotNullException.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\MapScripts\EarthMap.cs" />
     <Compile Include="Assets\Scripts\MapScripts\EarthMapManager.cs" />
@@ -106,6 +107,7 @@
     <Compile Include="Assets\Scripts\ObjectScripts\ISubstanceFactory.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\ItemScripts\IConsumableItem.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\ItemScripts\RawFood.cs" />
+    <Compile Include="Assets\Scripts\ObjectScripts\ItemScripts\Weapon.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\RaceScripts\BasicRace.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\SingularObject.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\SpriteController\DynamicSpriteController.cs" />

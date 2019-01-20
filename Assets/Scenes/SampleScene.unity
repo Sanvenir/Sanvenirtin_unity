@@ -1958,6 +1958,9 @@ MonoBehaviour:
   - Name: Meat
     Components:
     - {fileID: 114898461014695738, guid: a16b7be3f6820634b8719308438575f0, type: 2}
+  - Name: Meterail
+    Components:
+    - {fileID: 114035773735073094, guid: 86b466997a842f2468ae58400dc3e6a0, type: 2}
   RaceList:
   - Name: human
     TextName: "\u4EBA\u7C7B"
@@ -2489,9 +2492,6 @@ MonoBehaviour:
   SpriteRenderer: {fileID: 0}
   DisabledSprite: {fileID: 21300012, guid: 903229811b7965a4591b184cab38aa3e, type: 3}
   Speed: 10
-  TargetDirection: 0
-  Moving: 0
-  IsDisabled: 0
   MoveUpSprites:
   - {fileID: 21300080, guid: 5df250409f6f3024e990d5a6d9fa8f6c, type: 3}
   - {fileID: 21300078, guid: 5df250409f6f3024e990d5a6d9fa8f6c, type: 3}
@@ -2524,6 +2524,30 @@ MonoBehaviour:
   - {fileID: 21300056, guid: 5df250409f6f3024e990d5a6d9fa8f6c, type: 3}
   StopNoneSprites:
   - {fileID: 21300008, guid: 5df250409f6f3024e990d5a6d9fa8f6c, type: 3}
+  ChildrenPos:
+  - Name: LeftHand
+    UpPos: {x: -0.2, y: 0.4}
+    UpDepth: -1
+    DownPos: {x: 0.2, y: 0.4}
+    DownDepth: 1
+    LeftPos: {x: 0.05, y: 0.4}
+    LeftDepth: 1
+    RightPos: {x: -0.05, y: 0.4}
+    RightDepth: -1
+    Reverse: 1
+  - Name: RightHand
+    UpPos: {x: 0.2, y: 0.4}
+    UpDepth: -1
+    DownPos: {x: -0.2, y: 0.4}
+    DownDepth: 1
+    LeftPos: {x: -0.05, y: 0.4}
+    LeftDepth: -1
+    RightPos: {x: 0.05, y: 0.4}
+    RightDepth: 1
+    Reverse: 0
+  TargetDirection: 0
+  Moving: 0
+  IsDisabled: 0
 --- !u!212 &1097808515
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2850,7 +2874,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000045776367}
+  m_AnchoredPosition: {x: 0, y: -0.000015258789}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1210254261
@@ -3595,28 +3619,28 @@ MonoBehaviour:
       MaxValue: 20
       PotentialRate: 0.0001
     Strength:
-      Value: 10
-      MaxValue: 20
+      Value: 50
+      MaxValue: 100
       PotentialRate: 0.0001
     Dexterity:
-      Value: 10
-      MaxValue: 20
+      Value: 50
+      MaxValue: 100
       PotentialRate: 0.0001
     Constitution:
-      Value: 10
-      MaxValue: 20
+      Value: 50
+      MaxValue: 100
       PotentialRate: 0.0001
     Metabolism:
-      Value: 10
-      MaxValue: 20
+      Value: 50
+      MaxValue: 100
       PotentialRate: 0.0001
     WillPower:
-      Value: 10
-      MaxValue: 20
+      Value: 50
+      MaxValue: 100
       PotentialRate: 0.0001
     Intelligence:
       Value: 10
-      MaxValue: 20
+      MaxValue: 100
       PotentialRate: 0.0001
     Perception:
       Value: 10

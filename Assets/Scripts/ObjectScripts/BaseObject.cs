@@ -154,7 +154,6 @@ namespace ObjectScripts
                 moveVector = delta / time;
                 for (; time != 0; time--)
                 {
-                    SpriteController.StartMoving();
                     SpriteRenderer.transform.localPosition += moveVector;
                     SpriteRenderer.sortingOrder = -Utils.FloatToInt(
                         SpriteRenderer.transform.position.y);
@@ -166,14 +165,11 @@ namespace ObjectScripts
             moveVector = -SpriteRenderer.transform.localPosition / time;
             for (; time != 0; time--)
             {
-                SpriteController.StartMoving();
                 SpriteRenderer.transform.localPosition += moveVector;
                 SpriteRenderer.sortingOrder = -Utils.FloatToInt(
                     SpriteRenderer.transform.position.y);
                 yield return null;
             }
-
-            SpriteController.StopMoving();
         }
 
         protected virtual void LateUpdate()

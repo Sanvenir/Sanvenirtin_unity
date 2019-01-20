@@ -37,7 +37,7 @@ namespace UIScripts
                 if (_fetchDictionary[part] == null)
                 {
                     FetchSlots[part].RemoveObject();
-                    return;
+                    continue;
                 }
                 FetchSlots[part].AddObject(_fetchDictionary[part]);
             }
