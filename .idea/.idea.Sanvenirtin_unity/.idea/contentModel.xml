@@ -12,6 +12,8 @@
             <e p="BuildingTilemap.cs" t="Include" />
             <e p="LocalArea.cs" t="Include" />
             <e p="RandomLocalArea.cs" t="Include" />
+            <e p="TilemapTerrain.cs" t="Include" />
+            <e p="TileType.cs" t="Include" />
           </e>
           <e p="ExceptionScripts" t="Include">
             <e p="AreaNotFoundCondition.cs" t="Include" />
@@ -21,7 +23,6 @@
             <e p="GameException.cs" t="Include" />
           </e>
           <e p="GameManager.cs" t="Include" />
-          <e p="GameSetting.cs" t="Include" />
           <e p="MapScripts" t="Include">
             <e p="EarthMap.cs" t="Include" />
             <e p="EarthMapManager.cs" t="Include" />
@@ -34,6 +35,7 @@
               <e p="ConsumeAction.cs" t="Include" />
               <e p="DropFetchAction.cs" t="Include" />
               <e p="PickupAction.cs" t="Include" />
+              <e p="SplitAction.cs" t="Include" />
               <e p="WaitAction.cs" t="Include" />
               <e p="WalkAction.cs" t="Include" />
             </e>
@@ -47,6 +49,7 @@
               <e p="AiController.cs" t="Include" />
               <e p="CharacterController.cs" t="Include" />
               <e p="CtrlConditions" t="Include">
+                <e p="AlertOtherRaceCondition.cs" t="Include" />
                 <e p="AttackCondition.cs" t="Include" />
                 <e p="BaseCondition.cs" t="Include" />
                 <e p="ChaseCondition.cs" t="Include" />
@@ -88,6 +91,7 @@
             <e p="StaticSubstance" t="Include">
               <e p="Tree.cs" t="Include" />
             </e>
+            <e p="Substance.cs" t="Include" />
             <e p="SubstanceProperties.cs" t="Include" />
           </e>
           <e p="SceneManager.cs" t="Include" />
