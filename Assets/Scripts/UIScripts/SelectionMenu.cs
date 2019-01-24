@@ -41,6 +41,7 @@ namespace UIScripts
 
         public void StartUp(Vector2 pos, IEnumerable<object> selectionList)
         {
+            SceneManager.Instance.PlayerController.CurrentOrder = null;
             CenterPos = pos;
             SelectionList = new List<object>();
             foreach (var selection in selectionList)

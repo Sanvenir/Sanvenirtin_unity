@@ -222,7 +222,7 @@ namespace ObjectScripts.CharSubstance
 
         public float GetBaseRecover(float intense)
         {
-            return Metabolism.Use(intense) / 1000f;
+            return Metabolism.Use(intense) / 10000f;
         }
 
         public float GetHealthRecover(float intense)
@@ -259,7 +259,7 @@ namespace ObjectScripts.CharSubstance
 
         public float GetWillRecover(float intense)
         {
-            return WillPower.Use(intense) * 0.01f;
+            return WillPower.Use(intense) * 0.001f;
         }
 
         public DamageValue GetCutAttack(float intense)

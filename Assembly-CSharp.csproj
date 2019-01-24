@@ -125,10 +125,10 @@
     <Compile Include="Assets\Scripts\UIScripts\FetchObjectList.cs" />
     <Compile Include="Assets\Scripts\UIScripts\FetchObjectSlot.cs" />
     <Compile Include="Assets\Scripts\UIScripts\GameMenuWindow.cs" />
+    <Compile Include="Assets\Scripts\UIScripts\GroundObjectIcon.cs" />
+    <Compile Include="Assets\Scripts\UIScripts\GroundObjectListMenu.cs" />
     <Compile Include="Assets\Scripts\UIScripts\ObjectActButton.cs" />
     <Compile Include="Assets\Scripts\UIScripts\ObjectActPanel.cs" />
-    <Compile Include="Assets\Scripts\UIScripts\ObjectIcon.cs" />
-    <Compile Include="Assets\Scripts\UIScripts\ObjectListMenu.cs" />
     <Compile Include="Assets\Scripts\UIScripts\PropertyPanel.cs" />
     <Compile Include="Assets\Scripts\UIScripts\SceneControlButton.cs" />
     <Compile Include="Assets\Scripts\UIScripts\SelectionButton.cs" />

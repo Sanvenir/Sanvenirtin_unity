@@ -25,19 +25,13 @@ namespace ObjectScripts.ActionScripts
             base.DoAction();
             if (!_bodyPart.Available) return false;
             var intensity = _bodyPart.DoDamage(Self.Properties.GetCutAttack(1f));
-            SceneManager.Instance.Print(
-                GameText.Instance.GetSplitBodyPartLog(Self.TextName, _target.TextName, _bodyPart.TextName), 
-                Self.WorldCoord);
+            Self.Controller.PrintMessage(GameText.Instance.GetSplitBodyPartLog(Self.TextName, _target.TextName, _bodyPart.TextName));
             if (intensity < float.Epsilon)
             {
-                SceneManager.Instance.Print(
-                    GameText.Instance.GetSplitBodyPartFailedLog(Self.TextName, _target.TextName, _bodyPart.TextName), 
-                    Self.WorldCoord);
+                Self.Controller.PrintMessage(GameText.Instance.GetSplitBodyPartFailedLog(Self.TextName, _target.TextName, _bodyPart.TextName));
             }
             if (_bodyPart.Available) return false;
-            SceneManager.Instance.Print(
-                GameText.Instance.GetSplitBodyPartSuccessLog(Self.TextName, _target.TextName, _bodyPart.TextName), 
-                Self.WorldCoord);
+            Self.Controller.PrintMessage(GameText.Instance.GetSplitBodyPartSuccessLog(Self.TextName, _target.TextName, _bodyPart.TextName));
             return true;
         }
     }

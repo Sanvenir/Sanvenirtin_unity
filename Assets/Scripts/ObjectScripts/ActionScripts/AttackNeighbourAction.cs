@@ -1,6 +1,5 @@
 using ObjectScripts.BodyPartScripts;
 using ObjectScripts.CharSubstance;
-using UnityEngine;
 using UtilScripts;
 using UtilScripts.Text;
 
@@ -28,8 +27,7 @@ namespace ObjectScripts.ActionScripts
 
         private void AttackEmpty()
         {
-            SceneManager.Instance.Print(
-                GameText.Instance.GetAttackEmptyLog(Self.TextName), Self.WorldCoord);
+            Self.Controller.PrintMessage(GameText.Instance.GetAttackEmptyLog(Self.TextName));
         }
 
         /// <inheritdoc />
@@ -45,11 +43,10 @@ namespace ObjectScripts.ActionScripts
 
             if (!Self.CheckEndure())
             {
-                SceneManager.Instance.Print(
-                    GameText.Instance.GetAttackExceedEndureLog(Self.TextName), Self.WorldCoord);
+                Self.Controller.PrintMessage(GameText.Instance.GetAttackExceedEndureLog(Self.TextName));
                 return false;
             }
-            
+
             Self.MoveCheck(Utils.DirectionToVector(_targetDirection), out _target);
             Self.AttackMovement(_targetDirection, CostTime);
 
@@ -70,12 +67,12 @@ namespace ObjectScripts.ActionScripts
             }
 
             var part = Utils.ProcessRandom.Next(attackBodyParts.Count);
-            SceneManager.Instance.Print(
+            Self.Controller.PrintMessage(
                 GameText.Instance.GetAttackLog(
                     Self.TextName,
                     _target.TextName,
                     _target.GetBodyParts(_attackPartPos)[part].TextName
-                ), Self.WorldCoord);
+                ));
             _target.Attacked(
                 Self.Properties.GetBaseAttack(0),
                 _target.GetBodyParts(_attackPartPos)[part]);
