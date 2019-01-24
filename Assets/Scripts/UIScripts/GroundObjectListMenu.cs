@@ -7,14 +7,21 @@ using UnityEngine.UI;
 
 namespace UIScripts
 {
-    public class ObjectListMenu: GameMenuWindow
+    public class GroundObjectListMenu: GameMenuWindow
     {
         public GridLayoutGroup Content;
-        public ObjectIcon IconPrefab;
+        public GroundObjectIcon IconPrefab;
 
         public void StartUp(List<BaseObject> objectList, bool isInteractive)
         {
             EndUp();
+            if (objectList.Count == 1)
+            {
+                var baseObject = objectList[0];
+                if (baseObject == null) return;
+                SceneManager.Instance.ObjectActPanel.StartUp(baseObject);
+                return;
+            }
             gameObject.SetActive(true);
             foreach (var baseObject in objectList)
             {
@@ -29,7 +36,7 @@ namespace UIScripts
 
         public override void EndUp()
         {
-            foreach (var child in Content.GetComponentsInChildren<ObjectIcon>())
+            foreach (var child in Content.GetComponentsInChildren<GroundObjectIcon>())
             {
                 Destroy(child.gameObject);
             }

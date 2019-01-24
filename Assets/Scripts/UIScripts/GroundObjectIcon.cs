@@ -9,7 +9,7 @@ using UnityEngine.UI;
 
 namespace UIScripts
 {
-    public class ObjectIcon : MonoBehaviour, IPointerDownHandler
+    public class GroundObjectIcon : MonoBehaviour, IPointerDownHandler
     {
         public Text ObjectName;
         public Image ObjectImage;
@@ -45,8 +45,8 @@ namespace UIScripts
 
             _playerController.SetAction(new PickupAction(_playerController.Character, BaseObject, result as BodyPart));
 
-            if (SceneManager.Instance.ObjectListMenu.GetComponentsInChildren<ObjectIcon>().Length == 1)
-                SceneManager.Instance.ObjectListMenu.EndUp();
+            if (SceneManager.Instance.GroundObjectListMenu.GetComponentsInChildren<GroundObjectIcon>().Length == 1)
+                SceneManager.Instance.GroundObjectListMenu.EndUp();
 
             Destroy(gameObject);
         }

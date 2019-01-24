@@ -121,6 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7571883ca9748e2b2517ba0558af47b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TextDialog: {fileID: 0}
   Character: {fileID: 114717772600095978}
 --- !u!114 &114431965758890582
 MonoBehaviour:
@@ -136,9 +137,6 @@ MonoBehaviour:
   SpriteRenderer: {fileID: 0}
   DisabledSprite: {fileID: 21300012, guid: 903229811b7965a4591b184cab38aa3e, type: 3}
   Speed: 10
-  TargetDirection: 0
-  Moving: 0
-  IsDisabled: 0
   MoveUpSprites:
   - {fileID: 21300074, guid: 96a2360a3e9ee774a934df04c2a6cbf3, type: 3}
   - {fileID: 21300072, guid: 96a2360a3e9ee774a934df04c2a6cbf3, type: 3}
@@ -171,6 +169,10 @@ MonoBehaviour:
   - {fileID: 21300050, guid: 96a2360a3e9ee774a934df04c2a6cbf3, type: 3}
   StopNoneSprites:
   - {fileID: 21300002, guid: 96a2360a3e9ee774a934df04c2a6cbf3, type: 3}
+  ChildrenPos: []
+  TargetDirection: 0
+  Moving: 0
+  _isDisabled: 0
 --- !u!114 &114717772600095978
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -189,7 +191,6 @@ MonoBehaviour:
   SpriteController: {fileID: 0}
   Collider2D: {fileID: 58667543570485070}
   Rigidbody2D: {fileID: 0}
-  IsDestroy: 0
   AreaIdentity: 0
   Controller: {fileID: 114048760322502142}
   Properties:
@@ -237,6 +238,7 @@ MonoBehaviour:
       Value: 200
       MaxValue: 1000
       PotentialRate: 0.00001
+    InteractRange: 1.5
     Lifetime: 0
     BodyParts:
     - Name: Head

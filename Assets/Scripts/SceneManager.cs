@@ -39,7 +39,7 @@ public class SceneManager : MonoBehaviour
     public GameObject Player;
     public Grid Grid;
     public SceneControlButton SceneControlButton;
-    public ObjectListMenu ObjectListMenu;
+    public GroundObjectListMenu GroundObjectListMenu;
     public ObjectActPanel ObjectActPanel;
 
     public List<BodyPartList> ComponentList;

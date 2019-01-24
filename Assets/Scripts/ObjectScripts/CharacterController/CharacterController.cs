@@ -4,6 +4,7 @@ using JetBrains.Annotations;
 using ObjectScripts.ActionScripts;
 using ObjectScripts.CharSubstance;
 using UnityEngine;
+using UnityEngine.UI;
 using UtilScripts;
 
 
@@ -47,7 +48,7 @@ namespace ObjectScripts.CharacterController
         {
             if (!Character.Dead && _recoveredTime < SceneManager.Instance.CurrentTime)
             {
-                _recoveredTime += Character.Properties.GetReactTime(0);
+                _recoveredTime += 100;
                 Character.Recovering();
             }
             if (!Character.IsTurn()) return;
@@ -59,6 +60,11 @@ namespace ObjectScripts.CharacterController
         public virtual void GetHostility(Character hostility, int level)
         {
             
+        }
+        
+        public void PrintMessage(string message)
+        {
+            SceneManager.Instance.Print(message, Character.WorldCoord);
         }
 
 

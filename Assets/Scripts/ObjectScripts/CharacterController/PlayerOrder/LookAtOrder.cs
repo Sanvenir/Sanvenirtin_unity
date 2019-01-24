@@ -19,7 +19,7 @@ namespace ObjectScripts.CharacterController.PlayerOrder
         public override BaseOrder DoOrder()
         {
             base.DoOrder();
-            SceneManager.Instance.ObjectListMenu.StartUp(_visibleObjects, false);
+            SceneManager.Instance.GroundObjectListMenu.StartUp(_visibleObjects, false);
             return null;
         }
 
