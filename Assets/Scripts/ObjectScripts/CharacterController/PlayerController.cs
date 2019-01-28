@@ -26,11 +26,6 @@ namespace ObjectScripts.CharacterController
         public HashSet<Vector2Int> MemorizedCoord = new HashSet<Vector2Int>();
         private Vector2Int? _preCoord = null;
 
-        protected override void Awake()
-        {
-            base.Awake();
-        }
-
         private void LateUpdate()
         {
 //            

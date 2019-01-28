@@ -11,8 +11,9 @@ namespace ObjectScripts.CharacterController
         public BaseCondition DefaultCondition;
         public BaseCondition Condition;
 
-        private void Start()
+        protected override void Start()
         {
+            base.Start();
             DefaultCondition = new AlertOtherRaceCondition(this);
             Condition = DefaultCondition;
         }

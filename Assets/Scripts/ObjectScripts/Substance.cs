@@ -10,7 +10,41 @@ namespace ObjectScripts
         // Read Only
         [HideInInspector]
         public int AreaIdentity;
-        
+
+        /// <summary>
+        ///     The decreased color while selected
+        /// </summary>
+        private static readonly Color SelectColorDecrease = new Color(0.5f, 0.5f, 0.5f, 0.2f);
+
+        private bool _selected;
+
+        public bool Selected
+        {
+            set
+            {
+                if (!Visible)
+                {
+                    value = false;
+                }
+                
+                if (value == _selected) return;
+                _selected = value;
+                if (_selected)
+                {
+                    SpriteRenderer.sortingLayerName = "OnTop";
+                    SpriteRenderer.color -= SelectColorDecrease;
+                }
+                else
+                {
+                    SpriteRenderer.sortingLayerID = _originSortingLayer;
+                    SpriteRenderer.color += SelectColorDecrease;
+                }
+            }
+            get { return _selected; }
+        }
+
+        private int _originSortingLayer;
+
         public void MoveTo(Vector2Int worldCoord)
         {
             WorldPos = SceneManager.Instance.WorldCoordToPos(worldCoord);
@@ -35,7 +69,7 @@ namespace ObjectScripts
                 Destroy(gameObject);
                 return;
             }
-
+            _originSortingLayer = SpriteRenderer.sortingLayerID;
             var area = SceneManager.Instance.ActivateAreas[AreaIdentity];
             if (area.IsWorldCoordInsideArea(WorldCoord)) return;
             area = SceneManager.Instance.WorldPosToArea(WorldPos);

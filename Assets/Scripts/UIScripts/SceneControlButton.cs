@@ -79,9 +79,7 @@ namespace UIScripts
             if (_selected == null) return;
             var substance = _selected.GetComponent<Substance>();
             if (substance == null) return;
-            substance.SpriteRenderer.sortingLayerID = _selectedOriginLayer;
-            substance.SpriteRenderer.color = Color.white;
-            _selected = null;
+            substance.Selected = false;
         }
 
         private void ChangeSelected()
@@ -100,9 +98,7 @@ namespace UIScripts
             if (_selected == null) return;
             var substance = _selected.GetComponent<Substance>();
             if (substance == null) return;
-            _selectedOriginLayer = substance.SpriteRenderer.sortingLayerID;
-            substance.SpriteRenderer.sortingLayerName = "OnTop";
-            substance.SpriteRenderer.color = Color.gray;
+            substance.Selected = true;
         }
 
         private void Update()
