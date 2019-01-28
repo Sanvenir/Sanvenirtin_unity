@@ -3,43 +3,42 @@ using System.Collections.Generic;
 using JetBrains.Annotations;
 using ObjectScripts.ActionScripts;
 using ObjectScripts.CharSubstance;
+using UIScripts;
 using UnityEngine;
-using UnityEngine.UI;
 using UtilScripts;
-
 
 namespace ObjectScripts.CharacterController
 {
     /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
-    public abstract class CharacterController: MonoBehaviour
+    public abstract class CharacterController : MonoBehaviour
     {
-        
-        // Actions
+        public CharacterTextDialog TextDialog;
+
+        /// <summary>
+        ///     Actions
+        /// </summary>
         protected BaseAction NextAction;
 
         /// <summary>
-        /// 
         /// </summary>
         /// <param name="action"></param>
         public virtual void SetAction(BaseAction action)
         {
             NextAction = action;
         }
-        
+
         public Character Character;
 
-        private int _recoveredTime = 0;
+        private int _recoveredTime;
 
-        protected virtual void Awake()
+        protected virtual void Start()
         {
-        }
-
-        public virtual void Initialize()
-        {
-            
+            if (TextDialog == null) return;
+            TextDialog = Instantiate(TextDialog, Character.SpriteRenderer.transform);
+            TextDialog.transform.localPosition = Vector3.up * Character.SpriteRenderer.size.y;
+            TextDialog.Character = Character;
         }
 
         public abstract void UpdateFunction();
@@ -51,6 +50,7 @@ namespace ObjectScripts.CharacterController
                 _recoveredTime += 100;
                 Character.Recovering();
             }
+
             if (!Character.IsTurn()) return;
             Character.RefreshProperties();
             if (Character.Dead || Character.Stun.Value) return;
@@ -59,12 +59,19 @@ namespace ObjectScripts.CharacterController
 
         public virtual void GetHostility(Character hostility, int level)
         {
-            
         }
-        
+
+        public void ClearMessage()
+        {
+            if (TextDialog == null) return;
+            TextDialog.Clear();
+        }
+
         public void PrintMessage(string message)
         {
             SceneManager.Instance.Print(message, Character.WorldCoord);
+            if (TextDialog == null) return;
+            TextDialog.PrintDialog(message);
         }
 
 
@@ -90,15 +97,9 @@ namespace ObjectScripts.CharacterController
 
             public int CompareTo(AStarNode obj)
             {
-                if (obj.Coord == Coord)
-                {
-                    return 0;
-                }
+                if (obj.Coord == Coord) return 0;
 
-                if (obj.FValue != FValue)
-                {
-                    return FValue.CompareTo(obj.FValue);
-                }
+                if (obj.FValue != FValue) return FValue.CompareTo(obj.FValue);
 
                 return Coord.x == obj.Coord.x ? Coord.y.CompareTo(obj.Coord.y) : Coord.x.CompareTo(obj.Coord.x);
             }
@@ -106,16 +107,10 @@ namespace ObjectScripts.CharacterController
 
         public Vector2Int AStarFinder(Vector2Int target, int memorySize = 50)
         {
-            if (target == Character.WorldCoord)
-            {
-                return Vector2Int.zero;
-            }
+            if (target == Character.WorldCoord) return Vector2Int.zero;
 
             var hValue = (target - Character.WorldCoord).sqrMagnitude;
-            if (hValue > memorySize * memorySize)
-            {
-                return SimpleFinder(target);
-            }
+            if (hValue > memorySize * memorySize) return SimpleFinder(target);
 
             var openList = new SortedList<AStarNode, Vector2Int>();
             var closedSet = new HashSet<Vector2Int>();
@@ -183,24 +178,15 @@ namespace ObjectScripts.CharacterController
 
         public Vector2Int SimpleFinder(Vector2Int target)
         {
-            if (target == Character.WorldCoord)
-            {
-                return Vector2Int.zero;
-            }
+            if (target == Character.WorldCoord) return Vector2Int.zero;
 
 //            var dx = target.x - Parent.WorldCoord.x;
 //            var dy = target.y - Parent.WorldCoord.y;
 
             var delta = target - Character.WorldCoord;
-            if (delta.x != 0)
-            {
-                delta.x = delta.x.CompareTo(0);
-            }
+            if (delta.x != 0) delta.x = delta.x.CompareTo(0);
 
-            if (delta.y != 0)
-            {
-                delta.y = delta.y.CompareTo(0);
-            }
+            if (delta.y != 0) delta.y = delta.y.CompareTo(0);
 
             if ((delta.x & delta.y) == 0)
                 return Character.CheckColliderAtWorldCoord(delta + Character.WorldCoord)
@@ -219,13 +205,9 @@ namespace ObjectScripts.CharacterController
                 delta.x = 0;
             }
 
-            if (Character.CheckColliderAtWorldCoord(delta + Character.WorldCoord))
-            {
-                return delta;
-            }
+            if (Character.CheckColliderAtWorldCoord(delta + Character.WorldCoord)) return delta;
 
             return Character.CheckColliderAtWorldCoord(altDelta + Character.WorldCoord) ? altDelta : Vector2Int.zero;
         }
-
     }
 }

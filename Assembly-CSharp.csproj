@@ -68,6 +68,7 @@
     <Compile Include="Assets\Scripts\ExceptionScripts\GameCondition.cs" />
     <Compile Include="Assets\Scripts\ExceptionScripts\GameException.cs" />
     <Compile Include="Assets\Scripts\ExceptionScripts\ObjectNotNullException.cs" />
+    <Compile Include="Assets\Scripts\Exclude\ImageFitterText.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\MapScripts\EarthMap.cs" />
     <Compile Include="Assets\Scripts\MapScripts\EarthMapManager.cs" />
@@ -122,6 +123,7 @@
     <Compile Include="Assets\Scripts\UIScripts\ActionMenu.cs" />
     <Compile Include="Assets\Scripts\UIScripts\BodyPartButton.cs" />
     <Compile Include="Assets\Scripts\UIScripts\BodyPartPanel.cs" />
+    <Compile Include="Assets\Scripts\UIScripts\CharacterTextDialog.cs" />
     <Compile Include="Assets\Scripts\UIScripts\FetchObjectList.cs" />
     <Compile Include="Assets\Scripts\UIScripts\FetchObjectSlot.cs" />
     <Compile Include="Assets\Scripts\UIScripts\GameMenuWindow.cs" />
@@ -133,6 +135,7 @@
     <Compile Include="Assets\Scripts\UIScripts\SceneControlButton.cs" />
     <Compile Include="Assets\Scripts\UIScripts\SelectionButton.cs" />
     <Compile Include="Assets\Scripts\UIScripts\SelectionMenu.cs" />
+    <Compile Include="Assets\Scripts\UIScripts\StylePanel.cs" />
     <Compile Include="Assets\Scripts\UtilScripts\DamageValue.cs" />
     <Compile Include="Assets\Scripts\UtilScripts\Direction.cs" />
     <Compile Include="Assets\Scripts\UtilScripts\EarthMapCoord.cs" />

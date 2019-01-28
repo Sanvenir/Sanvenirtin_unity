@@ -80,6 +80,8 @@ namespace ObjectScripts
                 throw new GameException("Lack of essential component!");
             }
 
+            Visible = false;
+
             SetPosition(worldPos);
         }
 
@@ -183,9 +185,12 @@ namespace ObjectScripts
                 SpriteRenderer.transform.position.y);
         }
 
+        /// <summary>
+        ///     Play the action effect animation
+        /// </summary>
+        /// <param name="effect"></param>
         public void PlayEffect(EffectController effect)
         {
-            // Play the attack action effect animation
             if (effect == null || !Visible) return;
             var instance = Instantiate(effect, transform);
             instance.Parent = this;
