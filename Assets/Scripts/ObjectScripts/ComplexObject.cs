@@ -73,7 +73,7 @@ namespace ObjectScripts
             }
         }
 
-        public IEnumerable<object> GetAvailableBodyParts(PartPos partPos = PartPos.Arbitrary)
+        public IEnumerable<INamed> GetAvailableBodyParts(PartPos partPos = PartPos.Arbitrary)
         {
             var bodyParts = GetBodyParts(partPos);
             foreach (var bodyPart in bodyParts)

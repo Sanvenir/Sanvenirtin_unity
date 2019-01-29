@@ -42,7 +42,7 @@ namespace UIScripts
         private int _step;
         private int _index;
 
-        public void StartUp(Vector2 pos, IEnumerable<object> selectionList)
+        public void StartUp(Vector2 pos, IEnumerable<INamed> selectionList)
         {
             SceneManager.Instance.PlayerController.CurrentOrder = null;
             CenterPos = pos;
@@ -50,7 +50,7 @@ namespace UIScripts
             foreach (var selection in selectionList)
             {
                 var instance = Instantiate(ButtonPrefab, transform);
-                var named = selection as INamed;
+                var named = selection;
                 if (named != null)
                 {
                     instance.SetText(named.GetTextName());

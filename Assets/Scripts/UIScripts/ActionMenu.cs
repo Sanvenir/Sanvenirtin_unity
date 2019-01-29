@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using ObjectScripts.CharacterController.PlayerOrder;
 using UnityEngine;
+using UtilScripts;
 
 namespace UIScripts
 {
@@ -17,7 +18,7 @@ namespace UIScripts
             new AttackDirectionOrder(),
         };
 
-        private IEnumerable<object> GetAvailableOrders()
+        private IEnumerable<INamed> GetAvailableOrders()
         {
             foreach (var order in OrderList)
             {

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UtilScripts;
 
 namespace UIScripts.StyleSelection
 {
@@ -9,7 +10,7 @@ namespace UIScripts.StyleSelection
         private bool _isActivate = false;
         public SelectionMenu SelectionMenu;
 
-        protected abstract IEnumerable<object> GetStyleSelections();
+        protected abstract IEnumerable<INamed> GetStyleSelections();
         
         public void OnPointerDown(PointerEventData eventData)
         {

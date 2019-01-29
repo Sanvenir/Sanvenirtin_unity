@@ -233,7 +233,7 @@ namespace ObjectScripts.CharSubstance
 
         public Dictionary<BodyPart, BaseObject> FetchDictionary = new Dictionary<BodyPart, BaseObject>();
 
-        public IEnumerable<object> GetFreeFetchParts()
+        public IEnumerable<INamed> GetFreeFetchParts()
         {
             foreach (var item in FetchDictionary)
                 if (item.Value == null && item.Key.Available)

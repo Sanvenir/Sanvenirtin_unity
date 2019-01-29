@@ -7,6 +7,7 @@ using ObjectScripts.ItemScripts;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using UtilScripts;
 
 namespace UIScripts
 {
@@ -15,7 +16,7 @@ namespace UIScripts
         public Text Text;
         public SelectionMenu SelectionMenu;
 
-        private IEnumerable<object> _selectionList;
+        private IEnumerable<INamed> _selectionList;
 
         private CalledFunction _calledFunction;
         
@@ -23,7 +24,7 @@ namespace UIScripts
         
         private bool _isClicked;
 
-        public void Initialize(string text, CalledFunction function, IEnumerable<object> selection = null)
+        public void Initialize(string text, CalledFunction function, IEnumerable<INamed> selection = null)
         {
             Text.text = text;
             _selectionList = selection;
