@@ -21,6 +21,10 @@
             <e p="CoordOutOfWorldException.cs" t="Include" />
             <e p="GameCondition.cs" t="Include" />
             <e p="GameException.cs" t="Include" />
+            <e p="ObjectNotNullException.cs" t="Include" />
+          </e>
+          <e p="Exclude" t="Include">
+            <e p="ImageFitterText.cs" t="Include" />
           </e>
           <e p="GameManager.cs" t="Include" />
           <e p="MapScripts" t="Include">
@@ -32,6 +36,7 @@
             <e p="ActionScripts" t="Include">
               <e p="AttackNeighbourAction.cs" t="Include" />
               <e p="BaseAction.cs" t="Include" />
+              <e p="BaseItemAction.cs" t="Include" />
               <e p="ConsumeAction.cs" t="Include" />
               <e p="DropFetchAction.cs" t="Include" />
               <e p="PickupAction.cs" t="Include" />
@@ -77,6 +82,7 @@
             <e p="ItemScripts" t="Include">
               <e p="IConsumableItem.cs" t="Include" />
               <e p="RawFood.cs" t="Include" />
+              <e p="Weapon.cs" t="Include" />
             </e>
             <e p="RaceScripts" t="Include">
               <e p="BasicRace.cs" t="Include" />
@@ -97,19 +103,25 @@
           <e p="SceneManager.cs" t="Include" />
           <e p="UIScripts" t="Include">
             <e p="ActionMenu.cs" t="Include" />
+            <e p="AutoResizePanel.cs" t="Include" />
             <e p="BodyPartButton.cs" t="Include" />
             <e p="BodyPartPanel.cs" t="Include" />
-            <e p="BodyPartSelectMenu.cs" t="Include" />
+            <e p="CharacterTextDialog.cs" t="Include" />
             <e p="FetchObjectList.cs" t="Include" />
             <e p="FetchObjectSlot.cs" t="Include" />
             <e p="GameMenuWindow.cs" t="Include" />
+            <e p="GroundObjectIcon.cs" t="Include" />
+            <e p="GroundObjectListMenu.cs" t="Include" />
+            <e p="ObjectActButton.cs" t="Include" />
             <e p="ObjectActPanel.cs" t="Include" />
-            <e p="ObjectIcon.cs" t="Include" />
-            <e p="ObjectListMenu.cs" t="Include" />
             <e p="PropertyPanel.cs" t="Include" />
             <e p="SceneControlButton.cs" t="Include" />
             <e p="SelectionButton.cs" t="Include" />
             <e p="SelectionMenu.cs" t="Include" />
+            <e p="StyleSelection" t="Include">
+              <e p="MoveStyleSelectionButton.cs" t="Include" />
+              <e p="StyleSelectButton.cs" t="Include" />
+            </e>
           </e>
           <e p="UtilScripts" t="Include">
             <e p="DamageValue.cs" t="Include" />

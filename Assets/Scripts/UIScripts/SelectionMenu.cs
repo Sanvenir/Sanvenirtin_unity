@@ -15,6 +15,9 @@ namespace UIScripts
         // Setting
         [Range(0.01f, 10f)]
         public float ChangeAccuracy = 0.1f;
+
+        [Range(0.01f, 10f)]
+        public float ButtonSpace = 1.0f;
         
         public SelectionButton ButtonPrefab;
         
@@ -60,7 +63,7 @@ namespace UIScripts
             if (SelectionList.Count == 0) return;
 
             enabled = true;
-            _mouseY = 0f;
+            _mouseY = 0.5f;
             CenterIndex = 0;
             CurrentSelect = SelectionList[CenterIndex];
         }
@@ -81,22 +84,22 @@ namespace UIScripts
         {
             for (_index = 0; _index != ButtonInstances.Count; ++_index)
             {
-                ButtonInstances[_index].TargetPos = CenterPos + Vector2.up * (CenterIndex - _index);
+                ButtonInstances[_index].TargetPos = CenterPos + Vector2.up * (CenterIndex - _index) * ButtonSpace;
                 ButtonInstances[_index].TargetAlpha = 1.0f;
                 ButtonInstances[_index].TargetScale = _index == CenterIndex ? 1.0f : 0.8f;
             }
 
-            _mouseY -= Input.GetAxis("Mouse Y");
-            CenterIndex = Utils.FloatToInt(_mouseY * ChangeAccuracy);
+            _mouseY -= Input.GetAxis("Mouse Y") * ChangeAccuracy;
+            CenterIndex = Utils.FloatToInt(_mouseY);
             if (CenterIndex >= ButtonInstances.Count)
             {
                 CenterIndex = ButtonInstances.Count - 1;
-                _mouseY = Mathf.Min(_mouseY, CenterIndex / ChangeAccuracy + 1);
+                _mouseY = Mathf.Min(_mouseY, CenterIndex + 1);
             }
             else if (CenterIndex < -1)
             {
                 CenterIndex = -1;
-                _mouseY = Mathf.Max(_mouseY, -1 / ChangeAccuracy - 1);
+                _mouseY = Mathf.Max(_mouseY, -1);
             }
 
             CurrentSelect = CenterIndex >= 0 ? SelectionList[CenterIndex] : default(object);
