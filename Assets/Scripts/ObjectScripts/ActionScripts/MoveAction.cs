@@ -7,7 +7,7 @@ namespace ObjectScripts.ActionScripts
     /// <summary>
     ///     An action makes character walk to given TargetDirection
     /// </summary>
-    public class WalkAction : BaseAction
+    public class MoveAction : BaseAction
     {
         private readonly Direction _targetDirection;
 
@@ -20,15 +20,13 @@ namespace ObjectScripts.ActionScripts
         public override bool DoAction()
         {
             base.DoAction();
-            if (!Self.MoveCheck(Utils.DirectionToVector(_targetDirection))) return false;
-            Self.Move(Utils.DirectionToVector(_targetDirection), CostTime);
-            return true;
+            return Self.CurrentMoveStyle.MoveAction(_targetDirection);
         }
 
-        public WalkAction(Character self, Direction targetDirection) : base(self)
+        public MoveAction(Character self, Direction targetDirection) : base(self)
         {
             _targetDirection = targetDirection;
-            CostTime = Self.Properties.GetMoveTime(0);
+            CostTime = Self.CurrentMoveStyle.MoveTime();
         }
     }
 }

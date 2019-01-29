@@ -1,6 +1,8 @@
 using System.Collections.Generic;
+using ObjectScripts.CharacterController;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 using UtilScripts;
 
 namespace UIScripts.StyleSelection
@@ -9,6 +11,17 @@ namespace UIScripts.StyleSelection
     {
         private bool _isActivate = false;
         public SelectionMenu SelectionMenu;
+        protected Text Text;
+
+        private void Start()
+        {
+            Text = GetComponentInChildren<Text>();
+        }
+
+        protected static PlayerController PlayerController
+        {
+            get { return SceneManager.Instance.PlayerController; }
+        }
 
         protected abstract IEnumerable<INamed> GetStyleSelections();
         
@@ -23,7 +36,9 @@ namespace UIScripts.StyleSelection
         {
             if (!_isActivate || Input.GetMouseButton(1)) return;
             _isActivate = false;
-            SelectionMenu.EndUp();
+            Selected(SelectionMenu.EndUp());
         }
+
+        protected abstract void Selected(INamed selection);
     }
 }

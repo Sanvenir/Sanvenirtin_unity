@@ -24,6 +24,7 @@ namespace ObjectScripts.ActionScripts
         public virtual bool DoAction()
         {
             Self.ActivateTime += CostTime;
+            Self.Hunger += Self.Properties.GetBaseRecover(0.1f) * CostTime / 100;
             return true;
         }
     }

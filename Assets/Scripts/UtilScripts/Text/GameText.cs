@@ -19,7 +19,10 @@ namespace UtilScripts.Text
         public string ConsumeAct = "食用";
         public string SplitAct = "拆解";
         public string DropAct = "丢弃";
-
+        public string WalkMoveStyle = "步行中";
+        public string RunMoveStyle = "奔跑中";
+        public string DashMoveStyle = "冲刺中";
+        
         private static GameText _instance = null;
 
         public static GameText Instance
@@ -199,6 +202,7 @@ namespace UtilScripts.Text
             "<self>没有击中任何东西。",
             "<self>的攻击落空了。"
         };
+
 
         public string GetAttackEmptyLog(string self)
         {

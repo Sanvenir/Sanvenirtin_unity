@@ -33,7 +33,7 @@ namespace ObjectScripts.CharacterController.CtrlConditions
 
             return incVec == Vector2Int.zero
                 ? base.NextAction()
-                : new WalkAction(Self, Utils.VectorToDirection(incVec));
+                : new MoveAction(Self, Utils.VectorToDirection(incVec));
         }
     }
 }

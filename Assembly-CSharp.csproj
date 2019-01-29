@@ -78,10 +78,10 @@
     <Compile Include="Assets\Scripts\ObjectScripts\ActionScripts\BaseItemAction.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\ActionScripts\ConsumeAction.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\ActionScripts\DropFetchAction.cs" />
+    <Compile Include="Assets\Scripts\ObjectScripts\ActionScripts\MoveAction.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\ActionScripts\PickupAction.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\ActionScripts\SplitAction.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\ActionScripts\WaitAction.cs" />
-    <Compile Include="Assets\Scripts\ObjectScripts\ActionScripts\WalkAction.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\BaseObject.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\BodyPartScripts\BodyPart.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\BodyPartScripts\BodyPartList.cs" />
@@ -117,6 +117,14 @@
     <Compile Include="Assets\Scripts\ObjectScripts\SpriteController\SpriteController.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\SpriteController\StaticSpriteController.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\StaticSubstance\Tree.cs" />
+    <Compile Include="Assets\Scripts\ObjectScripts\StyleScripts\ActStyleScripts\BaseActStyle.cs" />
+    <Compile Include="Assets\Scripts\ObjectScripts\StyleScripts\BaseStyle.cs" />
+    <Compile Include="Assets\Scripts\ObjectScripts\StyleScripts\MaradyStyleScripts\BaseMaradyStyle.cs" />
+    <Compile Include="Assets\Scripts\ObjectScripts\StyleScripts\MentalStyleScripts\BaseMentalStyle.cs" />
+    <Compile Include="Assets\Scripts\ObjectScripts\StyleScripts\MoveStyleScripts\BaseMoveStyle.cs" />
+    <Compile Include="Assets\Scripts\ObjectScripts\StyleScripts\MoveStyleScripts\DashMoveStyle.cs" />
+    <Compile Include="Assets\Scripts\ObjectScripts\StyleScripts\MoveStyleScripts\RunMoveStyle.cs" />
+    <Compile Include="Assets\Scripts\ObjectScripts\StyleScripts\MoveStyleScripts\WalkMoveStyle.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\Substance.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\SubstanceProperties.cs" />
     <Compile Include="Assets\Scripts\SceneManager.cs" />

@@ -39,10 +39,10 @@
               <e p="BaseItemAction.cs" t="Include" />
               <e p="ConsumeAction.cs" t="Include" />
               <e p="DropFetchAction.cs" t="Include" />
+              <e p="MoveAction.cs" t="Include" />
               <e p="PickupAction.cs" t="Include" />
               <e p="SplitAction.cs" t="Include" />
               <e p="WaitAction.cs" t="Include" />
-              <e p="WalkAction.cs" t="Include" />
             </e>
             <e p="BaseObject.cs" t="Include" />
             <e p="BodyPartScripts" t="Include">
@@ -96,6 +96,24 @@
             </e>
             <e p="StaticSubstance" t="Include">
               <e p="Tree.cs" t="Include" />
+            </e>
+            <e p="StyleScripts" t="Include">
+              <e p="ActStyleScripts" t="Include">
+                <e p="BaseActStyle.cs" t="Include" />
+              </e>
+              <e p="BaseStyle.cs" t="Include" />
+              <e p="MaradyStyleScripts" t="Include">
+                <e p="BaseMaradyStyle.cs" t="Include" />
+              </e>
+              <e p="MentalStyleScripts" t="Include">
+                <e p="BaseMentalStyle.cs" t="Include" />
+              </e>
+              <e p="MoveStyleScripts" t="Include">
+                <e p="BaseMoveStyle.cs" t="Include" />
+                <e p="DashMoveStyle.cs" t="Include" />
+                <e p="RunMoveStyle.cs" t="Include" />
+                <e p="WalkMoveStyle.cs" t="Include" />
+              </e>
             </e>
             <e p="Substance.cs" t="Include" />
             <e p="SubstanceProperties.cs" t="Include" />

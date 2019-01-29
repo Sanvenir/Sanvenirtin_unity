@@ -22,7 +22,7 @@ namespace UIScripts
         public SelectionButton ButtonPrefab;
         
         [HideInInspector]
-        public List<object> SelectionList;
+        public List<INamed> SelectionList;
         
         [HideInInspector]
         public List<SelectionButton> ButtonInstances = new List<SelectionButton>();
@@ -31,7 +31,7 @@ namespace UIScripts
         public int CenterIndex;
         
         [HideInInspector]
-        public object CurrentSelect;
+        public INamed CurrentSelect;
         
         
         private float _mouseY;
@@ -46,7 +46,7 @@ namespace UIScripts
         {
             SceneManager.Instance.PlayerController.CurrentOrder = null;
             CenterPos = pos;
-            SelectionList = new List<object>();
+            SelectionList = new List<INamed>();
             foreach (var selection in selectionList)
             {
                 var instance = Instantiate(ButtonPrefab, transform);
@@ -68,9 +68,9 @@ namespace UIScripts
             CurrentSelect = SelectionList[CenterIndex];
         }
         
-        public object EndUp()
+        public INamed EndUp()
         {
-            if (!enabled) return default(object);
+            if (!enabled) return default(INamed);
             enabled = false;
             foreach (var button in ButtonInstances)
             {
@@ -102,7 +102,7 @@ namespace UIScripts
                 _mouseY = Mathf.Max(_mouseY, -1);
             }
 
-            CurrentSelect = CenterIndex >= 0 ? SelectionList[CenterIndex] : default(object);
+            CurrentSelect = CenterIndex >= 0 ? SelectionList[CenterIndex] : default(INamed);
         }
     }
 }

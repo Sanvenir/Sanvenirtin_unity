@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using AreaScripts;
 using ObjectScripts.BodyPartScripts;
 using ObjectScripts.SpriteController;
+using ObjectScripts.StyleScripts.MoveStyleScripts;
 using UnityEngine;
 using UtilScripts;
 using UtilScripts.Text;
@@ -14,6 +15,9 @@ namespace ObjectScripts.CharSubstance
         public CharacterController.CharacterController Controller;
         public Properties Properties;
         public int RaceIndex;
+        
+        public List<BaseMoveStyle> MoveStyleList;
+        public BaseMoveStyle CurrentMoveStyle;
 
         public bool IsTurn()
         {
@@ -198,9 +202,6 @@ namespace ObjectScripts.CharSubstance
                         GameText.Instance.GetFallIntoStunLog(TextName), WorldCoord);
                 }
 
-            // For conditions that character cannot move
-            if (Stun.Value) ActivateTime += Properties.GetActTime(0);
-
             if (Health >= Properties.GetMaxHealth(0)) Die();
 
             #endregion
@@ -227,6 +228,16 @@ namespace ObjectScripts.CharSubstance
             foreach (var bodyPart in BodyParts.Values)
                 if (bodyPart.Fetchable)
                     FetchDictionary.Add(bodyPart, null);
+            
+            MoveStyleList = new List<BaseMoveStyle>
+            {
+                new WalkMoveStyle(this),
+                new RunMoveStyle(this),
+                new DashMoveStyle(this)
+            };
+
+            CurrentMoveStyle = MoveStyleList[0];
+            
             base.Initialize(worldCoord, areaIdentity);
             RefreshProperties();
         }
@@ -333,22 +344,20 @@ namespace ObjectScripts.CharSubstance
             return Utils.ProcessRandom.Next((int) Endure) < Properties.GetMaxEndure(0);
         }
 
-        public virtual void Recovering()
+        public virtual void Recovering(float intense=1.0f)
         {
             if (Endure > float.Epsilon)
             {
-                var endureRec = Mathf.Min(Properties.GetEndureRecover(0.1f), Endure);
+                var endureRec = Mathf.Min(Properties.GetEndureRecover(0.1f) * intense, Endure);
                 Hunger += endureRec / 100f;
                 Endure -= endureRec;
             }
 
-            Hunger += Properties.GetBaseRecover(0.1f) * 10f;
-
-            if (Health > float.Epsilon) Health -= Properties.GetHealthRecover(0.1f);
+            if (Health > float.Epsilon) Health -= Properties.GetHealthRecover(0.1f) * intense;
 
             if (Sanity > float.Epsilon)
             {
-                Sanity -= Properties.GetWillRecover(0.1f);
+                Sanity -= Properties.GetWillRecover(0.1f) * intense;
                 if (Stun.Value)
                     if (Utils.ProcessRandom.Next((int) Properties.GetMaxSanity(0)) > Sanity)
                     {
@@ -361,7 +370,7 @@ namespace ObjectScripts.CharSubstance
             foreach (var part in BodyParts.Values)
             {
                 if (!part.Available) continue;
-                part.HitPoint.Value += Properties.GetHealthRecover(0);
+                part.HitPoint.Value += Properties.GetHealthRecover(0) * intense;
             }
         }
     }

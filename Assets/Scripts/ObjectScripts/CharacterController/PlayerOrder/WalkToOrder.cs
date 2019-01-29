@@ -24,7 +24,7 @@ namespace ObjectScripts.CharacterController.PlayerOrder
                 return null;
             }
 
-            Controller.SetAction(new WalkAction(Player, Utils.VectorToDirection(_vecInt)));
+            Controller.SetAction(new MoveAction(Player, Utils.VectorToDirection(_vecInt)));
             return this;
         }
 

@@ -17,7 +17,7 @@ namespace ObjectScripts.ActionScripts
         public override bool DoAction()
         {
             base.DoAction();
-            Self.Recovering();
+            Self.Recovering(5);
             return true;
         }
     }

@@ -31,6 +31,7 @@ namespace ObjectScripts
                 _selected = value;
                 if (_selected)
                 {
+                    _originSortingLayer = SpriteRenderer.sortingLayerID;
                     SpriteRenderer.sortingLayerName = "OnTop";
                     SpriteRenderer.color -= SelectColorDecrease;
                 }
@@ -69,7 +70,6 @@ namespace ObjectScripts
                 Destroy(gameObject);
                 return;
             }
-            _originSortingLayer = SpriteRenderer.sortingLayerID;
             var area = SceneManager.Instance.ActivateAreas[AreaIdentity];
             if (area.IsWorldCoordInsideArea(WorldCoord)) return;
             area = SceneManager.Instance.WorldPosToArea(WorldPos);

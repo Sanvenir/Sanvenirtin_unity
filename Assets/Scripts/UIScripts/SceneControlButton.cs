@@ -143,17 +143,9 @@ namespace UIScripts
                 targetPos * 0.5f;
 
             // If a collider is chosen, highlight it; 
-            if (Physics2D.OverlapPoint(SceneCursor.transform.position, SceneCursorFilter, _hits) != 0)
-//            if ( _cursorCollider.OverlapCollider(
-//                     SceneCursorFilter, _hits) != 0)
-            {
-                ChangeSelected();
-            }
-            else
-            {
-                CancelSelected();
-            }
-
+            _hits[0] = null;
+            Physics2D.OverlapPoint(SceneCursor.transform.position, SceneCursorFilter, _hits);
+            ChangeSelected();
             
             // Control
             

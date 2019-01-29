@@ -20,7 +20,7 @@ namespace ObjectScripts.CharacterController.CtrlConditions
                 return new WaitAction(Self);
             }
 
-            return new WalkAction(Self, (Direction) Utils.ProcessRandom.Next(4));
+            return new MoveAction(Self, (Direction) Utils.ProcessRandom.Next(4));
         }
     }
 }

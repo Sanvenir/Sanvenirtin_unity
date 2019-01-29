@@ -43,7 +43,7 @@ namespace ObjectScripts.CharSubstance
         public PotentialProperty Speed = new PotentialProperty(10, 20, 0.0001f);
         public PotentialProperty MoveSpeed = new PotentialProperty(10, 20, 0.0001f);
         public PotentialProperty ActSpeed = new PotentialProperty(10, 20, 0.0001f);
-        
+
         public PotentialProperty Strength = new PotentialProperty(10, 20, 0.0001f);
         public PotentialProperty Dexterity = new PotentialProperty(10, 20, 0.0001f);
         public PotentialProperty Constitution = new PotentialProperty(10, 20, 0.0001f);
@@ -171,6 +171,11 @@ namespace ObjectScripts.CharSubstance
 
         private int _actRatio;
 
+        /// <summary>
+        ///     Max 10
+        /// </summary>
+        /// <param name="intense"></param>
+        /// <returns></returns>
         public int GetActRatio(float intense)
         {
             ActSpeed.Use(intense);
@@ -179,6 +184,11 @@ namespace ObjectScripts.CharSubstance
 
         private int _moveRatio;
 
+        /// <summary>
+        ///     Max 10
+        /// </summary>
+        /// <param name="intense"></param>
+        /// <returns></returns>
         public int GetMoveRatio(float intense)
         {
             MoveSpeed.Use(intense);
@@ -264,7 +274,7 @@ namespace ObjectScripts.CharSubstance
 
         public DamageValue GetCutAttack(float intense)
         {
-            return new DamageValue(cutDamage: Strength.Use(intense) * Dexterity.Use(intense) * 0.1f);
+            return new DamageValue(Strength.Use(intense) * Dexterity.Use(intense) * 0.1f);
         }
 
         public float InteractRangeSqr()
