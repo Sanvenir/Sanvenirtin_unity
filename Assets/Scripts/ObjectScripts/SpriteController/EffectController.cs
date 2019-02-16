@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using UtilScripts;
 
 namespace ObjectScripts.SpriteController
 {
@@ -7,6 +9,7 @@ namespace ObjectScripts.SpriteController
         public Sprite[] Sprites;
         [HideInInspector] public BaseObject Parent;
         private SpriteRenderer _spriteRenderer;
+        private Direction _direction;
 
         /// <summary>
         ///     If Disappear Time is 0, the effect last unlimited
@@ -17,8 +20,28 @@ namespace ObjectScripts.SpriteController
 
         private int _index;
 
-        public void Initialize(int lastTime = 0)
+        public void Initialize(int lastTime = 0, Direction direction = Direction.None)
         {
+            _direction = direction;
+            switch (direction)
+            {
+                case Direction.Down:
+                    transform.Rotate(0, 0, 270);
+                    break;
+                case Direction.Left:
+                    transform.Rotate(0, 0, 180);
+                    break;
+                case Direction.Up:
+                    transform.Rotate(0, 0, 90);
+                    break;
+                case Direction.Right:
+                    transform.Rotate(0, 0, 0);
+                    break;
+                case Direction.None:
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException("direction", direction, null);
+            }
             if (lastTime == 0)
             {
                 IsLoop = false;

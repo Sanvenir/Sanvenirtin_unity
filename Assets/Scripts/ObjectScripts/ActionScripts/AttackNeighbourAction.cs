@@ -38,7 +38,6 @@ namespace ObjectScripts.ActionScripts
         /// <returns></returns>
         public override bool DoAction()
         {
-            base.DoAction();
             Self.Endure += Self.Properties.Strength.Use(1.0f);
 
             if (!Self.CheckEndure())

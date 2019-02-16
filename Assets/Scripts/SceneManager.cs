@@ -29,6 +29,7 @@ public class SceneManager : MonoBehaviour
     public LayerMask PlayerLookAtLayer;
     public LayerMask ObjectLayer;
     public LayerMask BlockInspectLayer;
+    public LayerMask AttackLayer;
 
     public ContactFilter2D PlayerLookAtFilter;
 

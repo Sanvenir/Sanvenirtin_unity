@@ -19,7 +19,6 @@ namespace ObjectScripts.ActionScripts
         /// <returns></returns>
         public override bool DoAction()
         {
-            base.DoAction();
             return Self.CurrentMoveStyle.MoveAction(_targetDirection);
         }
 

@@ -28,7 +28,7 @@ namespace ObjectScripts.StyleScripts.MoveStyleScripts
 
         public override int MoveTime()
         {
-            return Self.Properties.GetReactTime(0) * 10;
+            return Self.Properties.GetReactTime(0) * 20;
         }
     }
 }

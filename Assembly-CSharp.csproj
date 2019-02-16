@@ -73,9 +73,9 @@
     <Compile Include="Assets\Scripts\MapScripts\EarthMap.cs" />
     <Compile Include="Assets\Scripts\MapScripts\EarthMapManager.cs" />
     <Compile Include="Assets\Scripts\MapScripts\MainLand.cs" />
+    <Compile Include="Assets\Scripts\ObjectScripts\ActionScripts\ActAction.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\ActionScripts\AttackNeighbourAction.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\ActionScripts\BaseAction.cs" />
-    <Compile Include="Assets\Scripts\ObjectScripts\ActionScripts\BaseItemAction.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\ActionScripts\ConsumeAction.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\ActionScripts\DropFetchAction.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\ActionScripts\MoveAction.cs" />
@@ -96,6 +96,7 @@
     <Compile Include="Assets\Scripts\ObjectScripts\CharacterController\PlayerController.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\CharacterController\PlayerOrder\AttackDirectionOrder.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\CharacterController\PlayerOrder\BaseOrder.cs" />
+    <Compile Include="Assets\Scripts\ObjectScripts\CharacterController\PlayerOrder\BasicActOrder.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\CharacterController\PlayerOrder\LookAtOrder.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\CharacterController\PlayerOrder\PickupOrder.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\CharacterController\PlayerOrder\RestOrder.cs" />
@@ -110,6 +111,7 @@
     <Compile Include="Assets\Scripts\ObjectScripts\ItemScripts\IConsumableItem.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\ItemScripts\RawFood.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\ItemScripts\Weapon.cs" />
+    <Compile Include="Assets\Scripts\ObjectScripts\ItemScripts\WeaponSetting.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\RaceScripts\BasicRace.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\SingularObject.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\SpriteController\DynamicSpriteController.cs" />
@@ -117,6 +119,8 @@
     <Compile Include="Assets\Scripts\ObjectScripts\SpriteController\SpriteController.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\SpriteController\StaticSpriteController.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\StaticSubstance\Tree.cs" />
+    <Compile Include="Assets\Scripts\ObjectScripts\StyleScripts\ActStyleScripts\ActActionSkill.cs" />
+    <Compile Include="Assets\Scripts\ObjectScripts\StyleScripts\ActStyleScripts\ActStyleCategory.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\StyleScripts\ActStyleScripts\BaseActStyle.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\StyleScripts\BaseStyle.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\StyleScripts\MaradyStyleScripts\BaseMaradyStyle.cs" />
@@ -144,6 +148,8 @@
     <Compile Include="Assets\Scripts\UIScripts\SceneControlButton.cs" />
     <Compile Include="Assets\Scripts\UIScripts\SelectionButton.cs" />
     <Compile Include="Assets\Scripts\UIScripts\SelectionMenu.cs" />
+    <Compile Include="Assets\Scripts\UIScripts\StyleSelection\ActStyleSelectionButton.cs" />
+    <Compile Include="Assets\Scripts\UIScripts\StyleSelection\MentalStyleSelectionButton.cs" />
     <Compile Include="Assets\Scripts\UIScripts\StyleSelection\MoveStyleSelectionButton.cs" />
     <Compile Include="Assets\Scripts\UIScripts\StyleSelection\StyleSelectButton.cs" />
     <Compile Include="Assets\Scripts\UtilScripts\DamageValue.cs" />

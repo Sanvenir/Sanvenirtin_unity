@@ -6,6 +6,11 @@ using AreaScripts;
 using ObjectScripts.ActionScripts;
 using ObjectScripts.CharacterController.PlayerOrder;
 using ObjectScripts.CharSubstance;
+using ObjectScripts.StyleScripts.ActStyleScripts;
+using ObjectScripts.StyleScripts.MaradyStyleScripts;
+using ObjectScripts.StyleScripts.MentalStyleScripts;
+using ObjectScripts.StyleScripts.MoveStyleScripts;
+using UIScripts.StyleSelection;
 using UnityEngine;
 using UnityEngine.Experimental.PlayerLoop;
 using UnityEngine.Tilemaps;
@@ -20,6 +25,10 @@ namespace ObjectScripts.CharacterController
         [HideInInspector] public Vector2Int TargetCoord;
         [HideInInspector] public Character TargetCharacter;
         [HideInInspector] public Direction TargetDirection;
+
+        public MoveStyleSelectionButton MoveStyleSelectionButton;
+        public MentalStyleSelectionButton MentalStyleSelectionButton;
+        public ActStyleSelectionButton ActStyleSelectionButton;
 
         private Vector2Int _vecInt;
 
@@ -172,6 +181,29 @@ namespace ObjectScripts.CharacterController
             UpdateVisual();
             NextAction.DoAction();
             NextAction = null;
+        }
+
+        public override void ChangeActStyle(BaseActStyle actStyle)
+        {
+            base.ChangeActStyle(actStyle);
+            ActStyleSelectionButton.Text.text = Character.CurrentActStyle.GetTextName();
+        }
+
+        public override void ChangeMaradyStyle(BaseMaradyStyle maradyStyle)
+        {
+            base.ChangeMaradyStyle(maradyStyle);
+        }
+
+        public override void ChangeMentalStyle(BaseMentalStyle mentalStyle)
+        {
+            base.ChangeMentalStyle(mentalStyle);
+            MentalStyleSelectionButton.Text.text = Character.CurrentMentalStyle.GetTextName();
+        }
+
+        public override void ChangeMoveStyle(BaseMoveStyle moveStyle)
+        {
+            base.ChangeMoveStyle(moveStyle);
+            MoveStyleSelectionButton.Text.text = Character.CurrentMoveStyle.GetTextName();
         }
     }
 }

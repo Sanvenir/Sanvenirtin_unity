@@ -82,10 +82,10 @@ namespace ObjectScripts
         }
 
         public bool CheckColliderAtWorldCoord(
-            Vector2Int coord, out ComplexObject complexObject)
+            Vector2Int coord, out Substance substance)
         {
             Collider2D.offset = coord - WorldCoord;
-            var result = CheckCollider(out complexObject);
+            var result = CheckCollider(out substance, BlockFilter);
             Collider2D.offset = Vector2.zero;
             return result && SceneManager.Instance.GetTileType(coord) != TileType.Block;
         }
@@ -112,12 +112,23 @@ namespace ObjectScripts
                 return _blockFilter;
             }
         }
-
+        
         public bool CheckCollider<T>(out T collide)
-            where T : ComplexObject
+            where T : Substance
         {
             var colliders = new Collider2D[1];
             Collider2D.OverlapCollider(BlockFilter, colliders);
+            collide = colliders[0] == null
+                ? null
+                : colliders[0].GetComponent<T>();
+            return colliders[0] == null;
+        }
+
+        public bool CheckCollider<T>(out T collide, ContactFilter2D filter)
+            where T : Substance
+        {
+            var colliders = new Collider2D[1];
+            Collider2D.OverlapCollider(filter, colliders);
             collide = colliders[0] == null
                 ? null
                 : colliders[0].GetComponent<T>();

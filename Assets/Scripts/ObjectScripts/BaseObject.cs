@@ -18,12 +18,7 @@ namespace ObjectScripts
 
         [HideInInspector] public bool Visible;
 
-        [HideInInspector] private Vector2Int _worldCoord;
-
-        public Vector2Int WorldCoord
-        {
-            get { return _worldCoord; }
-        }
+        public Vector2Int WorldCoord { get; private set; }
 
         public Vector2 WorldPos
         {
@@ -31,7 +26,7 @@ namespace ObjectScripts
             set
             {
                 transform.position = value;
-                _worldCoord = SceneManager.Instance.WorldPosToCoord(WorldPos);
+                WorldCoord = SceneManager.Instance.WorldPosToCoord(WorldPos);
             }
         }
 

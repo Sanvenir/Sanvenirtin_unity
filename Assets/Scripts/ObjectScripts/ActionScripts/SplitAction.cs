@@ -22,7 +22,6 @@ namespace ObjectScripts.ActionScripts
 
         public override bool DoAction()
         {
-            base.DoAction();
             if (!_bodyPart.Available) return false;
             var intensity = _bodyPart.DoDamage(Self.Properties.GetCutAttack(1f));
             Self.Controller.PrintMessage(GameText.Instance.GetSplitBodyPartLog(Self.TextName, _target.TextName, _bodyPart.TextName));

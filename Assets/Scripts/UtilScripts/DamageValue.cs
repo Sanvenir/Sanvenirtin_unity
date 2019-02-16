@@ -8,14 +8,15 @@ namespace UtilScripts
     public struct DamageValue
     {
         public const float HitDamageRatio = 0.1f;
-        
+
         // Cut Damage can make the body part drop, and affected by absolute defend value <CutDefence>
         public float CutDamage;
+
         // Hit Damage can destroy the body part, and affected by multiply by a decreasing ratio <HitRatio>
         public float HitDamage;
-        
+
         public DamageValue(
-            float cutDamage = 0f, 
+            float cutDamage = 0f,
             float hitDamage = 0f)
         {
             CutDamage = cutDamage;
@@ -29,6 +30,18 @@ namespace UtilScripts
             bodyPart.HitPoint.Value -= hitDamage;
             bodyPart.CutPoint.Value -= cutDamage;
             return hitDamage + cutDamage;
+        }
+
+        public static DamageValue operator +(DamageValue damageValue1, DamageValue damageValue2)
+        {
+            return new DamageValue(
+                damageValue1.CutDamage + damageValue2.CutDamage,
+                damageValue2.HitDamage + damageValue2.HitDamage);
+        }
+
+        public static DamageValue operator *(DamageValue damageValue, float ratio)
+        {
+            return new DamageValue(damageValue.CutDamage * ratio, damageValue.CutDamage * ratio);
         }
     }
 }

@@ -21,11 +21,6 @@ namespace ObjectScripts.ActionScripts
         ///     Parent's activate time need to be increased if the action has been done(or not)
         /// </summary>
         /// <returns>Whether the action is successful</returns>
-        public virtual bool DoAction()
-        {
-            Self.ActivateTime += CostTime;
-            Self.Hunger += Self.Properties.GetBaseRecover(0.1f) * CostTime / 100;
-            return true;
-        }
+        public abstract bool DoAction();
     }
 }

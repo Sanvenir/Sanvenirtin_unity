@@ -2,7 +2,12 @@ using System;
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using ObjectScripts.ActionScripts;
+using ObjectScripts.CharacterController.PlayerOrder;
 using ObjectScripts.CharSubstance;
+using ObjectScripts.StyleScripts.ActStyleScripts;
+using ObjectScripts.StyleScripts.MaradyStyleScripts;
+using ObjectScripts.StyleScripts.MentalStyleScripts;
+using ObjectScripts.StyleScripts.MoveStyleScripts;
 using UIScripts;
 using UnityEngine;
 using UtilScripts;
@@ -30,6 +35,11 @@ namespace ObjectScripts.CharacterController
         }
 
         public Character Character;
+
+        public List<ActActionSkill> ActSetterList
+        {
+            get { return Character.CurrentActStyle == null ? null : Character.CurrentActStyle.ActSkillList; }
+        }
 
         private int _recoveredTime;
 
@@ -103,6 +113,30 @@ namespace ObjectScripts.CharacterController
 
                 return Coord.x == obj.Coord.x ? Coord.y.CompareTo(obj.Coord.y) : Coord.x.CompareTo(obj.Coord.x);
             }
+        }
+
+        public virtual void ChangeMoveStyle(BaseMoveStyle moveStyle)
+        {
+            if (moveStyle == null) return;
+            Character.CurrentMoveStyle = moveStyle;
+        }
+
+        public virtual void ChangeActStyle(BaseActStyle actStyle)
+        {
+            if (actStyle == null) return;
+            Character.CurrentActStyle = actStyle;
+        }
+
+        public virtual void ChangeMentalStyle(BaseMentalStyle mentalStyle)
+        {
+            if (mentalStyle == null) return;
+            Character.CurrentMentalStyle = mentalStyle;
+        }
+
+        public virtual void ChangeMaradyStyle(BaseMaradyStyle maradyStyle)
+        {
+            if (maradyStyle == null) return;
+            Character.CurrentMaradyStyle = maradyStyle;
         }
 
         public Vector2Int AStarFinder(Vector2Int target, int memorySize = 50)

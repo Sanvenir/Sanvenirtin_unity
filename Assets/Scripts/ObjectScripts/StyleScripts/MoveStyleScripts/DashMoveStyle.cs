@@ -22,13 +22,13 @@ namespace ObjectScripts.StyleScripts.MoveStyleScripts
         {
             if (!Self.MoveCheck(Utils.DirectionToVector(targetDirection))) return false;
             Self.Move(Utils.DirectionToVector(targetDirection), MoveTime());
-            Self.Endure += Self.Properties.GetMaxEndure(1f) / Self.Properties.MoveSpeed.Use(1);
+            Self.Endure += Self.Properties.MoveSpeed.Use(1);
             return true;
         }
 
         public override int MoveTime()
         {
-            return Self.Properties.GetReactTime(0);
+            return Self.Properties.GetMoveTime(0);
         }
     }
 }

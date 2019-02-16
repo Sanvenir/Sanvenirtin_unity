@@ -3007,6 +3007,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SelectionMenu: {fileID: 1124985504}
+  Text: {fileID: 0}
 --- !u!1 &1155192944
 GameObject:
   m_ObjectHideFlags: 0
@@ -3437,7 +3438,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000015258789}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1210254261
@@ -3975,6 +3976,7 @@ GameObject:
   - component: {fileID: 1367249709}
   - component: {fileID: 1367249711}
   - component: {fileID: 1367249710}
+  - component: {fileID: 1367249712}
   m_Layer: 5
   m_Name: ActStyle
   m_TagString: Untagged
@@ -4035,6 +4037,19 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1367249708}
   m_CullTransparentMesh: 0
+--- !u!114 &1367249712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1367249708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20799037038e43889d10cc482312588d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SelectionMenu: {fileID: 1124985504}
+  Text: {fileID: 1203114464}
 --- !u!1 &1375664872
 GameObject:
   m_ObjectHideFlags: 0
@@ -4591,6 +4606,9 @@ MonoBehaviour:
   TargetCoord: {x: 0, y: 0}
   TargetCharacter: {fileID: 0}
   TargetDirection: 0
+  MoveStyleSelectionButton: {fileID: 1126578564}
+  MentalStyleSelectionButton: {fileID: 2076139569}
+  ActStyleSelectionButton: {fileID: 1367249712}
 --- !u!58 &1471056966
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -5888,6 +5906,7 @@ GameObject:
   - component: {fileID: 2076139566}
   - component: {fileID: 2076139568}
   - component: {fileID: 2076139567}
+  - component: {fileID: 2076139569}
   m_Layer: 5
   m_Name: MentalStyle
   m_TagString: Untagged
@@ -5948,6 +5967,19 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2076139565}
   m_CullTransparentMesh: 0
+--- !u!114 &2076139569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2076139565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5408914f9e24efdaadbcdd21a6b01d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SelectionMenu: {fileID: 1124985504}
+  Text: {fileID: 899376759}
 --- !u!1 &2100413037
 GameObject:
   m_ObjectHideFlags: 0

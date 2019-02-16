@@ -54,6 +54,13 @@ namespace ObjectScripts
             return intensity;
         }
 
+        // TODO: Check whether this function is called correctly
+        public float Attacked(DamageValue damage, string partName)
+        {
+            if (!BodyParts.ContainsKey(partName)) return 0;
+            return Attacked(damage, BodyParts[partName]);
+        }
+
         public List<BodyPart> GetBodyParts(PartPos partPos)
         {
             switch (partPos)

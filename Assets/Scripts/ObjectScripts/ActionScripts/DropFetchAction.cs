@@ -23,7 +23,6 @@ namespace ObjectScripts.ActionScripts
         /// <returns>If given FetchPart is not in the fetch dictionary of the character, return false</returns>
         public override bool DoAction()
         {
-            base.DoAction();
             if (!Self.FetchDictionary.ContainsKey(_fetchPart)) return false;
             Self.DropFetchObject(_fetchPart);
             return true;

@@ -2,7 +2,11 @@ using System;
 using System.Collections.Generic;
 using AreaScripts;
 using ObjectScripts.BodyPartScripts;
+using ObjectScripts.CharacterController.PlayerOrder;
 using ObjectScripts.SpriteController;
+using ObjectScripts.StyleScripts.ActStyleScripts;
+using ObjectScripts.StyleScripts.MaradyStyleScripts;
+using ObjectScripts.StyleScripts.MentalStyleScripts;
 using ObjectScripts.StyleScripts.MoveStyleScripts;
 using UnityEngine;
 using UtilScripts;
@@ -18,6 +22,15 @@ namespace ObjectScripts.CharSubstance
         
         public List<BaseMoveStyle> MoveStyleList;
         public BaseMoveStyle CurrentMoveStyle;
+
+        public List<BaseActStyle> ActStyleList;
+        public BaseActStyle CurrentActStyle;
+
+        public List<BaseMentalStyle> MentalStyleList;
+        public BaseMentalStyle CurrentMentalStyle;
+
+        public List<BaseMaradyStyle> MaradyStyleList;
+        public BaseMaradyStyle CurrentMaradyStyle;
 
         public bool IsTurn()
         {
@@ -56,7 +69,7 @@ namespace ObjectScripts.CharSubstance
         }
 
         public bool MoveCheck<T>(Vector2Int delta, out T collide)
-            where T : ComplexObject
+            where T : Substance
         {
             Collider2D.offset = delta;
             var result = CheckCollider(out collide);

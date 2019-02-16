@@ -7,10 +7,6 @@ namespace UIScripts.StyleSelection
 {
     public class MoveStyleSelectionButton: StyleSelectButton
     {
-        private static Character Player
-        {
-            get { return PlayerController.Character; }
-        }
         
         protected override IEnumerable<INamed> GetStyleSelections()
         {
@@ -23,10 +19,7 @@ namespace UIScripts.StyleSelection
 
         protected override void Selected(INamed selection)
         {
-            var result = selection as BaseMoveStyle;
-            if (result == null) return;
-            Player.CurrentMoveStyle = result;
-            Text.text = Player.CurrentMoveStyle.GetTextName();
+            PlayerController.ChangeMoveStyle(selection as BaseMoveStyle);
         }
     }
 }

@@ -19,7 +19,6 @@ namespace ObjectScripts.ActionScripts
 
         public override bool DoAction()
         {
-            base.DoAction();
             _item.DoConsume(Self);
             return true;
         }
