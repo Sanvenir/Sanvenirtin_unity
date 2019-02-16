@@ -40,6 +40,7 @@ namespace ObjectScripts.ActionScripts
 
         public override bool DoAction()
         {
+            Self.ActivateTime += CostTime;
             Self.Endure += Self.Properties.Strength.Use() * _actionSkill.EndureRatio;
             
             if (!Self.CheckEndure())

@@ -23,6 +23,7 @@ namespace ObjectScripts.ActionScripts
         public override bool DoAction()
         {
             if (!_bodyPart.Available) return false;
+            Self.ActivateTime += CostTime;
             var intensity = _bodyPart.DoDamage(Self.Properties.GetCutAttack(1f));
             Self.Controller.PrintMessage(GameText.Instance.GetSplitBodyPartLog(Self.TextName, _target.TextName, _bodyPart.TextName));
             if (intensity < float.Epsilon)

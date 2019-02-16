@@ -19,6 +19,7 @@ namespace ObjectScripts.ActionScripts
         /// <returns></returns>
         public override bool DoAction()
         {
+            Self.ActivateTime += CostTime;
             return Self.CurrentMoveStyle.MoveAction(_targetDirection);
         }
 

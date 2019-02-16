@@ -38,6 +38,7 @@ namespace ObjectScripts.ActionScripts
         /// <returns></returns>
         public override bool DoAction()
         {
+            Self.ActivateTime += CostTime;
             Self.Endure += Self.Properties.Strength.Use(1.0f);
 
             if (!Self.CheckEndure())

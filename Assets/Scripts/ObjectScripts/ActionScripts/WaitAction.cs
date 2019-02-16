@@ -16,6 +16,7 @@ namespace ObjectScripts.ActionScripts
 
         public override bool DoAction()
         {
+            Self.ActivateTime += CostTime;
             Self.Recovering(5);
             return true;
         }

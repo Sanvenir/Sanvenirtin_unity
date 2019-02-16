@@ -24,6 +24,7 @@ namespace ObjectScripts.ActionScripts
         public override bool DoAction()
         {
             if (!Self.FetchDictionary.ContainsKey(_fetchPart)) return false;
+            Self.ActivateTime += CostTime;
             Self.DropFetchObject(_fetchPart);
             return true;
         }

@@ -29,6 +29,7 @@ namespace ObjectScripts.ActionScripts
         public override bool DoAction()
         {
             if (!_fetchPart.Available || !Self.FetchDictionary.ContainsKey(_fetchPart) || Self.FetchDictionary[_fetchPart] != null) return false;
+            Self.ActivateTime += CostTime;
             Self.FetchDictionary[_fetchPart] = _targetObject;
             Self.SpriteController.AddNewChildSprite(_fetchPart.Name, _targetObject);
             _targetObject.gameObject.SetActive(false);

@@ -35,15 +35,15 @@
           </e>
           <e p="ObjectScripts" t="Include">
             <e p="ActionScripts" t="Include">
+              <e p="ActAction.cs" t="Include" />
               <e p="AttackNeighbourAction.cs" t="Include" />
               <e p="BaseAction.cs" t="Include" />
-              <e p="BaseItemAction.cs" t="Include" />
               <e p="ConsumeAction.cs" t="Include" />
               <e p="DropFetchAction.cs" t="Include" />
+              <e p="MoveAction.cs" t="Include" />
               <e p="PickupAction.cs" t="Include" />
               <e p="SplitAction.cs" t="Include" />
               <e p="WaitAction.cs" t="Include" />
-              <e p="WalkAction.cs" t="Include" />
             </e>
             <e p="BaseObject.cs" t="Include" />
             <e p="BodyPartScripts" t="Include">
@@ -65,6 +65,7 @@
               <e p="PlayerOrder" t="Include">
                 <e p="AttackDirectionOrder.cs" t="Include" />
                 <e p="BaseOrder.cs" t="Include" />
+                <e p="BasicActOrder.cs" t="Include" />
                 <e p="LookAtOrder.cs" t="Include" />
                 <e p="PickupOrder.cs" t="Include" />
                 <e p="RestOrder.cs" t="Include" />
@@ -84,6 +85,7 @@
               <e p="IConsumableItem.cs" t="Include" />
               <e p="RawFood.cs" t="Include" />
               <e p="Weapon.cs" t="Include" />
+              <e p="WeaponSetting.cs" t="Include" />
             </e>
             <e p="RaceScripts" t="Include">
               <e p="BasicRace.cs" t="Include" />
@@ -98,12 +100,33 @@
             <e p="StaticSubstance" t="Include">
               <e p="Tree.cs" t="Include" />
             </e>
+            <e p="StyleScripts" t="Include">
+              <e p="ActStyleScripts" t="Include">
+                <e p="ActActionSkill.cs" t="Include" />
+                <e p="ActStyleCategory.cs" t="Include" />
+                <e p="BaseActStyle.cs" t="Include" />
+              </e>
+              <e p="BaseStyle.cs" t="Include" />
+              <e p="MaradyStyleScripts" t="Include">
+                <e p="BaseMaradyStyle.cs" t="Include" />
+              </e>
+              <e p="MentalStyleScripts" t="Include">
+                <e p="BaseMentalStyle.cs" t="Include" />
+              </e>
+              <e p="MoveStyleScripts" t="Include">
+                <e p="BaseMoveStyle.cs" t="Include" />
+                <e p="DashMoveStyle.cs" t="Include" />
+                <e p="RunMoveStyle.cs" t="Include" />
+                <e p="WalkMoveStyle.cs" t="Include" />
+              </e>
+            </e>
             <e p="Substance.cs" t="Include" />
             <e p="SubstanceProperties.cs" t="Include" />
           </e>
           <e p="SceneManager.cs" t="Include" />
           <e p="UIScripts" t="Include">
             <e p="ActionMenu.cs" t="Include" />
+            <e p="AutoResizePanel.cs" t="Include" />
             <e p="BodyPartButton.cs" t="Include" />
             <e p="BodyPartPanel.cs" t="Include" />
             <e p="CharacterTextDialog.cs" t="Include" />
@@ -118,7 +141,12 @@
             <e p="SceneControlButton.cs" t="Include" />
             <e p="SelectionButton.cs" t="Include" />
             <e p="SelectionMenu.cs" t="Include" />
-            <e p="StylePanel.cs" t="Include" />
+            <e p="StyleSelection" t="Include">
+              <e p="ActStyleSelectionButton.cs" t="Include" />
+              <e p="MentalStyleSelectionButton.cs" t="Include" />
+              <e p="MoveStyleSelectionButton.cs" t="Include" />
+              <e p="StyleSelectButton.cs" t="Include" />
+            </e>
           </e>
           <e p="UtilScripts" t="Include">
             <e p="DamageValue.cs" t="Include" />
