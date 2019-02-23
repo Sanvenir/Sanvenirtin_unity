@@ -7,12 +7,18 @@ using ObjectScripts.CharSubstance;
 namespace ObjectScripts.StyleScripts.ActStyleScripts
 {
     [Serializable]
-    public abstract class BaseActStyle: BaseStyle
+    public class BaseActStyle: BaseStyle
     {
         protected BaseActStyle(Character self) : base(self)
         {
         }
 
         public List<ActActionSkill> ActSkillList;
+        public string TextName;
+        
+        public override string GetTextName()
+        {
+            return TextName;
+        }
     }
 }

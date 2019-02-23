@@ -185,16 +185,17 @@ namespace UtilScripts.Text
 
         public List<string> AttackLog = new List<string>
         {
-            "<self>击中了<target>的<targetPart>。",
-            "<target>被<self>击中了<targetPart>。",
+            "<self>的<attackType>击中了<target>的<targetPart>。",
+            "<target>被<self>的<attackType>击中了<targetPart>。",
         };
 
-        public string GetAttackLog(string self, string target, string targetPart)
+        public string GetAttackLog(string self, string target, string targetPart, string attackType)
         {
             return Utils.GetRandomElement(AttackLog)
                 .Replace("<self>", self)
                 .Replace("<target>", target)
-                .Replace("<targetPart>", targetPart);
+                .Replace("<targetPart>", targetPart)
+                .Replace("<attackType>", attackType);
         }
 
         public List<string> AttackEmptyLog = new List<string>

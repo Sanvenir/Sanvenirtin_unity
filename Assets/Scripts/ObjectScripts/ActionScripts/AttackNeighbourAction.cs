@@ -71,14 +71,12 @@ namespace ObjectScripts.ActionScripts
                 GameText.Instance.GetAttackLog(
                     Self.TextName,
                     _target.TextName,
-                    _target.GetBodyParts(_attackPartPos)[part].TextName
+                    _target.GetBodyParts(_attackPartPos)[part].TextName, 
+                    "*debug*拳击"
                 ));
             _target.Attacked(
                 Self.Properties.GetBaseAttack(0),
                 _target.GetBodyParts(_attackPartPos)[part]);
-
-            // Play the attack action effect animation
-            _target.PlayEffect(Self.AttackActionEffect);
             return true;
         }
     }

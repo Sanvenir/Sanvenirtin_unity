@@ -25,7 +25,14 @@ namespace ObjectScripts.CharacterController.PlayerOrder
 
         public override BaseOrder DoOrder()
         {
-            Controller.SetAction(new ActAction(Controller.Character, _actionSkill, Controller.TargetDirection));
+            if (_actionSkill.IsStab)
+            {
+                SceneManager.Instance.PartSelectPanel.StartUp(Controller.TargetDirection, _actionSkill);
+            }
+            else
+            {
+                Controller.SetAction(new ActAreaAction(Player, _actionSkill, Controller.TargetDirection));
+            }
             return null;
         }
     }

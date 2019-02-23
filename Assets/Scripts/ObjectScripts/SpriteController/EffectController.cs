@@ -17,6 +17,7 @@ namespace ObjectScripts.SpriteController
         public int DisappearTime;
 
         public bool IsLoop;
+        public int Speed = 3;
 
         private int _index;
 
@@ -80,7 +81,7 @@ namespace ObjectScripts.SpriteController
                 return;
             }
 
-            if (++_index == Sprites.Length)
+            if (++_index / Speed == Sprites.Length)
             {
                 if (!IsLoop)
                 {
@@ -91,7 +92,7 @@ namespace ObjectScripts.SpriteController
                 _index = 0;
             }
 
-            _spriteRenderer.sprite = Sprites[_index];
+            _spriteRenderer.sprite = Sprites[_index / Speed];
         }
     }
 }

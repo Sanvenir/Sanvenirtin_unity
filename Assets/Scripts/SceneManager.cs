@@ -42,6 +42,7 @@ public class SceneManager : MonoBehaviour
     public SceneControlButton SceneControlButton;
     public GroundObjectListMenu GroundObjectListMenu;
     public ObjectActPanel ObjectActPanel;
+    public PartSelectPanel PartSelectPanel;
 
     public List<BodyPartList> ComponentList;
 

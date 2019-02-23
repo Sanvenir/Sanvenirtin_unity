@@ -80,6 +80,22 @@ namespace ObjectScripts
             SetPosition(worldPos);
         }
 
+        /// <summary>
+        /// Given coord, Get object with type T at certain layers
+        /// </summary>
+        /// <param name="coord"></param>
+        /// <param name="layerMask"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static T GetObject<T>(Vector2 coord, LayerMask layerMask)
+            where T : BaseObject
+        {
+            var hit = Physics2D.OverlapPoint(coord, layerMask);
+            if (hit == null) return null;
+            var result = hit.GetComponent<T>();
+            return result;
+        }
+
         public void SetPosition(Vector2 worldPos)
         {
             WorldPos = worldPos;

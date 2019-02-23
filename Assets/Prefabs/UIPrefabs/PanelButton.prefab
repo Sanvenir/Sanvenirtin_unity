@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114690568445867986}
   - component: {fileID: 114969353084923276}
   m_Layer: 5
-  m_Name: ObjectActButton
+  m_Name: PanelButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -132,6 +132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ChangeAccuracy: 1.5
+  ButtonSpace: 1
   ButtonPrefab: {fileID: 114063653609250276, guid: cc95e2c9062f130439ec1f3337330b15,
     type: 2}
   ButtonInstances: []

@@ -6,10 +6,36 @@
     "WaitOrder": "等待",
     "LookAtOrder": "查看",
     "ConsumeAct": "食用",
+    "SplitAct": "拆解",
     "DropAct": "丢弃",
+    "WalkMoveStyle": "步行中",
+    "RunMoveStyle": "奔跑中",
+    "DashMoveStyle": "冲刺中",
+    "PartInfoLog": [
+        "\n来自<self>的<part>。"
+    ],
+    "SplitBodyPartSuccessLog": [
+        "<self>切下了<target>的<targetPart>。"
+    ],
+    "SplitBodyPartFailedLog": [
+        "<target>的<targetPart>对于<self>来说并不容易切下。"
+    ],
+    "SplitBodyPartLog": [
+        "<self>正在尝试切下<target>的<targetPart>。",
+        "<self>在分割<target>的<targetPart>。"
+    ],
+    "AttackExceedEndureLog": [
+        "<self>因为极度疲劳，无力进行攻击。"
+    ],
+    "FallIntoStunLog": [
+        "<self>昏了过去。"
+    ],
+    "RecoverFromStunLog": [
+        "<self>从昏迷中醒了过来。"
+    ],
     "CannotFindPathLog": "你不知道如何到达这里。",
     "EatUpItemLog": [
-        "<item>被<self>吃光了"
+        "<item>被<self>吃光了。"
     ],
     "EatItemLog": [
         "<self>食用了<item>。"
@@ -25,11 +51,11 @@
         "<self>失去了<targetPart>！"
     ],
     "AttackLog": [
-        "<self>击中了<target>的<targetPart>。",
-        "<target>被<self>击中了<targetPart>。"
+        "<self>的<attackType>击中了<target>的<targetPart>。",
+        "<target>被<self>的<attackType>击中了<targetPart>。"
     ],
     "AttackEmptyLog": [
         "<self>没有击中任何东西。",
-        "<self>的攻击落空了"
+        "<self>的攻击落空了。"
     ]
 }

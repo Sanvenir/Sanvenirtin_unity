@@ -12,7 +12,7 @@ namespace UIScripts
 {
     public class ObjectActPanel : GameMenuWindow
     {
-        public ObjectActButton ActButtonPrefab;
+        public PanelButton ActButtonPrefab;
         public Image ItemImage;
         public Text ItemInfoTest;
         public VerticalLayoutGroup ActButtonLayout;
@@ -21,7 +21,7 @@ namespace UIScripts
 
         [HideInInspector] public SelectionMenu BodyPartSelectMenu;
 
-        private ObjectActButton _buttonInstance;
+        private PanelButton _buttonInstance;
 
         private static PlayerController PlayerController
         {
@@ -103,7 +103,7 @@ namespace UIScripts
 
         public override void EndUp()
         {
-            foreach (var button in ActButtonLayout.GetComponentsInChildren<ObjectActButton>()) 
+            foreach (var button in ActButtonLayout.GetComponentsInChildren<PanelButton>())
                 Destroy(button.gameObject);
             gameObject.SetActive(false);
         }

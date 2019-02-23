@@ -18,13 +18,6 @@ namespace ObjectScripts.StyleScripts.ActStyleScripts
             public float Accuracy;
         }
 
-        public enum AttackRange
-        {
-            Point, 
-            Hash,
-            Area
-        }
-
         public enum AttackType
         {
             ///One tile forward
@@ -76,7 +69,7 @@ namespace ObjectScripts.StyleScripts.ActStyleScripts
         public float EndureRatio;
 
         /// <summary>
-        ///     Whether all body parts in given TargetPartPosList and TargetPartList are attacked
+        ///     Whether all body parts in given TargetPartPos and are attacked
         /// </summary>
         public bool IsAllParts;
 
@@ -89,6 +82,7 @@ namespace ObjectScripts.StyleScripts.ActStyleScripts
 
         public AttackType Type;
         public bool AttackAllPart;
+        public bool IsStab;
 
         /// <summary>
         ///     The effect played in each coords;

@@ -1,3 +1,4 @@
+using ObjectScripts.BodyPartScripts;
 using ObjectScripts.CharSubstance;
 using ObjectScripts.StyleScripts.ActStyleScripts;
 using UnityEngine;
@@ -10,10 +11,12 @@ namespace ObjectScripts.ActionScripts
     /// <summary>
     /// Action with set result
     /// </summary>
-    public class ActAction: BaseAction
+    public abstract class ActAction : BaseAction
     {
-        private readonly Direction _targetDirection;
-        private readonly ActActionSkill _actionSkill;
+        protected readonly ActActionSkill ActionSkill;
+        protected readonly Direction TargetDirection;
+
+        protected DamageValue ActDamage;
 
         private static LayerMask AttackLayer
         {
@@ -28,55 +31,34 @@ namespace ObjectScripts.ActionScripts
         /// <param name="targetDirection"></param>
         public ActAction(Character self, ActActionSkill actionSkill, Direction targetDirection) : base(self)
         {
-            _actionSkill = actionSkill;
-            _targetDirection = targetDirection;
-            CostTime = _actionSkill.ActCostTimeRatio * self.Properties.GetActTime(0);
+            ActionSkill = actionSkill;
+            TargetDirection = targetDirection;
+            CostTime = ActionSkill.ActCostTimeRatio * self.Properties.GetActTime(0);
+            ActDamage = 
+                ActionSkill.BaseDamage +
+                ActionSkill.DexterityDamage * Self.Properties.Dexterity.Use(1f) +
+                ActionSkill.StrengthDamage * Self.Properties.Strength.Use(1f);
         }
-        
-        private void AttackEmpty()
+
+        protected void AttackEmptyLog()
         {
             Self.Controller.PrintMessage(GameText.Instance.GetAttackEmptyLog(Self.TextName));
         }
 
         public override bool DoAction()
         {
+            
             Self.ActivateTime += CostTime;
-            Self.Endure += Self.Properties.Strength.Use() * _actionSkill.EndureRatio;
+            Self.Endure += Self.Properties.Strength.Use() * ActionSkill.EndureRatio;
             
             if (!Self.CheckEndure())
             {
                 Self.Controller.PrintMessage(GameText.Instance.GetAttackExceedEndureLog(Self.TextName));
                 return false;
             }
-
-            Self.AttackMovement(_targetDirection, CostTime);
-
-            var flag = false;
-
-            foreach (var attackPlace in _actionSkill.GetAttackPlaces(_targetDirection, Self))
-            {
-                var hit = Physics2D.OverlapPoint(attackPlace, AttackLayer);
-                if (hit == null) continue;
-                var substance = hit.GetComponent<Substance>();
-                if (substance == null) continue;
-                flag = true;
-                var damage =
-                    _actionSkill.BaseDamage +
-                    _actionSkill.DexterityDamage * Self.Properties.Dexterity.Use(1f) +
-                    _actionSkill.StrengthDamage * Self.Properties.Strength.Use(1f);
-
-                if (_actionSkill.IsAllParts)
-                {
-                }
-
-                // TODO: Implement substance and character attacked effect
-            }
-            
-            // TODO: Add Effect Animations
-
-            if (flag) return true;
-            AttackEmpty();
-            return false;
+            Self.AttackMovement(TargetDirection, CostTime);
+            return true;
         }
     }
+
 }

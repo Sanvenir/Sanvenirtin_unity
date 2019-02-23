@@ -11,7 +11,7 @@ using UtilScripts;
 
 namespace UIScripts
 {
-    public class ObjectActButton: MonoBehaviour, IPointerDownHandler
+    public class PanelButton: MonoBehaviour, IPointerDownHandler
     {
         public Text Text;
         public SelectionMenu SelectionMenu;

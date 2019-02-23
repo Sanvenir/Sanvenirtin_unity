@@ -36,6 +36,8 @@
           <e p="ObjectScripts" t="Include">
             <e p="ActionScripts" t="Include">
               <e p="ActAction.cs" t="Include" />
+              <e p="ActAreaAction.cs" t="Include" />
+              <e p="ActStabAction.cs" t="Include" />
               <e p="AttackNeighbourAction.cs" t="Include" />
               <e p="BaseAction.cs" t="Include" />
               <e p="ConsumeAction.cs" t="Include" />
@@ -135,8 +137,9 @@
             <e p="GameMenuWindow.cs" t="Include" />
             <e p="GroundObjectIcon.cs" t="Include" />
             <e p="GroundObjectListMenu.cs" t="Include" />
-            <e p="ObjectActButton.cs" t="Include" />
             <e p="ObjectActPanel.cs" t="Include" />
+            <e p="PanelButton.cs" t="Include" />
+            <e p="PartSelectPanel.cs" t="Include" />
             <e p="PropertyPanel.cs" t="Include" />
             <e p="SceneControlButton.cs" t="Include" />
             <e p="SelectionButton.cs" t="Include" />

@@ -20,7 +20,7 @@ namespace UIScripts
             new LookAtOrder(),
             new PickupOrder(),
             new RestOrder(),
-            new AttackDirectionOrder(),
+//            new AttackDirectionOrder(),
         };
 
         private IEnumerable<INamed> GetAvailableOrders()

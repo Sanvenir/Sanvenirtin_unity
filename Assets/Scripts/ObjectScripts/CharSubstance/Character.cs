@@ -21,16 +21,16 @@ namespace ObjectScripts.CharSubstance
         public int RaceIndex;
         
         public List<BaseMoveStyle> MoveStyleList;
-        public BaseMoveStyle CurrentMoveStyle;
+        [HideInInspector] public BaseMoveStyle CurrentMoveStyle;
 
         public List<BaseActStyle> ActStyleList;
-        public BaseActStyle CurrentActStyle;
+        [HideInInspector] public BaseActStyle CurrentActStyle;
 
         public List<BaseMentalStyle> MentalStyleList;
-        public BaseMentalStyle CurrentMentalStyle;
+        [HideInInspector] public BaseMentalStyle CurrentMentalStyle;
 
         public List<BaseMaradyStyle> MaradyStyleList;
-        public BaseMaradyStyle CurrentMaradyStyle;
+        [HideInInspector] public BaseMaradyStyle CurrentMaradyStyle;
 
         public bool IsTurn()
         {
@@ -65,6 +65,7 @@ namespace ObjectScripts.CharSubstance
 
             Health += intensity / 10;
             if (!Stun.Value) Sanity += intensity;
+            PlayEffect(AttackedEffect);
             return intensity;
         }
 
@@ -265,7 +266,7 @@ namespace ObjectScripts.CharSubstance
         }
 
         [HideInInspector] public int ActivateTime;
-        public EffectController AttackActionEffect;
+        public EffectController AttackedEffect;
 
         // Properties
         private float _health;

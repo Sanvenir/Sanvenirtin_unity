@@ -1,3 +1,5 @@
+using ObjectScripts.CharacterController;
+using ObjectScripts.CharSubstance;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -6,6 +8,16 @@ namespace UIScripts
     public abstract class GameMenuWindow: MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         private bool _isPointerIn = true;
+
+        protected PlayerController PlayerController
+        {
+            get { return SceneManager.Instance.PlayerController; }
+        }
+
+        protected Character Player
+        {
+            get { return SceneManager.Instance.PlayerObject; }
+        }
         
         public void OnPointerEnter(PointerEventData eventData)
         {

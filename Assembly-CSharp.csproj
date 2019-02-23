@@ -74,6 +74,8 @@
     <Compile Include="Assets\Scripts\MapScripts\EarthMapManager.cs" />
     <Compile Include="Assets\Scripts\MapScripts\MainLand.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\ActionScripts\ActAction.cs" />
+    <Compile Include="Assets\Scripts\ObjectScripts\ActionScripts\ActAreaAction.cs" />
+    <Compile Include="Assets\Scripts\ObjectScripts\ActionScripts\ActStabAction.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\ActionScripts\AttackNeighbourAction.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\ActionScripts\BaseAction.cs" />
     <Compile Include="Assets\Scripts\ObjectScripts\ActionScripts\ConsumeAction.cs" />
@@ -142,8 +144,9 @@
     <Compile Include="Assets\Scripts\UIScripts\GameMenuWindow.cs" />
     <Compile Include="Assets\Scripts\UIScripts\GroundObjectIcon.cs" />
     <Compile Include="Assets\Scripts\UIScripts\GroundObjectListMenu.cs" />
-    <Compile Include="Assets\Scripts\UIScripts\ObjectActButton.cs" />
     <Compile Include="Assets\Scripts\UIScripts\ObjectActPanel.cs" />
+    <Compile Include="Assets\Scripts\UIScripts\PanelButton.cs" />
+    <Compile Include="Assets\Scripts\UIScripts\PartSelectPanel.cs" />
     <Compile Include="Assets\Scripts\UIScripts\PropertyPanel.cs" />
     <Compile Include="Assets\Scripts\UIScripts\SceneControlButton.cs" />
     <Compile Include="Assets\Scripts\UIScripts\SelectionButton.cs" />

@@ -309,6 +309,7 @@ RectTransform:
   m_Children:
   - {fileID: 1836711392}
   - {fileID: 155827440}
+  - {fileID: 812987738}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1491,6 +1492,126 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &812987737
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 812987738}
+  - component: {fileID: 812987743}
+  - component: {fileID: 812987742}
+  - component: {fileID: 812987741}
+  - component: {fileID: 812987740}
+  - component: {fileID: 812987739}
+  m_Layer: 5
+  m_Name: PartSelectPanel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &812987738
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 812987737}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 104989575}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 200, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &812987739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 812987737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3170ae41942645a59d141ecb59f26066, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PartSelectButtonPrefab: {fileID: 114690568445867986, guid: 8234993df43b0a046b212094d2adeb52,
+    type: 2}
+--- !u!114 &812987740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 812987737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1741964061, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 0
+  m_VerticalFit: 1
+--- !u!114 &812987741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 812987737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1297475563, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 1
+  m_Spacing: 0
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 0
+  m_ChildControlWidth: 1
+  m_ChildControlHeight: 0
+--- !u!114 &812987742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 812987737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: ebdae18d31baa1c4980e91605a7c9e52, type: 3}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &812987743
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 812987737}
+  m_CullTransparentMesh: 0
 --- !u!1 &847252632
 GameObject:
   m_ObjectHideFlags: 0
@@ -2133,6 +2254,9 @@ MonoBehaviour:
   BlockInspectLayer:
     serializedVersion: 2
     m_Bits: 33024
+  AttackLayer:
+    serializedVersion: 2
+    m_Bits: 53248
   PlayerLookAtFilter:
     useTriggers: 0
     useLayerMask: 1
@@ -2154,6 +2278,7 @@ MonoBehaviour:
   SceneControlButton: {fileID: 1050116501}
   GroundObjectListMenu: {fileID: 1836711396}
   ObjectActPanel: {fileID: 155827443}
+  PartSelectPanel: {fileID: 812987739}
   ComponentList:
   - Name: Empty
     Components: []
@@ -3438,7 +3563,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -0.000015258789}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1210254261
@@ -4337,11 +4462,11 @@ MonoBehaviour:
       MaxValue: 20
       PotentialRate: 0.0001
     Strength:
-      Value: 50
+      Value: 10
       MaxValue: 100
       PotentialRate: 0.0001
     Dexterity:
-      Value: 50
+      Value: 10
       MaxValue: 100
       PotentialRate: 0.0001
     Constitution:
@@ -4349,7 +4474,7 @@ MonoBehaviour:
       MaxValue: 100
       PotentialRate: 0.0001
     Metabolism:
-      Value: 10
+      Value: 50
       MaxValue: 20
       PotentialRate: 0.0001
     WillPower:
@@ -4567,8 +4692,88 @@ MonoBehaviour:
       Fetchable: 0
       ComponentIndex: 1
   RaceIndex: 0
+  ActStyleList:
+  - Self: {fileID: 1471056961}
+    ActSkillList:
+    - TextName: "\u6012\u51FB"
+      ActCostTimeRatio: 2
+      BaseDamage:
+        CutDamage: 20
+        HitDamage: 5
+      StrengthDamage:
+        CutDamage: 2
+        HitDamage: 5
+      DexterityDamage:
+        CutDamage: 5
+        HitDamage: 2
+      EndureRatio: 5
+      IsAllParts: 0
+      BlockLayer:
+        serializedVersion: 2
+        m_Bits: 36864
+      TargetPartPos: 1
+      Type: 0
+      AttackAllPart: 1
+      IsStab: 0
+      SingleEffect: {fileID: 0}
+      AreaEffect: {fileID: 0}
+      EndStyle: 1
+    - TextName: "\u56DE\u65CB\u65A9"
+      ActCostTimeRatio: 5
+      BaseDamage:
+        CutDamage: 10
+        HitDamage: 3
+      StrengthDamage:
+        CutDamage: 1
+        HitDamage: 3
+      DexterityDamage:
+        CutDamage: 3
+        HitDamage: 1
+      EndureRatio: 10
+      IsAllParts: 1
+      BlockLayer:
+        serializedVersion: 2
+        m_Bits: 0
+      TargetPartPos: 0
+      Type: 5
+      AttackAllPart: 0
+      IsStab: 0
+      SingleEffect: {fileID: 0}
+      AreaEffect: {fileID: 0}
+      EndStyle: 0
+    TextName: "\u4E0A\u6BB5"
+  - Self: {fileID: 1471056961}
+    ActSkillList:
+    - TextName: "\u523A\u51FB"
+      ActCostTimeRatio: 1
+      BaseDamage:
+        CutDamage: 5
+        HitDamage: 1
+      StrengthDamage:
+        CutDamage: 5
+        HitDamage: 3
+      DexterityDamage:
+        CutDamage: 5
+        HitDamage: 1
+      EndureRatio: 5
+      IsAllParts: 0
+      BlockLayer:
+        serializedVersion: 2
+        m_Bits: 0
+      TargetPartPos: 0
+      Type: 1
+      AttackAllPart: 0
+      IsStab: 1
+      SingleEffect: {fileID: 0}
+      AreaEffect: {fileID: 0}
+      EndStyle: 0
+    TextName: "\u4E0B\u6BB5"
+  CurrentActStyle:
+    Self: {fileID: 1471056961}
+    ActSkillList: []
+    TextName: 
   ActivateTime: 0
-  AttackActionEffect: {fileID: 114661694037867342, guid: 115b145bf054290459e4b5ddf30fcc8f,
+  AttackedEffect: {fileID: 114661694037867342, guid: 115b145bf054290459e4b5ddf30fcc8f,
     type: 2}
   Age: 20
   Gender: 1
