@@ -12,16 +12,15 @@ namespace UIScripts
 {
     public class ObjectActPanel : GameMenuWindow
     {
-        public PanelButton ActButtonPrefab;
-        public Image ItemImage;
-        public Text ItemInfoTest;
+        private PanelButton _buttonInstance;
         public VerticalLayoutGroup ActButtonLayout;
+        public PanelButton ActButtonPrefab;
 
         [HideInInspector] public BaseObject BaseObject;
 
         [HideInInspector] public SelectionMenu BodyPartSelectMenu;
-
-        private PanelButton _buttonInstance;
+        public Image ItemImage;
+        public Text ItemInfoTest;
 
         private static PlayerController PlayerController
         {

@@ -11,13 +11,6 @@ namespace ObjectScripts.StyleScripts.ActStyleScripts
     [Serializable]
     public class ActActionSkill : INamed
     {
-        [Serializable]
-        public struct TargetPart
-        {
-            public string PartName;
-            public float Accuracy;
-        }
-
         public enum AttackType
         {
             ///One tile forward
@@ -39,9 +32,16 @@ namespace ObjectScripts.StyleScripts.ActStyleScripts
             Around
         }
 
-        private delegate IEnumerable<Vector2Int> IterateCoords(Direction direction);
-
-        public string TextName;
+        private readonly Dictionary<AttackType, IterateCoords> _attackTypeList =
+            new Dictionary<AttackType, IterateCoords>
+            {
+                {AttackType.Normal, IterateNormalAttack},
+                {AttackType.Depth, IterateDepthAttack},
+                {AttackType.FormLeft, IterateFromLeftAttack},
+                {AttackType.FormRight, IterateFromRightAttack},
+                {AttackType.Neighbour, IterateNeighbour},
+                {AttackType.Around, IterateAround}
+            };
 
         /// <summary>
         ///     The time cost ratio; CostTime = ActTime * ActCostTimeRatio
@@ -49,19 +49,28 @@ namespace ObjectScripts.StyleScripts.ActStyleScripts
         public int ActCostTimeRatio = 1;
 
         /// <summary>
+        ///     The effect played in given area;
+        /// </summary>
+        public EffectController AreaEffect;
+
+        public bool AttackAllPart;
+
+        /// <summary>
         ///     The base damage of this act skill
         /// </summary>
         public DamageValue BaseDamage;
 
         /// <summary>
-        ///     The Damage Addition by strength; Damage = Strength * StrengthDamage
+        ///     Which layer can terminate this attack
         /// </summary>
-        public DamageValue StrengthDamage;
+        public LayerMask BlockLayer;
 
         /// <summary>
         ///     The Damage Addition by dexterity; Damage = Dexterity * DexterityDamage
         /// </summary>
         public DamageValue DexterityDamage;
+
+        public int EndStyle;
 
         /// <summary>
         ///     The cost of Endure; EndureCost = Strength * EndureRatio
@@ -73,28 +82,28 @@ namespace ObjectScripts.StyleScripts.ActStyleScripts
         /// </summary>
         public bool IsAllParts;
 
-        /// <summary>
-        ///     Which layer can terminate this attack
-        /// </summary>
-        public LayerMask BlockLayer;
-
-        public PartPos TargetPartPos;
-
-        public AttackType Type;
-        public bool AttackAllPart;
         public bool IsStab;
 
         /// <summary>
         ///     The effect played in each coords;
         /// </summary>
         public EffectController SingleEffect;
-        
-        /// <summary>
-        ///     The effect played in given area;
-        /// </summary>
-        public EffectController AreaEffect;
 
-        public int EndStyle;
+        /// <summary>
+        ///     The Damage Addition by strength; Damage = Strength * StrengthDamage
+        /// </summary>
+        public DamageValue StrengthDamage;
+
+        public PartPos TargetPartPos;
+
+        public string TextName;
+
+        public AttackType Type;
+
+        public string GetTextName()
+        {
+            return TextName;
+        }
 
 
         public IEnumerable<Vector2> GetAttackPlaces(Direction direction, Character character)
@@ -109,17 +118,6 @@ namespace ObjectScripts.StyleScripts.ActStyleScripts
                 if (block != null) break;
             }
         }
-
-        private readonly Dictionary<AttackType, IterateCoords> _attackTypeList =
-            new Dictionary<AttackType, IterateCoords>
-            {
-                {AttackType.Normal, IterateNormalAttack},
-                {AttackType.Depth, IterateDepthAttack},
-                {AttackType.FormLeft, IterateFromLeftAttack},
-                {AttackType.FormRight, IterateFromRightAttack},
-                {AttackType.Neighbour, IterateNeighbour},
-                {AttackType.Around, IterateAround}
-            };
 
         private static IEnumerable<Vector2Int> IterateAround(Direction direction)
         {
@@ -170,9 +168,13 @@ namespace ObjectScripts.StyleScripts.ActStyleScripts
             yield return Utils.DirectionToVector(direction);
         }
 
-        public string GetTextName()
+        [Serializable]
+        public struct TargetPart
         {
-            return TextName;
+            public string PartName;
+            public float Accuracy;
         }
+
+        private delegate IEnumerable<Vector2Int> IterateCoords(Direction direction);
     }
 }

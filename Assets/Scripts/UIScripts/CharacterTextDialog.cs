@@ -7,22 +7,22 @@ namespace UIScripts
 {
     public class CharacterTextDialog : MonoBehaviour
     {
-        [Range(0f, 1f)] public float DisappearSpeed = 0.1f;
-        public int DialogLastTime = 100;
-        [HideInInspector] public Character Character;
-
-        private Text _text;
-        private Canvas _canvas;
-        private int _originSortingLayer;
         private Image _backGround;
-        private int _timeCount;
+        private Color _backOriginColor;
+        private Canvas _canvas;
+        private bool _clearFlag;
+
+        private Color _decreaseColor;
+        private int _originSortingLayer;
 
         private StringBuilder _stringBuilder = new StringBuilder();
 
-        private Color _decreaseColor;
+        private Text _text;
         private Color _textOriginColor;
-        private Color _backOriginColor;
-        private bool _clearFlag;
+        private int _timeCount;
+        [HideInInspector] public Character Character;
+        public int DialogLastTime = 100;
+        [Range(0f, 1f)] public float DisappearSpeed = 0.1f;
 
         private void Start()
         {
@@ -90,7 +90,7 @@ namespace UIScripts
 
         public void PrintDialog(string message)
         {
-            if (_clearFlag)  Clear();
+            if (_clearFlag) Clear();
             _clearFlag = false;
             _stringBuilder.AppendLine(message);
             _text.text = _stringBuilder.ToString();

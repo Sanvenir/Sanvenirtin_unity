@@ -1,13 +1,9 @@
 using ObjectScripts.ActionScripts;
-using ObjectScripts.CharSubstance;
-using UnityEditor;
-using UnityEngine;
-using UtilScripts;
 using UtilScripts.Text;
 
 namespace ObjectScripts.CharacterController.PlayerOrder
 {
-    public class RestOrder: BaseOrder
+    public class RestOrder : BaseOrder
     {
         public override BaseOrder DoOrder()
         {

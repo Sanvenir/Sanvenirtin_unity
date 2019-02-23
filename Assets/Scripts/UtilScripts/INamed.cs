@@ -1,7 +1,7 @@
 namespace UtilScripts
 {
     /// <summary>
-    /// For any thing has text name (not only game object);
+    ///     For any thing has text name (not only game object);
     /// </summary>
     public interface INamed
     {

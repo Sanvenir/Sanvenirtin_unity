@@ -5,6 +5,5 @@ namespace ObjectScripts
     [Serializable]
     public class SubstanceProperties
     {
-        
     }
 }

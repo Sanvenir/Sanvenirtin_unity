@@ -6,29 +6,28 @@ using UtilScripts;
 
 namespace UIScripts
 {
-    public class ActionMenu: SelectionMenu
+    public class ActionMenu : SelectionMenu
     {
-        private static PlayerController PlayerController
-        {
-            get { return SceneManager.Instance.PlayerController; }
-        }
-        
         public List<BaseOrder> OrderList = new List<BaseOrder>
         {
             new WalkToOrder(),
             new WaitOrder(),
             new LookAtOrder(),
             new PickupOrder(),
-            new RestOrder(),
+            new RestOrder()
 //            new AttackDirectionOrder(),
         };
+
+        private static PlayerController PlayerController
+        {
+            get { return SceneManager.Instance.PlayerController; }
+        }
 
         private IEnumerable<INamed> GetAvailableOrders()
         {
             foreach (var order in OrderList)
-            {
-                if (order.CheckAndSet()) yield return order;
-            }
+                if (order.CheckAndSet())
+                    yield return order;
             if (PlayerController.ActSetterList == null) yield break;
             foreach (var setter in PlayerController.ActSetterList)
             {

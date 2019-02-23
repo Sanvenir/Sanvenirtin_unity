@@ -7,8 +7,8 @@ namespace ObjectScripts
     /// </summary>
     public abstract class SingularObject : BaseObject
     {
-        public int Weight;
         public int Size;
+        public int Weight;
 
         public override float GetSize()
         {

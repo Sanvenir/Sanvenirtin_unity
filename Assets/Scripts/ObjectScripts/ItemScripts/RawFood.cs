@@ -4,11 +4,12 @@ using UtilScripts.Text;
 namespace ObjectScripts.ItemScripts
 {
     /// <inheritdoc cref="SingularObject" />
-    /// <inheritdoc cref="IConsumableItem"/>>
+    /// <inheritdoc cref="IConsumableItem" />
+    /// >
     /// <summary>
-    /// A basic food
+    ///     A basic food
     /// </summary>
-    public class RawFood: SingularObject, IConsumableItem
+    public class RawFood : SingularObject, IConsumableItem
     {
         public void DoConsume(Character character)
         {
@@ -16,7 +17,7 @@ namespace ObjectScripts.ItemScripts
                 GameText.Instance.GetEatItemLog(TextName, character.TextName), character.WorldCoord);
             Weight -= 1;
             character.Hunger -= 10;
-            
+
             if (Weight > 0) return;
             SceneManager.Instance.Print(
                 GameText.Instance.GetEatUpItemLog(TextName, character.TextName), character.WorldCoord);

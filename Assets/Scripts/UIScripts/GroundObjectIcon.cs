@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using ObjectScripts;
 using ObjectScripts.ActionScripts;
 using ObjectScripts.BodyPartScripts;
@@ -11,20 +10,14 @@ namespace UIScripts
 {
     public class GroundObjectIcon : MonoBehaviour, IPointerDownHandler
     {
-        public Text ObjectName;
-        public Image ObjectImage;
-
-        [HideInInspector] public BaseObject BaseObject;
-        [HideInInspector] public bool IsAvailable;
-
-        public SelectionMenu BodyPartSelectMenu;
-
         private PlayerController _playerController;
 
-        private void Start()
-        {
-            _playerController = SceneManager.Instance.PlayerController;
-        }
+        [HideInInspector] public BaseObject BaseObject;
+
+        public SelectionMenu BodyPartSelectMenu;
+        [HideInInspector] public bool IsAvailable;
+        public Image ObjectImage;
+        public Text ObjectName;
 
         public void OnPointerDown(PointerEventData eventData)
         {
@@ -34,6 +27,11 @@ namespace UIScripts
             else
                 BodyPartSelectMenu.StartUp(transform.position,
                     _playerController.Character.GetFreeFetchParts());
+        }
+
+        private void Start()
+        {
+            _playerController = SceneManager.Instance.PlayerController;
         }
 
         private void LateUpdate()

@@ -9,11 +9,11 @@ namespace ObjectScripts.BodyPartScripts
     [Serializable]
     public class BodyPartList
     {
-        public string Name;
-
         /// <summary>
         ///     Component objects make up this type of body parts
         /// </summary>
         public List<SingularObject> Components;
+
+        public string Name;
     }
 }

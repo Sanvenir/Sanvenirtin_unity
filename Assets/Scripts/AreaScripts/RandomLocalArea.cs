@@ -13,29 +13,18 @@ namespace AreaScripts
     /// </summary>
     public class RandomLocalArea : LocalArea
     {
-        [Serializable]
-        public struct RandomTile
-        {
-            public TileBase TileBase;
-            public TileType TileType;
-        }
-        
-        [Serializable]
-        public struct RandomRace
-        {
-            public Character RaceCharacter;
-            public float RaceAppearRatio;
-        }
+        public TileType BasicTileType;
+        public float BuildingProbability = 0.5f;
+        public BuildingTilemap[] BuildingTilemaps;
 
         public RandomTile[] GroundTiles;
-//        public TileBase[] GroundTiles;
-        public Substance[] SubstancePrefabs;
-        public BuildingTilemap[] BuildingTilemaps;
-        public RandomRace[] RaceSetting;
-        public TileType BasicTileType;
 
         public float ObjectsGenerateRatio = 0.1f;
-        public float BuildingProbability = 0.5f;
+
+        public RandomRace[] RaceSetting;
+
+//        public TileBase[] GroundTiles;
+        public Substance[] SubstancePrefabs;
 
         /// <inheritdoc />
         /// <summary>
@@ -52,7 +41,7 @@ namespace AreaScripts
             }
 
             BuildingTilemap building = null;
-            
+
             if (BuildingTilemaps.Length != 0 && Utils.ProcessRandom.NextDouble() < BuildingProbability)
             {
                 building = BuildingTilemaps[
@@ -75,6 +64,7 @@ namespace AreaScripts
                     RandomGenerateRaceCharacters(race.RaceCharacter, coord);
                     break;
                 }
+
                 if (building != null && building.HasTile(coord)) continue;
                 if (check < 0) continue;
 
@@ -84,7 +74,19 @@ namespace AreaScripts
                 GenerateSubstance(SubstancePrefabs[index], coord);
             }
         }
-        
 
+        [Serializable]
+        public struct RandomTile
+        {
+            public TileBase TileBase;
+            public TileType TileType;
+        }
+
+        [Serializable]
+        public struct RandomRace
+        {
+            public Character RaceCharacter;
+            public float RaceAppearRatio;
+        }
     }
 }

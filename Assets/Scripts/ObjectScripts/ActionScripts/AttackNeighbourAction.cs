@@ -71,7 +71,7 @@ namespace ObjectScripts.ActionScripts
                 GameText.Instance.GetAttackLog(
                     Self.TextName,
                     _target.TextName,
-                    _target.GetBodyParts(_attackPartPos)[part].TextName, 
+                    _target.GetBodyParts(_attackPartPos)[part].TextName,
                     "*debug*拳击"
                 ));
             _target.Attacked(

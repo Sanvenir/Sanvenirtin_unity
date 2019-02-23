@@ -5,17 +5,17 @@ using UtilScripts.Text;
 namespace ObjectScripts.StyleScripts.MoveStyleScripts
 {
     /// <summary>
-    /// Running is a normal move style
+    ///     Running is a normal move style
     /// </summary>
-    public class RunMoveStyle: BaseMoveStyle
+    public class RunMoveStyle : BaseMoveStyle
     {
+        public RunMoveStyle(Character self) : base(self)
+        {
+        }
+
         public override string GetTextName()
         {
             return GameText.Instance.RunMoveStyle;
-        }
-
-        public RunMoveStyle(Character self) : base(self)
-        {
         }
 
         public override bool MoveAction(Direction targetDirection)

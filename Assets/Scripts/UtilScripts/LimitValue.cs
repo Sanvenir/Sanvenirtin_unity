@@ -25,6 +25,5 @@ namespace UtilScripts
         {
             return _value / MaxValue;
         }
-
     }
 }

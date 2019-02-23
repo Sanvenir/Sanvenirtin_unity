@@ -1,7 +1,5 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Net;
 using AreaScripts;
 using ObjectScripts.ActionScripts;
 using ObjectScripts.CharacterController.PlayerOrder;
@@ -12,28 +10,26 @@ using ObjectScripts.StyleScripts.MentalStyleScripts;
 using ObjectScripts.StyleScripts.MoveStyleScripts;
 using UIScripts.StyleSelection;
 using UnityEngine;
-using UnityEngine.Experimental.PlayerLoop;
-using UnityEngine.Tilemaps;
 using UtilScripts;
 
 namespace ObjectScripts.CharacterController
 {
     public class PlayerController : CharacterController
     {
-        public BaseOrder CurrentOrder;
-
-        [HideInInspector] public Vector2Int TargetCoord;
-        [HideInInspector] public Character TargetCharacter;
-        [HideInInspector] public Direction TargetDirection;
-
-        public MoveStyleSelectionButton MoveStyleSelectionButton;
-        public MentalStyleSelectionButton MentalStyleSelectionButton;
-        public ActStyleSelectionButton ActStyleSelectionButton;
+        private Vector2Int? _preCoord;
 
         private Vector2Int _vecInt;
+        public ActStyleSelectionButton ActStyleSelectionButton;
+        public BaseOrder CurrentOrder;
 
         public HashSet<Vector2Int> MemorizedCoord = new HashSet<Vector2Int>();
-        private Vector2Int? _preCoord = null;
+        public MentalStyleSelectionButton MentalStyleSelectionButton;
+
+        public MoveStyleSelectionButton MoveStyleSelectionButton;
+        [HideInInspector] public Character TargetCharacter;
+
+        [HideInInspector] public Vector2Int TargetCoord;
+        [HideInInspector] public Direction TargetDirection;
 
         private void LateUpdate()
         {
@@ -105,7 +101,7 @@ namespace ObjectScripts.CharacterController
 //                    NextAction = null;
 //                }
 //            }
-            
+
             UpdateVisual();
         }
 
@@ -114,7 +110,7 @@ namespace ObjectScripts.CharacterController
             base.SetAction(action);
             CurrentOrder = null;
         }
-        
+
         private IEnumerable<Vector2Int> GetVisibleCoord()
         {
             for (var x = -20; x <= 20; x++)
@@ -129,28 +125,26 @@ namespace ObjectScripts.CharacterController
         public IEnumerator SetColor(TilemapTerrain tilemap, Vector2Int coord, bool isMemorized)
         {
             var cell = tilemap.Tilemap.WorldToCell(SceneManager.Instance.WorldCoordToPos(coord));
-            if(tilemap == null) yield break;
+            if (tilemap == null) yield break;
             var color = tilemap.Tilemap.GetColor(cell);
             var targetColor = isMemorized ? Color.gray : Color.white;
-            if(color == targetColor) yield break;
+            if (color == targetColor) yield break;
             var time = SceneManager.Instance.GetUpdateTime() / 2;
             var incColor = targetColor / time;
             for (var i = 0; i < time; i++)
             {
                 color += incColor;
-                if(tilemap == null) yield break;
+                if (tilemap == null) yield break;
                 tilemap.Tilemap.SetColor(cell, color);
                 yield return null;
             }
 
-            if(tilemap == null) yield break;
+            if (tilemap == null) yield break;
             tilemap.Tilemap.SetColor(cell, targetColor);
-
         }
 
         public void UpdateVisual()
         {
-            
             if (Character.WorldCoord == _preCoord) return;
             var buff = new HashSet<Vector2Int>();
             foreach (var coord in MemorizedCoord)

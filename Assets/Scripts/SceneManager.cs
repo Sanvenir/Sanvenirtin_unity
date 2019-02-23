@@ -18,59 +18,60 @@ using Random = System.Random;
 
 public class SceneManager : MonoBehaviour
 {
-    // Settings
-    [Range(1, 100)] public int ReactFrames = 1;
-    public int CurrentTime;
-    public string RandomSeed = "Random";
-    public int InitMapX, InitMapY;
-    public LayerMask GroundLayer;
-    public LayerMask ItemLayer;
-    public LayerMask BlockLayer;
-    public LayerMask PlayerLookAtLayer;
-    public LayerMask ObjectLayer;
-    public LayerMask BlockInspectLayer;
+    // Script Objects
+    public static SceneManager Instance;
+    [SerializeField] private StringBuilder _loggerText;
+
+    [HideInInspector] public Dictionary<int, LocalArea> ActivateAreas;
     public LayerMask AttackLayer;
+    public LayerMask BlockInspectLayer;
+    public LayerMask BlockLayer;
+    public BodyPartPanel BodyPartPanel;
+    public GameObject CameraPos;
+    [HideInInspector] public LocalArea CenterArea;
 
-    public ContactFilter2D PlayerLookAtFilter;
-
-    public int LoadingRange = 2;
+    public List<BodyPartList> ComponentList;
+    public int CurrentTime;
 
     // Game Objects
     public EarthMapManager EarthMapManager;
-    public GameObject Player;
+    [HideInInspector] public HashSet<int> EdgeIdentities;
+    public Text GameLogger;
     public Grid Grid;
-    public SceneControlButton SceneControlButton;
+    public LayerMask GroundLayer;
     public GroundObjectListMenu GroundObjectListMenu;
-    public ObjectActPanel ObjectActPanel;
-    public PartSelectPanel PartSelectPanel;
+    public int InitMapX, InitMapY;
+    public LayerMask ItemLayer;
 
-    public List<BodyPartList> ComponentList;
+    public int LoadingRange = 2;
+
+    // UI Objects
+    public Camera MainCamera;
+
+    public int MaxLoggerTextLength = 500;
+    public ObjectActPanel ObjectActPanel;
+    public LayerMask ObjectLayer;
+    public PartSelectPanel PartSelectPanel;
+    public GameObject Player;
+
+    [HideInInspector] public PlayerController PlayerController;
+
+    public ContactFilter2D PlayerLookAtFilter;
+    public LayerMask PlayerLookAtLayer;
+
+    [HideInInspector] public Character PlayerObject;
 
     public List<BasicRace> RaceList = new List<BasicRace>
     {
         new BasicRace()
     };
 
-    [HideInInspector] public Dictionary<int, LocalArea> ActivateAreas;
-    [HideInInspector] public HashSet<int> EdgeIdentities;
-    [HideInInspector] public LocalArea CenterArea;
+    public string RandomSeed = "Random";
 
-    [HideInInspector] public Character PlayerObject;
-
-    [HideInInspector] public PlayerController PlayerController;
-
-    // UI Objects
-    public Camera MainCamera;
-    public GameObject CameraPos;
+    // Settings
+    [Range(1, 100)] public int ReactFrames = 1;
     public Collider2D SceneCollider;
-    public Text GameLogger;
-    public BodyPartPanel BodyPartPanel;
-
-    // Script Objects
-    public static SceneManager Instance;
-
-    public int MaxLoggerTextLength = 500;
-    [SerializeField] private StringBuilder _loggerText;
+    public SceneControlButton SceneControlButton;
 
     private void Awake()
     {

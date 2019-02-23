@@ -3,7 +3,7 @@ using UtilScripts;
 
 namespace ObjectScripts.StyleScripts.MoveStyleScripts
 {
-    public abstract class BaseMoveStyle: BaseStyle
+    public abstract class BaseMoveStyle : BaseStyle
     {
         protected BaseMoveStyle(Character self) : base(self)
         {

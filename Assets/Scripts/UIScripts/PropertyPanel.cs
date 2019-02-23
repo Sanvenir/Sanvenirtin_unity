@@ -1,25 +1,23 @@
-using System;
-using ObjectScripts;
 using ObjectScripts.CharSubstance;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace UIScripts
 {
-    public class PropertyPanel: MonoBehaviour
+    public class PropertyPanel : MonoBehaviour
     {
-        public Slider HealthBar;
-        public Slider SanityBar;
         public Slider EndureBar;
-        public Slider HungerBar;
-        public Slider MaradyBar;
-        public Character Player;
+        public Text EndureValue;
+        public Slider HealthBar;
 
         public Text HealthValue;
-        public Text SanityValue;
-        public Text EndureValue;
+        public Slider HungerBar;
         public Text HungerValue;
+        public Slider MaradyBar;
         public Text MaradyValue;
+        public Character Player;
+        public Slider SanityBar;
+        public Text SanityValue;
 
         private void Update()
         {

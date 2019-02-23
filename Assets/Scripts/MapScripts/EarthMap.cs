@@ -8,13 +8,14 @@ namespace MapScripts
     /// </summary>
     public class EarthMap
     {
+        private readonly int _height;
+
         /// <summary>
         ///     Types of local areas on the Earth Map
         /// </summary>
         private readonly int[,] _map;
 
         private readonly int _width;
-        private readonly int _height;
 
         /// <summary>
         ///     Constructor of a Earth Map

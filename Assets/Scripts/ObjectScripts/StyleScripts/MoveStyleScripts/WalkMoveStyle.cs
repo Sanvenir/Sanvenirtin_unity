@@ -5,17 +5,17 @@ using UtilScripts.Text;
 namespace ObjectScripts.StyleScripts.MoveStyleScripts
 {
     /// <summary>
-    /// Walking is a move style that can recovering endure like wait
+    ///     Walking is a move style that can recovering endure like wait
     /// </summary>
-    public class WalkMoveStyle: BaseMoveStyle
+    public class WalkMoveStyle : BaseMoveStyle
     {
+        public WalkMoveStyle(Character self) : base(self)
+        {
+        }
+
         public override string GetTextName()
         {
             return GameText.Instance.WalkMoveStyle;
-        }
-
-        public WalkMoveStyle(Character self) : base(self)
-        {
         }
 
         public override bool MoveAction(Direction targetDirection)

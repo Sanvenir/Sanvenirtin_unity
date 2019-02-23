@@ -6,16 +6,15 @@ using UnityEngine;
 
 namespace UIScripts
 {
-    public class FetchObjectList: MonoBehaviour
+    public class FetchObjectList : MonoBehaviour
     {
-        public FetchObjectSlot SlotPrefab;
-
-        [HideInInspector]
-        public Dictionary<BodyPart, FetchObjectSlot> FetchSlots;
-
         private Dictionary<BodyPart, BaseObject> _fetchDictionary;
         private PlayerController _playerController;
-        
+
+        [HideInInspector] public Dictionary<BodyPart, FetchObjectSlot> FetchSlots;
+
+        public FetchObjectSlot SlotPrefab;
+
         private void Start()
         {
             _playerController = SceneManager.Instance.PlayerController;
@@ -39,6 +38,7 @@ namespace UIScripts
                     FetchSlots[part].RemoveObject();
                     continue;
                 }
+
                 FetchSlots[part].AddObject(_fetchDictionary[part]);
             }
         }

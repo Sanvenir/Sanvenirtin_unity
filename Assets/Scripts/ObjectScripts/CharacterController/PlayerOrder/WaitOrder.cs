@@ -11,7 +11,7 @@ namespace ObjectScripts.CharacterController.PlayerOrder
             Controller.SetAction(new WaitAction(Player));
             return null;
         }
-        
+
         public override string GetTextName()
         {
             return GameText.Instance.WaitOrder;

@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 namespace UIScripts
 {
-    public abstract class GameMenuWindow: MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+    public abstract class GameMenuWindow : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         private bool _isPointerIn = true;
 
@@ -18,7 +18,7 @@ namespace UIScripts
         {
             get { return SceneManager.Instance.PlayerObject; }
         }
-        
+
         public void OnPointerEnter(PointerEventData eventData)
         {
             _isPointerIn = true;
@@ -32,10 +32,7 @@ namespace UIScripts
         private void Update()
         {
             if (_isPointerIn) return;
-            if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
-            {
-                EndUp();
-            }
+            if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1)) EndUp();
         }
 
         public abstract void EndUp();

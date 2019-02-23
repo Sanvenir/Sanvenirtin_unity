@@ -4,7 +4,7 @@ using UtilScripts;
 
 namespace UIScripts.StyleSelection
 {
-    public class MentalStyleSelectionButton: StyleSelectButton
+    public class MentalStyleSelectionButton : StyleSelectButton
     {
         protected override IEnumerable<INamed> GetStyleSelections()
         {

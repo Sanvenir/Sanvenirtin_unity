@@ -1,13 +1,10 @@
-using System;
 using System.Collections.Generic;
 using ObjectScripts;
-using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace UIScripts
 {
-    public class GroundObjectListMenu: GameMenuWindow
+    public class GroundObjectListMenu : GameMenuWindow
     {
         public GridLayoutGroup Content;
         public GroundObjectIcon IconPrefab;
@@ -22,6 +19,7 @@ namespace UIScripts
                 SceneManager.Instance.ObjectActPanel.StartUp(baseObject);
                 return;
             }
+
             gameObject.SetActive(true);
             foreach (var baseObject in objectList)
             {
@@ -36,10 +34,7 @@ namespace UIScripts
 
         public override void EndUp()
         {
-            foreach (var child in Content.GetComponentsInChildren<GroundObjectIcon>())
-            {
-                Destroy(child.gameObject);
-            }
+            foreach (var child in Content.GetComponentsInChildren<GroundObjectIcon>()) Destroy(child.gameObject);
 
             gameObject.SetActive(false);
         }

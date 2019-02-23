@@ -5,9 +5,9 @@ namespace ObjectScripts.CharacterController.CtrlConditions
 {
     /// <inheritdoc />
     /// <summary>
-    /// AI walks around randomly
+    ///     AI walks around randomly
     /// </summary>
-    public class WonderCondition: BaseCondition
+    public class WonderCondition : BaseCondition
     {
         public WonderCondition(AiController controller) : base(controller)
         {
@@ -15,10 +15,7 @@ namespace ObjectScripts.CharacterController.CtrlConditions
 
         public override BaseAction NextAction()
         {
-            if (Utils.ProcessRandom.Next(5) != 0)
-            {
-                return new WaitAction(Self);
-            }
+            if (Utils.ProcessRandom.Next(5) != 0) return new WaitAction(Self);
 
             return new MoveAction(Self, (Direction) Utils.ProcessRandom.Next(4));
         }

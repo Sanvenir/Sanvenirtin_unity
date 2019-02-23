@@ -1,32 +1,31 @@
 using AreaScripts;
-using ObjectScripts.BodyPartScripts;
 using UnityEngine;
-using UtilScripts;
 
 namespace ObjectScripts
 {
-    public class Substance: ComplexObject
-    {   
-        // Read Only
-        [HideInInspector]
-        public int AreaIdentity;
-
+    public class Substance : ComplexObject
+    {
         /// <summary>
         ///     The decreased color while selected
         /// </summary>
         private static readonly Color SelectColorDecrease = new Color(0.5f, 0.5f, 0.5f, 0.2f);
 
+        private static ContactFilter2D _blockFilter;
+        private static bool _hasSetBlockFilter;
+
+        private int _originSortingLayer;
+
         private bool _selected;
+
+        // Read Only
+        [HideInInspector] public int AreaIdentity;
 
         public bool Selected
         {
             set
             {
-                if (!Visible)
-                {
-                    value = false;
-                }
-                
+                if (!Visible) value = false;
+
                 if (value == _selected) return;
                 _selected = value;
                 if (_selected)
@@ -44,7 +43,17 @@ namespace ObjectScripts
             get { return _selected; }
         }
 
-        private int _originSortingLayer;
+        private static ContactFilter2D BlockFilter
+        {
+            get
+            {
+                if (_hasSetBlockFilter) return _blockFilter;
+                _blockFilter = new ContactFilter2D();
+                _blockFilter.SetLayerMask(SceneManager.Instance.BlockLayer);
+                _hasSetBlockFilter = true;
+                return _blockFilter;
+            }
+        }
 
         public void MoveTo(Vector2Int worldCoord)
         {
@@ -52,7 +61,7 @@ namespace ObjectScripts
             SpriteRenderer.sortingOrder = -worldCoord.y;
             transform.position = WorldPos;
         }
-        
+
         public override void Initialize(Vector2Int worldCoord, int areaIdentity)
         {
             base.Initialize(worldCoord, areaIdentity);
@@ -70,6 +79,7 @@ namespace ObjectScripts
                 Destroy(gameObject);
                 return;
             }
+
             var area = SceneManager.Instance.ActivateAreas[AreaIdentity];
             if (area.IsWorldCoordInsideArea(WorldCoord)) return;
             area = SceneManager.Instance.WorldPosToArea(WorldPos);
@@ -78,6 +88,7 @@ namespace ObjectScripts
                 Destroy(gameObject);
                 return;
             }
+
             AreaIdentity = area.Identity;
         }
 
@@ -98,21 +109,6 @@ namespace ObjectScripts
             return result && SceneManager.Instance.GetTileType(coord) != TileType.Block;
         }
 
-        private static ContactFilter2D _blockFilter;
-        private static bool _hasSetBlockFilter;
-
-        private static ContactFilter2D BlockFilter
-        {
-            get
-            {
-                if (_hasSetBlockFilter) return _blockFilter;
-                _blockFilter = new ContactFilter2D();
-                _blockFilter.SetLayerMask(SceneManager.Instance.BlockLayer);
-                _hasSetBlockFilter = true;
-                return _blockFilter;
-            }
-        }
-        
         public bool CheckCollider<T>(out T collide)
             where T : Substance
         {
@@ -134,13 +130,12 @@ namespace ObjectScripts
                 : colliders[0].GetComponent<T>();
             return colliders[0] == null;
         }
-        
+
         public bool CheckCollider()
         {
             var colliders = new Collider2D[1];
             Collider2D.OverlapCollider(BlockFilter, colliders);
             return colliders[0] == null;
         }
-
     }
 }

@@ -13,8 +13,18 @@ namespace ObjectScripts
     /// </summary>
     public abstract class BaseObject : MonoBehaviour
     {
-        public string TextName;
+        /// <summary>
+        ///     The checkable collider of object, if it is a substance, the layer should be BlockLayer
+        /// </summary>
+        [HideInInspector] public Collider2D Collider2D;
+
         public string Info;
+
+        [HideInInspector] public Rigidbody2D Rigidbody2D;
+        [HideInInspector] public SpriteController.SpriteController SpriteController;
+
+        [HideInInspector] public SpriteRenderer SpriteRenderer;
+        public string TextName;
 
         [HideInInspector] public bool Visible;
 
@@ -37,16 +47,6 @@ namespace ObjectScripts
             describe.AppendLine(string.Format("Weight: {0}", GetWeight()));
             return describe;
         }
-
-        [HideInInspector] public SpriteRenderer SpriteRenderer;
-        [HideInInspector] public SpriteController.SpriteController SpriteController;
-
-        /// <summary>
-        ///     The checkable collider of object, if it is a substance, the layer should be BlockLayer
-        /// </summary>
-        [HideInInspector] public Collider2D Collider2D;
-
-        [HideInInspector] public Rigidbody2D Rigidbody2D;
 
         /// <summary>
         ///     Use the size of this object
@@ -81,7 +81,7 @@ namespace ObjectScripts
         }
 
         /// <summary>
-        /// Given coord, Get object with type T at certain layers
+        ///     Given coord, Get object with type T at certain layers
         /// </summary>
         /// <param name="coord"></param>
         /// <param name="layerMask"></param>

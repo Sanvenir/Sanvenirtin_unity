@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using ObjectScripts.ActionScripts;
-using ObjectScripts.CharacterController.PlayerOrder;
 using ObjectScripts.CharSubstance;
 using ObjectScripts.StyleScripts.ActStyleScripts;
 using ObjectScripts.StyleScripts.MaradyStyleScripts;
@@ -19,12 +18,21 @@ namespace ObjectScripts.CharacterController
     /// </summary>
     public abstract class CharacterController : MonoBehaviour
     {
-        public CharacterTextDialog TextDialog;
+        private int _recoveredTime;
+
+        public Character Character;
 
         /// <summary>
         ///     Actions
         /// </summary>
         protected BaseAction NextAction;
+
+        public CharacterTextDialog TextDialog;
+
+        public List<ActActionSkill> ActSetterList
+        {
+            get { return Character.CurrentActStyle == null ? null : Character.CurrentActStyle.ActSkillList; }
+        }
 
         /// <summary>
         /// </summary>
@@ -33,15 +41,6 @@ namespace ObjectScripts.CharacterController
         {
             NextAction = action;
         }
-
-        public Character Character;
-
-        public List<ActActionSkill> ActSetterList
-        {
-            get { return Character.CurrentActStyle == null ? null : Character.CurrentActStyle.ActSkillList; }
-        }
-
-        private int _recoveredTime;
 
         protected virtual void Start()
         {
@@ -55,7 +54,6 @@ namespace ObjectScripts.CharacterController
 
         private void Update()
         {
-
             if (!Character.IsTurn()) return;
             Character.RefreshProperties();
             if (Character.Dead) return;
@@ -64,6 +62,7 @@ namespace ObjectScripts.CharacterController
                 new WaitAction(Character).DoAction();
                 return;
             }
+
             UpdateFunction();
         }
 
@@ -82,37 +81,6 @@ namespace ObjectScripts.CharacterController
             SceneManager.Instance.Print(message, Character.WorldCoord);
             if (TextDialog == null) return;
             TextDialog.PrintDialog(message);
-        }
-
-
-        // Path Finder Algorithms
-        public class AStarNode : IComparable<AStarNode>
-        {
-            private readonly int _hashCode;
-            public readonly Vector2Int Coord;
-            public int FValue;
-            public int GValue;
-            public readonly int HValue;
-            public AStarNode Parent;
-
-            public AStarNode(
-                int gValue, int hValue, Vector2Int coord, [CanBeNull] AStarNode parent = null)
-            {
-                GValue = gValue;
-                HValue = hValue;
-                FValue = hValue + gValue;
-                Coord = coord;
-                Parent = parent;
-            }
-
-            public int CompareTo(AStarNode obj)
-            {
-                if (obj.Coord == Coord) return 0;
-
-                if (obj.FValue != FValue) return FValue.CompareTo(obj.FValue);
-
-                return Coord.x == obj.Coord.x ? Coord.y.CompareTo(obj.Coord.y) : Coord.x.CompareTo(obj.Coord.x);
-            }
         }
 
         public virtual void ChangeMoveStyle(BaseMoveStyle moveStyle)
@@ -242,6 +210,37 @@ namespace ObjectScripts.CharacterController
             if (Character.CheckColliderAtWorldCoord(delta + Character.WorldCoord)) return delta;
 
             return Character.CheckColliderAtWorldCoord(altDelta + Character.WorldCoord) ? altDelta : Vector2Int.zero;
+        }
+
+
+        // Path Finder Algorithms
+        public class AStarNode : IComparable<AStarNode>
+        {
+            private readonly int _hashCode;
+            public readonly Vector2Int Coord;
+            public readonly int HValue;
+            public int FValue;
+            public int GValue;
+            public AStarNode Parent;
+
+            public AStarNode(
+                int gValue, int hValue, Vector2Int coord, [CanBeNull] AStarNode parent = null)
+            {
+                GValue = gValue;
+                HValue = hValue;
+                FValue = hValue + gValue;
+                Coord = coord;
+                Parent = parent;
+            }
+
+            public int CompareTo(AStarNode obj)
+            {
+                if (obj.Coord == Coord) return 0;
+
+                if (obj.FValue != FValue) return FValue.CompareTo(obj.FValue);
+
+                return Coord.x == obj.Coord.x ? Coord.y.CompareTo(obj.Coord.y) : Coord.x.CompareTo(obj.Coord.x);
+            }
         }
     }
 }

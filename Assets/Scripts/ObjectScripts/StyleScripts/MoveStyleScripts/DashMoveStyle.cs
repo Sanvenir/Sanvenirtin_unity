@@ -9,13 +9,13 @@ namespace ObjectScripts.StyleScripts.MoveStyleScripts
     /// </summary>
     public class DashMoveStyle : BaseMoveStyle
     {
+        public DashMoveStyle(Character self) : base(self)
+        {
+        }
+
         public override string GetTextName()
         {
             return GameText.Instance.DashMoveStyle;
-        }
-
-        public DashMoveStyle(Character self) : base(self)
-        {
         }
 
         public override bool MoveAction(Direction targetDirection)

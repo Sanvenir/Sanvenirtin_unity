@@ -20,17 +20,13 @@ namespace MapScripts
         /// </summary>
         public static int LocalWidth = 20, LocalHeight = 20;
 
-        /// <summary>
-        ///     Percent of land init ratio
-        /// </summary>
-        public int LandPercent = 50;
+        public static Random ProcessRandom;
 
-        /// <summary>
-        ///     Threshold of the min size of Sea or Land
-        /// </summary>
-        public int SeaThresholdSize = 100;
+        private readonly List<MainLand> _mainLands = new List<MainLand>();
 
-        public int LandThresholdSize = 100;
+        public GameObject[] BaseAreaPrefabs;
+
+        [HideInInspector] public EarthMap EarthMap;
 
 
         /// <summary>
@@ -38,21 +34,25 @@ namespace MapScripts
         /// </summary>
         public int LandErasePercent = 70;
 
+        /// <summary>
+        ///     Percent of land init ratio
+        /// </summary>
+        public int LandPercent = 50;
+
+        public int LandThresholdSize = 100;
+
+        public string RandomSeed = "Random";
+
+        /// <summary>
+        ///     Threshold of the min size of Sea or Land
+        /// </summary>
+        public int SeaThresholdSize = 100;
+
 
         /// <summary>
         ///     Time of smooth algorithms
         /// </summary>
         public int SmoothTime = 5;
-
-        public GameObject[] BaseAreaPrefabs;
-
-        public string RandomSeed = "Random";
-
-        public static Random ProcessRandom;
-
-        [HideInInspector] public EarthMap EarthMap;
-
-        private readonly List<MainLand> _mainLands = new List<MainLand>();
 
         /// <summary>
         ///     Generate an Earth Map automatically
@@ -168,9 +168,9 @@ namespace MapScripts
 
         private class FlagMap
         {
-            private bool[,] _mapFlags;
-            private readonly int _width;
             private readonly int _height;
+            private readonly int _width;
+            private bool[,] _mapFlags;
 
             public FlagMap(int width, int height)
             {

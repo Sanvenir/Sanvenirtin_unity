@@ -10,16 +10,10 @@ namespace MapScripts
     /// </summary>
     public class MainLand : IComparable<MainLand>
     {
+        private static EarthMap _earthMap;
         public List<EarthMapCoord> Coords;
         public HashSet<EarthMapCoord> EdgeCoords;
         public int LandSize;
-
-        private static EarthMap _earthMap;
-
-        public static void SetMap(EarthMap map)
-        {
-            _earthMap = map;
-        }
 
         public MainLand(List<EarthMapCoord> coords)
         {
@@ -36,6 +30,11 @@ namespace MapScripts
         public int CompareTo(MainLand otherLand)
         {
             return otherLand.LandSize.CompareTo(LandSize);
+        }
+
+        public static void SetMap(EarthMap map)
+        {
+            _earthMap = map;
         }
     }
 }

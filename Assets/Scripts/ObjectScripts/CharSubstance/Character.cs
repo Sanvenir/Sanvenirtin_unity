@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using AreaScripts;
 using ObjectScripts.BodyPartScripts;
-using ObjectScripts.CharacterController.PlayerOrder;
 using ObjectScripts.SpriteController;
 using ObjectScripts.StyleScripts.ActStyleScripts;
 using ObjectScripts.StyleScripts.MaradyStyleScripts;
@@ -16,21 +15,87 @@ namespace ObjectScripts.CharSubstance
 {
     public abstract class Character : Substance
     {
-        public CharacterController.CharacterController Controller;
-        public Properties Properties;
-        public int RaceIndex;
-        
-        public List<BaseMoveStyle> MoveStyleList;
-        [HideInInspector] public BaseMoveStyle CurrentMoveStyle;
+        private float _endure;
+
+        // Properties
+        private float _health;
+
+        private float _hunger;
+
+        private float _sanity;
+
+        [HideInInspector] public int ActivateTime;
 
         public List<BaseActStyle> ActStyleList;
-        [HideInInspector] public BaseActStyle CurrentActStyle;
 
-        public List<BaseMentalStyle> MentalStyleList;
+        public int Age;
+        public EffectController AttackedEffect;
+        public CharacterController.CharacterController Controller;
+        [HideInInspector] public BaseActStyle CurrentActStyle;
+        [HideInInspector] public BaseMaradyStyle CurrentMaradyStyle;
         [HideInInspector] public BaseMentalStyle CurrentMentalStyle;
+        [HideInInspector] public BaseMoveStyle CurrentMoveStyle;
+
+        [HideInInspector] public bool Dead;
+
+        public Dictionary<BodyPart, BaseObject> FetchDictionary = new Dictionary<BodyPart, BaseObject>();
+        public Gender Gender;
 
         public List<BaseMaradyStyle> MaradyStyleList;
-        [HideInInspector] public BaseMaradyStyle CurrentMaradyStyle;
+
+        public List<BaseMentalStyle> MentalStyleList;
+
+        public List<BaseMoveStyle> MoveStyleList;
+        public Properties Properties;
+        public int RaceIndex;
+
+        /// <summary>
+        ///     Parent may falls into stun after sanity reach the max value
+        ///     Probability: (Sanity - MaxSanity) / MaxSanity
+        ///     After sanity return to
+        /// </summary>
+        public Effect Stun;
+
+        public float Health
+        {
+            get { return _health; }
+            set { _health = Math.Max(0, value); }
+        }
+
+        public float Sanity
+        {
+            get { return _sanity; }
+            set
+            {
+                if (Stun.Value && value > _sanity) return;
+                _sanity = Math.Max(0, value);
+            }
+        }
+
+        public float Endure
+        {
+            get { return _endure; }
+            set
+            {
+                // Use endure greater than max endure cause sanity damage but also improve will power
+                if (value > Properties.GetMaxEndure(0) && value > _endure)
+                {
+                    var sanityCost = Endure - Properties.GetMaxEndure(0);
+                    Sanity += sanityCost;
+                    Properties.WillPower.Use(Mathf.Min(1f, sanityCost / Properties.GetMaxEndure(0)));
+                }
+
+                _endure = Math.Max(0, value);
+            }
+        }
+
+        public float Hunger
+        {
+            get { return _hunger; }
+            set { _hunger = Mathf.Min(Properties.GetMaxHunger(0) * 2, value); }
+        }
+
+        public float Marady { get; set; }
 
         public bool IsTurn()
         {
@@ -242,7 +307,7 @@ namespace ObjectScripts.CharSubstance
             foreach (var bodyPart in BodyParts.Values)
                 if (bodyPart.Fetchable)
                     FetchDictionary.Add(bodyPart, null);
-            
+
             MoveStyleList = new List<BaseMoveStyle>
             {
                 new WalkMoveStyle(this),
@@ -251,12 +316,10 @@ namespace ObjectScripts.CharSubstance
             };
 
             CurrentMoveStyle = MoveStyleList[0];
-            
+
             base.Initialize(worldCoord, areaIdentity);
             RefreshProperties();
         }
-
-        public Dictionary<BodyPart, BaseObject> FetchDictionary = new Dictionary<BodyPart, BaseObject>();
 
         public IEnumerable<INamed> GetFreeFetchParts()
         {
@@ -265,100 +328,13 @@ namespace ObjectScripts.CharSubstance
                     yield return item.Key;
         }
 
-        [HideInInspector] public int ActivateTime;
-        public EffectController AttackedEffect;
-
-        // Properties
-        private float _health;
-
-        public float Health
-        {
-            get { return _health; }
-            set { _health = Math.Max(0, value); }
-        }
-
-        private float _sanity;
-
-        public float Sanity
-        {
-            get { return _sanity; }
-            set
-            {
-                if (Stun.Value && value > _sanity) return;
-                _sanity = Math.Max(0, value);
-            }
-        }
-
-        private float _endure;
-
-        public float Endure
-        {
-            get { return _endure; }
-            set
-            {
-                // Use endure greater than max endure cause sanity damage but also improve will power
-                if (value > Properties.GetMaxEndure(0) && value > _endure)
-                {
-                    var sanityCost = Endure - Properties.GetMaxEndure(0);
-                    Sanity += sanityCost;
-                    Properties.WillPower.Use(Mathf.Min(1f, sanityCost / Properties.GetMaxEndure(0)));
-                }
-                _endure = Math.Max(0, value);
-            }
-        }
-
-        private float _hunger;
-
-        public float Hunger
-        {
-            get { return _hunger; }
-            set { _hunger = Mathf.Min(Properties.GetMaxHunger(0) * 2, value); }
-        }
-
-        public float Marady { get; set; }
-
-        public int Age;
-        public Gender Gender;
-
-        [HideInInspector] public bool Dead;
-
-        /// <summary>
-        ///     Parent may falls into stun after sanity reach the max value
-        ///     Probability: (Sanity - MaxSanity) / MaxSanity
-        ///     After sanity return to
-        /// </summary>
-        public Effect Stun;
-
-        [Serializable]
-        public struct Effect
-        {
-            public bool Value;
-
-            public void Enable(Character self)
-            {
-                Value = true;
-                _instance = Instantiate(Prefab, self.transform);
-                _instance.Parent = self;
-            }
-
-            public void Disable(Character self)
-            {
-                Value = false;
-                if (_instance == null) return;
-                Destroy(_instance.gameObject);
-            }
-
-            public EffectController Prefab;
-            private EffectController _instance;
-        }
-
         public bool CheckEndure()
         {
             if (Endure < Properties.GetMaxEndure(0)) return true;
             return Utils.ProcessRandom.Next((int) Endure) < Properties.GetMaxEndure(0);
         }
 
-        public virtual void Recovering(float intense=1.0f)
+        public virtual void Recovering(float intense = 1.0f)
         {
             if (Endure > float.Epsilon)
             {
@@ -386,6 +362,29 @@ namespace ObjectScripts.CharSubstance
                 if (!part.Available) continue;
                 part.HitPoint.Value += Properties.GetHealthRecover(0) * intense;
             }
+        }
+
+        [Serializable]
+        public struct Effect
+        {
+            public bool Value;
+
+            public void Enable(Character self)
+            {
+                Value = true;
+                _instance = Instantiate(Prefab, self.transform);
+                _instance.Parent = self;
+            }
+
+            public void Disable(Character self)
+            {
+                Value = false;
+                if (_instance == null) return;
+                Destroy(_instance.gameObject);
+            }
+
+            public EffectController Prefab;
+            private EffectController _instance;
         }
     }
 }

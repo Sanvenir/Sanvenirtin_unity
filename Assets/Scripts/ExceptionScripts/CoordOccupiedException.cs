@@ -8,7 +8,7 @@ namespace ExceptionScripts
     /// </summary>
     public class CoordOccupiedException : GameException
     {
-        public Collider2D Collider;
+        public readonly Collider2D Collider;
 
         public CoordOccupiedException(Collider2D collider)
         {

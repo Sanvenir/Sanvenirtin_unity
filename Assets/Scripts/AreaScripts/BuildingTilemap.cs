@@ -10,13 +10,12 @@ namespace AreaScripts
     /// </summary>
     public class BuildingTilemap : TilemapTerrain
     {
-        public TilemapRenderer OutsideTilemapRenderer;
-        public Collider2D BlockCollider;
-        public ContactFilter2D ContactFilter;
-
         [HideInInspector] public LocalArea Area;
-        public int BuildingWidth;
+        public Collider2D BlockCollider;
         public int BuildingHeight;
+        public int BuildingWidth;
+        public ContactFilter2D ContactFilter;
+        public TilemapRenderer OutsideTilemapRenderer;
 
         /// <summary>
         ///     Initialize function need to be called after instantiate;

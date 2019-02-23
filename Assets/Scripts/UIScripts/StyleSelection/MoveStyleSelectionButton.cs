@@ -1,13 +1,11 @@
 using System.Collections.Generic;
-using ObjectScripts.CharSubstance;
 using ObjectScripts.StyleScripts.MoveStyleScripts;
 using UtilScripts;
 
 namespace UIScripts.StyleSelection
 {
-    public class MoveStyleSelectionButton: StyleSelectButton
+    public class MoveStyleSelectionButton : StyleSelectButton
     {
-        
         protected override IEnumerable<INamed> GetStyleSelections()
         {
             foreach (var moveStyle in Player.MoveStyleList)

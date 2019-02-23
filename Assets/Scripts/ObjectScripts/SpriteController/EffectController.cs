@@ -6,10 +6,10 @@ namespace ObjectScripts.SpriteController
 {
     public class EffectController : MonoBehaviour
     {
-        public Sprite[] Sprites;
-        [HideInInspector] public BaseObject Parent;
-        private SpriteRenderer _spriteRenderer;
         private Direction _direction;
+
+        private int _index;
+        private SpriteRenderer _spriteRenderer;
 
         /// <summary>
         ///     If Disappear Time is 0, the effect last unlimited
@@ -17,9 +17,9 @@ namespace ObjectScripts.SpriteController
         public int DisappearTime;
 
         public bool IsLoop;
+        [HideInInspector] public BaseObject Parent;
         public int Speed = 3;
-
-        private int _index;
+        public Sprite[] Sprites;
 
         public void Initialize(int lastTime = 0, Direction direction = Direction.None)
         {
@@ -43,6 +43,7 @@ namespace ObjectScripts.SpriteController
                 default:
                     throw new ArgumentOutOfRangeException("direction", direction, null);
             }
+
             if (lastTime == 0)
             {
                 IsLoop = false;

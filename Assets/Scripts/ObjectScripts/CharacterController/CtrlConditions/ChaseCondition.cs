@@ -7,7 +7,7 @@ namespace ObjectScripts.CharacterController.CtrlConditions
 {
     /// <inheritdoc />
     /// <summary>
-    /// AI Chase the Target Parent
+    ///     AI Chase the Target Parent
     /// </summary>
     public class ChaseCondition : WonderCondition
     {
@@ -20,10 +20,7 @@ namespace ObjectScripts.CharacterController.CtrlConditions
 
         public override BaseAction NextAction()
         {
-            if (TargetCharacter == null || TargetCharacter.Dead)
-            {
-                return Controller.SetCondition();
-            }
+            if (TargetCharacter == null || TargetCharacter.Dead) return Controller.SetCondition();
 
             if (!Controller.Character.IsVisible(TargetCharacter)) return base.NextAction();
 

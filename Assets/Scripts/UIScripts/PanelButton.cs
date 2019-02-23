@@ -1,9 +1,4 @@
-using System;
 using System.Collections.Generic;
-using ObjectScripts;
-using ObjectScripts.ActionScripts;
-using ObjectScripts.CharacterController;
-using ObjectScripts.ItemScripts;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -11,25 +6,17 @@ using UtilScripts;
 
 namespace UIScripts
 {
-    public class PanelButton: MonoBehaviour, IPointerDownHandler
+    public class PanelButton : MonoBehaviour, IPointerDownHandler
     {
-        public Text Text;
-        public SelectionMenu SelectionMenu;
-
-        private IEnumerable<INamed> _selectionList;
+        public delegate void CalledFunction(object selection);
 
         private CalledFunction _calledFunction;
-        
-        public delegate void CalledFunction(object selection);
-        
+
         private bool _isClicked;
 
-        public void Initialize(string text, CalledFunction function, IEnumerable<INamed> selection = null)
-        {
-            Text.text = text;
-            _selectionList = selection;
-            _calledFunction = function;
-        }
+        private IEnumerable<INamed> _selectionList;
+        public SelectionMenu SelectionMenu;
+        public Text Text;
 
         public void OnPointerDown(PointerEventData eventData)
         {
@@ -42,6 +29,13 @@ namespace UIScripts
 
             SelectionMenu.StartUp(transform.position, _selectionList);
             _isClicked = true;
+        }
+
+        public void Initialize(string text, CalledFunction function, IEnumerable<INamed> selection = null)
+        {
+            Text.text = text;
+            _selectionList = selection;
+            _calledFunction = function;
         }
 
         private void LateUpdate()

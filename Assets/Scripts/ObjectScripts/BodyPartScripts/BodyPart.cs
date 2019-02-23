@@ -1,5 +1,4 @@
 using System;
-using UnityEngine;
 using UtilScripts;
 using UtilScripts.Text;
 using Object = UnityEngine.Object;
@@ -13,23 +12,17 @@ namespace ObjectScripts.BodyPartScripts
     [Serializable]
     public class BodyPart : INamed
     {
+        /// <summary>
+        ///     The name of attached body part. If current components destroyed, attached component destroyed too
+        /// </summary>
+        public string AttachBodyPart;
 
-        public string Name;
-        public string TextName;
+        [NonSerialized] public bool Available = true;
 
         /// <summary>
-        ///     If Cut Point reaches 0, the body part becomes unavailable and drop it components
+        ///     Index of make-up components, which set in GameSetting
         /// </summary>
-        public LimitValue CutPoint = new LimitValue(10);
-
-        /// <summary>
-        ///     If Hit Point reaches 0, the body part becomes unavailable and drop it components(But in fact nothing should drop
-        ///     because of the body part is destroyed completely)
-        /// </summary>
-        public LimitValue HitPoint = new LimitValue(10);
-
-        public float Size = 10;
-        public float Weight = 10;
+        public int ComponentIndex;
 
         /// <summary>
         ///     Defence of Cut Damage, real damage = CutDamage - CutDefence
@@ -37,30 +30,43 @@ namespace ObjectScripts.BodyPartScripts
         public float CutDefence = 10.0f;
 
         /// <summary>
-        ///     Defence ratio of Hit Damage, real damage = HitDamage * HitRatio
+        ///     If Cut Point reaches 0, the body part becomes unavailable and drop it components
         /// </summary>
-        public float HitRatio = 0.90f;
-
-        [NonSerialized] public bool Available = true;
-
-        public PartPos PartPos = PartPos.Middle;
-
-        /// <summary>
-        ///     The name of attached body part. If current components destroyed, attached component destroyed too
-        /// </summary>
-        public string AttachBodyPart;
-
-        /// <summary>
-        /// the damage to the character if this part is destroyed
-        /// </summary>
-        public float Health = 20;
+        public LimitValue CutPoint = new LimitValue(10);
 
         public bool Fetchable;
 
         /// <summary>
-        ///     Index of make-up components, which set in GameSetting
+        ///     the damage to the character if this part is destroyed
         /// </summary>
-        public int ComponentIndex;
+        public float Health = 20;
+
+        /// <summary>
+        ///     If Hit Point reaches 0, the body part becomes unavailable and drop it components(But in fact nothing should drop
+        ///     because of the body part is destroyed completely)
+        /// </summary>
+        public LimitValue HitPoint = new LimitValue(10);
+
+        /// <summary>
+        ///     Defence ratio of Hit Damage, real damage = HitDamage * HitRatio
+        /// </summary>
+        public float HitRatio = 0.90f;
+
+        public string Name;
+
+        public PartPos PartPos = PartPos.Middle;
+
+        [NonSerialized] public ComplexObject Self;
+
+        public float Size = 10;
+        public string TextName;
+        public float Weight = 10;
+
+
+        public string GetTextName()
+        {
+            return TextName;
+        }
 
 
         public object Create(ComplexObject self)
@@ -84,8 +90,6 @@ namespace ObjectScripts.BodyPartScripts
                 Self = self
             };
         }
-
-        [NonSerialized] public ComplexObject Self;
 
         /// <summary>
         ///     Called when the body part received damage
@@ -134,12 +138,6 @@ namespace ObjectScripts.BodyPartScripts
                 instance.Info += GameText.Instance.GetPartInfoLog(Self.TextName, TextName);
                 instance.Initialize(Utils.GetRandomShiftPosition(Self.WorldPos));
             }
-        }
-
-
-        public string GetTextName()
-        {
-            return TextName;
         }
     }
 }

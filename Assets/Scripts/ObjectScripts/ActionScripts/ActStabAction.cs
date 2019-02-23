@@ -6,11 +6,18 @@ using UtilScripts.Text;
 
 namespace ObjectScripts.ActionScripts
 {
-    public class ActStabAction: ActAction
+    public class ActStabAction : ActAction
     {
-        private BodyPart _targetPart;
-        private Substance _target;
-        
+        private readonly Substance _target;
+        private readonly BodyPart _targetPart;
+
+        public ActStabAction(Character self, ActActionSkill actionSkill, Direction targetDirection, BodyPart targetPart,
+            Substance target) : base(self, actionSkill, targetDirection)
+        {
+            _targetPart = targetPart;
+            _target = target;
+        }
+
 
         public override bool DoAction()
         {
@@ -27,12 +34,6 @@ namespace ObjectScripts.ActionScripts
             }
 
             return true;
-        }
-
-        public ActStabAction(Character self, ActActionSkill actionSkill, Direction targetDirection, BodyPart targetPart, Substance target) : base(self, actionSkill, targetDirection)
-        {
-            _targetPart = targetPart;
-            _target = target;
         }
     }
 }

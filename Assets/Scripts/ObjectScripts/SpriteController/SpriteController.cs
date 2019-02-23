@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UtilScripts;
 
@@ -6,9 +5,9 @@ namespace ObjectScripts.SpriteController
 {
     public abstract class SpriteController : MonoBehaviour
     {
-        [HideInInspector] public SpriteRenderer SpriteRenderer;
         public Sprite DisabledSprite;
         public float Speed = 3;
+        [HideInInspector] public SpriteRenderer SpriteRenderer;
 
         private void Awake()
         {

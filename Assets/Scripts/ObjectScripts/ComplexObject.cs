@@ -1,47 +1,38 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using AreaScripts;
-using ExceptionScripts;
 using ObjectScripts.BodyPartScripts;
-using ObjectScripts.SpriteController;
-using SpriteGlow;
-using UnityEditor;
 using UnityEngine;
 using UtilScripts;
 using UtilScripts.Text;
-using BodyPart = ObjectScripts.BodyPartScripts.BodyPart;
 
 namespace ObjectScripts
 {
     /// <inheritdoc />
     /// <summary>
-    /// Object which consists of several body parts
+    ///     Object which consists of several body parts
     /// </summary>
     public class ComplexObject : BaseObject
     {
-        
-        [NonSerialized]
-        public Dictionary<string, BodyPart> BodyParts = new Dictionary<string, BodyPart>();
-        
-        private readonly List<BodyPart> _unreachableParts = new List<BodyPart>();
-
         private readonly List<BodyPart> _highParts = new List<BodyPart>();
+
+        private readonly List<BodyPart> _lowParts = new List<BodyPart>();
 
         private readonly List<BodyPart> _middleParts = new List<BodyPart>();
 
-        private readonly List<BodyPart> _lowParts = new List<BodyPart>();
+        private readonly List<BodyPart> _unreachableParts = new List<BodyPart>();
+
+        private float _weight;
+
+        [NonSerialized] public Dictionary<string, BodyPart> BodyParts = new Dictionary<string, BodyPart>();
 
         public override StringBuilder GetConditionDescribe()
         {
             var describe = base.GetConditionDescribe();
             foreach (var bodyPart in BodyParts.Values)
-            {
                 describe.AppendFormat("{0}: CutPoint: {1}, HitPoint: {2}\n", bodyPart.TextName, bodyPart.CutPoint.Value,
                     bodyPart.HitPoint.Value);
-            }
 
             return describe;
         }
@@ -84,9 +75,8 @@ namespace ObjectScripts
         {
             var bodyParts = GetBodyParts(partPos);
             foreach (var bodyPart in bodyParts)
-            {
-                if (bodyPart.Available) yield return bodyPart;
-            }
+                if (bodyPart.Available)
+                    yield return bodyPart;
         }
 
         public virtual void Initialize(Vector2Int worldCoord, int areaIdentity)
@@ -124,17 +114,11 @@ namespace ObjectScripts
         protected override void Update()
         {
             base.Update();
-            
-            if (BodyParts.Values.Any(part => part.Available))
-            {
-                return;
-            }
+
+            if (BodyParts.Values.Any(part => part.Available)) return;
             SceneManager.Instance.Print(
                 GameText.Instance.GetSubstanceDestroyLog(TextName), WorldCoord);
-            foreach (var bodyPart in BodyParts.Values)
-            {
-                bodyPart.Destroy();
-            }
+            foreach (var bodyPart in BodyParts.Values) bodyPart.Destroy();
             Destroy(gameObject);
         }
 
@@ -143,17 +127,12 @@ namespace ObjectScripts
             return Collider2D.bounds.size.magnitude;
         }
 
-        private float _weight = 0;
         public override float GetWeight()
         {
             _weight = 0;
             foreach (var part in BodyParts.Values)
-            {
                 if (part.Available)
-                {
                     _weight += part.Weight;
-                }
-            }
 
             return _weight;
         }

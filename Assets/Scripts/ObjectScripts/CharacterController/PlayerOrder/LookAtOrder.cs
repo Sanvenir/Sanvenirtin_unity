@@ -3,7 +3,7 @@ using UnityEngine;
 using UtilScripts.Text;
 
 namespace ObjectScripts.CharacterController.PlayerOrder
-{   
+{
     /// <inheritdoc />
     /// <summary>
     ///     Show a round range of items around the given coord
@@ -16,6 +16,7 @@ namespace ObjectScripts.CharacterController.PlayerOrder
         {
             get { return SceneManager.Instance.SceneControlButton.CursorCollider; }
         }
+
         public override BaseOrder DoOrder()
         {
             base.DoOrder();
@@ -38,11 +39,9 @@ namespace ObjectScripts.CharacterController.PlayerOrder
             {
                 if (collider == null) break;
                 var baseObject = collider.GetComponent<BaseObject>();
-                if (baseObject != null && baseObject.Visible)
-                {
-                    _visibleObjects.Add(baseObject);
-                }
+                if (baseObject != null && baseObject.Visible) _visibleObjects.Add(baseObject);
             }
+
             return _visibleObjects.Count != 0;
         }
     }

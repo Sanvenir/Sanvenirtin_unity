@@ -1,14 +1,11 @@
 using ObjectScripts.ActionScripts;
-using ObjectScripts.CharSubstance;
-using UnityEngine;
 using UtilScripts;
 using UtilScripts.Text;
 
 namespace ObjectScripts.CharacterController.PlayerOrder
 {
-    public class AttackDirectionOrder: BaseOrder
+    public class AttackDirectionOrder : BaseOrder
     {
-
         public override BaseOrder DoOrder()
         {
             base.DoOrder();

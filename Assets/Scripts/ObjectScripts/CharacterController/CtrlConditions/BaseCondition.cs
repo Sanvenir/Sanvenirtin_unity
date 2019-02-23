@@ -1,6 +1,5 @@
 using ObjectScripts.ActionScripts;
 using ObjectScripts.CharSubstance;
-using UtilScripts;
 
 namespace ObjectScripts.CharacterController.CtrlConditions
 {
@@ -11,14 +10,14 @@ namespace ObjectScripts.CharacterController.CtrlConditions
     {
         protected readonly AiController Controller;
 
-        protected Character Self
-        {
-            get { return Controller.Character; }
-        }
-
         public BaseCondition(AiController controller)
         {
             Controller = controller;
+        }
+
+        protected Character Self
+        {
+            get { return Controller.Character; }
         }
 
         /// <summary>

@@ -1,16 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
-using Cinemachine;
 using ObjectScripts;
 using ObjectScripts.CharacterController;
 using ObjectScripts.CharacterController.PlayerOrder;
 using ObjectScripts.CharSubstance;
-using SpriteGlow;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 using UtilScripts;
 
 namespace UIScripts
@@ -25,21 +18,38 @@ namespace UIScripts
 //    }
     public class SceneControlButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
-        public ActionMenu SelectionMenu;
-        public SpriteRenderer SceneCursor;
-        public ContactFilter2D SceneCursorFilter;
+        private readonly Collider2D[] _hits = new Collider2D[1];
 
         private Vector3 _cursorTargetPos;
-        [HideInInspector] public Character Player;
-        [HideInInspector] public PlayerController PlayerController;
-
-        [HideInInspector]
-        public bool CameraFollowPlayer;
-
-        public Collider2D CursorCollider;
-        private readonly Collider2D[] _hits = new Collider2D[1];
         private Collider2D _selected;
         private int _selectedOriginLayer;
+
+        [HideInInspector] public bool CameraFollowPlayer;
+
+        public Collider2D CursorCollider;
+        [HideInInspector] public Character Player;
+        [HideInInspector] public PlayerController PlayerController;
+        public SpriteRenderer SceneCursor;
+        public ContactFilter2D SceneCursorFilter;
+        public ActionMenu SelectionMenu;
+
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            if (SceneCursor.enabled) return;
+            SceneCursor.enabled = true;
+            _cursorTargetPos = SceneManager.Instance.MainCamera
+                .ScreenToWorldPoint(Input.mousePosition);
+            SceneCursor.transform.position =
+                SceneManager.Instance.NormalizeWorldPos(_cursorTargetPos);
+        }
+
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            if (Input.GetMouseButton(0) || Input.GetMouseButton(1)) return;
+
+            if (SceneCursor == null) return;
+            SceneCursor.enabled = false;
+        }
 
         protected void Awake()
         {
@@ -53,27 +63,6 @@ namespace UIScripts
             CameraFollowPlayer = true;
         }
 
-        public void OnPointerEnter(PointerEventData eventData)
-        {
-            if (SceneCursor.enabled) return;
-            SceneCursor.enabled = true;
-            _cursorTargetPos = SceneManager.Instance.MainCamera
-                .ScreenToWorldPoint(Input.mousePosition);
-            SceneCursor.transform.position = 
-                SceneManager.Instance.NormalizeWorldPos(_cursorTargetPos);
-        }
-
-        public void OnPointerExit(PointerEventData eventData)
-        {
-            if (Input.GetMouseButton(0) || Input.GetMouseButton(1))
-            {
-                return;
-            }
-
-            if (SceneCursor == null) return;
-            SceneCursor.enabled = false;
-        }
-
         private void CancelSelected()
         {
             if (_selected == null) return;
@@ -84,16 +73,10 @@ namespace UIScripts
 
         private void ChangeSelected()
         {
-            if (_selected == _hits[0])
-            {
-                return;
-            }
+            if (_selected == _hits[0]) return;
 
-            if (_selected != null)
-            {
-                CancelSelected();
-            } 
-            
+            if (_selected != null) CancelSelected();
+
             _selected = _hits[0];
             if (_selected == null) return;
             var substance = _selected.GetComponent<Substance>();
@@ -103,25 +86,18 @@ namespace UIScripts
 
         private void Update()
         {
-            if (Player != null)
-            {
-                SceneManager.Instance.SceneCollider.transform.position = Player.GetVisualPos();
-            }
+            if (Player != null) SceneManager.Instance.SceneCollider.transform.position = Player.GetVisualPos();
 
 
             // Soft move the camera according to Scene Cursor or Player
             if (CameraFollowPlayer && Player != null)
-            {
                 SceneManager.Instance.CameraPos.transform.position =
                     SceneManager.Instance.CameraPos.transform.position * 0.9f +
                     Player.transform.position * 0.1f;
-            }
             else
-            {
                 SceneManager.Instance.CameraPos.transform.position =
                     SceneManager.Instance.CameraPos.transform.position * 0.9f +
                     SceneCursor.transform.position * 0.1f;
-            }
 
             // If SceneCursor is disabled, do not update it
             if (!SceneCursor.enabled)
@@ -132,7 +108,7 @@ namespace UIScripts
                 SelectionMenu.EndUp();
                 return;
             }
-            
+
 
             GameManager.Instance.GameCursor.SetActive(false);
             var targetPos = SceneManager.Instance.NormalizeWorldPos(_cursorTargetPos);
@@ -146,9 +122,9 @@ namespace UIScripts
             _hits[0] = null;
             Physics2D.OverlapPoint(SceneCursor.transform.position, SceneCursorFilter, _hits);
             ChangeSelected();
-            
+
             // Control
-            
+
             // If Right Mouse Button Holding, Scene Cursor no longer be updated
             if (!Input.GetMouseButton(1))
             {
@@ -180,7 +156,7 @@ namespace UIScripts
                 PlayerController.TargetCharacter = _selected == null ? null : _selected.GetComponent<Character>();
                 PlayerController.TargetCoord = worldCoord;
                 PlayerController.TargetDirection = direction;
-                
+
                 SelectionMenu.StartUp(targetPos);
                 return;
             }
@@ -190,8 +166,6 @@ namespace UIScripts
             if (!SelectionMenu.enabled) return;
             var order = SelectionMenu.EndUp();
             PlayerController.CurrentOrder = order as BaseOrder;
- 
-
         }
     }
 }

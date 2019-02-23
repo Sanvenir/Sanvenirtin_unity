@@ -6,12 +6,13 @@ namespace ObjectScripts.ActionScripts
 {
     /// <inheritdoc />
     /// <summary>
-    /// Split a ComplexObject
+    ///     Split a ComplexObject
     /// </summary>
-    public class SplitAction: BaseAction
+    public class SplitAction : BaseAction
     {
-        private readonly ComplexObject _target;
         private readonly BodyPart _bodyPart;
+        private readonly ComplexObject _target;
+
         public SplitAction(Character self, ComplexObject target, BodyPart bodyPart) : base(self)
         {
             _target = target;
@@ -25,13 +26,14 @@ namespace ObjectScripts.ActionScripts
             if (!_bodyPart.Available) return false;
             Self.ActivateTime += CostTime;
             var intensity = _bodyPart.DoDamage(Self.Properties.GetCutAttack(1f));
-            Self.Controller.PrintMessage(GameText.Instance.GetSplitBodyPartLog(Self.TextName, _target.TextName, _bodyPart.TextName));
+            Self.Controller.PrintMessage(
+                GameText.Instance.GetSplitBodyPartLog(Self.TextName, _target.TextName, _bodyPart.TextName));
             if (intensity < float.Epsilon)
-            {
-                Self.Controller.PrintMessage(GameText.Instance.GetSplitBodyPartFailedLog(Self.TextName, _target.TextName, _bodyPart.TextName));
-            }
+                Self.Controller.PrintMessage(
+                    GameText.Instance.GetSplitBodyPartFailedLog(Self.TextName, _target.TextName, _bodyPart.TextName));
             if (_bodyPart.Available) return false;
-            Self.Controller.PrintMessage(GameText.Instance.GetSplitBodyPartSuccessLog(Self.TextName, _target.TextName, _bodyPart.TextName));
+            Self.Controller.PrintMessage(
+                GameText.Instance.GetSplitBodyPartSuccessLog(Self.TextName, _target.TextName, _bodyPart.TextName));
             return true;
         }
     }

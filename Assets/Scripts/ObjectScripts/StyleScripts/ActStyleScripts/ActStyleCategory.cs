@@ -8,6 +8,8 @@ namespace ObjectScripts.StyleScripts.ActStyleScripts
     [Serializable]
     public class ActStyleCategory
     {
+        public List<BaseActStyle> ActStyleList;
+
         /// <summary>
         ///     For each style category, character's fetch dictionary need to occupy this list of weapon type
         ///     e.p. Style Category for Two-handed long sword need the character have one hand with long sword and
@@ -15,10 +17,8 @@ namespace ObjectScripts.StyleScripts.ActStyleScripts
         /// </summary>
         public List<int> WeaponTypeList;
 
-        public List<BaseActStyle> ActStyleList;
-
         /// <summary>
-        ///  Check whether the fetch list of character meet the requirement of weapon type list
+        ///     Check whether the fetch list of character meet the requirement of weapon type list
         /// </summary>
         /// <param name="character"></param>
         /// <returns></returns>

@@ -9,54 +9,14 @@ namespace ObjectScripts.CharSubstance
     [Serializable]
     public class Properties
     {
-        [Serializable]
-        public struct PotentialProperty
-        {
-            public float Value;
-            public float MaxValue;
+        private int _actRatio;
 
-            /// <summary>
-            ///     Each time the property is used, Value increased by PotentialRate * (MaxValue - Value)
-            ///     So PotentialRate always less than 1
-            /// </summary>
-            public float PotentialRate;
+        private int _moveRatio;
 
-            /// <summary>
-            ///     Called after using this property, and the value increased
-            /// </summary>
-            /// <param name="intense">The increasing intense of this call, always less than 1</param>
-            /// <returns></returns>
-            public float Use(float intense = 0f)
-            {
-                Value += (MaxValue - Value) * PotentialRate * intense;
-                return Value;
-            }
+        // Use Methods
 
-            public PotentialProperty(float value = 10.0f, float maxValue = 20.0f, float potentialRate = 0.0001f)
-            {
-                Value = value;
-                MaxValue = Math.Max(value, maxValue);
-                PotentialRate = potentialRate;
-            }
-        }
-
-        public PotentialProperty Speed = new PotentialProperty(10, 20, 0.0001f);
-        public PotentialProperty MoveSpeed = new PotentialProperty(10, 20, 0.0001f);
+        private int _reactTime;
         public PotentialProperty ActSpeed = new PotentialProperty(10, 20, 0.0001f);
-
-        public PotentialProperty Strength = new PotentialProperty(10, 20, 0.0001f);
-        public PotentialProperty Dexterity = new PotentialProperty(10, 20, 0.0001f);
-        public PotentialProperty Constitution = new PotentialProperty(10, 20, 0.0001f);
-        public PotentialProperty Metabolism = new PotentialProperty(10, 20, 0.0001f);
-
-        public PotentialProperty WillPower = new PotentialProperty(10, 20, 0.0001f);
-        public PotentialProperty Intelligence = new PotentialProperty(10, 20, 0.0001f);
-        public PotentialProperty Perception = new PotentialProperty(10, 20, 0.0001f);
-
-        public PotentialProperty MaxHunger = new PotentialProperty(200, 1000, 0.00001f);
-
-        public float InteractRange = 1.5f;
-        public int Lifetime;
 
         // Body parts in properties is belong to the whole race, so do not refactor
         // if only one certain character instance's body parts change.
@@ -159,17 +119,29 @@ namespace ObjectScripts.CharSubstance
             }
         };
 
-        // Use Methods
+        public PotentialProperty Constitution = new PotentialProperty(10, 20, 0.0001f);
+        public PotentialProperty Dexterity = new PotentialProperty(10, 20, 0.0001f);
+        public PotentialProperty Intelligence = new PotentialProperty(10, 20, 0.0001f);
 
-        private int _reactTime;
+        public float InteractRange = 1.5f;
+        public int Lifetime;
+
+        public PotentialProperty MaxHunger = new PotentialProperty(200, 1000, 0.00001f);
+        public PotentialProperty Metabolism = new PotentialProperty(10, 20, 0.0001f);
+        public PotentialProperty MoveSpeed = new PotentialProperty(10, 20, 0.0001f);
+        public PotentialProperty Perception = new PotentialProperty(10, 20, 0.0001f);
+
+        public PotentialProperty Speed = new PotentialProperty(10, 20, 0.0001f);
+
+        public PotentialProperty Strength = new PotentialProperty(10, 20, 0.0001f);
+
+        public PotentialProperty WillPower = new PotentialProperty(10, 20, 0.0001f);
 
         public int GetReactTime(float intense)
         {
             Speed.Use(intense);
             return _reactTime;
         }
-
-        private int _actRatio;
 
         /// <summary>
         ///     Max 10
@@ -181,8 +153,6 @@ namespace ObjectScripts.CharSubstance
             ActSpeed.Use(intense);
             return _actRatio;
         }
-
-        private int _moveRatio;
 
         /// <summary>
         ///     Max 10
@@ -280,6 +250,37 @@ namespace ObjectScripts.CharSubstance
         public float InteractRangeSqr()
         {
             return InteractRange * InteractRange + float.Epsilon;
+        }
+
+        [Serializable]
+        public struct PotentialProperty
+        {
+            public float Value;
+            public float MaxValue;
+
+            /// <summary>
+            ///     Each time the property is used, Value increased by PotentialRate * (MaxValue - Value)
+            ///     So PotentialRate always less than 1
+            /// </summary>
+            public float PotentialRate;
+
+            /// <summary>
+            ///     Called after using this property, and the value increased
+            /// </summary>
+            /// <param name="intense">The increasing intense of this call, always less than 1</param>
+            /// <returns></returns>
+            public float Use(float intense = 0f)
+            {
+                Value += (MaxValue - Value) * PotentialRate * intense;
+                return Value;
+            }
+
+            public PotentialProperty(float value = 10.0f, float maxValue = 20.0f, float potentialRate = 0.0001f)
+            {
+                Value = value;
+                MaxValue = Math.Max(value, maxValue);
+                PotentialRate = potentialRate;
+            }
         }
     }
 }

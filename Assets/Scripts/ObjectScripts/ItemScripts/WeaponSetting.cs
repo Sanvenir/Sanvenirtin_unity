@@ -7,31 +7,11 @@ namespace ObjectScripts.ItemScripts
     [Serializable]
     public class WeaponSetting
     {
-        [Serializable]
-        public struct WeaponType
-        {
-            public string Name;
-            public List<int> MainTypeList;
-        }
-
         public const string SaveDir = @"Resources\GameData\GameSetting";
         public const string SaveName = "WeaponSetting";
 
 
         private static WeaponSetting _instance;
-
-        public static WeaponSetting Instance
-        {
-            get
-            {
-                if (_instance != null) return _instance;
-                _instance = JsonData.LoadDataFromFile<WeaponSetting>(SaveDir, SaveName);
-                if (_instance != null) return _instance;
-                _instance = new WeaponSetting();
-                JsonData.SaveDataToFile(SaveDir, SaveName, _instance);
-                return _instance;
-            }
-        }
 
         public List<string> WeaponMainType = new List<string>
         {
@@ -67,5 +47,25 @@ namespace ObjectScripts.ItemScripts
                 MainTypeList = new List<int> {1, 11}
             }
         };
+
+        public static WeaponSetting Instance
+        {
+            get
+            {
+                if (_instance != null) return _instance;
+                _instance = JsonData.LoadDataFromFile<WeaponSetting>(SaveDir, SaveName);
+                if (_instance != null) return _instance;
+                _instance = new WeaponSetting();
+                JsonData.SaveDataToFile(SaveDir, SaveName, _instance);
+                return _instance;
+            }
+        }
+
+        [Serializable]
+        public struct WeaponType
+        {
+            public string Name;
+            public List<int> MainTypeList;
+        }
     }
 }

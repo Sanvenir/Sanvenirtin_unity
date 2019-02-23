@@ -24,19 +24,19 @@ namespace UIScripts.StyleSelection
             get { return PlayerController.Character; }
         }
 
-        private void Start()
-        {
-            Text = GetComponentInChildren<Text>();
-        }
-
-        protected abstract IEnumerable<INamed> GetStyleSelections();
-
         public void OnPointerDown(PointerEventData eventData)
         {
             if (eventData.button != PointerEventData.InputButton.Right) return;
             _isActivate = true;
             SelectionMenu.StartUp(transform.position, GetStyleSelections());
         }
+
+        private void Start()
+        {
+            Text = GetComponentInChildren<Text>();
+        }
+
+        protected abstract IEnumerable<INamed> GetStyleSelections();
 
         private void LateUpdate()
         {

@@ -11,6 +11,12 @@ namespace ObjectScripts.ActionScripts
     {
         private readonly Direction _targetDirection;
 
+        public MoveAction(Character self, Direction targetDirection) : base(self)
+        {
+            _targetDirection = targetDirection;
+            CostTime = Self.CurrentMoveStyle.MoveTime();
+        }
+
         /// <inheritdoc />
         /// <summary>
         ///     if the Move Check of character on the given TargetDirection is false, return false; else do the action and return
@@ -21,12 +27,6 @@ namespace ObjectScripts.ActionScripts
         {
             Self.ActivateTime += CostTime;
             return Self.CurrentMoveStyle.MoveAction(_targetDirection);
-        }
-
-        public MoveAction(Character self, Direction targetDirection) : base(self)
-        {
-            _targetDirection = targetDirection;
-            CostTime = Self.CurrentMoveStyle.MoveTime();
         }
     }
 }

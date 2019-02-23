@@ -19,6 +19,8 @@ namespace ObjectScripts.CharacterController.PlayerOrder
             get { return SceneManager.Instance.PlayerObject; }
         }
 
+        public abstract string GetTextName();
+
         /// <summary>
         ///     Called when player is on turn; And usually need to call the AddAction function of player
         /// </summary>
@@ -28,8 +30,6 @@ namespace ObjectScripts.CharacterController.PlayerOrder
             Controller.SetAction(null);
             return null;
         }
-
-        public abstract string GetTextName();
 
         /// <summary>
         ///     Used in order selection list

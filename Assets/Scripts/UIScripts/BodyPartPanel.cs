@@ -1,17 +1,15 @@
 using System.Collections.Generic;
-using ObjectScripts;
 using ObjectScripts.BodyPartScripts;
-using ObjectScripts.CharacterController;
 using ObjectScripts.CharSubstance;
 using UnityEngine;
 
 namespace UIScripts
 {
-    public class BodyPartPanel: MonoBehaviour
+    public class BodyPartPanel : MonoBehaviour
     {
-        public Character Player;
         public BodyPartButton BodyPartButton;
         [HideInInspector] public List<BodyPartButton> BodyPartButtonInstances;
+        public Character Player;
 
         public void GenerateBodyPart(BodyPart bodyPart)
         {
@@ -22,10 +20,7 @@ namespace UIScripts
 
         private void OnEnable()
         {
-            foreach (var part in Player.BodyParts.Values)
-            {
-                GenerateBodyPart(part);
-            }
+            foreach (var part in Player.BodyParts.Values) GenerateBodyPart(part);
         }
     }
 }

@@ -5,16 +5,13 @@ namespace ObjectScripts.SpriteController
 {
     public class StaticSpriteController : SpriteController
     {
+        private bool _disabled;
         public Sprite[] Sprites;
-        private bool _disabled = false;
 
         private void Start()
         {
             SpriteRenderer.sprite = Sprites[0];
-            if (DisabledSprite == null)
-            {
-                DisabledSprite = Sprites[0];
-            }
+            if (DisabledSprite == null) DisabledSprite = Sprites[0];
         }
 
         public override void SetDirection(Direction direction)
@@ -36,12 +33,10 @@ namespace ObjectScripts.SpriteController
 
         public override void AddNewChildSprite(string index, BaseObject baseObject)
         {
-            return;
         }
 
         public override void RemoveChildSprite(string index)
         {
-            return;
         }
 
         private void Update()

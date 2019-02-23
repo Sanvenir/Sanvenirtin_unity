@@ -15,13 +15,12 @@ namespace AreaScripts
     /// </summary>
     public abstract class LocalArea : TilemapTerrain
     {
-        [HideInInspector] public int Identity;
-
         // The EarthMap coord if these area is on the Earth Map, or null
         [HideInInspector] public EarthMapCoord EarthMapCoord;
-        [HideInInspector] public Vector2Int WorldStartCoord;
+        [HideInInspector] public int Identity;
         [HideInInspector] public int LocalWidth, LocalHeight;
-        
+        [HideInInspector] public Vector2Int WorldStartCoord;
+
         /// <summary>
         ///     Initialize function need to be called after instantiate;
         /// </summary>

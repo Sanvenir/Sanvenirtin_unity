@@ -1,23 +1,22 @@
-using ObjectScripts.CharacterController.PlayerOrder;
 using UnityEngine;
 using UnityEngine.UI;
-using UtilScripts;
 
 namespace UIScripts
 {
-    public class SelectionButton: MonoBehaviour
+    public class SelectionButton : MonoBehaviour
     {
+        private float _currentAlpha;
         public Image ButtonImage;
         public Text ButtonText;
         public Color ImageColor = new Color(0, 1, 1, 0.5f);
+
+        [HideInInspector] public float TargetAlpha;
+
+        [HideInInspector] public Vector2 TargetPos;
+
+        [HideInInspector] public float TargetScale;
+
         public Color TextColor = Color.black;
-        [HideInInspector]
-        public Vector2 TargetPos;
-        [HideInInspector]
-        public float TargetScale;
-        [HideInInspector]
-        public float TargetAlpha;
-        private float _currentAlpha;
 
         private void Awake()
         {
@@ -38,8 +37,8 @@ namespace UIScripts
 
         private void Update()
         {
-            transform.position = TargetPos * 0.1f + (Vector2)transform.position * 0.9f;
-            transform.localScale = Vector3.one * TargetScale * 0.1f + 
+            transform.position = TargetPos * 0.1f + (Vector2) transform.position * 0.9f;
+            transform.localScale = Vector3.one * TargetScale * 0.1f +
                                    transform.localScale * 0.9f;
             _currentAlpha = TargetAlpha * 0.1f + _currentAlpha * 0.9f;
             SetAlpha(_currentAlpha);

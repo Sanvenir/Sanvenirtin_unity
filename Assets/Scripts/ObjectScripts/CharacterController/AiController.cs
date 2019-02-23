@@ -1,15 +1,13 @@
 using ObjectScripts.ActionScripts;
 using ObjectScripts.CharacterController.CtrlConditions;
 using ObjectScripts.CharSubstance;
-using UnityEngine;
-using UtilScripts;
 
 namespace ObjectScripts.CharacterController
 {
-    public class AiController: CharacterController
+    public class AiController : CharacterController
     {
-        public BaseCondition DefaultCondition;
         public BaseCondition Condition;
+        public BaseCondition DefaultCondition;
 
         protected override void Start()
         {
@@ -19,7 +17,7 @@ namespace ObjectScripts.CharacterController
         }
 
         /// <summary>
-        /// Set condition and return its next action
+        ///     Set condition and return its next action
         /// </summary>
         /// <param name="condition">New condition, default DefaultCondition</param>
         /// <returns>The next action of new condition</returns>

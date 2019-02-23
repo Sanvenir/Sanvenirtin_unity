@@ -1,18 +1,16 @@
-using ObjectScripts;
-using UnityEditor;
+using ObjectScripts.BodyPartScripts;
 using UnityEngine;
 using UnityEngine.UI;
-using BodyPart = ObjectScripts.BodyPartScripts.BodyPart;
 
 namespace UIScripts
 {
-    public class BodyPartButton: MonoBehaviour
+    public class BodyPartButton : MonoBehaviour
     {
-        public Slider HitPointBar;
+        [HideInInspector] public BodyPart BodyPart;
+
         public Slider CutPointBar;
+        public Slider HitPointBar;
         public Text Text;
-        [HideInInspector]
-        public BodyPart BodyPart;
 
         private void Start()
         {
@@ -25,7 +23,9 @@ namespace UIScripts
             {
                 CutPointBar.value = 0;
                 return;
-            };
+            }
+
+            ;
             HitPointBar.maxValue = BodyPart.HitPoint.MaxValue;
             HitPointBar.value = BodyPart.HitPoint.Value;
             CutPointBar.maxValue = BodyPart.CutPoint.MaxValue;

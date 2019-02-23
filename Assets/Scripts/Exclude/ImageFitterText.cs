@@ -17,10 +17,10 @@ public class ImageFitterText : MonoBehaviour
     public Image image;
 
     private RectTransform imageRectTrans;
-    [Tooltip("根据Text的长度自动调整Image的宽度")] public Text targetText;
-    private Vector2 textScale;
     [Tooltip("上一次Text的size")] protected Vector2 lastTextSize;
     [Tooltip("左右宽度，上下宽度")] public Vector2 sizeOffset = new Vector2(16, 4);
+    [Tooltip("根据Text的长度自动调整Image的宽度")] public Text targetText;
+    private Vector2 textScale;
 
     [Tooltip("对Text使用建议的设置，比如设置TextAlign")]
     public bool useSuggestTextSetting = true;

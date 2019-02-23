@@ -1,6 +1,4 @@
 using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
-using ObjectScripts.CharSubstance;
 using UnityEngine;
 
 namespace UtilScripts
@@ -11,11 +9,8 @@ namespace UtilScripts
         {
             dir = Path.Combine(Application.dataPath, dir);
             var path = Path.Combine(dir, string.Format("{0}.json", name));
-            
-            if (!File.Exists(path))
-            {
-                return default(T);
-            }
+
+            if (!File.Exists(path)) return default(T);
 
             var sr = new StreamReader(path);
 
@@ -28,7 +23,7 @@ namespace UtilScripts
         {
             dir = Path.Combine(Application.dataPath, dir);
             var path = Path.Combine(dir, string.Format("{0}.json", name));
-            
+
             Directory.CreateDirectory(dir);
             var sw = new StreamWriter(path);
             var json = JsonUtility.ToJson(properties, true);

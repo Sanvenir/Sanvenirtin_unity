@@ -1,8 +1,7 @@
 using System;
 using System.Collections.Generic;
-using ExceptionScripts;
-using UnityEngine;
 using System.Linq;
+using ExceptionScripts;
 using MapScripts;
 
 namespace UtilScripts
@@ -30,9 +29,7 @@ namespace UtilScripts
         {
             _mapX = Utils.Mod(x, EarthMapManager.MapWidth);
             if (y >= EarthMapManager.MapHeight || y < 0)
-            {
                 throw new CoordOutOfWorldException("Y is out of the range of the world map");
-            }
 
             _mapY = y;
         }
@@ -40,10 +37,8 @@ namespace UtilScripts
         public static EarthMapCoord CreateFromIdentity(int identity)
         {
             if (identity < 0)
-            {
                 throw new GameException(
                     "If identity is negative, it must not be a area under the world map");
-            }
 
             return new EarthMapCoord(
                 identity % EarthMapManager.MapWidth,
@@ -67,7 +62,7 @@ namespace UtilScripts
 
         public bool Equals(EarthMapCoord coord)
         {
-            return (GetX() == coord.GetX()) && (GetY() == coord.GetY());
+            return GetX() == coord.GetX() && GetY() == coord.GetY();
         }
 
         public IEnumerable<EarthMapCoord> GetSurroundCoords(int delta = 1)
@@ -84,15 +79,9 @@ namespace UtilScripts
             // Use the 4 coords next to the given coord.
             yield return new EarthMapCoord(GetX() - 1, GetY());
             yield return new EarthMapCoord(GetX() + 1, GetY());
-            if (GetY() != EarthMapManager.MapHeight - 1)
-            {
-                yield return new EarthMapCoord(GetX(), GetY() + 1);
-            }
+            if (GetY() != EarthMapManager.MapHeight - 1) yield return new EarthMapCoord(GetX(), GetY() + 1);
 
-            if (GetY() != 0)
-            {
-                yield return new EarthMapCoord(GetX(), GetY() - 1);
-            }
+            if (GetY() != 0) yield return new EarthMapCoord(GetX(), GetY() - 1);
         }
 
         public static IEnumerable<EarthMapCoord> IterateCoords(
@@ -102,9 +91,7 @@ namespace UtilScripts
             endY = Math.Min(endY, EarthMapManager.MapHeight);
             for (var x = startX; x < endX; x++)
             for (var y = startY; y < endY; y++)
-            {
                 yield return new EarthMapCoord(x, y);
-            }
         }
     }
 }

@@ -6,19 +6,23 @@ using UnityEngine.UI;
 
 namespace UIScripts
 {
-    public class FetchObjectSlot: MonoBehaviour, IPointerClickHandler
+    public class FetchObjectSlot : MonoBehaviour, IPointerClickHandler
     {
+        [HideInInspector] public BodyPart BodyPart;
+
+        [HideInInspector] public BaseObject FetchObject;
         public Image FetchObjectImage;
 
-        [HideInInspector] public BaseObject FetchObject = null;
-        [HideInInspector] public BodyPart BodyPart = null;
+
+        public void OnPointerClick(PointerEventData eventData)
+        {
+            if (FetchObject == null) return;
+            SceneManager.Instance.ObjectActPanel.StartUp(FetchObject, BodyPart);
+        }
 
         private void Update()
         {
-            if (FetchObject == null)
-            {
-                FetchObjectImage.enabled = false;
-            }
+            if (FetchObject == null) FetchObjectImage.enabled = false;
             gameObject.SetActive(BodyPart.Available);
         }
 
@@ -32,13 +36,6 @@ namespace UIScripts
         public void RemoveObject()
         {
             FetchObject = null;
-        }
-
-
-        public void OnPointerClick(PointerEventData eventData)
-        {
-            if (FetchObject == null) return;
-            SceneManager.Instance.ObjectActPanel.StartUp(FetchObject, BodyPart);
         }
     }
 }

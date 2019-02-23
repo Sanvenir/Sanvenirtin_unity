@@ -1,7 +1,6 @@
 namespace ExceptionScripts
 {
-    public class ObjectNotNullException: GameException
+    public class ObjectNotNullException : GameException
     {
-        
     }
 }
